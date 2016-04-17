@@ -127,17 +127,14 @@ export default class RadioGroup extends React.Component {
 				_scope.mergeState(_json_args);
 
 				if( _scope.props.onChange && (_scope.props.onChange instanceof Function===true) ){
-					// setTimeout(function(){
-						let _json_ouput = {
-							value: _str_value,
-							item: json,
-							result: _json_args.outputResult
-						};
-						_bln_changed = true;
-						_scope.props.onChange(_bln_changed, _json_ouput );
-					// },1);
+					let _json_ouput = {
+						value: _str_value,
+						item: json,
+						result: _json_args.outputResult
+					};
+					_bln_changed = true;
+					_scope.props.onChange(_bln_changed, _json_ouput );
 				}
-				// return false;
 			}
 
 		});
@@ -270,6 +267,8 @@ RadioGroup.propTypes = {
     between: React.PropTypes.string,
     outputFormat: React.PropTypes.string.isRequired,
     display: React.PropTypes.string,
+    padding: React.PropTypes.string,
+    fillet: React.PropTypes.string,
     listStyle: React.PropTypes.string,
     listPosition: React.PropTypes.string,
     iconPosition: React.PropTypes.string,
@@ -290,6 +289,8 @@ RadioGroup.defaultProps = {
 	showKey: [],
 	between: '',
 	display: Setting.DISPLAY_INBLOCK,
+	padding: '',
+	fillet: '',
     listStyle: '',
     listPosition: Setting.LIST_POSITION_INNER,
     iconPosition: Setting.ICON_POSTION_LEFT,

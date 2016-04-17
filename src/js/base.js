@@ -25,7 +25,7 @@ import Emitter from 'component-emitter';
 	
 	let pictureDraw = new PictureDraw( _obj_main[0], Utils.createUniqueId(), _json_tools );
 
- //    new PictureDraw( _obj_main[1], Utils.createUniqueId(), _json_tools ); 
-	// new PictureDraw( _obj_main[2], Utils.createUniqueId(), _json_tools ); 
+    new PictureDraw( _obj_main[1], Utils.createUniqueId(), _json_tools ); 
+	new PictureDraw( _obj_main[2], Utils.createUniqueId(), _json_tools ); 
 
 })();
