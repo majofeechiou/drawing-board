@@ -33,9 +33,15 @@
     "component-emitter": "github:component/emitter",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.5",
     "html-webpack-plugin": "^1.7.0",
+    "json-extend": "^0.1.0",
+    "jsx-loader": "^0.13.2",
+    "object.assign": "^4.0.3",
     "postcss-calc": "^5.2.1",
+    "postcss-color": "^1.0.1",
     "postcss-color-alpha": "^1.0.3",
+    "postcss-fontpath": "^0.2.0",
     "postcss-loader": "^0.8.2",
     "precss": "^1.4.0",
     "react": "^15.0.1",
@@ -43,6 +49,7 @@
     "react-tools": "^0.13.3",
     "script-loader": "^0.6.1",
     "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }

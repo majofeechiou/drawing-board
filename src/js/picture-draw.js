@@ -8,13 +8,16 @@ import ImageDataComputeProcess from './imageDataComputeProcess';
 import ImageDataOriginal from './imageDataOriginal';
 import StepMethod from './stepMethod';
 import GlobalConst from './globalConst';
-import Emitter from '../../node_modules/component-emitter/index.js';
+import Emitter from 'component-emitter';
 
 export default class PictureDraw extends GlobalConst {
-	constructor( obj_main ){
+	constructor( obj_main, str_id, json_tools ){
 		super();
-
+		
 		let _scope = this;
+
+		_scope.addGlobalConst( _scope, 'globalId', str_id );
+        _scope.addGlobalConst( _scope, 'globalEmitter', json_tools.emitter );
 
 		let emitter = new Emitter();
 		_scope.addGlobalConst( _scope, 'emitter', emitter );

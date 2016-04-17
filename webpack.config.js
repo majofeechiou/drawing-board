@@ -13,13 +13,57 @@ module.exports = {
 	module: {
 		loaders: [
             { 
-                test: /\.js$/, 
+                test: /\.jsx?$/, 
                 loaders: ['script-loader'], 
                 include: /external/
             },
             { 
-                test: /\.js$/, 
+                test: /\.jsx?$/, 
                 loaders: ['babel-loader']
+            },
+            {
+                test: /\.jsx?$/,  
+                loader: 'babel',
+                include: /lib/
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract(
+                    'style-loader',
+                    'css-loader',
+                    {
+                        publicPath: '../',  // 回到dist，像是 background-image: url(../img/header-e147da.jpg); 就是由這控制的
+                        // publicPath: path.join(__dirname, 'dist'),  // 絕對路徑是要不得的作法，你可以看你我用筆電看到的結果 -> background-image: url(D:\develop\kkdev\showcase\distimg/header-e147da.jpg);
+                    }
+                )
+            },
+            {
+                test: /\.css$/,
+                loader: 'postcss-loader'
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/, 
+                exclude: /(node_modules|bower_components)/,
+                loader: "url-loader",
+                query: {
+                    limit: 10000, // 若大於10kb，就會轉為base64
+                    name: 'images/[name].[ext]'  // 這邊的路徑會相對於使用url-loader的loader, 也就是scss的publicPath
+                }
+            },
+            {
+                test: /\.woff(2)?$/, 
+                loader: "url-loader",
+                query: {
+                    limit: 10000,
+                    name: 'font/[name].[ext]'
+                }
+            },
+            {
+                test: /\.(ttf|eot|svg)$/, 
+                loader: "file-loader",
+                query: {
+                    name: 'font/[name].[ext]'
+                }
             }
 		]
 	},
@@ -28,7 +72,13 @@ module.exports = {
 		filename: 'js/[name].js'
 	},
 	resolve: {
-		extensions: ['', '.js']
+        extensions: ['', '.css', '.js', '.jsx'],
+        alias: {
+            'json-extend': path.join(__dirname, 'node_modules/json-extend/index.js'),
+            'component-emitter': path.join(__dirname, 'node_modules/component-emitter/index.js'),
+            'react-group': path.join(__dirname, 'lib/react-group/index.js'),
+            'react-group_css': path.join(__dirname, 'lib/react-group/css/index.css')
+        }
 	},
 	plugins: [
 		new HtmlPack({ 
