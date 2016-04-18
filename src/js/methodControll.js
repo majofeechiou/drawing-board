@@ -1,20 +1,26 @@
 'use strict';
 
+/* *** 這部份用 ReactJs + redux 做 *** */
+
 import ReactGroup from 'reactGroup';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
-import GlobalConst from './globalConst';
 import ReactSetting from './../../lib/react-group/js/Setting';
 
-export default class MethodSection extends GlobalConst {
-    constructor( str_id, json_tools ){
-        super();
-
-        this.addGlobalConst( this, 'globalId', str_id );
-        this.addGlobalConst( this, 'globalEmitter', json_tools.emitter );
-
+export default class MethodControll extends React.Component {
+    constructor(props) {
+        super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.arrangeProps( props );
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.arrangeProps(nextProps);
+    }
+
+    arrangeProps(json_next){
+        this.state = json_next.methodStore.getState();
     }
 
     _sary_options = [
@@ -56,20 +62,22 @@ export default class MethodSection extends GlobalConst {
 
     handleChange( bln_change, json_return ){
         if( bln_change===true ){
-            this._data_checked = json_return.result;
+            this._data_checked = json_return.result; 
+            this.state.outputResult = json_return.result;
             this.render();
         }
     }
 
     render(){
-        ReactDOM.render(
+        return (
             <ReactGroup 
                 onChange={this.handleChange}
                 outputFormat="json"
-                name="name1"
+                name="method_option"
                 selectKey={this._ary_selectkey}
                 inputoption={this._sary_options}
                 outputResult={this._data_checked}
+                outputResult2={this.state.outputResult}
                 showKey={this._ary_showkey}
                 between="~"
                 display={ReactSetting.DISPLAY_INBLOCK}
@@ -85,14 +93,16 @@ export default class MethodSection extends GlobalConst {
                 styleBorder={true}
                 styleIcon={true}
                 styleIconBack={this._bln_iconback}
-                styleList={true} />, 
-            document.getElementById("method-popup")
+                styleList={true} />
         );
-    }
-
-    create(){
-        this.render();
     }
 
 };
 
+
+MethodControll.propTypes = {
+    methodStore: React.PropTypes.object.isRequired
+},
+MethodControll.defaultProps = {
+    methodStore: {}
+};

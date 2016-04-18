@@ -4,11 +4,11 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Settings from './Settings';
+// import Settings from './Settings';
 import GlobalConst from './globalConst';
 // import ReactSetting from './../../lib/react-group/js/Setting';
 import { createStore } from 'redux'
-import MethodOption from './methodOption';
+import MethodReact from './methodReact';
 import MethodReducer from './methodReducer';
 
 const methodStore = createStore( MethodReducer );
@@ -20,40 +20,30 @@ export default class MethodSection extends GlobalConst {
         this.addGlobalConst( this, 'globalId', str_id );
         this.addGlobalConst( this, 'globalEmitter', json_tools.emitter );
 
-        this.state = {
-            methodChecked: Settings.METHOD_SNOW,
-        }
-
     }
 
-    getStateMethoChecked(){
-        return this.state.methodChecked ;
-    }
+    // render(){
+    //     let _data_checked = {
+    //         method: this.getStateMethoChecked()
+    //     };
+    //     ReactDOM.render(
+    //         <MethodReact
+    //             methodChecked={ _data_checked } />, 
+    //         document.getElementById("method-popup")
+    //     );
+    // }
 
     render(){
-        let _data_checked = {
-            method: this.getStateMethoChecked()
-        };
         ReactDOM.render(
-            <MethodOption
-                methodChecked={ _data_checked } />, 
+            <MethodReact
+                methodStore={methodStore} />, 
             document.getElementById("method-popup")
         );
     }
 
-    // render2(){
-    //     ReactDOM.render(
-    //         <MethodOption
-    //             methodChecked={ this.getStateMethoChecked()
-    //             onIncrement={ () => methodStore.dispatch({ type: 'INCREMENT' }) }
-    //             />, 
-    //         document.getElementById("method-popup2")
-    //     );
-    // }
-
     create(){
         this.render();
-        // methodStore.subscribe( this.render2 );
+        methodStore.subscribe( this.render );
     }
 
 };

@@ -2,7 +2,7 @@
 
 /* *** 這部份用 ReactJs + redux 做 *** */
 
-import ReactGroup from "react-group";
+import ReactGroup from 'reactGroup';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
@@ -12,13 +12,15 @@ export default class MethodOption extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            outputResult: prop.methodChecked
-        };
+        this.arrangeProps( props );
     }
 
     componentWillReceiveProps(nextProps){
         this.arrangeProps(nextProps);
+    }
+
+    arrangeProps(json_next){
+        this.state = json_next.methodStore.getState();
     }
 
     _sary_options = [
@@ -45,7 +47,7 @@ export default class MethodOption extends React.Component {
     ];
 
     _ary_selectkey = ['method'];
-    // _data_checked = {method: Settings.METHOD_SNOW};
+    _data_checked = {method: Settings.METHOD_SNOW};
 
     _ary_showkey = ['text','method'];
 
@@ -60,7 +62,7 @@ export default class MethodOption extends React.Component {
 
     handleChange( bln_change, json_return ){
         if( bln_change===true ){
-            /* this._data_checked = json_return.result; */
+            this._data_checked = json_return.result; 
             this.state.outputResult = json_return.result;
             this.render();
         }
@@ -74,7 +76,8 @@ export default class MethodOption extends React.Component {
                 name="method_option"
                 selectKey={this._ary_selectkey}
                 inputoption={this._sary_options}
-                outputResult={this.state.outputResult}
+                outputResult={this._data_checked}
+                outputResult2={this.state.outputResult}
                 showKey={this._ary_showkey}
                 between="~"
                 display={ReactSetting.DISPLAY_INBLOCK}
@@ -98,8 +101,8 @@ export default class MethodOption extends React.Component {
 
 
 MethodOption.propTypes = {
-    methodChecked: React.PropTypes.string,
+    methodStore: React.PropTypes.object.isRequired
 },
 MethodOption.defaultProps = {
-    methodChecked: '',
+    methodStore: {}
 };

@@ -1,11 +1,11 @@
 'use strict';
 
-export default function MethodReducer(state = 0, action) {
+import Settings from './Settings';
+
+export default function MethodReducer(state = {outputResult:{method:Settings.METHOD_SNOW}}, action) {
     switch (action.type) {
-        case 'INCREMENT':
-            return state + 1 ;
-        case 'DECREMENT':
-            return state - 1 ;
+        case 'METHOD_CHANGED':
+            return state.outputResult.method = 123 ;
         default:
             return state ;
     }

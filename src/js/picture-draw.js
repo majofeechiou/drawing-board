@@ -8,7 +8,7 @@ import ImageDataComputeProcess from './imageDataComputeProcess';
 import ImageDataOriginal from './imageDataOriginal';
 import StepMethod from './stepMethod';
 import GlobalConst from './globalConst';
-import Emitter from 'component-emitter';
+import Emitter from 'componentEmitter';
 
 export default class PictureDraw extends GlobalConst {
 	constructor( obj_main, str_id, json_tools ){

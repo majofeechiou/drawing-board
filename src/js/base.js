@@ -6,7 +6,7 @@
 import PictureDraw from "./picture-draw";
 import MethodSection from "./methodSection";
 import Utils from "./utils";
-import Emitter from 'component-emitter';
+import Emitter from 'componentEmitter';
 
 (function body () {
 
