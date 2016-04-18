@@ -1,5 +1,7 @@
 'use strict';
 
+/* *** 這部份用 ReactJs + redux 做 *** */
+
 import ReactGroup from "react-group";
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -10,6 +12,13 @@ export default class MethodOption extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.state = {
+            outputResult: prop.methodChecked
+        };
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.arrangeProps(nextProps);
     }
 
     _sary_options = [
@@ -36,7 +45,7 @@ export default class MethodOption extends React.Component {
     ];
 
     _ary_selectkey = ['method'];
-    _data_checked = {method: Settings.METHOD_SNOW};
+    // _data_checked = {method: Settings.METHOD_SNOW};
 
     _ary_showkey = ['text','method'];
 
@@ -51,7 +60,8 @@ export default class MethodOption extends React.Component {
 
     handleChange( bln_change, json_return ){
         if( bln_change===true ){
-            this._data_checked = json_return.result;
+            /* this._data_checked = json_return.result; */
+            this.state.outputResult = json_return.result;
             this.render();
         }
     }
@@ -61,10 +71,10 @@ export default class MethodOption extends React.Component {
             <ReactGroup 
                 onChange={this.handleChange}
                 outputFormat="json"
-                name="name1"
+                name="method_option"
                 selectKey={this._ary_selectkey}
                 inputoption={this._sary_options}
-                outputResult={this._data_checked}
+                outputResult={this.state.outputResult}
                 showKey={this._ary_showkey}
                 between="~"
                 display={ReactSetting.DISPLAY_INBLOCK}
@@ -88,8 +98,8 @@ export default class MethodOption extends React.Component {
 
 
 MethodOption.propTypes = {
-    myvar: React.PropTypes.string,
+    methodChecked: React.PropTypes.string,
 },
 MethodOption.defaultProps = {
-    myvar: '',
+    methodChecked: '',
 };
