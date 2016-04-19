@@ -1,8 +1,8 @@
 'use strict';
 
 import Settings from './Settings';
-import Utils from './utils';
-import Tools from './tools';
+import Utils from './Utils';
+import Tools from './Tools';
 
 export default class StepMethod extends Tools {
 	constructor(json_tools){

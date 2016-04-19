@@ -1,5 +1,5 @@
 'use strict';
-import Tools from './tools';
+import Tools from './Tools';
 import Settings from './Settings';
 
 // 運算的方式

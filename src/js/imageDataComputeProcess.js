@@ -1,5 +1,5 @@
 'use strict';
-import Tools from './tools';
+import Tools from './Tools';
 
 // 利用事件的補捉，來記錄我們的圖片運算狀況
 export default class ImageDataComputeProcess extends Tools {

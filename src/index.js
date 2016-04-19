@@ -1,6 +1,6 @@
 'use strict';
 
 // require('./../lib/react-group/css/index');
-require('reactGroup_css');
+require('ReactGroup_css');
 
-require('./js/base');
+require('./js/Base');

@@ -5,10 +5,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Settings from './Settings';
-import GlobalConst from './globalConst';
+import GlobalConst from './GlobalConst';
 import { createStore } from 'redux'
-import MethodReact from './methodReact';
-import MethodReducer from './methodReducer';
+import MethodReact from './MethodReact';
+import MethodReducer from './MethodReducer';
 
 const methodStore = createStore( MethodReducer );
 

@@ -2,7 +2,7 @@
 
 /* *** 這部份用 ReactJs + redux 做 *** */
 
-import ReactGroup from 'reactGroup';
+import ReactGroup from 'ReactGroup';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';

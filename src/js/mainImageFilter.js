@@ -1,8 +1,8 @@
 'use strict';
 
-import Utils from './utils';
+import Utils from './Utils';
 import Settings from './Settings';
-import GlobalConst from './globalConst';
+import GlobalConst from './GlobalConst';
 
 export default class MainImageFilter extends GlobalConst {
 

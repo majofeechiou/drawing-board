@@ -75,9 +75,9 @@ module.exports = {
         extensions: ['', '.css', '.js', '.jsx'],
         alias: {
             'json-extend': path.join(__dirname, 'node_modules/json-extend/index.js'),
-            'componentEmitter': path.join(__dirname, 'node_modules/component-emitter/index.js'),
-            'reactGroup': path.join(__dirname, 'lib/react-group/index.js'),
-            'reactGroup_css': path.join(__dirname, 'lib/react-group/css/index.css')
+            'ComponentEmitter': path.join(__dirname, 'node_modules/component-emitter/index.js'),
+            'ReactGroup': path.join(__dirname, 'lib/react-group/index.js'),
+            'ReactGroup_css': path.join(__dirname, 'lib/react-group/css/index.css')
         }
 	},
 	plugins: [

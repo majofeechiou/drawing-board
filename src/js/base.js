@@ -3,10 +3,10 @@
 // 預覽圖（固定某大小做為預覽圖）
 // 送給php產生圖檔，以進一步存下新的圖檔
 
-import PictureDraw from "./picture-draw";
-import MethodSection from "./methodSection";
-import Utils from "./utils";
-import Emitter from 'componentEmitter';
+import PictureDraw from "./PictureDraw";
+import MethodSection from "./MethodSection";
+import Utils from "./Utils";
+import Emitter from 'ComponentEmitter';
 
 (function body () {
 

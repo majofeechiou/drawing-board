@@ -1,5 +1,5 @@
 'use strict';
-import Tools from './tools';
+import Tools from './Tools';
 
 // 運算的方式
 export default class ImageDataComputeMethod extends Tools {

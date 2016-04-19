@@ -1,14 +1,14 @@
 'use strict';
 
 import Settings from './Settings';
-import Utils from './utils';
-import MainImageFilter from './mainImageFilter';
-import ImageDataComputeMethod from './imageDataComputeMethod';
-import ImageDataComputeProcess from './imageDataComputeProcess';
-import ImageDataOriginal from './imageDataOriginal';
-import StepMethod from './stepMethod';
-import GlobalConst from './globalConst';
-import Emitter from 'componentEmitter';
+import Utils from './Utils';
+import MainImageFilter from './MainImageFilter';
+import ImageDataComputeMethod from './ImageDataComputeMethod';
+import ImageDataComputeProcess from './ImageDataComputeProcess';
+import ImageDataOriginal from './ImageDataOriginal';
+import StepMethod from './StepMethod';
+import GlobalConst from './GlobalConst';
+import Emitter from 'ComponentEmitter';
 
 export default class PictureDraw extends GlobalConst {
 	constructor( obj_main, str_id, json_tools ){

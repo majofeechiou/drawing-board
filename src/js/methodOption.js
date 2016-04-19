@@ -2,10 +2,11 @@
 
 /* *** 這部份用 ReactJs + redux 做 *** */
 
-import ReactGroup from 'reactGroup';
+import ReactGroup from 'ReactGroup';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
+import MethodSettings from './MethodSettings';
 import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 export default class MethodOption extends React.Component {
@@ -13,8 +14,6 @@ export default class MethodOption extends React.Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.arrangeProps( props );
-
-        this._output_result = {...this.getInputoption()[0]};
     }
 
     getStore(){
@@ -34,28 +33,7 @@ export default class MethodOption extends React.Component {
     }
 
     getInputoption(){
-        return [
-            {
-                method: Settings.METHOD_SNOW,
-                method_name: Settings.METHOD_SNOW_NAME
-            },
-            {
-                method: Settings.METHOD_DOT,
-                method_name: Settings.METHOD_DOT_NAME
-            },
-            {
-                method: Settings.METHOD_ALPHA,
-                method_name: Settings.METHOD_ALPHA_NAME
-            },
-            {
-                method: Settings.METHOD_GRAY,
-                method_name: Settings.METHOD_GRAY_NAME
-            },
-            {
-                method: Settings.METHOD_CONTRAST,
-                method_name: Settings.METHOD_CONTRAST_NAME
-            }
-        ];
+        return MethodSettings.getAllMethod();
     }
 
     getSelectKey(){
@@ -65,16 +43,12 @@ export default class MethodOption extends React.Component {
         return ['method_name'];
     }
     getOutputResult(){
-        return this._output_result;
-    }
-
-    setOutputResult( data ){
-        this._output_result = data;
+        return this.props.outputResult;
     }
 
     handleChange( bln_change, json_return ){
         if( bln_change===true ){
-            this.setOutputResult( json_return.result ); 
+            // this.setOutputResult( json_return.result ); 
             this.render();
         }
     }
@@ -113,8 +87,10 @@ export default class MethodOption extends React.Component {
 
 
 MethodOption.propTypes = {
+    outputResult: React.PropTypes.object.isRequired,
     methodStore: React.PropTypes.object.isRequired
 },
 MethodOption.defaultProps = {
+    outputResult: {},
     methodStore: {}
 };
