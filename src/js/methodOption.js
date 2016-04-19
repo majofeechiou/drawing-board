@@ -6,13 +6,23 @@ import ReactGroup from 'reactGroup';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
-import ReactSetting from './../../lib/react-group/js/Setting';
+import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 export default class MethodOption extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.arrangeProps( props );
+
+        this._output_result = {...this.getInputoption()[0]};
+    }
+
+    getStore(){
+        return this.props.methodStore;
+    }
+
+    getStoreState(){
+        return this.getStore().getState();
     }
 
     componentWillReceiveProps(nextProps){
@@ -23,77 +33,79 @@ export default class MethodOption extends React.Component {
         this.state = json_next.methodStore.getState();
     }
 
-    _sary_options = [
-        {
-            method: Settings.METHOD_SNOW,
-            text: Settings.METHOD_SNOW_NAME
-        },
-        {
-            method: Settings.METHOD_DOT,
-            text: Settings.METHOD_DOT_NAME
-        },
-        {
-            method: Settings.METHOD_ALPHA,
-            text: Settings.METHOD_ALPHA_NAME
-        },
-        {
-            method: Settings.METHOD_GRAY,
-            text: Settings.METHOD_GRAY_NAME
-        },
-        {
-            method: Settings.METHOD_CONTRAST,
-            text: Settings.METHOD_CONTRAST_NAME
-        }
-    ];
+    getInputoption(){
+        return [
+            {
+                method: Settings.METHOD_SNOW,
+                method_name: Settings.METHOD_SNOW_NAME
+            },
+            {
+                method: Settings.METHOD_DOT,
+                method_name: Settings.METHOD_DOT_NAME
+            },
+            {
+                method: Settings.METHOD_ALPHA,
+                method_name: Settings.METHOD_ALPHA_NAME
+            },
+            {
+                method: Settings.METHOD_GRAY,
+                method_name: Settings.METHOD_GRAY_NAME
+            },
+            {
+                method: Settings.METHOD_CONTRAST,
+                method_name: Settings.METHOD_CONTRAST_NAME
+            }
+        ];
+    }
 
-    _ary_selectkey = ['method'];
-    _data_checked = {method: Settings.METHOD_SNOW};
+    getSelectKey(){
+        return ['method'];
+    }
+    getShowKey(){
+        return ['method_name'];
+    }
+    getOutputResult(){
+        return this._output_result;
+    }
 
-    _ary_showkey = ['text','method'];
-
-    _bln_iconback = true;
-
-    _str_style = ReactSetting.STYLE_NAME_LUXURY;
-
-    _bln_offBack_01 = false;
-    _bln_offBack_02 = true;
-
-    _str_composition = ReactSetting.COMPOSITION_TINY;
+    setOutputResult( data ){
+        this._output_result = data;
+    }
 
     handleChange( bln_change, json_return ){
         if( bln_change===true ){
-            this._data_checked = json_return.result; 
-            this.state.outputResult = json_return.result;
+            this.setOutputResult( json_return.result ); 
             this.render();
         }
     }
 
     render(){
+
+        let _json_store = this.getStoreState();
         return (
             <ReactGroup 
                 onChange={this.handleChange}
                 outputFormat="json"
                 name="method_option"
-                selectKey={this._ary_selectkey}
-                inputoption={this._sary_options}
-                outputResult={this._data_checked}
-                outputResult2={this.state.outputResult}
-                showKey={this._ary_showkey}
+                selectKey={this.getSelectKey()}
+                inputoption={this.getInputoption()}
+                outputResult={this.getOutputResult()}
+                showKey={this.getShowKey()}
                 between="~"
-                display={ReactSetting.DISPLAY_INBLOCK}
-                padding={ReactSetting.PADDING_BASE}
-                fillet={ReactSetting.FILLET_BASE}
-                listStyle={ReactSetting.LIST_STYLE_CIRCLE}
-                listPosition={ReactSetting.LIST_POSITION_INNER}
-                iconPosition={ReactSetting.ICON_POSTION_LEFT}
-                iconShow={[ReactSetting.ICON_SHOW_EMPTY_HEART, ReactSetting.ICON_SHOW_HEART]}
-                styleName={this._str_style}
-                composition={this._str_composition}
-                offBack={this._bln_offBack_01}
-                styleBorder={true}
-                styleIcon={true}
-                styleIconBack={this._bln_iconback}
-                styleList={true} />
+                display={_json_store.display}
+                padding={_json_store.padding}
+                fillet={_json_store.fillet}
+                listStyle={_json_store.listStyle}
+                listPosition={_json_store.listPosition}
+                iconPosition={_json_store.iconPosition}
+                iconShow={_json_store.iconShow}
+                styleName={_json_store.styleName}
+                composition={_json_store.composition}
+                offBack={_json_store.offBack}
+                styleBorder={_json_store.styleBorder}
+                styleIcon={_json_store.styleIcon}
+                styleIconBack={_json_store.styleIconBack}
+                styleList={_json_store.styleList} />
         );
     }
 

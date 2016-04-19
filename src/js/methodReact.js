@@ -3,11 +3,10 @@
 /* *** 這部份用 ReactJs + redux 做 *** */
 
 import MethodOption from './methodOption';
-import MethodControll from './methodControll';
+import MethodControl from './methodControl';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
-import ReactSetting from './../../lib/react-group/js/Setting';
 
 export default class MethodReact extends React.Component {
 
@@ -30,7 +29,7 @@ export default class MethodReact extends React.Component {
             <div>
                 <MethodOption 
                     methodStore={ this.props.methodStore } />
-                <MethodControll 
+                <MethodControl 
                     methodStore={ this.props.methodStore } />
             </div>
         );

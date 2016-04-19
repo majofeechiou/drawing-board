@@ -6,7 +6,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import Settings from './Settings';
 import GlobalConst from './globalConst';
-// import ReactSetting from './../../lib/react-group/js/Setting';
 import { createStore } from 'redux'
 import MethodReact from './methodReact';
 import MethodReducer from './methodReducer';

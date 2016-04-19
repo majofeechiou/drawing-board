@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import Settings from './Settings';
 import ReactSetting from './../../lib/react-group/js/Setting';
 
-export default class MethodControll extends React.Component {
+export default class MethodControl extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
@@ -100,9 +100,9 @@ export default class MethodControll extends React.Component {
 };
 
 
-MethodControll.propTypes = {
+MethodControl.propTypes = {
     methodStore: React.PropTypes.object.isRequired
 },
-MethodControll.defaultProps = {
+MethodControl.defaultProps = {
     methodStore: {}
 };
