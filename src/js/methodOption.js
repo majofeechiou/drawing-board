@@ -48,8 +48,7 @@ export default class MethodOption extends React.Component {
 
     handleChange( bln_change, json_return ){
         if( bln_change===true ){
-            // this.setOutputResult( json_return.result ); 
-            this.render();
+            this.props.handleChange(json_return);
         }
     }
 
@@ -87,10 +86,12 @@ export default class MethodOption extends React.Component {
 
 
 MethodOption.propTypes = {
+    handleChange: React.PropTypes.func.isRequired,
     outputResult: React.PropTypes.object.isRequired,
     methodStore: React.PropTypes.object.isRequired
 },
 MethodOption.defaultProps = {
+    handleChange: ()=>{},
     outputResult: {},
     methodStore: {}
 };

@@ -47,6 +47,12 @@ export default class MethodSection extends GlobalConst {
 
 };
 
+// setTimeout(function(){
+//     methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
+//     setTimeout(function(){
+//         methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
+//     },5000);
+// },5000);
 
 
 /*
