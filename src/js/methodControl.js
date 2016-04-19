@@ -75,7 +75,7 @@ export default class MethodControl extends React.Component {
                 outputFormat="json"
                 name="method_option"
                 selectKey={this._ary_selectkey}
-                inputoption={this._sary_options}
+                inputOption={this._sary_options}
                 outputResult={this._data_checked}
                 outputResult2={this.state.outputResult}
                 showKey={this._ary_showkey}

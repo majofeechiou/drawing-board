@@ -11,7 +11,7 @@ import ItemBase from './ItemBase';
 import ClassNames from 'classnames';
 import Setting from './Setting';
 import CheckedUI from './CheckedUI';
-import extend from 'json-extend';
+import extend from 'JsonExtend';
 
 export default class RadioGroup extends React.Component {
 
@@ -81,7 +81,7 @@ export default class RadioGroup extends React.Component {
 		let _bln_changed = false;
 		let _str_value = e.target.value;
 		let _str_selectkey = _scope.getMainSelectKey();
-		(this.props.inputoption).find(function(json){
+		(this.props.inputOption).find(function(json){
 
 			if( json[_str_selectkey]===_str_value ){
 				let _json_args = {},
@@ -127,14 +127,17 @@ export default class RadioGroup extends React.Component {
 				_scope.mergeState(_json_args);
 
 				if( _scope.props.onChange && (_scope.props.onChange instanceof Function===true) ){
-					let _json_ouput = {
-						value: _str_value,
-						item: json,
-						result: _json_args.outputResult
-					};
-					_bln_changed = true;
-					_scope.props.onChange(_bln_changed, _json_ouput );
+					// setTimeout(function(){
+						let _json_ouput = {
+							value: _str_value,
+							item: json,
+							result: _json_args.outputResult
+						};
+						_bln_changed = true;
+						_scope.props.onChange(_bln_changed, _json_ouput );
+					// },1);
 				}
+				// return false;
 			}
 
 		});
@@ -206,7 +209,7 @@ export default class RadioGroup extends React.Component {
 		let _str_selectkey = this.getMainSelectKey();
 		return <div>
 			<div className={_str_classname_all}>
-				{this.props.inputoption.map((json_item)=>{
+				{this.props.inputOption.map((json_item)=>{
 
 					let _str_classname_outer = ClassNames({
 						'pkg-checked-option': true,
@@ -261,14 +264,12 @@ RadioGroup.propTypes = {
 	onChange: React.PropTypes.func,
 	outputResult: React.PropTypes.any.isRequired,
 	className: React.PropTypes.string,
-    inputoption: React.PropTypes.array,
+    inputOption: React.PropTypes.array,
     selectKey: React.PropTypes.array,
     showKey: React.PropTypes.array,
     between: React.PropTypes.string,
     outputFormat: React.PropTypes.string.isRequired,
     display: React.PropTypes.string,
-    padding: React.PropTypes.string,
-    fillet: React.PropTypes.string,
     listStyle: React.PropTypes.string,
     listPosition: React.PropTypes.string,
     iconPosition: React.PropTypes.string,
@@ -284,13 +285,11 @@ RadioGroup.propTypes = {
 RadioGroup.defaultProps = {
 	className: '',
 	outputResult: null,
-	inputoption: [],
+	inputOption: [],
 	selectKey: [],
 	showKey: [],
 	between: '',
 	display: Setting.DISPLAY_INBLOCK,
-	padding: '',
-	fillet: '',
     listStyle: '',
     listPosition: Setting.LIST_POSITION_INNER,
     iconPosition: Setting.ICON_POSTION_LEFT,

@@ -74,7 +74,7 @@ module.exports = {
 	resolve: {
         extensions: ['', '.css', '.js', '.jsx'],
         alias: {
-            'json-extend': path.join(__dirname, 'node_modules/json-extend/index.js'),
+            'JsonExtend': path.join(__dirname, 'node_modules/json-extend/index.js'),
             'ComponentEmitter': path.join(__dirname, 'node_modules/component-emitter/index.js'),
             'ReactGroup': path.join(__dirname, 'lib/react-group/index.js'),
             'ReactGroup_css': path.join(__dirname, 'lib/react-group/css/index.css')

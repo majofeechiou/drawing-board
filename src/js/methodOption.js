@@ -62,7 +62,7 @@ export default class MethodOption extends React.Component {
                 outputFormat="json"
                 name="method_option"
                 selectKey={this.getSelectKey()}
-                inputoption={this.getInputoption()}
+                inputOption={this.getInputoption()}
                 outputResult={this.getOutputResult()}
                 showKey={this.getShowKey()}
                 between="~"
