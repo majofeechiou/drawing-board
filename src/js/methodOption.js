@@ -12,8 +12,9 @@ import ReactGroupSetting from './../../lib/react-group/js/Setting';
 export default class MethodOption extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {};
         this.handleChange = this.handleChange.bind(this);
-        this.arrangeProps( props );
     }
 
     getStore(){
@@ -22,14 +23,6 @@ export default class MethodOption extends React.Component {
 
     getStoreState(){
         return this.getStore().getState();
-    }
-
-    componentWillReceiveProps(nextProps){
-        this.arrangeProps(nextProps);
-    }
-
-    arrangeProps(json_next){
-        this.state = json_next.methodStore.getState();
     }
 
     getInputoption(){
@@ -95,3 +88,13 @@ MethodOption.defaultProps = {
     outputResult: {},
     methodStore: {}
 };
+
+// this.arrangeProps( props );
+
+// componentWillReceiveProps(nextProps){
+//     this.arrangeProps(nextProps);
+// }
+
+// arrangeProps(json_next){
+//     this.setState( {methodStore:json_next.methodStore.getState()} );
+// }

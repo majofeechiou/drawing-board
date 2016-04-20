@@ -6,26 +6,19 @@
 import PictureDraw from "./PictureDraw";
 import MethodSection from "./MethodSection";
 import Utils from "./Utils";
-import Emitter from 'ComponentEmitter';
 
 (function body () {
 
-    let emitter = new Emitter();
-
-    let _json_tools = {
-        emitter: emitter
-    };
-
-    let methodSection = new MethodSection( Utils.createUniqueId(), _json_tools );
+    let methodSection = new MethodSection( Utils.createUniqueId() );
     methodSection.create();
 
     // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	let _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
 	
-	let pictureDraw = new PictureDraw( _obj_main[0], Utils.createUniqueId(), _json_tools );
+	let pictureDraw = new PictureDraw( _obj_main[0], Utils.createUniqueId() );
 
-    new PictureDraw( _obj_main[1], Utils.createUniqueId(), _json_tools ); 
-	new PictureDraw( _obj_main[2], Utils.createUniqueId(), _json_tools ); 
+    new PictureDraw( _obj_main[1], Utils.createUniqueId() ); 
+	new PictureDraw( _obj_main[2], Utils.createUniqueId() ); 
 
 })();

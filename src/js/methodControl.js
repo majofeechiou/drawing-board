@@ -2,107 +2,110 @@
 
 /* *** 這部份用 ReactJs + redux 做 *** */
 
-import ReactGroup from 'ReactGroup';
+import Utils from './Utils';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
 import ReactSetting from './../../lib/react-group/js/Setting';
+import GloablTools from './GloablTools';
 
 export default class MethodControl extends React.Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+
+        this.setComponentId( Utils.createUniqueId() );
+
         this.arrangeProps( props );
+
+        this.tt = this.tt.bind(this);
     }
 
     componentWillReceiveProps(nextProps){
         this.arrangeProps(nextProps);
+        this.render();
+    }
+
+    getComponentId(){
+        return this.component_id;
+    }
+
+    setComponentId( data ){
+        this.component_id = data;
     }
 
     arrangeProps(json_next){
-        this.state = json_next.methodStore.getState();
+        if( this.state ){
+            this.setState( {methodStore:json_next.methodStore.getState()} );
+        }else{
+            this.state = {};
+        }
     }
 
-    _sary_options = [
-        {
-            method: Settings.METHOD_SNOW,
-            text: Settings.METHOD_SNOW_NAME
-        },
-        {
-            method: Settings.METHOD_DOT,
-            text: Settings.METHOD_DOT_NAME
-        },
-        {
-            method: Settings.METHOD_ALPHA,
-            text: Settings.METHOD_ALPHA_NAME
-        },
-        {
-            method: Settings.METHOD_GRAY,
-            text: Settings.METHOD_GRAY_NAME
-        },
-        {
-            method: Settings.METHOD_CONTRAST,
-            text: Settings.METHOD_CONTRAST_NAME
-        }
-    ];
-
-    _ary_selectkey = ['method'];
-    _data_checked = {method: Settings.METHOD_SNOW};
-
-    _ary_showkey = ['text','method'];
-
-    _bln_iconback = true;
-
-    _str_style = ReactSetting.STYLE_NAME_LUXURY;
-
-    _bln_offBack_01 = false;
-    _bln_offBack_02 = true;
-
-    _str_composition = ReactSetting.COMPOSITION_TINY;
-
-    handleChange( bln_change, json_return ){
-        if( bln_change===true ){
-            this._data_checked = json_return.result; 
-            this.state.outputResult = json_return.result;
-            this.render();
-        }
+    tt(){
+        GloablTools.Emitter().emit( 'method.cotroller.setting.operating', {
+            method: this.props.outputResult.method,
+            setting: {
+                range: document.querySelectorAll('[name="alpha"]')[0].value
+            }
+        } );
     }
 
     render(){
-        return (
-            <ReactGroup 
-                onChange={this.handleChange}
-                outputFormat="json"
-                name="method_option"
-                selectKey={this._ary_selectkey}
-                inputOption={this._sary_options}
-                outputResult={this._data_checked}
-                outputResult2={this.state.outputResult}
-                showKey={this._ary_showkey}
-                between="~"
-                display={ReactSetting.DISPLAY_INBLOCK}
-                padding={ReactSetting.PADDING_BASE}
-                fillet={ReactSetting.FILLET_BASE}
-                listStyle={ReactSetting.LIST_STYLE_CIRCLE}
-                listPosition={ReactSetting.LIST_POSITION_INNER}
-                iconPosition={ReactSetting.ICON_POSTION_LEFT}
-                iconShow={[ReactSetting.ICON_SHOW_EMPTY_HEART, ReactSetting.ICON_SHOW_HEART]}
-                styleName={this._str_style}
-                composition={this._str_composition}
-                offBack={this._bln_offBack_01}
-                styleBorder={true}
-                styleIcon={true}
-                styleIconBack={this._bln_iconback}
-                styleList={true} />
-        );
+        let _scope = this;
+
+        if( this.props.outputResult.method===Settings.METHOD_SNOW ){
+            return (
+                <div>snow</div>
+            );
+        }else if( this.props.outputResult.method===Settings.METHOD_DOT ){
+            return (
+                <div>dot</div>
+            );
+        }else if( this.props.outputResult.method===Settings.METHOD_ALPHA ){
+            return (
+                <div>
+                    alpha
+                    <input type="range" name="alpha" step="1" min="0" max="100"  /> / 100
+                    <button onClick={_scope.tt}>確定</button>
+                </div>
+            );
+        }else if( this.props.outputResult.method===Settings.METHOD_GRAY ){
+            return (
+                <div>gray</div>
+            );
+        }else if( this.props.outputResult.method===Settings.METHOD_CONTRAST ){
+            return (
+                <div>contrast</div>
+            );
+        }else{
+            return (
+                <div>else</div>
+            );
+        }
+        // return (
+        //     <div>
+        //         <div>123</div>
+        //         <If cond={ this.props.outputResult.method===Settings.METHOD_SNOW }>
+        //             snow
+        //         </If>
+        //         <ReactCond>
+        //             { this.props.outputResult.method===Settings.METHOD_SNOW } ssss
+        //             { this.props.outputResult.method!==Settings.METHOD_SNOW } not
+        //         </ReactCond>
+        //     </div>
+        // );
     }
 
 };
 
 
+
+
 MethodControl.propTypes = {
+    outputResult: React.PropTypes.object.isRequired,
     methodStore: React.PropTypes.object.isRequired
 },
 MethodControl.defaultProps = {
+    outputResult: {},
     methodStore: {}
 };

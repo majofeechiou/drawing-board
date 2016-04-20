@@ -9,15 +9,15 @@ import ImageDataOriginal from './ImageDataOriginal';
 import StepMethod from './StepMethod';
 import GlobalConst from './GlobalConst';
 import Emitter from 'ComponentEmitter';
+import GloablTools from './GloablTools';
 
 export default class PictureDraw extends GlobalConst {
-	constructor( obj_main, str_id, json_tools ){
+	constructor( obj_main, str_id ){
 		super();
 		
 		let _scope = this;
 
 		_scope.addGlobalConst( _scope, 'globalId', str_id );
-        _scope.addGlobalConst( _scope, 'globalEmitter', json_tools.emitter );
 
 		let emitter = new Emitter();
 		_scope.addGlobalConst( _scope, 'emitter', emitter );
@@ -202,6 +202,10 @@ export default class PictureDraw extends GlobalConst {
 					console.log('******************* 預覽圖片!! *******************');
 				}
 
+			});
+
+			GloablTools.Emitter().on('method.cotroller.setting.operating', function(e){
+				console.log( 'arguments :: ', arguments );
 			});
 
 		}

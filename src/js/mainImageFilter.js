@@ -2,6 +2,7 @@
 
 import Utils from './Utils';
 import Settings from './Settings';
+import MethodSettings from './MethodSettings';
 import GlobalConst from './GlobalConst';
 
 export default class MainImageFilter extends GlobalConst {
@@ -158,13 +159,12 @@ export default class MainImageFilter extends GlobalConst {
 		// 下拉式選單
 		let _obj_method_select = document.createElement('select');
 		_obj_method_select.name = 'method';
+		let _sary_option = MethodSettings.getAllMethod();
 		let _str_method_select = '';
 		_str_method_select += '<option value="">---請選擇---</option>';
-		_str_method_select += '<option value="'+Settings.METHOD_SNOW+'">'+Settings.METHOD_SNOW_NAME+'</option>';
-		_str_method_select += '<option value="'+Settings.METHOD_ALPHA+'">'+Settings.METHOD_ALPHA_NAME+'</option>';
-		_str_method_select += '<option value="'+Settings.METHOD_DOT+'">'+Settings.METHOD_DOT_NAME+'</option>';
-		_str_method_select += '<option value="'+Settings.METHOD_GRAY+'">'+Settings.METHOD_GRAY_NAME+'</option>';
-		_str_method_select += '<option value="'+Settings.METHOD_CONTRAST+'">'+Settings.METHOD_CONTRAST_NAME+'</option>';
+		for( let i=0; i<_sary_option.length; i++ ){
+			_str_method_select += '<option value="'+_sary_option[i].method+'">'+_sary_option[i].method_name+'</option>';
+		}
 		_obj_method_select.insertAdjacentHTML('afterbegin',_str_method_select);
 
 		// 新增按鈕

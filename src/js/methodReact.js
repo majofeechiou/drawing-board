@@ -13,6 +13,8 @@ export default class MethodReact extends React.Component {
 
     constructor( props ){
         super( props );
+
+        this.state = {};
         this.arrangeProps( props );
 
         this.handleChange = this.handleChange.bind(this);
@@ -21,8 +23,8 @@ export default class MethodReact extends React.Component {
             props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
             setTimeout(function(){
                 props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
-            },5000);
-        },5000);
+            },2000);
+        },2000);
 
     }
 
@@ -67,6 +69,7 @@ export default class MethodReact extends React.Component {
                     outputResult={ _json_result }
                     methodStore={ this.props.methodStore } />
                 <MethodControl 
+                    outputResult={ _json_result }
                     methodStore={ this.props.methodStore } />
             </div>
         );

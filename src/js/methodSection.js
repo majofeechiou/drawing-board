@@ -13,11 +13,10 @@ import MethodReducer from './MethodReducer';
 const methodStore = createStore( MethodReducer );
 
 export default class MethodSection extends GlobalConst {
-    constructor( str_id, json_tools ){
+    constructor( str_id ){
         super();
 
         this.addGlobalConst( this, 'globalId', str_id );
-        this.addGlobalConst( this, 'globalEmitter', json_tools.emitter );
 
     }
 
@@ -33,6 +32,7 @@ export default class MethodSection extends GlobalConst {
     // }
 
     render(){
+        let _scope = this;
         ReactDOM.render(
             <MethodReact
                 methodStore={methodStore} />, 
