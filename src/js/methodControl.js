@@ -13,7 +13,7 @@ export default class MethodControl extends React.Component {
     constructor(props) {
         super(props);
 
-        this.setComponentId( Utils.createUniqueId() );
+        // this.setComponentId( Utils.createUniqueId() );
 
         this.arrangeProps( props );
 
@@ -22,16 +22,15 @@ export default class MethodControl extends React.Component {
 
     componentWillReceiveProps(nextProps){
         this.arrangeProps(nextProps);
-        // this.render();
     }
 
-    getComponentId(){
-        return this.component_id;
-    }
+    // getComponentId(){
+    //     return this.component_id;
+    // }
 
-    setComponentId( data ){
-        this.component_id = data;
-    }
+    // setComponentId( data ){
+    //     this.component_id = data;
+    // }
 
     arrangeProps(json_next){
         if( this.state ){
@@ -51,8 +50,8 @@ export default class MethodControl extends React.Component {
     }
 
     render(){
-        console.log('MethodControl -- componentWillReceiveProps');
-        
+        console.log('MethodControl -- render');
+
         let _scope = this;
 
         if( this.props.outputResult.method===Settings.METHOD_SNOW ){
