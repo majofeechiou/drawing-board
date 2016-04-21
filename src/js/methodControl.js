@@ -22,7 +22,7 @@ export default class MethodControl extends React.Component {
 
     componentWillReceiveProps(nextProps){
         this.arrangeProps(nextProps);
-        this.render();
+        // this.render();
     }
 
     getComponentId(){
@@ -37,7 +37,7 @@ export default class MethodControl extends React.Component {
         if( this.state ){
             this.setState( {methodStore:json_next.methodStore.getState()} );
         }else{
-            this.state = {};
+            this.state = {methodStore:json_next.methodStore.getState()};
         }
     }
 
@@ -51,6 +51,8 @@ export default class MethodControl extends React.Component {
     }
 
     render(){
+        console.log('MethodControl -- componentWillReceiveProps');
+        
         let _scope = this;
 
         if( this.props.outputResult.method===Settings.METHOD_SNOW ){

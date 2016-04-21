@@ -8,16 +8,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Settings from './Settings';
 import MethodSettings from './MethodSettings';
+import GloablData from './GloablData';
+import GloablTools from './GloablTools';
 
 export default class MethodReact extends React.Component {
 
     constructor( props ){
         super( props );
 
-        this.state = {};
-        this.arrangeProps( props );
+        this.arrangeStates( props );
 
         this.handleChange = this.handleChange.bind(this);
+
+        this.default();
 
         setTimeout(function(){
             props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
@@ -28,32 +31,40 @@ export default class MethodReact extends React.Component {
 
     }
 
-    // componentWillReceiveProps(nextProps){
-    //     this.arrangeProps(nextProps);
-    // }
+    default(){
+        let _scope = this ;
+        GloablTools.Emitter().on('method.setting.opening', function(){
+            let _str_from = GloablData.getFrom();
+            console.log( '_str_from ::　', _str_from );
+            _scope.arrangeStates( _scope.getDefaultMethod() );
+        });
+    }
 
-    // componentWillUpdate( nextProps, nextState ){
-    //     this.render( nextProps, nextState );
-    // }
+
+    defaultMethod = {...MethodSettings.getAllMethod()[0]};
+
+    getDefaultMethod(){
+        return this.defaultMethod;
+    }
 
     getOutputResult(){
         return this.state.outputResult;
     }
-    // setOutputResult( data ){
-    //     this.state.outputResult = data;
-    // }
 
-    arrangeProps(json_next){
-        let _json = json_next.methodStore.getState();
-        _json.outputResult = json_next.outputResult || {...MethodSettings.getAllMethod()[0]};
-        this.state = _json;
+    arrangeStates(json_next){
+        let _json = {};
+        _json.outputResult = json_next.outputResult || this.getDefaultMethod();
+        if( this.state ){
+            this.setState( _json );
+        }else{
+            this.state = _json;
+        }
     }
 
     handleChange({...json_return}){
         let _json = {...this.state};
         _json.outputResult = json_return.result;
         this.setState( _json );
-
     }
 
     render( nextProps, nextState ){

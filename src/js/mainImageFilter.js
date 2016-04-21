@@ -180,6 +180,20 @@ export default class MainImageFilter extends GlobalConst {
 		return _obj_method_section;
 	}
 
+	// 新增效果 - 新方法
+	returnMethodAddSection(){
+		let _obj_method_section = document.createElement('div');
+
+		// 新增按鈕
+		let _obj_method_button = document.createElement('button');
+		_obj_method_button.innerText = '新增效果';
+		this.methodAddBtnActive.call( _obj_method_button, this );
+		_obj_method_section.appendChild(_obj_method_button);
+
+		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button );
+		return _obj_method_section;
+	}
+
 	// 輸出圖片尺寸
 	returnSizeSection(){
 		let _obj_size_section = document.createElement('div');
@@ -327,12 +341,16 @@ export default class MainImageFilter extends GlobalConst {
 			// 新增效果
 			let _obj_method_section = this.returnMethodSection();
 
+			// 新增效果 - 新方法
+			let _obj_method_add_section = this.returnMethodAddSection();
+
 			// 原圖預覽圖片
 			let _obj_origin_image_section = this.returnOriginImageSection();
 
 			_obj_main.appendChild(_obj_size_section);
 			_obj_main.appendChild(_obj_upload_section);
 			_obj_main.appendChild(_obj_method_section);
+			_obj_main.appendChild(_obj_method_add_section);
 			_obj_main.appendChild(_obj_origin_image_section);
 			_obj_main.appendChild(_obj_canvas_section);
 
@@ -394,6 +412,14 @@ export default class MainImageFilter extends GlobalConst {
 			}else{
 				console.log( '不應為空!!' );
 			}
+		}
+	}
+
+	// 新增效果的按鈕 - 新方法
+	methodAddBtnActive( scope_calss ){
+		let _obj_self = this;
+		_obj_self.onclick = function( e ){
+			scope_calss.getEmitter().emit('method.setting.open.asking');
 		}
 	}
 

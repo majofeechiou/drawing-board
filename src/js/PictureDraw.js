@@ -10,6 +10,7 @@ import StepMethod from './StepMethod';
 import GlobalConst from './GlobalConst';
 import Emitter from 'ComponentEmitter';
 import GloablTools from './GloablTools';
+import GloablData from './GloablData';
 
 export default class PictureDraw extends GlobalConst {
 	constructor( obj_main, str_id ){
@@ -17,7 +18,7 @@ export default class PictureDraw extends GlobalConst {
 		
 		let _scope = this;
 
-		_scope.addGlobalConst( _scope, 'globalId', str_id );
+		_scope.addGlobalConst( _scope, 'ComponentId', str_id );
 
 		let emitter = new Emitter();
 		_scope.addGlobalConst( _scope, 'emitter', emitter );
@@ -202,6 +203,12 @@ export default class PictureDraw extends GlobalConst {
 					console.log('******************* 預覽圖片!! *******************');
 				}
 
+			});
+
+			_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function(e){
+				let _str_from = _scope.getGlobalConst(_scope).ComponentId ;
+				GloablData.setFrom( _str_from );
+				GloablTools.Emitter().emit('method.setting.open.asked');
 			});
 
 			GloablTools.Emitter().on('method.cotroller.setting.operating', function(e){

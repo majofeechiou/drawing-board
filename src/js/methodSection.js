@@ -4,8 +4,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Settings from './Settings';
 import GlobalConst from './GlobalConst';
+import GloablTools from './GloablTools';
 import { createStore } from 'redux'
 import MethodReact from './MethodReact';
 import MethodReducer from './MethodReducer';
@@ -18,18 +18,15 @@ export default class MethodSection extends GlobalConst {
 
         this.addGlobalConst( this, 'globalId', str_id );
 
+        this.default();
+
     }
 
-    // render(){
-    //     let _data_checked = {
-    //         method: this.getStateMethoChecked()
-    //     };
-    //     ReactDOM.render(
-    //         <MethodReact
-    //             methodChecked={ _data_checked } />, 
-    //         document.getElementById("method-popup")
-    //     );
-    // }
+    default(){
+        GloablTools.Emitter().on('method.setting.open.asked', function(){
+            GloablTools.Emitter().emit('method.setting.opening');
+        });
+    }
 
     render(){
         let _scope = this;
@@ -46,13 +43,6 @@ export default class MethodSection extends GlobalConst {
     }
 
 };
-
-// setTimeout(function(){
-//     methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
-//     setTimeout(function(){
-//         methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
-//     },5000);
-// },5000);
 
 
 /*
