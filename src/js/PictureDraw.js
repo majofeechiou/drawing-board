@@ -100,9 +100,22 @@ export default class PictureDraw extends GlobalConst {
 
 			});
 
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 
+			GloablTools.Emitter().on( 'method.cotroller.setting.operating', function(){
+				let _json = arguments[0];
+				console.log( _json.from, '===', _scope.getGlobalConst(_scope).ComponentId );
+				if( _json.from===_scope.getGlobalConst(_scope).ComponentId ){
+					_json.from =null;
+					delete _json.from;
+					console.log('---->>',_json.method);
+					stepMethod.pushStepMethod(_json);
+				}
+			});
 			_scope.getGlobalConst(_scope).emitter.on('step.method.pushing',function(){
+				console.log('---->',...arguments.method);
 				stepMethod.pushStepMethod(...arguments);
 			});
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 
 
 			_scope.getGlobalConst(_scope).emitter.on('step.method.splicing',function(){
 				stepMethod.spliceStepMethod(...arguments);
@@ -209,10 +222,6 @@ export default class PictureDraw extends GlobalConst {
 				let _str_from = _scope.getGlobalConst(_scope).ComponentId ;
 				GloablData.setFrom( _str_from );
 				GloablTools.Emitter().emit('method.setting.open.asked');
-			});
-
-			GloablTools.Emitter().on('method.cotroller.setting.operating', function(e){
-				console.log( 'arguments :: ', arguments );
 			});
 
 		}

@@ -3,7 +3,6 @@
 import Settings from './Settings';
 import Utils from './Utils';
 import Tools from './Tools';
-import GloablData from './GloablData';
 
 export default class StepMethod extends Tools {
 	constructor(json_tools){
@@ -29,7 +28,6 @@ export default class StepMethod extends Tools {
 		if( json!==undefined ){
 			json.method_id = json.method_id || Utils.createMethodId();
 			this.step_method.push( json );
-			console.log( 'this.step_method :: ', this.step_method );
 			this.getEmitter().emit('step.method.option.added', json);
 		}
 	}

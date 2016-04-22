@@ -37,6 +37,7 @@
     "html-webpack-plugin": "^1.7.0",
     "json-extend": "^0.1.0",
     "jsx-loader": "^0.13.2",
+    "md5": "^2.1.0",
     "object.assign": "^4.0.3",
     "postcss-calc": "^5.2.1",
     "postcss-color": "^1.0.1",

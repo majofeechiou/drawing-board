@@ -6,6 +6,7 @@ import React from 'react';
 import GloablTools from './GloablTools';
 import JsonExtend from 'JsonExtend';
 import Settings from './Settings';
+import GloablData from './GloablData';
 
 export default class MethodControlAlpha extends React.Component {
     constructor(props) {
@@ -37,6 +38,7 @@ export default class MethodControlAlpha extends React.Component {
         let _scope = this;
         let _num_range = _scope.refs.range.value;
         GloablTools.Emitter().emit( 'method.cotroller.setting.operating', {
+            from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
             setting: {
                 range: _num_range
