@@ -4,6 +4,8 @@
 
 import React from 'react';
 import GloablTools from './GloablTools';
+import JsonExtend from 'JsonExtend';
+import Settings from './Settings';
 
 export default class MethodControlAlpha extends React.Component {
     constructor(props) {
@@ -11,7 +13,12 @@ export default class MethodControlAlpha extends React.Component {
 
         this.arrangeProps( props );
 
-        this.tt = this.tt.bind(this);
+        this.handleChangeRange = this.handleChangeRange.bind(this);
+        this.submitAction = this.submitAction.bind(this);
+    }
+
+    getComponentMethod(){
+        return Settings.METHOD_ALPHA;
     }
 
     componentWillReceiveProps(nextProps){
@@ -20,42 +27,54 @@ export default class MethodControlAlpha extends React.Component {
 
     arrangeProps(json_next){
         if( this.state ){
-            this.setState( {methodStore:json_next.methodStore.getState()} );
+            this.setState( {setting:json_next.setting} );
         }else{
-            this.state = {methodStore:json_next.methodStore.getState()};
+            this.state = {setting:json_next.setting};
         }
     }
 
-    tt(){
+    submitAction(){
+        let _scope = this;
+        let _num_range = _scope.refs.range.value;
         GloablTools.Emitter().emit( 'method.cotroller.setting.operating', {
-            method: this.props.outputResult.method,
+            method: _scope.getComponentMethod(),
             setting: {
-                range: document.querySelectorAll('[name="alpha"]')[0].value
+                range: _num_range
             }
         } );
+    }
+
+    handleChangeRange(e) {
+        let _json_new = JsonExtend( this.state, {
+            setting: {
+                range: e.target.value
+            }
+        } );
+        this.setState( _json_new );
     }
 
     render(){
         let _scope = this;
         return (
             <div>
-                alpha
-                <input type="range" name="alpha" step="1" min="0" max="100"  /> / 100
-                <button onClick={_scope.tt}>確定</button>
+                <input
+                    type="range"
+                    ref="range"
+                    step="1"
+                    min="0"
+                    max="100"
+                    value={this.state.setting.range}
+                    onChange={this.handleChangeRange} /> {this.state.setting.range} / 100
+                <button onClick={_scope.submitAction}>確定</button>
             </div>
         );
     }
 
 };
 
-
-
-
-MethodControl.propTypes = {
+MethodControlAlpha.propTypes = {
     setting: React.PropTypes.object,
-    submitAction: React.PropTypes.func
 },
-MethodControl.defaultProps = {
+MethodControlAlpha.defaultProps = {
     setting: {},
-    submitAction: {}
 };

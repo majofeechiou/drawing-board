@@ -22,12 +22,12 @@ export default class MethodReact extends React.Component {
 
         this.default();
 
-        setTimeout(function(){
-            props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
-            setTimeout(function(){
-                props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
-            },2000);
-        },2000);
+        // setTimeout(function(){
+        //     props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
+        //     setTimeout(function(){
+        //         props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
+        //     },2000);
+        // },2000);
 
     }
 

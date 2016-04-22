@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import Settings from './Settings';
 import ReactSetting from './../../lib/react-group/js/Setting';
 import GloablTools from './GloablTools';
+import MethodControlAlpha from './MethodControlAlpha';
 
 export default class MethodControl extends React.Component {
     constructor(props) {
@@ -17,7 +18,6 @@ export default class MethodControl extends React.Component {
 
         this.arrangeProps( props );
 
-        this.tt = this.tt.bind(this);
     }
 
     componentWillReceiveProps(nextProps){
@@ -34,19 +34,12 @@ export default class MethodControl extends React.Component {
 
     arrangeProps(json_next){
         if( this.state ){
-            this.setState( {methodStore:json_next.methodStore.getState()} );
+            // this.setState( {methodStore:json_next.methodStore.getState()} );
+            this.setState( {} );
         }else{
-            this.state = {methodStore:json_next.methodStore.getState()};
+            // this.state = {methodStore:json_next.methodStore.getState()};
+            this.state = {};
         }
-    }
-
-    tt(){
-        GloablTools.Emitter().emit( 'method.cotroller.setting.operating', {
-            method: this.props.outputResult.method,
-            setting: {
-                range: document.querySelectorAll('[name="alpha"]')[0].value
-            }
-        } );
     }
 
     render(){
@@ -63,12 +56,13 @@ export default class MethodControl extends React.Component {
                 <div>dot</div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_ALPHA ){
+            let _json_setting = {
+                range: 100
+            };
             return (
-                <div>
-                    alpha
-                    <input type="range" name="alpha" step="1" min="0" max="100"  /> / 100
-                    <button onClick={_scope.tt}>確定</button>
-                </div>
+                <MethodControlAlpha
+                    methodStore={this.props.methodStore}
+                    setting={_json_setting} />
             );
         }else if( this.props.outputResult.method===Settings.METHOD_GRAY ){
             return (
@@ -98,9 +92,6 @@ export default class MethodControl extends React.Component {
     }
 
 };
-
-
-
 
 MethodControl.propTypes = {
     outputResult: React.PropTypes.object.isRequired,

@@ -3,6 +3,7 @@
 import Settings from './Settings';
 import Utils from './Utils';
 import Tools from './Tools';
+import GloablData from './GloablData';
 
 export default class StepMethod extends Tools {
 	constructor(json_tools){

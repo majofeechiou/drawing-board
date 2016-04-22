@@ -10889,9 +10889,29 @@
 	            sessionStorage.from = str || '';
 	        }
 	    }, {
+	        key: 'setStepMethod',
+	        value: function setStepMethod(sary) {
+	            sessionStorage.stepMethod = sary || [];
+	        }
+	    }, {
+	        key: 'setInitStepMethod',
+	        value: function setInitStepMethod(sary) {
+	            sessionStorage.initStepMethod = sary || [];
+	        }
+	    }, {
 	        key: 'getFrom',
 	        value: function getFrom() {
 	            return sessionStorage.from;
+	        }
+	    }, {
+	        key: 'getStepMethod',
+	        value: function getStepMethod() {
+	            return sessionStorage.stepMethod;
+	        }
+	    }, {
+	        key: 'getInitStepMethod',
+	        value: function getInitStepMethod() {
+	            return sessionStorage.initStepMethod;
 	        }
 	    }]);
 
@@ -23465,6 +23485,10 @@
 
 	var _GloablTools2 = _interopRequireDefault(_GloablTools);
 
+	var _MethodControlAlpha = __webpack_require__(211);
+
+	var _MethodControlAlpha2 = _interopRequireDefault(_MethodControlAlpha);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23479,13 +23503,12 @@
 	    function MethodControl(props) {
 	        _classCallCheck(this, MethodControl);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControl).call(this, props));
+	        // this.setComponentId( Utils.createUniqueId() );
 
-	        _this.setComponentId(_Utils2.default.createUniqueId());
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControl).call(this, props));
 
 	        _this.arrangeProps(props);
 
-	        _this.tt = _this.tt.bind(_this);
 	        return _this;
 	    }
 
@@ -23494,34 +23517,25 @@
 	        value: function componentWillReceiveProps(nextProps) {
 	            this.arrangeProps(nextProps);
 	        }
-	    }, {
-	        key: 'getComponentId',
-	        value: function getComponentId() {
-	            return this.component_id;
-	        }
-	    }, {
-	        key: 'setComponentId',
-	        value: function setComponentId(data) {
-	            this.component_id = data;
-	        }
+
+	        // getComponentId(){
+	        //     return this.component_id;
+	        // }
+
+	        // setComponentId( data ){
+	        //     this.component_id = data;
+	        // }
+
 	    }, {
 	        key: 'arrangeProps',
 	        value: function arrangeProps(json_next) {
 	            if (this.state) {
-	                this.setState({ methodStore: json_next.methodStore.getState() });
+	                // this.setState( {methodStore:json_next.methodStore.getState()} );
+	                this.setState({});
 	            } else {
-	                this.state = { methodStore: json_next.methodStore.getState() };
+	                // this.state = {methodStore:json_next.methodStore.getState()};
+	                this.state = {};
 	            }
-	        }
-	    }, {
-	        key: 'tt',
-	        value: function tt() {
-	            _GloablTools2.default.Emitter().emit('method.cotroller.setting.operating', {
-	                method: this.props.outputResult.method,
-	                setting: {
-	                    range: document.querySelectorAll('[name="alpha"]')[0].value
-	                }
-	            });
 	        }
 	    }, {
 	        key: 'render',
@@ -23543,18 +23557,12 @@
 	                    'dot'
 	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_ALPHA) {
-	                return _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    'alpha',
-	                    _react2.default.createElement('input', { type: 'range', name: 'alpha', step: '1', min: '0', max: '100' }),
-	                    ' / 100',
-	                    _react2.default.createElement(
-	                        'button',
-	                        { onClick: _scope.tt },
-	                        '確定'
-	                    )
-	                );
+	                var _json_setting = {
+	                    range: 100
+	                };
+	                return _react2.default.createElement(_MethodControlAlpha2.default, {
+	                    methodStore: this.props.methodStore,
+	                    setting: _json_setting });
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_GRAY) {
 	                return _react2.default.createElement(
 	                    'div',
@@ -23831,12 +23839,12 @@
 
 	        _this.default();
 
-	        setTimeout(function () {
-	            props.methodStore.dispatch({ type: 'METHOD_LOOKS_TEST' });
-	            setTimeout(function () {
-	                props.methodStore.dispatch({ type: 'METHOD_LOOKS_INIT' });
-	            }, 2000);
-	        }, 2000);
+	        // setTimeout(function(){
+	        //     props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
+	        //     setTimeout(function(){
+	        //         props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
+	        //     },2000);
+	        // },2000);
 
 	        return _this;
 	    }
@@ -24398,6 +24406,10 @@
 
 	var _Tools3 = _interopRequireDefault(_Tools2);
 
+	var _GloablData = __webpack_require__(96);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -24470,6 +24482,144 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(19);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(35);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _JsonExtend = __webpack_require__(188);
+
+	var _JsonExtend2 = _interopRequireDefault(_JsonExtend);
+
+	var _Settings = __webpack_require__(12);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControlAlpha = function (_React$Component) {
+	    _inherits(MethodControlAlpha, _React$Component);
+
+	    function MethodControlAlpha(props) {
+	        _classCallCheck(this, MethodControlAlpha);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlAlpha).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
+	        _this.submitAction = _this.submitAction.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(MethodControlAlpha, [{
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_ALPHA;
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next) {
+	            if (this.state) {
+	                this.setState({ setting: json_next.setting });
+	            } else {
+	                this.state = { setting: json_next.setting };
+	            }
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            var _num_range = _scope.refs.range.value;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.setting.operating', {
+	                method: _scope.getComponentMethod(),
+	                setting: {
+	                    range: _num_range
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'handleChangeRange',
+	        value: function handleChangeRange(e) {
+	            var _json_new = (0, _JsonExtend2.default)(this.state, {
+	                setting: {
+	                    range: e.target.value
+	                }
+	            });
+	            this.setState(_json_new);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('input', {
+	                    type: 'range',
+	                    ref: 'range',
+	                    step: '1',
+	                    min: '0',
+	                    max: '100',
+	                    value: this.state.setting.range,
+	                    onChange: this.handleChangeRange }),
+	                ' ',
+	                this.state.setting.range,
+	                ' / 100',
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: _scope.submitAction },
+	                    '確定'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlAlpha;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlAlpha;
+	;
+
+	MethodControlAlpha.propTypes = {
+	    setting: _react2.default.PropTypes.object
+	}, MethodControlAlpha.defaultProps = {
+	    setting: {}
+	};
 
 /***/ }
 /******/ ]);
