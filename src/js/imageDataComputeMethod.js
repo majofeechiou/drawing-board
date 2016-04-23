@@ -32,11 +32,6 @@ export default class ImageDataComputeMethod extends Tools {
 				_json_emit.origin_data = this.src ;
 				_json_emit.method = _scope.getPainterMethod() ;
 
-				// _scope.getEmitter().emit('step.image.success.loaded', {
-				// 	origin_data: this.src,
-				// 	method: _scope.getPainterMethod()
-				// });
-				
 				_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
 
 			}else{
@@ -81,7 +76,6 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// json_other : 會有 setting, control
 	changeData( str_painter_method, str_base64, json_other ){
-	// changeData( str_painter_method, str_base64 ){
 		let _scope = this;
 		_scope.painter_method = str_painter_method;
 		_scope.obj_image.src = str_base64;

@@ -101,7 +101,7 @@ export default class PictureDraw extends GlobalConst {
 			});
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 
-			GloablTools.Emitter().on( 'method.cotroller.control.operating', function(){
+			GloablTools.Emitter().on( 'method.cotroller.control.operating', function(){  // 新的設定的做法
 				let _json = arguments[0];
 				if( _json.from===_scope.getGlobalConst(_scope).ComponentId ){
 					_json.from =null;
@@ -109,7 +109,7 @@ export default class PictureDraw extends GlobalConst {
 					stepMethod.pushStepMethod(_json);
 				}
 			});
-			_scope.getGlobalConst(_scope).emitter.on('step.method.pushing',function(){
+			_scope.getGlobalConst(_scope).emitter.on('step.method.pushing',function(){  // 舊的下直式選單的做法
 				console.log('---->',...arguments.method);
 				stepMethod.pushStepMethod(...arguments);
 			});
@@ -194,7 +194,6 @@ export default class PictureDraw extends GlobalConst {
 
 				if( _str_timming===ImageDataComputeProcess.TIMMING_RESET ){
 					imageDataComputeMethod.changeData( '', _json_other.origin_data, {} );
-					// imageDataComputeMethod.changeData( '', _json_other.origin_data );
 				}else{
 					_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
 				}
@@ -209,15 +208,9 @@ export default class PictureDraw extends GlobalConst {
 				let _sary_step_image = imageDataComputeProcess.getStepImage(),
 					_json_data = _sary_step_image[_sary_step_image.length-1];
 
-				console.log( '******* ******* ******* ******* ******* ******* *******' );
-				console.log( '_json_data :: ', _json_data );
-				console.log( '_sary_step_method[_num_step_length] :: ', _sary_step_method[_num_step_length] );
-				console.log( '******* ******* ******* ******* ******* ******* *******' );
-
 				if( _num_step_length<_sary_step_method.length ){ 
 					// 先處理圖片
 					imageDataComputeMethod.changeData( _sary_step_method[_num_step_length].method, _json_data.data, _sary_step_method[_num_step_length] );
-					// imageDataComputeMethod.changeData( _sary_step_method[_num_step_length].method, _json_data.data );
 				}else{
 					// 圖片處理好了，我們現在要準備預覽
 					_scope.getGlobalConst(_scope).emitter.emit('step.image.final.step.computed', _json_data);
