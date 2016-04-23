@@ -25,6 +25,7 @@ export default class StepMethod extends Tools {
 	}
 
 	pushStepMethod( json ){
+		console.log( 'pushStepMethod -- json ::: ', json );
 		if( json!==undefined ){
 			json.method_id = json.method_id || Utils.createMethodId();
 			this.step_method.push( json );

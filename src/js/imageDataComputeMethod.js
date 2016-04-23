@@ -28,10 +28,16 @@ export default class ImageDataComputeMethod extends Tools {
 				_scope.setComputeWidth( _num_width ); // 在此先用圖片本身的長寬去做的
 				_scope.setComputeHeight( _num_height ); // 在此先用圖片本身的長寬去做的
 
-				_scope.getEmitter().emit('step.image.success.loaded', {
-					origin_data: this.src,
-					method: _scope.getPainterMethod()
-				});
+				let _json_emit = _scope.getOtherData();
+				_json_emit.origin_data = this.src ;
+				_json_emit.method = _scope.getPainterMethod() ;
+
+				// _scope.getEmitter().emit('step.image.success.loaded', {
+				// 	origin_data: this.src,
+				// 	method: _scope.getPainterMethod()
+				// });
+				
+				_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
 
 			}else{
 				console.log( '***' );
@@ -47,6 +53,10 @@ export default class ImageDataComputeMethod extends Tools {
 
 	}
 
+	getOtherData(){
+		let _scope = this;
+		return _scope.other_data;
+	}
 	getPainterMethod(){
 		let _scope = this;
 		return _scope.painter_method;
@@ -69,23 +79,35 @@ export default class ImageDataComputeMethod extends Tools {
 		this.compute_height = num || 0 ;
 	}
 
-	changeData( str_painter_method, str_base64 ){
+	// json_other : 會有 setting, control
+	changeData( str_painter_method, str_base64, json_other ){
+	// changeData( str_painter_method, str_base64 ){
 		let _scope = this;
 		_scope.painter_method = str_painter_method;
 		_scope.obj_image.src = str_base64;
+		_scope.other_data = json_other;
 	}
 
 	// 傳來什麼，就如實地回傳
 	methodOrigin( json ){
 		let _scope = this;
 		_scope.emitAfterMethod( json );
+	}
 
+	methodVars( json ){
+		json = json || {};
+		json.setting = json.setting || {} ;
+		json.control = json.control || {} ;
+		return json;
 	}
 
 	// 雪花
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
 	methodSnow( json ){
 		let _scope = this;
+		
+		json = _scope.methodVars( json );
+
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight();
 
@@ -116,6 +138,9 @@ export default class ImageDataComputeMethod extends Tools {
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
 	methodDot( json ){
 		let _scope = this;
+		
+		json = _scope.methodVars( json );
+
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight();
 
@@ -147,6 +172,11 @@ export default class ImageDataComputeMethod extends Tools {
 	methodAlpha( json ){
 		let _scope = this;
 
+		json = _scope.methodVars( json );
+
+		console.log( 'json ::::: ', json );
+		console.log( 'json.control.range ::::: ', json.control.range );
+
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight();
 
@@ -161,7 +191,7 @@ export default class ImageDataComputeMethod extends Tools {
           // Fourth bytes are alpha bytes
           // Test of alpha channel at 50%.
           // _json_image_data.data[i + 3] = 128;
-          _json_image_data.data[i + 3] = _json_image_data.data[i + 3]*0.5;
+          _json_image_data.data[i + 3] = _json_image_data.data[i + 3]*(json.control.range/100);
         }
 		_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
 
@@ -173,6 +203,8 @@ export default class ImageDataComputeMethod extends Tools {
 	// https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
 	methodGray( json ){
 		let _scope = this;
+		
+		json = _scope.methodVars( json );
 
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight();
@@ -222,6 +254,8 @@ export default class ImageDataComputeMethod extends Tools {
 	// http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
 	methodContrast( json ){
 		let _scope = this;
+		
+		json = _scope.methodVars( json );
 
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight();
@@ -244,9 +278,10 @@ export default class ImageDataComputeMethod extends Tools {
 	}
 
 	emitAfterMethod( json ){
-		json = json || {} ;
-
 		let _scope = this;
+		
+		json = _scope.methodVars( json );
+
 		let _data_url = _scope.obj_canvas.toDataURL();
 
 		let _json_emit = {

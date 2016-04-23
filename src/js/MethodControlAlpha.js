@@ -28,19 +28,19 @@ export default class MethodControlAlpha extends React.Component {
 
     arrangeProps(json_next){
         if( this.state ){
-            this.setState( {setting:json_next.setting} );
+            this.setState( {control:json_next.control} );
         }else{
-            this.state = {setting:json_next.setting};
+            this.state = {control:json_next.control};
         }
     }
 
     submitAction(){
         let _scope = this;
         let _num_range = _scope.refs.range.value;
-        GloablTools.Emitter().emit( 'method.cotroller.setting.operating', {
+        GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
             from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
-            setting: {
+            control: {
                 range: _num_range
             }
         } );
@@ -48,7 +48,7 @@ export default class MethodControlAlpha extends React.Component {
 
     handleChangeRange(e) {
         let _json_new = JsonExtend( this.state, {
-            setting: {
+            control: {
                 range: e.target.value
             }
         } );
@@ -65,8 +65,8 @@ export default class MethodControlAlpha extends React.Component {
                     step="1"
                     min="0"
                     max="100"
-                    value={this.state.setting.range}
-                    onChange={this.handleChangeRange} /> {this.state.setting.range} / 100
+                    value={this.state.control.range}
+                    onChange={this.handleChangeRange} /> {this.state.control.range} / 100
                 <button onClick={_scope.submitAction}>確定</button>
             </div>
         );
@@ -75,8 +75,8 @@ export default class MethodControlAlpha extends React.Component {
 };
 
 MethodControlAlpha.propTypes = {
-    setting: React.PropTypes.object,
+    control: React.PropTypes.object,
 },
 MethodControlAlpha.defaultProps = {
-    setting: {},
+    control: {},
 };

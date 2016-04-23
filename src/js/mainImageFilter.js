@@ -392,6 +392,8 @@ export default class MainImageFilter extends GlobalConst {
 			let _str_image_data = windowURL.createObjectURL(this.files[0]);
 			// scope_calss.setImageInitData( _str_image_data );
 
+			console.log('-- // --', scope_calss.getOutputImageSetting());
+
 			scope_calss.getEmitter().emit('origin.data.changed', {
 				origin_data: _str_image_data,
 				setting: scope_calss.getOutputImageSetting()

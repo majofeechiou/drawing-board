@@ -56,13 +56,13 @@ export default class MethodControl extends React.Component {
                 <div>dot</div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_ALPHA ){
-            let _json_setting = {
+            let _json_control = {
                 range: 100
             };
             return (
                 <MethodControlAlpha
                     methodStore={this.props.methodStore}
-                    setting={_json_setting} />
+                    control={_json_control} />
             );
         }else if( this.props.outputResult.method===Settings.METHOD_GRAY ){
             return (

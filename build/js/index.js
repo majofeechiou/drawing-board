@@ -22643,10 +22643,16 @@
 					_scope.setComputeWidth(_num_width); // 在此先用圖片本身的長寬去做的
 					_scope.setComputeHeight(_num_height); // 在此先用圖片本身的長寬去做的
 
-					_scope.getEmitter().emit('step.image.success.loaded', {
-						origin_data: this.src,
-						method: _scope.getPainterMethod()
-					});
+					var _json_emit = _scope.getOtherData();
+					_json_emit.origin_data = this.src;
+					_json_emit.method = _scope.getPainterMethod();
+
+					// _scope.getEmitter().emit('step.image.success.loaded', {
+					// 	origin_data: this.src,
+					// 	method: _scope.getPainterMethod()
+					// });
+
+					_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
 				} else {
 					console.log('***');
 				}
@@ -22662,6 +22668,12 @@
 		}
 
 		_createClass(ImageDataComputeMethod, [{
+			key: 'getOtherData',
+			value: function getOtherData() {
+				var _scope = this;
+				return _scope.other_data;
+			}
+		}, {
 			key: 'getPainterMethod',
 			value: function getPainterMethod() {
 				var _scope = this;
@@ -22696,12 +22708,17 @@
 			value: function setComputeHeight(num) {
 				this.compute_height = num || 0;
 			}
+
+			// json_other : 會有 setting, control
+
 		}, {
 			key: 'changeData',
-			value: function changeData(str_painter_method, str_base64) {
+			value: function changeData(str_painter_method, str_base64, json_other) {
+				// changeData( str_painter_method, str_base64 ){
 				var _scope = this;
 				_scope.painter_method = str_painter_method;
 				_scope.obj_image.src = str_base64;
+				_scope.other_data = json_other;
 			}
 
 			// 傳來什麼，就如實地回傳
@@ -22712,6 +22729,14 @@
 				var _scope = this;
 				_scope.emitAfterMethod(json);
 			}
+		}, {
+			key: 'methodVars',
+			value: function methodVars(json) {
+				json = json || {};
+				json.setting = json.setting || {};
+				json.control = json.control || {};
+				return json;
+			}
 
 			// 雪花
 			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
@@ -22720,6 +22745,9 @@
 			key: 'methodSnow',
 			value: function methodSnow(json) {
 				var _scope = this;
+
+				json = _scope.methodVars(json);
+
 				var _num_width = _scope.getComputeWidth(),
 				    _num_height = _scope.getComputeHeight();
 
@@ -22752,6 +22780,9 @@
 			key: 'methodDot',
 			value: function methodDot(json) {
 				var _scope = this;
+
+				json = _scope.methodVars(json);
+
 				var _num_width = _scope.getComputeWidth(),
 				    _num_height = _scope.getComputeHeight();
 
@@ -22785,6 +22816,11 @@
 			value: function methodAlpha(json) {
 				var _scope = this;
 
+				json = _scope.methodVars(json);
+
+				console.log('json ::::: ', json);
+				console.log('json.control.range ::::: ', json.control.range);
+
 				var _num_width = _scope.getComputeWidth(),
 				    _num_height = _scope.getComputeHeight();
 
@@ -22799,7 +22835,7 @@
 					// Fourth bytes are alpha bytes
 					// Test of alpha channel at 50%.
 					// _json_image_data.data[i + 3] = 128;
-					_json_image_data.data[i + 3] = _json_image_data.data[i + 3] * 0.5;
+					_json_image_data.data[i + 3] = _json_image_data.data[i + 3] * (json.control.range / 100);
 				}
 				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
 
@@ -22813,6 +22849,8 @@
 			key: 'methodGray',
 			value: function methodGray(json) {
 				var _scope = this;
+
+				json = _scope.methodVars(json);
 
 				var _num_width = _scope.getComputeWidth(),
 				    _num_height = _scope.getComputeHeight();
@@ -22864,6 +22902,8 @@
 			value: function methodContrast(json) {
 				var _scope = this;
 
+				json = _scope.methodVars(json);
+
 				var _num_width = _scope.getComputeWidth(),
 				    _num_height = _scope.getComputeHeight();
 
@@ -22886,9 +22926,10 @@
 		}, {
 			key: 'emitAfterMethod',
 			value: function emitAfterMethod(json) {
-				json = json || {};
-
 				var _scope = this;
+
+				json = _scope.methodVars(json);
+
 				var _data_url = _scope.obj_canvas.toDataURL();
 
 				var _json_emit = {
@@ -23702,6 +23743,8 @@
 					var _str_image_data = windowURL.createObjectURL(this.files[0]);
 					// scope_calss.setImageInitData( _str_image_data );
 
+					console.log('-- // --', scope_calss.getOutputImageSetting());
+
 					scope_calss.getEmitter().emit('origin.data.changed', {
 						origin_data: _str_image_data,
 						setting: scope_calss.getOutputImageSetting()
@@ -23896,12 +23939,12 @@
 	                    'dot'
 	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_ALPHA) {
-	                var _json_setting = {
+	                var _json_control = {
 	                    range: 100
 	                };
 	                return _react2.default.createElement(_MethodControlAlpha2.default, {
 	                    methodStore: this.props.methodStore,
-	                    setting: _json_setting });
+	                    control: _json_control });
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_GRAY) {
 	                return _react2.default.createElement(
 	                    'div',
@@ -24021,9 +24064,9 @@
 	        key: 'arrangeProps',
 	        value: function arrangeProps(json_next) {
 	            if (this.state) {
-	                this.setState({ setting: json_next.setting });
+	                this.setState({ control: json_next.control });
 	            } else {
-	                this.state = { setting: json_next.setting };
+	                this.state = { control: json_next.control };
 	            }
 	        }
 	    }, {
@@ -24031,10 +24074,10 @@
 	        value: function submitAction() {
 	            var _scope = this;
 	            var _num_range = _scope.refs.range.value;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.setting.operating', {
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
-	                setting: {
+	                control: {
 	                    range: _num_range
 	                }
 	            });
@@ -24043,7 +24086,7 @@
 	        key: 'handleChangeRange',
 	        value: function handleChangeRange(e) {
 	            var _json_new = (0, _JsonExtend2.default)(this.state, {
-	                setting: {
+	                control: {
 	                    range: e.target.value
 	                }
 	            });
@@ -24062,10 +24105,10 @@
 	                    step: '1',
 	                    min: '0',
 	                    max: '100',
-	                    value: this.state.setting.range,
+	                    value: this.state.control.range,
 	                    onChange: this.handleChangeRange }),
 	                ' ',
-	                this.state.setting.range,
+	                this.state.control.range,
 	                ' / 100',
 	                _react2.default.createElement(
 	                    'button',
@@ -24083,9 +24126,9 @@
 	;
 
 	MethodControlAlpha.propTypes = {
-	    setting: _react2.default.PropTypes.object
+	    control: _react2.default.PropTypes.object
 	}, MethodControlAlpha.defaultProps = {
-	    setting: {}
+	    control: {}
 	};
 
 /***/ },
@@ -24708,10 +24751,10 @@
 						var _num_width = imageDataComputeMethod.getComputeWidth();
 						var _num_height = imageDataComputeMethod.getComputeHeight();
 
-						_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', {
-							origin_data: _sary_step_data[_sary_step_data.length - 1].data, // 目前得到的最後一次運算結果
-							method: _json_data.method
-						});
+						console.log('_json_data ::::::: ', _json_data);
+						_json_data.origin_data = _sary_step_data[_sary_step_data.length - 1].data; // 目前得到的最後一次運算結果
+
+						_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', _json_data);
 					}
 				});
 
@@ -24744,13 +24787,11 @@
 				});
 
 				// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-				_GloablTools2.default.Emitter().on('method.cotroller.setting.operating', function () {
+				_GloablTools2.default.Emitter().on('method.cotroller.control.operating', function () {
 					var _json = arguments[0];
-					console.log(_json.from, '===', _scope.getGlobalConst(_scope).ComponentId);
 					if (_json.from === _scope.getGlobalConst(_scope).ComponentId) {
 						_json.from = null;
 						delete _json.from;
-						console.log('---->>', _json.method);
 						stepMethod.pushStepMethod(_json);
 					}
 				});
@@ -24800,6 +24841,9 @@
 					var _json = arguments[0],
 					    _str_method = _json.method;
 
+					console.log('= = = = = = = = = = _json ', _json);
+					console.log('= = = = = = = = = = stepMethod.getStepMethod() ', stepMethod.getStepMethod());
+
 					if (_str_method === _Settings2.default.METHOD_SNOW) {
 						imageDataComputeMethod.methodSnow(_json);
 					} else if (_str_method === _Settings2.default.METHOD_DOT) {
@@ -24831,10 +24875,11 @@
 					    _json_other = arguments[1] || {};
 
 					if (_str_timming === _ImageDataComputeProcess2.default.TIMMING_RESET) {
-						imageDataComputeMethod.changeData('', _json_other.origin_data);
+						imageDataComputeMethod.changeData('', _json_other.origin_data, {});
+						// imageDataComputeMethod.changeData( '', _json_other.origin_data );
 					} else {
-						_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
-					}
+							_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
+						}
 				});
 
 				_scope.getGlobalConst(_scope).emitter.on('step.image.pushed', function (e) {
@@ -24846,14 +24891,20 @@
 					var _sary_step_image = imageDataComputeProcess.getStepImage(),
 					    _json_data = _sary_step_image[_sary_step_image.length - 1];
 
+					console.log('******* ******* ******* ******* ******* ******* *******');
+					console.log('_json_data :: ', _json_data);
+					console.log('_sary_step_method[_num_step_length] :: ', _sary_step_method[_num_step_length]);
+					console.log('******* ******* ******* ******* ******* ******* *******');
+
 					if (_num_step_length < _sary_step_method.length) {
 						// 先處理圖片
-						imageDataComputeMethod.changeData(_sary_step_method[_num_step_length].method, _json_data.data);
+						imageDataComputeMethod.changeData(_sary_step_method[_num_step_length].method, _json_data.data, _sary_step_method[_num_step_length]);
+						// imageDataComputeMethod.changeData( _sary_step_method[_num_step_length].method, _json_data.data );
 					} else {
-						// 圖片處理好了，我們現在要準備預覽
-						_scope.getGlobalConst(_scope).emitter.emit('step.image.final.step.computed', _json_data);
-						console.log('******************* 預覽圖片!! *******************');
-					}
+							// 圖片處理好了，我們現在要準備預覽
+							_scope.getGlobalConst(_scope).emitter.emit('step.image.final.step.computed', _json_data);
+							console.log('******************* 預覽圖片!! *******************');
+						}
 				});
 
 				_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function (e) {
@@ -24931,6 +24982,7 @@
 		}, {
 			key: 'pushStepMethod',
 			value: function pushStepMethod(json) {
+				console.log('pushStepMethod -- json ::: ', json);
 				if (json !== undefined) {
 					json.method_id = json.method_id || _Utils2.default.createMethodId();
 					this.step_method.push(json);
