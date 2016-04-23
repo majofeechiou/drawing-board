@@ -23,6 +23,7 @@ export default class ImageDataComputeMethod extends Tools {
 				let _num_height = this.height;
 				_scope.obj_canvas.width = _num_width ;
 				_scope.obj_canvas.height = _num_height ;
+				_scope.obj_canvas_2d.clearRect( 0, 0, _num_width, _num_height );
 				_scope.obj_canvas_2d.drawImage(this, 0, 0, _num_width, _num_height);
 
 				_scope.setComputeWidth( _num_width ); // 在此先用圖片本身的長寬去做的
@@ -77,38 +78,71 @@ export default class ImageDataComputeMethod extends Tools {
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-	// 雪花
-	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
-	methodSnow( json ){
-		let _scope = this;
+	// // 雪花
+	// // https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
+	// methodSnow( json ){
+	// 	let _scope = this;
 		
-		json = _scope.methodVars( json );
+	// 	json = _scope.methodVars( json );
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight();
+	// 	let _num_width = _scope.getComputeWidth(),
+	// 		_num_height = _scope.getComputeHeight();
 
-		let x,
-			y;
+	// 	let x,
+	// 		y;
 
-		// Draw snowflakes. // 雪花
-		for (let i = 0; i <= 500; i++) {
-			// Get random positions for flakes.
-			x = Math.floor(Math.random() * _num_width);
-			y = Math.floor(Math.random() * _num_height);
+	// 	// Draw snowflakes. // 雪花
+	// 	for (let i = 0; i <= 500; i++) {
+	// 		// Get random positions for flakes.
+	// 		x = Math.floor(Math.random() * _num_width);
+	// 		y = Math.floor(Math.random() * _num_height);
 
-			// Make the flakes white
-			_scope.obj_canvas_2d.fillStyle = "white";
+	// 		// Make the flakes white
+	// 		_scope.obj_canvas_2d.fillStyle = "white";
 
-			// Draw an individual flakes.
-			_scope.obj_canvas_2d.beginPath();
-			_scope.obj_canvas_2d.arc(x, y, 3, 0, Math.PI * 2, true);
-			_scope.obj_canvas_2d.closePath();
-			_scope.obj_canvas_2d.fill();
-		}
+	// 		// Draw an individual flakes.
+	// 		_scope.obj_canvas_2d.beginPath();
+	// 		_scope.obj_canvas_2d.arc(x, y, 3, 0, Math.PI * 2, true);
+	// 		_scope.obj_canvas_2d.closePath();
+	// 		_scope.obj_canvas_2d.fill();
+	// 	}
 
-		_scope.emitAfterMethod( json );
+	// 	_scope.emitAfterMethod( json );
 
-	}
+	// }
+
+	// // 在照片中添加纹理
+	// // https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
+	// methodDot( json ){
+	// 	let _scope = this;
+		
+	// 	json = _scope.methodVars( json );
+
+	// 	let _num_width = _scope.getComputeWidth(),
+	// 		_num_height = _scope.getComputeHeight();
+
+	// 	let x,
+	// 		y;
+
+	// 	// Draw snowflakes. // 雪花
+	// 	for (let i = 0; i <= 150; i++) {
+	// 		// Get random positions for flakes.
+	// 		x = Math.floor(Math.random() * _num_width);
+	// 		y = Math.floor(Math.random() * _num_height);
+
+	// 		// Make the flakes white
+	// 		_scope.obj_canvas_2d.fillStyle = "black";
+
+	// 		// Draw an individual flakes.
+	// 		_scope.obj_canvas_2d.beginPath();
+	// 		_scope.obj_canvas_2d.arc(x, y, 5, 0, Math.PI * 2, true);
+	// 		_scope.obj_canvas_2d.closePath();
+	// 		_scope.obj_canvas_2d.fill();
+	// 	}
+
+	// 	_scope.emitAfterMethod( json );
+		
+	// }
 
 	// 在照片中添加纹理
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
@@ -116,28 +150,45 @@ export default class ImageDataComputeMethod extends Tools {
 		let _scope = this;
 		
 		json = _scope.methodVars( json );
+		json.control.created = [];
 
 		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight();
+			_num_height = _scope.getComputeHeight(),
+			_json_control = json.control,
+			_num_size_min = _json_control.minSize,
+			_num_size_max = _json_control.maxSize,
+			_num_size,
+			_num_total = Math.floor(_num_width*_num_height/_num_size_max/_num_size_max/100*_json_control.frequency);
 
 		let x,
 			y;
+		console.log( '_num_total ::: ', _num_total );
+		console.log( '_json_control ::: ', _json_control );
+
+		_scope.obj_canvas_2d.fillStyle = _json_control.color;
 
 		// Draw snowflakes. // 雪花
-		for (let i = 0; i <= 150; i++) {
+		for (let i = 0; i <= _num_total; i++) {
 			// Get random positions for flakes.
 			x = Math.floor(Math.random() * _num_width);
 			y = Math.floor(Math.random() * _num_height);
 
-			// Make the flakes white
-			_scope.obj_canvas_2d.fillStyle = "black";
+			_num_size = parseInt(_num_size_min, 10) + Math.floor( ( _num_size_max-_num_size_min )*Math.random() );
 
 			// Draw an individual flakes.
 			_scope.obj_canvas_2d.beginPath();
-			_scope.obj_canvas_2d.arc(x, y, 5, 0, Math.PI * 2, true);
+			_scope.obj_canvas_2d.arc(x, y, _num_size, 0, Math.PI * 2, true);
 			_scope.obj_canvas_2d.closePath();
 			_scope.obj_canvas_2d.fill();
+
+			json.control.created.push({
+				x,
+				y,
+				size: _num_size
+			});
 		}
+
+		console.log( 'json :::: ', json );
 
 		_scope.emitAfterMethod( json );
 		
@@ -305,6 +356,12 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	// clearCanvas(){
+	// 	let _num_width = this.getComputeWidth(),
+	// 		_num_height = this.getComputeHeight();
+	// 	this.obj_canvas_2d.clearRect( 0, 0, _num_width, _num_height );
+	// }
 
 	// json_other : 會有 setting, control
 	changeData( str_painter_method, str_base64, json_other ){

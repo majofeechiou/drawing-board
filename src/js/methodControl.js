@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import Settings from './Settings';
 import ReactSetting from './../../lib/react-group/js/Setting';
 import GloablTools from './GloablTools';
+import MethodControlDot from './MethodControlDot';
 import MethodControlAlpha from './MethodControlAlpha';
 import MethodControlSaturate from './MethodControlSaturate';
 import MethodControlContrast from './MethodControlContrast';
@@ -48,13 +49,18 @@ export default class MethodControl extends React.Component {
         let _scope = this;
         let _json_control = {};
 
-        if( this.props.outputResult.method===Settings.METHOD_SNOW ){
+        if( this.props.outputResult.method===Settings.METHOD_DOT ){
+            _json_control = {
+                frequency: 20,
+                minSize: 2,
+                maxSize: 8,
+                alpha: 100,
+                color: '#900' // #hex
+            };
             return (
-                <div>snow</div>
-            );
-        }else if( this.props.outputResult.method===Settings.METHOD_DOT ){
-            return (
-                <div>dot</div>
+                <MethodControlDot
+                    methodStore={this.props.methodStore}
+                    control={_json_control} />
             );
         }else if( this.props.outputResult.method===Settings.METHOD_ALPHA ){
             _json_control = {

@@ -89,6 +89,9 @@ export default class PictureDraw extends GlobalConst {
 
 					let _num_new_step_data_length = _sary_new_step_data.length;
 
+					console.log( '_sary_new_step_data :: ', _sary_new_step_data );
+					console.log( '_sary_step_data :: ', _sary_step_data );
+
 					if( _num_new_step_data_length<_sary_step_data.length ){
 						imageDataComputeProcess.setStepImage( _sary_new_step_data );
 					}
@@ -151,17 +154,13 @@ export default class PictureDraw extends GlobalConst {
 				let _json = arguments[0],
 					_str_method = _json.method;
 
-				if( _str_method===Settings.METHOD_SNOW ){
-					imageDataComputeMethod.methodSnow( _json );
-
-				}else if( _str_method===Settings.METHOD_DOT ){
+				if( _str_method===Settings.METHOD_DOT ){
 					imageDataComputeMethod.methodDot( _json );
 
 				}else if( _str_method===Settings.METHOD_ALPHA ){
 					imageDataComputeMethod.methodAlpha( _json );
 
 				}else if( _str_method===Settings.METHOD_SATURATE ){
-					console.log( '------ METHOD_SATURATE ------' );
 					imageDataComputeMethod.methodSaturate( _json );
 
 				}else if( _str_method===Settings.METHOD_CONTRAST ){

@@ -36,13 +36,10 @@ export default class MethodControlSaturate extends React.Component {
 
     submitAction(){
         let _scope = this;
-        let _num_range = _scope.refs.range.value;
         GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
             from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
-            control: {
-                range: _num_range
-            }
+            control: _scope.state.control
         } );
     }
 

@@ -7,7 +7,7 @@ export default class Utils{
         return Date.now();
     }
     static createUniqueId = function(){
-        return Md5(Math.floor(Math.random()*1000));
+        return Md5(Math.floor(Math.random()*100))+Math.floor(Math.random()*1000);
     }
 	static createMethodId = function(){
 		return Date.now()+'-'+Math.floor(Math.random()*100);

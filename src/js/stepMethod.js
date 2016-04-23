@@ -19,6 +19,8 @@ export default class StepMethod extends Tools {
 		this.step_method = this.init_step_method.concat( _sary_step_method_other );
 		this.setEmitter( json_tools.emitter );
 
+		window.step_method = this.step_method;
+
 	}
 
 	getStepMethod(){

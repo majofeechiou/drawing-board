@@ -2,11 +2,11 @@
 
 export default class Settings {
 
-	static METHOD_SNOW = 'SNOW';
-	static METHOD_SNOW_NAME = '雪花';
+	// static METHOD_SNOW = 'SNOW';
+	// static METHOD_SNOW_NAME = '雪花';
 
 	static METHOD_DOT = 'DOT';
-	static METHOD_DOT_NAME = '黑點';
+	static METHOD_DOT_NAME = '雜點';
 
 	static METHOD_ALPHA = 'ALPHA';
 	static METHOD_ALPHA_NAME = '透明';

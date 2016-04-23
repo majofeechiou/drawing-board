@@ -18,7 +18,7 @@ import Utils from "./Utils";
 	
 	let pictureDraw = new PictureDraw( _obj_main[0], Utils.createUniqueId() );
 
-    new PictureDraw( _obj_main[1], Utils.createUniqueId() ); 
-	new PictureDraw( _obj_main[2], Utils.createUniqueId() ); 
+ //    new PictureDraw( _obj_main[1], Utils.createUniqueId() ); 
+	// new PictureDraw( _obj_main[2], Utils.createUniqueId() ); 
 
 })();

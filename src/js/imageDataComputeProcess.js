@@ -29,6 +29,8 @@ export default class ImageDataComputeProcess extends Tools {
 
 		_scope.getEmitter().emit('step.image.seted', str_timmimg, json_other);
 
+		window.step_image = this.step_image;
+
 	}
 
 	pushStepData( json_data, sary_step_method ){
