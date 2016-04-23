@@ -18,6 +18,7 @@ export default class StepMethod extends Tools {
 
 		this.step_method = this.init_step_method.concat( _sary_step_method_other );
 		this.setEmitter( json_tools.emitter );
+
 	}
 
 	getStepMethod(){
@@ -25,11 +26,13 @@ export default class StepMethod extends Tools {
 	}
 
 	pushStepMethod( json ){
-		console.log( 'pushStepMethod -- json ::: ', json );
+		let _scope = this ;
 		if( json!==undefined ){
 			json.method_id = json.method_id || Utils.createMethodId();
-			this.step_method.push( json );
-			this.getEmitter().emit('step.method.option.added', json);
+			_scope.step_method.push( json );
+			setTimeout(function(){
+				_scope.getEmitter().emit('step.method.option.added', json);
+			},100);
 		}
 	}
 

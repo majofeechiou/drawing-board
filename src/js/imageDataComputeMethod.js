@@ -235,8 +235,6 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_height = _scope.getComputeHeight(),
 			_num_range = json.control.range;
 
-		console.log( '_num_range :: ', _num_range );
-
         let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
 
 		let _num_red,
@@ -253,10 +251,6 @@ export default class ImageDataComputeMethod extends Tools {
 				_num_blue = _json_image_data.data[i + 2];
 
 				_json_rgb = _scope.operateSaturateRGB( _num_range, _num_red, _num_green, _num_blue );
-
-				if( i<=40 ){
-					console.log( '_json_rgb :: ', _json_rgb );
-				}
 
 				_json_image_data.data[i] = _json_rgb.red;
 				_json_image_data.data[i + 1] = _json_rgb.green;
@@ -281,8 +275,6 @@ export default class ImageDataComputeMethod extends Tools {
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight(),
 			_num_range = json.control.range;
-
-		console.log( '_num_range :: ', _num_range );
 
         let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
 
@@ -398,9 +390,9 @@ export default class ImageDataComputeMethod extends Tools {
 			};
 		}else{
 			_json_output = {
-				red: _num_contrast_base + (num_red-_num_contrast_base) + Math.floor( (_num_red_end-num_red)*(num_range/100) ),
-				green: _num_contrast_base + (num_green-_num_contrast_base) + Math.floor( (_num_green_end-num_green)*(num_range/100) ),
-				blue: _num_contrast_base + (num_blue-_num_contrast_base) + Math.floor( (_num_blue_end-num_blue)*(num_range/100) )
+				red: num_red + Math.floor( (_num_red_end-num_red)*(num_range/100)/2 ),
+				green: num_green + Math.floor( (_num_green_end-num_green)*(num_range/100)/2 ),
+				blue: num_blue + Math.floor( (_num_blue_end-num_blue)*(num_range/100)/2 )
 			};
 		}
 		_json_output.red = this.checkColorRange( _json_output.red );

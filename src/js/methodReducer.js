@@ -37,8 +37,6 @@ let _json_state_test = {
 };
 
 export default function MethodReducer(state = _json_state_init, action) {
-    // console.log('state :: ', state);
-    // console.log('action :: ', action);
     switch (action.type) {
         case 'METHOD_LOOKS_INIT':
             return state = _json_state_init ;

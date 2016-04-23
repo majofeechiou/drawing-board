@@ -35,7 +35,6 @@ export default class MethodReact extends React.Component {
         let _scope = this ;
         GloablTools.Emitter().on('method.setting.opening', function(){
             let _str_from = GloablData.getFrom();
-            console.log( '_str_from ::　', _str_from );
             _scope.arrangeStates( _scope.getDefaultMethod() );
         });
     }
