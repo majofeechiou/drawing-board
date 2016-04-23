@@ -19,8 +19,8 @@ export default class MethodSettings {
 			    method_name: Settings.METHOD_DOT_NAME
 			},
 			{
-			    method: Settings.METHOD_GRAY,
-			    method_name: Settings.METHOD_GRAY_NAME
+			    method: Settings.METHOD_SATURATE,
+			    method_name: Settings.METHOD_SATURATE_NAME
 			},
 			{
 			    method: Settings.METHOD_CONTRAST,

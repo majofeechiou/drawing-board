@@ -11,8 +11,8 @@ export default class Settings {
 	static METHOD_ALPHA = 'ALPHA';
 	static METHOD_ALPHA_NAME = '透明';
 
-	static METHOD_GRAY = 'GRAY';
-	static METHOD_GRAY_NAME = '灰階';
+	static METHOD_SATURATE = 'SATURATE';
+	static METHOD_SATURATE_NAME = '彩度';
 
 	static METHOD_BRIGHTNESS = 'BRIGHTNESS';
 	static METHOD_BRIGHTNESS_NAME = '亮度';

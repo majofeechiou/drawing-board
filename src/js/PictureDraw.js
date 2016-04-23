@@ -61,7 +61,6 @@ export default class PictureDraw extends GlobalConst {
 					let _num_width = imageDataComputeMethod.getComputeWidth();
 					let _num_height = imageDataComputeMethod.getComputeHeight();
 
-					console.log( '_json_data ::::::: ', _json_data );
 					_json_data.origin_data = _sary_step_data[(_sary_step_data.length-1)].data; // 目前得到的最後一次運算結果
 
 					_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', _json_data);
@@ -110,7 +109,6 @@ export default class PictureDraw extends GlobalConst {
 				}
 			});
 			_scope.getGlobalConst(_scope).emitter.on('step.method.pushing',function(){  // 舊的下直式選單的做法
-				console.log('---->',...arguments.method);
 				stepMethod.pushStepMethod(...arguments);
 			});
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 
@@ -153,9 +151,6 @@ export default class PictureDraw extends GlobalConst {
 				let _json = arguments[0],
 					_str_method = _json.method;
 
-				console.log( '= = = = = = = = = = _json ', _json );
-				console.log( '= = = = = = = = = = stepMethod.getStepMethod() ', stepMethod.getStepMethod() );
-
 				if( _str_method===Settings.METHOD_SNOW ){
 					imageDataComputeMethod.methodSnow( _json );
 
@@ -165,8 +160,9 @@ export default class PictureDraw extends GlobalConst {
 				}else if( _str_method===Settings.METHOD_ALPHA ){
 					imageDataComputeMethod.methodAlpha( _json );
 
-				}else if( _str_method===Settings.METHOD_GRAY ){
-					imageDataComputeMethod.methodGray( _json );
+				}else if( _str_method===Settings.METHOD_SATURATE ){
+					console.log( '------ METHOD_SATURATE ------' );
+					imageDataComputeMethod.methodSaturate( _json );
 
 				}else if( _str_method===Settings.METHOD_CONTRAST ){
 					imageDataComputeMethod.methodContrast( _json );

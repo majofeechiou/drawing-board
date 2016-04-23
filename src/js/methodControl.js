@@ -9,6 +9,8 @@ import Settings from './Settings';
 import ReactSetting from './../../lib/react-group/js/Setting';
 import GloablTools from './GloablTools';
 import MethodControlAlpha from './MethodControlAlpha';
+import MethodControlSaturate from './MethodControlSaturate';
+import MethodControlContrast from './MethodControlContrast';
 
 export default class MethodControl extends React.Component {
     constructor(props) {
@@ -43,9 +45,8 @@ export default class MethodControl extends React.Component {
     }
 
     render(){
-        console.log('MethodControl -- render');
-
         let _scope = this;
+        let _json_control = {};
 
         if( this.props.outputResult.method===Settings.METHOD_SNOW ){
             return (
@@ -56,7 +57,7 @@ export default class MethodControl extends React.Component {
                 <div>dot</div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_ALPHA ){
-            let _json_control = {
+            _json_control = {
                 range: 100
             };
             return (
@@ -64,13 +65,23 @@ export default class MethodControl extends React.Component {
                     methodStore={this.props.methodStore}
                     control={_json_control} />
             );
-        }else if( this.props.outputResult.method===Settings.METHOD_GRAY ){
+        }else if( this.props.outputResult.method===Settings.METHOD_SATURATE ){
+            _json_control = {
+                range: 0
+            };
             return (
-                <div>gray</div>
+                <MethodControlSaturate
+                    methodStore={this.props.methodStore}
+                    control={_json_control} />
             );
         }else if( this.props.outputResult.method===Settings.METHOD_CONTRAST ){
+            _json_control = {
+                range: 0
+            };
             return (
-                <div>contrast</div>
+                <MethodControlContrast
+                    methodStore={this.props.methodStore}
+                    control={_json_control} />
             );
         }else{
             return (

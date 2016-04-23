@@ -74,26 +74,8 @@ export default class ImageDataComputeMethod extends Tools {
 		this.compute_height = num || 0 ;
 	}
 
-	// json_other : 會有 setting, control
-	changeData( str_painter_method, str_base64, json_other ){
-		let _scope = this;
-		_scope.painter_method = str_painter_method;
-		_scope.obj_image.src = str_base64;
-		_scope.other_data = json_other;
-	}
-
-	// 傳來什麼，就如實地回傳
-	methodOrigin( json ){
-		let _scope = this;
-		_scope.emitAfterMethod( json );
-	}
-
-	methodVars( json ){
-		json = json || {};
-		json.setting = json.setting || {} ;
-		json.control = json.control || {} ;
-		return json;
-	}
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	// 雪花
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
@@ -168,11 +150,9 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json = _scope.methodVars( json );
 
-		console.log( 'json ::::: ', json );
-		console.log( 'json.control.range ::::: ', json.control.range );
-
 		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight();
+			_num_height = _scope.getComputeHeight(),
+			_num_range = json.control.range;
 
         let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
 
@@ -185,7 +165,7 @@ export default class ImageDataComputeMethod extends Tools {
           // Fourth bytes are alpha bytes
           // Test of alpha channel at 50%.
           // _json_image_data.data[i + 3] = 128;
-          _json_image_data.data[i + 3] = _json_image_data.data[i + 3]*(json.control.range/100);
+          _json_image_data.data[i + 3] = _json_image_data.data[i + 3]*(_num_range/100);
         }
 		_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
 
@@ -244,31 +224,115 @@ export default class ImageDataComputeMethod extends Tools {
 
 	}
 
+	// 彩度（飽和度）
+	// 拿這個網址來改的https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
+	methodSaturate( json ){
+		let _scope = this;
+		
+		json = _scope.methodVars( json );
+
+		let _num_width = _scope.getComputeWidth(),
+			_num_height = _scope.getComputeHeight(),
+			_num_range = json.control.range;
+
+		console.log( '_num_range :: ', _num_range );
+
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+
+		let _num_red,
+			_num_green,
+			_num_blue,
+			_json_rgb = {};
+
+		if( _num_range>0 || _num_range<0 ){
+	        // Loop through data.
+	        for (var i = 0; i < (_num_width*_num_height*4); i += 4) {
+
+				_num_red = _json_image_data.data[i];
+				_num_green = _json_image_data.data[i + 1];
+				_num_blue = _json_image_data.data[i + 2];
+
+				_json_rgb = _scope.operateSaturateRGB( _num_range, _num_red, _num_green, _num_blue );
+
+				if( i<=40 ){
+					console.log( '_json_rgb :: ', _json_rgb );
+				}
+
+				_json_image_data.data[i] = _json_rgb.red;
+				_json_image_data.data[i + 1] = _json_rgb.green;
+				_json_image_data.data[i + 2] = _json_rgb.blue;
+
+	        }
+		}
+
+		_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+		_scope.emitAfterMethod( json );
+
+	}
+
 	// 對比
-	// http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
+	// 其實有另外這兒的可以參考，但我沒用 http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
 	methodContrast( json ){
 		let _scope = this;
 		
 		json = _scope.methodVars( json );
 
 		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight();
+			_num_height = _scope.getComputeHeight(),
+			_num_range = json.control.range;
+
+		console.log( '_num_range :: ', _num_range );
 
         let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
 
-        let contrast = -50;
+        let _num_red,
+        	_num_green,
+        	_num_blue,
+        	_json_rgb = {};
 
-	    var factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+        if( _num_range>0 || _num_range<0 ){
+		    for(var i=0;i<_json_image_data.data.length;i+=4){
 
-	    for(var i=0;i<_json_image_data.data.length;i+=4){
-	        _json_image_data.data[i] = factor * (_json_image_data.data[i] - 128) + 128;
-	        _json_image_data.data[i+1] = factor * (_json_image_data.data[i+1] - 128) + 128;
-	        _json_image_data.data[i+2] = factor * (_json_image_data.data[i+2] - 128) + 128;
-	    }
+				_num_red = _json_image_data.data[i];
+				_num_green = _json_image_data.data[i + 1];
+				_num_blue = _json_image_data.data[i + 2];
+
+		        _json_rgb = _scope.operateContrastRGB( _num_range, _num_red, _num_green, _num_blue );
+
+		        _json_image_data.data[i] = _json_rgb.red;
+		        _json_image_data.data[i + 1] = _json_rgb.green;
+		        _json_image_data.data[i + 2] = _json_rgb.blue;
+		    }
+		}
 	    
 	    _scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
 
 	    _scope.emitAfterMethod( json );
+	}
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	// json_other : 會有 setting, control
+	changeData( str_painter_method, str_base64, json_other ){
+		let _scope = this;
+		_scope.painter_method = str_painter_method;
+		_scope.obj_image.src = str_base64;
+		_scope.other_data = json_other;
+	}
+
+	// 傳來什麼，就如實地回傳
+	methodOrigin( json ){
+		let _scope = this;
+		_scope.emitAfterMethod( json );
+	}
+
+	methodVars( json ){
+		json = json || {};
+		json.setting = json.setting || {} ;
+		json.control = json.control || {} ;
+		return json;
 	}
 
 	emitAfterMethod( json ){
@@ -289,6 +353,65 @@ export default class ImageDataComputeMethod extends Tools {
 		}
 
 		_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+	}
+
+	operateSaturateRGB( num_range, num_red, num_green, num_blue ){
+		let _num_saturate_min =  Math.floor((num_red + num_green + num_blue) / 3); // 全灰階
+		let _json_output = {} ;
+		if( num_range<0 ){
+			_json_output = {
+				red: _num_saturate_min + Math.floor( ( num_red-_num_saturate_min ) * (1-Math.abs(num_range/100) ) ),
+				green: _num_saturate_min + Math.floor( ( num_green-_num_saturate_min ) * (1-Math.abs(num_range/100) ) ),
+				blue: _num_saturate_min + Math.floor( ( num_blue-_num_saturate_min ) * (1-Math.abs(num_range/100) ) )
+			};
+		}else{
+			_json_output = {
+				red: num_red + Math.floor( ( num_red-_num_saturate_min ) * (num_range/100) ),
+				green: num_green + Math.floor( ( num_green-_num_saturate_min ) * (num_range/100) ),
+				blue: num_blue + Math.floor( ( num_blue-_num_saturate_min ) * (num_range/100) )
+			};
+		}
+
+		_json_output.red = this.checkColorRange( _json_output.red );
+		_json_output.green = this.checkColorRange( _json_output.green );
+		_json_output.blue = this.checkColorRange( _json_output.blue );
+		return _json_output;
+	}
+
+	operateContrastRGB( num_range, num_red, num_green, num_blue ){
+		let _num_contrast_base =  128;
+		let _json_output = {} ;
+
+		let _bln_red_bigger = (num_red>_num_contrast_base);
+		let _bln_green_bigger = (num_green>_num_contrast_base);
+		let _bln_blue_bigger = (num_blue>_num_contrast_base);
+
+		let _num_red_end = (num_red>_num_contrast_base)? 255 : 0 ;
+		let _num_green_end = (num_green>_num_contrast_base)? 255 : 0 ;
+		let _num_blue_end = (num_blue>_num_contrast_base)? 255 : 0 ;
+
+		if( num_range<0 ){ // ok
+			_json_output = {
+				red: _num_contrast_base + Math.floor( (num_red-_num_contrast_base)*(1-Math.abs(num_range/100)) ),
+				green: _num_contrast_base + Math.floor( (num_green-_num_contrast_base)*(1-Math.abs(num_range/100)) ),
+				blue: _num_contrast_base + Math.floor( (num_blue-_num_contrast_base)*(1-Math.abs(num_range/100)) )
+			};
+		}else{
+			_json_output = {
+				red: _num_contrast_base + (num_red-_num_contrast_base) + Math.floor( (_num_red_end-num_red)*(num_range/100) ),
+				green: _num_contrast_base + (num_green-_num_contrast_base) + Math.floor( (_num_green_end-num_green)*(num_range/100) ),
+				blue: _num_contrast_base + (num_blue-_num_contrast_base) + Math.floor( (_num_blue_end-num_blue)*(num_range/100) )
+			};
+		}
+		_json_output.red = this.checkColorRange( _json_output.red );
+		_json_output.green = this.checkColorRange( _json_output.green );
+		_json_output.blue = this.checkColorRange( _json_output.blue );
+		return _json_output;
+
+	}
+
+	checkColorRange( num ){
+		return ( num>255 )? 255 : ( ( num<0 )? 0 : num );
 	}
 
 }
