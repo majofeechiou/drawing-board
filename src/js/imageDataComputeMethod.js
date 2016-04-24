@@ -1,5 +1,6 @@
 'use strict';
 import Tools from './Tools';
+import HexRgb from 'hex-rgb';
 
 // 運算的方式
 export default class ImageDataComputeMethod extends Tools {
@@ -150,7 +151,9 @@ export default class ImageDataComputeMethod extends Tools {
 		let _scope = this;
 		
 		json = _scope.methodVars( json );
-		json.control.created = [];
+
+		let _bln_old = ( json.control.created && json.control.created.length>0 ) ;
+		json.control.created = ( _bln_old===true )? json.control.created : [] ;
 
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight(),
@@ -162,34 +165,41 @@ export default class ImageDataComputeMethod extends Tools {
 
 		let x,
 			y;
-		// console.log( 'json ::: ', json );
-		// console.log( '_num_width ::: ', _num_width );
-		// console.log( '_num_height ::: ', _num_height );
-		// console.log( '_num_size_max ::: ', _num_size_max );
-		// console.log( '_json_control ::: ', _json_control );
-		// console.log( '_num_total ::: ', _num_total );
 
-		_scope.obj_canvas_2d.fillStyle = _json_control.color;
+		let _ary_rgb = (HexRgb(_json_control.color));
+		let _str_color = 'rgba('+_ary_rgb.join(', ')+', '+_json_control.alpha/100+')';
+
+		// _scope.obj_canvas_2d.fillStyle = _json_control.color;
+		_scope.obj_canvas_2d.fillStyle = _str_color;
 
 		// Draw snowflakes. // 雪花
 		for (let i = 0; i <= _num_total; i++) {
 			// Get random positions for flakes.
-			x = Math.floor(Math.random() * _num_width);
-			y = Math.floor(Math.random() * _num_height);
+			x = ( _bln_old===true )? json.control.created[i].x : ( Math.floor(Math.random() * _num_width) );
+			y = ( _bln_old===true )? json.control.created[i].y : ( Math.floor(Math.random() * _num_height) );
 
-			_num_size = parseInt(_num_size_min, 10) + Math.floor( ( _num_size_max-_num_size_min )*Math.random() );
+
+			if( _bln_old===true ){
+				x = json.control.created[i].x ;
+				y = json.control.created[i].y ;
+				_num_size = json.control.created[i].size;
+			}else{
+				x = Math.floor(Math.random() * _num_width) ;
+				y = Math.floor(Math.random() * _num_height) ;
+				_num_size = ( parseInt(_num_size_min, 10) + Math.floor( ( _num_size_max-_num_size_min )*Math.random() ) )/2 ;
+				json.control.created.push({
+					x,
+					y,
+					size: _num_size
+				});
+			}
 
 			// Draw an individual flakes.
 			_scope.obj_canvas_2d.beginPath();
 			_scope.obj_canvas_2d.arc(x, y, _num_size, 0, Math.PI * 2, true);
 			_scope.obj_canvas_2d.closePath();
 			_scope.obj_canvas_2d.fill();
-
-			json.control.created.push({
-				x,
-				y,
-				size: _num_size
-			});
+			
 		}
 
 		console.log( 'json :::: ', json );
