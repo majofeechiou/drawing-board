@@ -13,8 +13,8 @@ export default class MainImageFilter extends GlobalConst {
 		this.setEmitter( json_tools.emitter );
 		this.setModuleId( Utils.createUniqueId() );
 
-		this.setOutputImageSetting( this.getInitOutputImageScale() );
-		// this.setOutputImageSetting( this.getInitOutputImageCustom() );
+		// this.setOutputImageSetting( this.getInitOutputImageScale() );
+		this.setOutputImageSetting( this.getInitOutputImageCustom() );
 
 		this.defaultAction( obj );
 

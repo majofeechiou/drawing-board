@@ -52,6 +52,7 @@ export default class ImageDataComputeMethod extends Tools {
 
 	getOtherData(){
 		let _scope = this;
+		console.log( '_scope.other_data ---- ', _scope.other_data );
 		return _scope.other_data;
 	}
 	getPainterMethod(){
@@ -149,11 +150,13 @@ export default class ImageDataComputeMethod extends Tools {
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
 	methodDot( json ){
 		let _scope = this;
+
+		console.log( '// // // json *** ', json );
 		
 		json = _scope.methodVars( json );
 
-		let _bln_old = ( json.control.created && json.control.created.length>0 ) ;
-		json.control.created = ( _bln_old===true )? json.control.created : [] ;
+		let _bln_old = ( json.created && json.created.dot && json.created.dot.length>0 ) ;
+		json.created.dot = ( _bln_old===true )? json.created.dot : [] ;
 
 		let _num_width = _scope.getComputeWidth(),
 			_num_height = _scope.getComputeHeight(),
@@ -161,10 +164,16 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_size_min = _json_control.minSize,
 			_num_size_max = _json_control.maxSize,
 			_num_size,
-			_num_total = Math.floor(_num_width*_num_height/_num_size_max/_num_size_max/100*_json_control.frequency);
+			_num_total;
 
 		let x,
 			y;
+
+		if( _bln_old===true ){
+			_num_total = json.created.dot.length;
+		}else{
+			_num_total = Math.floor(_num_width*_num_height/_num_size_max/_num_size_max/100*_json_control.frequency);
+		}
 
 		let _ary_rgb = (HexRgb(_json_control.color));
 		let _str_color = 'rgba('+_ary_rgb.join(', ')+', '+_json_control.alpha/100+')';
@@ -172,29 +181,23 @@ export default class ImageDataComputeMethod extends Tools {
 		// _scope.obj_canvas_2d.fillStyle = _json_control.color;
 		_scope.obj_canvas_2d.fillStyle = _str_color;
 
-		// Draw snowflakes. // 雪花
 		for (let i = 0; i <= _num_total; i++) {
-			// Get random positions for flakes.
-			x = ( _bln_old===true )? json.control.created[i].x : ( Math.floor(Math.random() * _num_width) );
-			y = ( _bln_old===true )? json.control.created[i].y : ( Math.floor(Math.random() * _num_height) );
-
 
 			if( _bln_old===true ){
-				x = json.control.created[i].x ;
-				y = json.control.created[i].y ;
-				_num_size = json.control.created[i].size;
+				x = json.created.dot[i].x ;
+				y = json.created.dot[i].y ;
+				_num_size = json.created.dot[i].size;
 			}else{
 				x = Math.floor(Math.random() * _num_width) ;
 				y = Math.floor(Math.random() * _num_height) ;
 				_num_size = ( parseInt(_num_size_min, 10) + Math.floor( ( _num_size_max-_num_size_min )*Math.random() ) )/2 ;
-				json.control.created.push({
+				json.created.dot.push({
 					x,
 					y,
 					size: _num_size
 				});
 			}
 
-			// Draw an individual flakes.
 			_scope.obj_canvas_2d.beginPath();
 			_scope.obj_canvas_2d.arc(x, y, _num_size, 0, Math.PI * 2, true);
 			_scope.obj_canvas_2d.closePath();
@@ -408,6 +411,7 @@ export default class ImageDataComputeMethod extends Tools {
 		json = json || {};
 		json.setting = json.setting || {} ;
 		json.control = json.control || {} ;
+		json.created = json.created || {} ;
 		return json;
 	}
 

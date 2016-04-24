@@ -11,6 +11,7 @@ import GlobalConst from './GlobalConst';
 import Emitter from 'ComponentEmitter';
 import GloablTools from './GloablTools';
 import GloablData from './GloablData';
+import Extend from 'Extend';
 
 export default class PictureDraw extends GlobalConst {
 	constructor( obj_main, str_id ){
@@ -63,7 +64,7 @@ export default class PictureDraw extends GlobalConst {
 
 					_json_data.origin_data = _sary_step_data[(_sary_step_data.length-1)].data; // 目前得到的最後一次運算結果
 
-					_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', _json_data);
+					_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', _json_data, true);
 
 				}
 
@@ -142,7 +143,11 @@ export default class PictureDraw extends GlobalConst {
 			_scope.getGlobalConst(_scope).emitter.on('init.data.size.asking', function(e){
 				console.log( '----- init.data.size.asking -----' );
 				let _json_data = arguments[0];
-				_json_data.setting = mainImageFilter.getOutputImageSetting()
+				_json_data.setting = Extend.deep(
+					mainImageFilter.getOutputImageSetting(),
+					imageDataOriginal.getOriginImageSize() 
+				);
+				console.log('_json_data.setting :: ', _json_data.setting);
 				imageDataOriginal.operateImageSize( _json_data );
 			});
 
@@ -155,7 +160,21 @@ export default class PictureDraw extends GlobalConst {
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){
 				let _json = arguments[0],
+					_bln_delete_created = arguments[1],
 					_str_method = _json.method;
+
+				// alert('step.image.success.loaded');
+
+				console.log( 'step.image.success.loaded >> _json :: ', {..._json} );
+
+				if( _bln_delete_created === true ){
+					_json.created = _json.created || {} ;
+				}
+
+				// _json.control = _json.control || {} ;
+				// _json.control.create = null ;
+				// delete _json.control.create;
+				// console.log('&&&&&&&&&&&:::', _json);
 
 				if( _str_method===Settings.METHOD_DOT ){
 					imageDataComputeMethod.methodDot( _json );
@@ -191,7 +210,7 @@ export default class PictureDraw extends GlobalConst {
 					_json_other = arguments[1] || {};
 
 				if( _str_timming===ImageDataComputeProcess.TIMMING_RESET ){
-					imageDataComputeMethod.changeData( '', _json_other.origin_data, {} );
+					imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
 				}else{
 					_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
 				}
