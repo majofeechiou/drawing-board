@@ -24,18 +24,18 @@ export default class PictureDraw extends GlobalConst {
 		let emitter = new Emitter();
 		_scope.addGlobalConst( _scope, 'emitter', emitter );
 
-		let mainImageFilter = new MainImageFilter( obj_main, {emitter:emitter} );
-		let stepMethod = new StepMethod({emitter:emitter});
-		let imageDataComputeProcess = new ImageDataComputeProcess({emitter:emitter});
-		let imageDataComputeMethod = new ImageDataComputeMethod({emitter:emitter});
-		let imageDataOriginal = new ImageDataOriginal({emitter:emitter});
+		_scope.mainImageFilter = new MainImageFilter( obj_main, {emitter:emitter} );
+		_scope.stepMethod = new StepMethod({emitter:emitter});
+		_scope.imageDataComputeProcess = new ImageDataComputeProcess({emitter:emitter});
+		_scope.imageDataComputeMethod = new ImageDataComputeMethod({emitter:emitter});
+		_scope.imageDataOriginal = new ImageDataOriginal({emitter:emitter});
 
 		if( obj_main!==undefined ){
 
 			// 用完運算結束後，我們要用出預覽圖
 			_scope.getGlobalConst(_scope).emitter.on('step.image.final.step.computed', function(e){
 				let _json_data = arguments[0];
-				mainImageFilter.getObjImagePreview().src = _json_data.data ;
+				_scope.mainImageFilter.getObjImagePreview().src = _json_data.data ;
 			});
 
 			// 新增效果
@@ -49,18 +49,18 @@ export default class PictureDraw extends GlobalConst {
 				_obj_result.data.method = _json_data.method ;
 				_obj_result.setAttribute('data-method-id',_json_data.method_id);
 				_obj_result.insertAdjacentHTML('beforeend', Settings.getConstNameByEn(_json_data.method) );
-				mainImageFilter.getObjMethodResult().appendChild(_obj_result);
+				_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
 
-				mainImageFilter.methodDeleteBtnAction.call( _obj_result, mainImageFilter );
+				_scope.mainImageFilter.methodDeleteBtnAction.call( _obj_result, _scope.mainImageFilter );
 
 				// 以下是實際執行新的圖片運算工作
 
-				let _sary_step_data = imageDataComputeProcess.getStepImage();
+				let _sary_step_data = _scope.imageDataComputeProcess.getStepImage();
 
 				if( (_sary_step_data instanceof Array === true) && _sary_step_data.length>0 ){
 
-					let _num_width = imageDataComputeMethod.getComputeWidth();
-					let _num_height = imageDataComputeMethod.getComputeHeight();
+					let _num_width = _scope.imageDataComputeMethod.getComputeWidth();
+					let _num_height = _scope.imageDataComputeMethod.getComputeHeight();
 
 					_json_data.origin_data = _sary_step_data[(_sary_step_data.length-1)].data; // 目前得到的最後一次運算結果
 
@@ -72,7 +72,7 @@ export default class PictureDraw extends GlobalConst {
 
 			_scope.getGlobalConst(_scope).emitter.on('step.method.show.deleting', function(e){
 				let _json_data = arguments[0];
-				let _sary_step_data = imageDataComputeProcess.getStepImage();
+				let _sary_step_data = _scope.imageDataComputeProcess.getStepImage();
 
 				if( (_sary_step_data instanceof Array === true) && _sary_step_data.length>0 ){
 
@@ -92,17 +92,17 @@ export default class PictureDraw extends GlobalConst {
 
 					if( _num_new_step_data_length<_sary_step_data.length ){
 						if( _sary_new_step_data.length===1 ){
-							imageDataComputeMethod.changeData( '', _sary_new_step_data[0].origin_data, _sary_new_step_data[0], function(){
-								imageDataComputeProcess.setStepImage( _sary_new_step_data );
+							_scope.imageDataComputeMethod.changeData( '', _sary_new_step_data[0].origin_data, _sary_new_step_data[0], function(){
+								_scope.imageDataComputeProcess.setStepImage( _sary_new_step_data );
 							} );
 						}else{
-							imageDataComputeProcess.setStepImage( _sary_new_step_data );
+							_scope.imageDataComputeProcess.setStepImage( _sary_new_step_data );
 						}
 					}
 			
 				}
 
-				mainImageFilter.getObjMethodResult().removeChild(_json_data.method_btn);
+				_scope.mainImageFilter.getObjMethodResult().removeChild(_json_data.method_btn);
 
 			});
 
@@ -112,16 +112,17 @@ export default class PictureDraw extends GlobalConst {
 				if( _json.from===_scope.getGlobalConst(_scope).ComponentId ){
 					_json.from =null;
 					delete _json.from;
-					stepMethod.pushStepMethod(_json);
+					_json.setting = _scope.getEmitSetting();
+					_scope.stepMethod.pushStepMethod( _json );
 				}
 			});
 			_scope.getGlobalConst(_scope).emitter.on('step.method.pushing',function(){  // 舊的下直式選單的做法
-				stepMethod.pushStepMethod(...arguments);
+				_scope.stepMethod.pushStepMethod(...arguments);
 			});
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 
 
 			_scope.getGlobalConst(_scope).emitter.on('step.method.splicing',function(){
-				stepMethod.spliceStepMethod(...arguments);
+				_scope.stepMethod.spliceStepMethod(...arguments);
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.method.option.added', function(e){
@@ -137,25 +138,21 @@ export default class PictureDraw extends GlobalConst {
 			_scope.getGlobalConst(_scope).emitter.on('init.data.changed', function(e){
 				console.log( '----- init.data.changed -----' );
 				let _json_data = arguments[0];
-				imageDataComputeProcess.setStepImage( [], ImageDataComputeProcess.TIMMING_RESET, _json_data );
+				_scope.imageDataComputeProcess.setStepImage( [], ImageDataComputeProcess.TIMMING_RESET, _json_data );
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('init.data.size.asking', function(e){
 				console.log( '----- init.data.size.asking -----' );
 				let _json_data = arguments[0];
-				_json_data.setting = Extend.deep(
-					mainImageFilter.getOutputImageSetting(),
-					imageDataOriginal.getOriginImageSize() 
-				);
-				console.log('_json_data.setting :: ', _json_data.setting);
-				imageDataOriginal.operateImageSize( _json_data );
+				_json_data.setting = _scope.getEmitSetting();
+				_scope.imageDataOriginal.operateImageSize( _json_data );
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('origin.data.changed', function(e){
 				console.log( '----- origin.data.changed -----' );
 				let _json_data = arguments[0];
-				imageDataOriginal.getObjImage().src = _json_data.origin_data;
-				mainImageFilter.getObjOriginImage().src = _json_data.origin_data;
+				_scope.imageDataOriginal.getObjImage().src = _json_data.origin_data;
+				_scope.mainImageFilter.getObjOriginImage().src = _json_data.origin_data;
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){
@@ -163,28 +160,24 @@ export default class PictureDraw extends GlobalConst {
 					_bln_delete_created = arguments[1],
 					_str_method = _json.method;
 
-				// alert('step.image.success.loaded');
-
-				console.log( 'step.image.success.loaded >> _json :: ', {..._json} );
-
 				if( _bln_delete_created === true ){
 					_json.created = _json.created || {} ;
 				}
 
 				if( _str_method===Settings.METHOD_DOT ){
-					imageDataComputeMethod.methodDot( _json );
+					_scope.imageDataComputeMethod.methodDot( _json );
 
 				}else if( _str_method===Settings.METHOD_ALPHA ){
-					imageDataComputeMethod.methodAlpha( _json );
+					_scope.imageDataComputeMethod.methodAlpha( _json );
 
 				}else if( _str_method===Settings.METHOD_SATURATE ){
-					imageDataComputeMethod.methodSaturate( _json );
+					_scope.imageDataComputeMethod.methodSaturate( _json );
 
 				}else if( _str_method===Settings.METHOD_CONTRAST ){
-					imageDataComputeMethod.methodContrast( _json );
+					_scope.imageDataComputeMethod.methodContrast( _json );
 
 				}else{
-					imageDataComputeMethod.methodOrigin( _json );
+					_scope.imageDataComputeMethod.methodOrigin( _json );
 				}
 
 			});
@@ -196,7 +189,7 @@ export default class PictureDraw extends GlobalConst {
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.computed', function(e){
 				let _json_data = arguments[0];
 				if( _json_data && (typeof _json_data.origin_data === 'string') && (_json_data.origin_data!=='') ){
-					imageDataComputeProcess.pushStepData( _json_data, stepMethod.getStepMethod() );
+					_scope.imageDataComputeProcess.pushStepData( _json_data, _scope.stepMethod.getStepMethod() );
 				}
 			});
 
@@ -205,7 +198,7 @@ export default class PictureDraw extends GlobalConst {
 					_json_other = arguments[1] || {};
 
 				if( _str_timming===ImageDataComputeProcess.TIMMING_RESET ){
-					imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
+					_scope.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
 				}else{
 					_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
 				}
@@ -215,16 +208,16 @@ export default class PictureDraw extends GlobalConst {
 				let _str_timming = arguments[0],
 					_json_other = arguments[1] || {};
 
-				let _num_step_length = imageDataComputeProcess.getStepImage().length,
-					_sary_step_method = stepMethod.getStepMethod();
-				let _sary_step_image = imageDataComputeProcess.getStepImage(),
+				let _num_step_length = _scope.imageDataComputeProcess.getStepImage().length,
+					_sary_step_method = _scope.stepMethod.getStepMethod();
+				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage(),
 					_json_data = _sary_step_image[_sary_step_image.length-1];
 
 				// +* +* +* +* +* +* +* +* +* +* +* +* +* +* +* +*
 
 				if( _num_step_length<_sary_step_method.length ){ 
 					// 先處理圖片
-					imageDataComputeMethod.changeData( _sary_step_method[_num_step_length].method, _json_data.data, _sary_step_method[_num_step_length] );
+					_scope.imageDataComputeMethod.changeData( _sary_step_method[_num_step_length].method, _json_data.data, _sary_step_method[_num_step_length] );
 				}else{
 					// 圖片處理好了，我們現在要準備預覽
 					_scope.getGlobalConst(_scope).emitter.emit('step.image.final.step.computed', _json_data);
@@ -241,6 +234,18 @@ export default class PictureDraw extends GlobalConst {
 
 		}
 
+	}
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	getEmitSetting( json_setting ){
+		let _scope = this ;
+		json_setting = json_setting || {};
+		return Extend.deep(
+			json_setting,
+			_scope.mainImageFilter.getOutputImageSetting(),
+			_scope.imageDataOriginal.getOriginImageSize() 
+		);
 	}
 
 };

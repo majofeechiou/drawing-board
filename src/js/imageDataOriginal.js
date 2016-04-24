@@ -147,10 +147,6 @@ export default class ImageDataOriginal extends Tools {
 
     // 固定輸出的寬度
     baseOnWidth( json_data, json_setting ){
-        console.log('** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **' );
-        console.log('json_data', json_data );
-        console.log('json_setting', json_setting );
-        console.log('** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **' );
         let _scope = this;
         let _num_outreal_height = json_setting.width/json_setting.origin_width*json_setting.origin_height ;
         _scope.getObjCanvas2d().drawImage( _scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, 0, json_setting.height/2-(_num_outreal_height/2), json_setting.width, _num_outreal_height );

@@ -52,7 +52,6 @@ export default class ImageDataComputeMethod extends Tools {
 
 	getOtherData(){
 		let _scope = this;
-		console.log( '_scope.other_data ---- ', _scope.other_data );
 		return _scope.other_data;
 	}
 	getPainterMethod(){
@@ -153,7 +152,15 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json = _scope.methodVars( json );
 
-		let _bln_old = ( json.created && json.created.dot && json.created.dot.length>0 ) ;
+		let _bln_old = false ;
+		if( json.created && json.created.dot && json.created.dot.length>0 ){
+			if( json.created.setting && json.setting.width===json.created.setting.width && json.setting.height===json.created.setting.height ){ // 輸出的圖片大小是相同的
+				_bln_old = true ;
+			}else{
+				_bln_old = false ;
+			}
+		}
+
 		json.created.dot = ( _bln_old===true )? json.created.dot : [] ;
 
 		let _num_width = _scope.getComputeWidth(),
@@ -177,13 +184,10 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_total = _ary_dot_origin.length;
 		}else{
 			_num_total = Math.floor(_num_width*_num_height/_num_size_max/_num_size_max/100*_json_control.frequency);
+			json.created.setting = { ...json.setting };
 		}
 
 		let _ary_rgb = (HexRgb(_json_control.color));
-		// let _str_color = 'rgba('+_ary_rgb.join(', ')+', '+_json_control.alpha/100+')';
-
-		// _scope.obj_canvas_2d.fillStyle = _json_control.color;
-		// _scope.obj_canvas_2d.fillStyle = _str_color;
 
 		for (let i = 0; i<_num_total; i++) {
 			if( _bln_old===true ){
@@ -197,10 +201,6 @@ export default class ImageDataComputeMethod extends Tools {
 				_num_alpha = ( parseInt(_num_alpha_min, 10) + Math.floor( ( _num_alpha_max-_num_alpha_min )*Math.random() ) )/100 ;
 				_str_color = 'rgba('+_ary_rgb.join(', ')+', '+_num_alpha+')';
 				_scope.obj_canvas_2d.fillStyle = _str_color;
-
-				if( i<=20 ){
-					console.log( '_str_color :: ', _str_color );
-				}
 
 				_num_x = Math.floor(Math.random() * _num_width) ;
 				_num_y = Math.floor(Math.random() * _num_height) ;
@@ -427,6 +427,7 @@ export default class ImageDataComputeMethod extends Tools {
 		json.setting = json.setting || {} ;
 		json.control = json.control || {} ;
 		json.created = json.created || {} ;
+
 		return json;
 	}
 
