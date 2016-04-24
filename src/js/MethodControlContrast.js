@@ -4,7 +4,7 @@
 
 import React from 'react';
 import GloablTools from './GloablTools';
-import JsonExtend from 'JsonExtend';
+import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
 
@@ -44,7 +44,7 @@ export default class MethodControlContrast extends React.Component {
     }
 
     handleChangeRange(e) {
-        let _json_new = JsonExtend( this.state, {
+        let _json_new = Extend.deep( this.state, {
             control: {
                 range: e.target.value
             }

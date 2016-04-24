@@ -75,9 +75,11 @@ module.exports = {
         extensions: ['', '.css', '.js', '.jsx'],
         alias: {
             'JsonExtend': path.join(__dirname, 'node_modules/json-extend/index.js'),
+            'DeepExtend': path.join(__dirname, 'node_modules/deep-extend/index.js'),
             'ComponentEmitter': path.join(__dirname, 'node_modules/component-emitter/index.js'),
             'ReactGroup': path.join(__dirname, 'lib/react-group/index.js'),
-            'ReactGroup_css': path.join(__dirname, 'lib/react-group/css/index.css')
+            'ReactGroup_css': path.join(__dirname, 'lib/react-group/css/index.css'),
+            'Extend': path.join(__dirname, 'lib/extend/index.js')
         }
 	},
 	plugins: [

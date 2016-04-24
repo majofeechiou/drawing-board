@@ -25,11 +25,12 @@ export default class ImageDataComputeProcess extends Tools {
 
 		let _sary = JSON.parse( JSON.stringify( sary ) );
 
-		this.step_image = _sary ;
+		_scope.step_image = _sary ;
 
-		_scope.getEmitter().emit('step.image.seted', str_timmimg, json_other);
-
-		window.step_image = this.step_image;
+		setTimeout(function(){
+			_scope.getEmitter().emit('step.image.seted', str_timmimg, json_other);
+			window.step_image = _scope.step_image;
+		},500);
 
 	}
 

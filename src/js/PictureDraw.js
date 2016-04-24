@@ -89,11 +89,14 @@ export default class PictureDraw extends GlobalConst {
 
 					let _num_new_step_data_length = _sary_new_step_data.length;
 
-					console.log( '_sary_new_step_data :: ', _sary_new_step_data );
-					console.log( '_sary_step_data :: ', _sary_step_data );
-
 					if( _num_new_step_data_length<_sary_step_data.length ){
-						imageDataComputeProcess.setStepImage( _sary_new_step_data );
+						if( _sary_new_step_data.length===1 ){
+							imageDataComputeMethod.changeData( '', _sary_new_step_data[0].origin_data, _sary_new_step_data[0], function(){
+								imageDataComputeProcess.setStepImage( _sary_new_step_data );
+							} );
+						}else{
+							imageDataComputeProcess.setStepImage( _sary_new_step_data );
+						}
 					}
 			
 				}
@@ -202,6 +205,8 @@ export default class PictureDraw extends GlobalConst {
 					_sary_step_method = stepMethod.getStepMethod();
 				let _sary_step_image = imageDataComputeProcess.getStepImage(),
 					_json_data = _sary_step_image[_sary_step_image.length-1];
+
+				// +* +* +* +* +* +* +* +* +* +* +* +* +* +* +* +*
 
 				if( _num_step_length<_sary_step_method.length ){ 
 					// 先處理圖片

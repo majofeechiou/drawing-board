@@ -162,8 +162,12 @@ export default class ImageDataComputeMethod extends Tools {
 
 		let x,
 			y;
-		console.log( '_num_total ::: ', _num_total );
-		console.log( '_json_control ::: ', _json_control );
+		// console.log( 'json ::: ', json );
+		// console.log( '_num_width ::: ', _num_width );
+		// console.log( '_num_height ::: ', _num_height );
+		// console.log( '_num_size_max ::: ', _num_size_max );
+		// console.log( '_json_control ::: ', _json_control );
+		// console.log( '_num_total ::: ', _num_total );
 
 		_scope.obj_canvas_2d.fillStyle = _json_control.color;
 
@@ -357,18 +361,31 @@ export default class ImageDataComputeMethod extends Tools {
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-	// clearCanvas(){
-	// 	let _num_width = this.getComputeWidth(),
-	// 		_num_height = this.getComputeHeight();
-	// 	this.obj_canvas_2d.clearRect( 0, 0, _num_width, _num_height );
-	// }
+	clearCanvas( callback ){
+
+		this.obj_canvas_2d.clearRect( 0, 0, this.getComputeWidth(), this.getComputeHeight() ); // ????
+
+		if( callback && callback instanceof Function ){
+			setTimeout(function() {
+				callback();
+			}, 10);
+		}
+
+	}
 
 	// json_other : 會有 setting, control
-	changeData( str_painter_method, str_base64, json_other ){
+	changeData( str_painter_method, str_base64, json_other, callback ){
 		let _scope = this;
-		_scope.painter_method = str_painter_method;
-		_scope.obj_image.src = str_base64;
-		_scope.other_data = json_other;
+		_scope.clearCanvas(function(){
+			_scope.painter_method = str_painter_method;
+			_scope.obj_image.src = str_base64;
+			_scope.other_data = json_other;
+			if( callback && callback instanceof Function ){
+				setTimeout(function() {
+					callback();
+				}, 10);
+			}
+		});
 	}
 
 	// 傳來什麼，就如實地回傳

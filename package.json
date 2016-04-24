@@ -32,6 +32,8 @@
     "classnames": "^2.2.3",
     "component-emitter": "github:component/emitter",
     "css-loader": "^0.23.1",
+    "deep-extend": "^0.4.1",
+    "extend": "git+https://github.com/majofeechiou/extend.git",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^1.7.0",

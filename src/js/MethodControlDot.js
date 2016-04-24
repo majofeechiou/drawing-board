@@ -4,7 +4,7 @@
 
 import React from 'react';
 import GloablTools from './GloablTools';
-import JsonExtend from 'JsonExtend';
+import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
 
@@ -36,6 +36,7 @@ export default class MethodControlAlpha extends React.Component {
 
     submitAction(){
         let _scope = this;
+        console.log( '_scope.props.control :: ', _scope.props.control );
         console.log( '_scope.state.control :: ', _scope.state.control );
         GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
             from: GloablData.getFrom(),
@@ -45,7 +46,8 @@ export default class MethodControlAlpha extends React.Component {
     }
 
     handleChangeRange() {
-        let _json_new = JsonExtend( 
+        let _json_new = Extend.deep( 
+            {},
             { control: this.props.control }, 
             this.state, 
             { control: {

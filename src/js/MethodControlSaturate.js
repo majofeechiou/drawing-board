@@ -4,7 +4,7 @@
 
 import React from 'react';
 import GloablTools from './GloablTools';
-import JsonExtend from 'JsonExtend';
+import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
 
@@ -36,17 +36,20 @@ export default class MethodControlSaturate extends React.Component {
 
     submitAction(){
         let _scope = this;
+        let _num_range = _scope.state.control.range;
         GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
             from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
-            control: _scope.state.control
+            control: {
+                range: _num_range
+            }
         } );
     }
 
     handleChangeRange(e) {
-        let _json_new = JsonExtend( this.state, {
+        let _json_new = Extend.deep( this.state, {
             control: {
-                range: e.target.value
+                range: this.refs.range.value
             }
         } );
         this.setState( _json_new );
