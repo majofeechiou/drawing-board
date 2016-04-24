@@ -171,11 +171,6 @@ export default class PictureDraw extends GlobalConst {
 					_json.created = _json.created || {} ;
 				}
 
-				// _json.control = _json.control || {} ;
-				// _json.control.create = null ;
-				// delete _json.control.create;
-				// console.log('&&&&&&&&&&&:::', _json);
-
 				if( _str_method===Settings.METHOD_DOT ){
 					imageDataComputeMethod.methodDot( _json );
 

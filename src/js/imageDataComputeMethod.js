@@ -151,8 +151,6 @@ export default class ImageDataComputeMethod extends Tools {
 	methodDot( json ){
 		let _scope = this;
 
-		console.log( '// // // json *** ', json );
-		
 		json = _scope.methodVars( json );
 
 		let _bln_old = ( json.created && json.created.dot && json.created.dot.length>0 ) ;
@@ -166,11 +164,13 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_size,
 			_num_total;
 
-		let x,
-			y;
+		let _num_x,
+			_num_y;
+
+		let _ary_dot_origin = JSON.parse(JSON.stringify(json.created.dot));
 
 		if( _bln_old===true ){
-			_num_total = json.created.dot.length;
+			_num_total = _ary_dot_origin.length;
 		}else{
 			_num_total = Math.floor(_num_width*_num_height/_num_size_max/_num_size_max/100*_json_control.frequency);
 		}
@@ -181,31 +181,28 @@ export default class ImageDataComputeMethod extends Tools {
 		// _scope.obj_canvas_2d.fillStyle = _json_control.color;
 		_scope.obj_canvas_2d.fillStyle = _str_color;
 
-		for (let i = 0; i <= _num_total; i++) {
-
+		for (let i = 0; i<_num_total; i++) {
 			if( _bln_old===true ){
-				x = json.created.dot[i].x ;
-				y = json.created.dot[i].y ;
-				_num_size = json.created.dot[i].size;
+				_num_x = _ary_dot_origin[i].xPos ;
+				_num_y = _ary_dot_origin[i].yPos ;
+				_num_size = _ary_dot_origin[i].size ;
 			}else{
-				x = Math.floor(Math.random() * _num_width) ;
-				y = Math.floor(Math.random() * _num_height) ;
+				_num_x = Math.floor(Math.random() * _num_width) ;
+				_num_y = Math.floor(Math.random() * _num_height) ;
 				_num_size = ( parseInt(_num_size_min, 10) + Math.floor( ( _num_size_max-_num_size_min )*Math.random() ) )/2 ;
-				json.created.dot.push({
-					x,
-					y,
+				(json.created.dot).push({
+					xPos: _num_x,
+					yPos: _num_y,
 					size: _num_size
 				});
 			}
 
 			_scope.obj_canvas_2d.beginPath();
-			_scope.obj_canvas_2d.arc(x, y, _num_size, 0, Math.PI * 2, true);
+			_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
 			_scope.obj_canvas_2d.closePath();
 			_scope.obj_canvas_2d.fill();
 			
 		}
-
-		console.log( 'json :::: ', json );
 
 		_scope.emitAfterMethod( json );
 		
