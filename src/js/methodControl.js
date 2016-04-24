@@ -54,7 +54,8 @@ export default class MethodControl extends React.Component {
                 frequency: 20,
                 minSize: 2,
                 maxSize: 8,
-                alpha: 100,
+                minAlpha: 100,
+                maxAlpha: 100,
                 color: '#900' // #hex
             };
             return (

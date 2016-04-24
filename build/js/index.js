@@ -24745,7 +24745,11 @@
 				    _num_size_min = _json_control.minSize,
 				    _num_size_max = _json_control.maxSize,
 				    _num_size = void 0,
-				    _num_total = void 0;
+				    _num_alpha_min = _json_control.minAlpha,
+				    _num_alpha_max = _json_control.maxAlpha,
+				    _num_alpha = void 0,
+				    _num_total = void 0,
+				    _str_color = void 0;
 
 				var _num_x = void 0,
 				    _num_y = void 0;
@@ -24759,24 +24763,36 @@
 				}
 
 				var _ary_rgb = (0, _hexRgb2.default)(_json_control.color);
-				var _str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _json_control.alpha / 100 + ')';
+				// let _str_color = 'rgba('+_ary_rgb.join(', ')+', '+_json_control.alpha/100+')';
 
 				// _scope.obj_canvas_2d.fillStyle = _json_control.color;
-				_scope.obj_canvas_2d.fillStyle = _str_color;
+				// _scope.obj_canvas_2d.fillStyle = _str_color;
 
 				for (var i = 0; i < _num_total; i++) {
 					if (_bln_old === true) {
+						_scope.obj_canvas_2d.fillStyle = _ary_dot_origin[i].color;
+
 						_num_x = _ary_dot_origin[i].xPos;
 						_num_y = _ary_dot_origin[i].yPos;
 						_num_size = _ary_dot_origin[i].size;
 					} else {
+						_num_alpha = (parseInt(_num_alpha_min, 10) + Math.floor((_num_alpha_max - _num_alpha_min) * Math.random())) / 100;
+						_str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _num_alpha + ')';
+						_scope.obj_canvas_2d.fillStyle = _str_color;
+
+						if (i <= 20) {
+							console.log('_str_color :: ', _str_color);
+						}
+
 						_num_x = Math.floor(Math.random() * _num_width);
 						_num_y = Math.floor(Math.random() * _num_height);
 						_num_size = (parseInt(_num_size_min, 10) + Math.floor((_num_size_max - _num_size_min) * Math.random())) / 2;
+
 						json.created.dot.push({
 							xPos: _num_x,
 							yPos: _num_y,
-							size: _num_size
+							size: _num_size,
+							color: _str_color
 						});
 					}
 
@@ -26119,7 +26135,8 @@
 	                    frequency: 20,
 	                    minSize: 2,
 	                    maxSize: 8,
-	                    alpha: 100,
+	                    minAlpha: 100,
+	                    maxAlpha: 100,
 	                    color: '#900' // #hex
 	                };
 	                return _react2.default.createElement(_MethodControlDot2.default, {
@@ -26532,8 +26549,6 @@
 	        key: 'submitAction',
 	        value: function submitAction() {
 	            var _scope = this;
-	            console.log('_scope.props.control :: ', _scope.props.control);
-	            console.log('_scope.state.control :: ', _scope.state.control);
 	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
@@ -26547,7 +26562,8 @@
 	                    frequency: this.refs.frequency.value,
 	                    minSize: this.refs.minSize.value,
 	                    maxSize: this.refs.maxSize.value,
-	                    alpha: this.refs.alpha.value
+	                    minAlpha: this.refs.minAlpha.value,
+	                    maxAlpha: this.refs.maxAlpha.value
 	                }
 	            });
 	            this.setState(_json_new);
@@ -26609,14 +26625,26 @@
 	                    '透明度 ：',
 	                    _react2.default.createElement('input', {
 	                        type: 'range',
-	                        ref: 'alpha',
+	                        ref: 'minAlpha',
 	                        step: '1',
 	                        min: '1',
-	                        max: '100',
-	                        value: this.state.control.alpha,
+	                        max: this.state.control.maxSize,
+	                        value: this.state.control.minAlpha,
 	                        onChange: this.handleChangeRange }),
 	                    ' ',
-	                    this.state.control.alpha,
+	                    this.state.control.minAlpha,
+	                    ' / ',
+	                    this.state.control.maxAlpha,
+	                    _react2.default.createElement('input', {
+	                        type: 'range',
+	                        ref: 'maxAlpha',
+	                        step: '1',
+	                        min: this.state.control.minAlpha,
+	                        max: '100',
+	                        value: this.state.control.maxAlpha,
+	                        onChange: this.handleChangeRange }),
+	                    ' ',
+	                    this.state.control.maxAlpha,
 	                    ' / 100'
 	                ),
 	                _react2.default.createElement(

@@ -36,8 +36,6 @@ export default class MethodControlAlpha extends React.Component {
 
     submitAction(){
         let _scope = this;
-        console.log( '_scope.props.control :: ', _scope.props.control );
-        console.log( '_scope.state.control :: ', _scope.state.control );
         GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
             from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
@@ -54,7 +52,8 @@ export default class MethodControlAlpha extends React.Component {
                 frequency: this.refs.frequency.value,
                 minSize: this.refs.minSize.value,
                 maxSize: this.refs.maxSize.value,
-                alpha: this.refs.alpha.value
+                minAlpha: this.refs.minAlpha.value,
+                maxAlpha: this.refs.maxAlpha.value
             }
         } );
         this.setState( _json_new );
@@ -98,12 +97,20 @@ export default class MethodControlAlpha extends React.Component {
                     透明度 ： 
                     <input
                         type="range"
-                        ref="alpha"
+                        ref="minAlpha"
                         step="1"
                         min="1"
+                        max={this.state.control.maxSize}
+                        value={this.state.control.minAlpha}
+                        onChange={this.handleChangeRange} /> {this.state.control.minAlpha} / {this.state.control.maxAlpha}
+                    <input
+                        type="range"
+                        ref="maxAlpha"
+                        step="1"
+                        min={this.state.control.minAlpha}
                         max="100"
-                        value={this.state.control.alpha}
-                        onChange={this.handleChangeRange} /> {this.state.control.alpha} / 100
+                        value={this.state.control.maxAlpha}
+                        onChange={this.handleChangeRange} /> {this.state.control.maxAlpha} / 100
                 </div>
                 <button onClick={_scope.submitAction}>確定</button>
             </div>
