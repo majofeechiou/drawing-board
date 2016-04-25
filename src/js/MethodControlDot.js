@@ -13,12 +13,14 @@ export default class MethodControlDot extends React.Component {
     constructor(props) {
         super(props);
 
-        this.setAllColor();
-        this.arrangeProps( props );
+        let _scope = this;
 
-        this.handleChangeRange = this.handleChangeRange.bind(this);
-        this.submitAction = this.submitAction.bind(this);
-        this.colorPick = this.colorPick.bind(this);
+        _scope.setAllDistance(function(){ _scope.setAllColor(); });
+        _scope.arrangeProps( props );
+
+        _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
+        _scope.submitAction = _scope.submitAction.bind(_scope);
+        _scope.colorPick = _scope.colorPick.bind(_scope);
     }
 
     getComponentMethod(){
@@ -66,28 +68,55 @@ export default class MethodControlDot extends React.Component {
         this.setState( _json_new );
     }
 
+    setAllDistance( callback ){
+        console.log( 'this :: ', this );
+
+        let _scope = this;
+        let _ary_number = [0],
+            _num_distance = 64 ,
+            _num_var;
+
+        for( let i=1; i<=256/_num_distance; i++ ){
+            _num_var = i*_num_distance ;
+            if( _num_var>=256 ){
+                _num_var = 255;
+            }
+            _ary_number.push(_num_var);
+        }
+
+        this.all_distance = _ary_number ;
+
+        if( callback && callback instanceof Function ){
+            callback();
+        }
+    }
     setAllColor(){
         let _scope = this;
-        let _ary_hex = ['0', '3', '6', '9', 'c', 'f'];
-        this.all_color = [];
+        let _ary_number = _scope.getAllDistance() ;
 
-        for( let r=0; r<_ary_hex.length; r++ ){
-            for( let g=0; g<_ary_hex.length; g++ ){
-                for( let b=0; b<_ary_hex.length; b++ ){
-                    this.all_color.push('#'+_ary_hex[r]+_ary_hex[g]+_ary_hex[b]) ;
+        _scope.all_color = [];
+
+        for( let r=0; r<_ary_number.length; r++ ){
+            for( let g=0; g<_ary_number.length; g++ ){
+                for( let b=0; b<_ary_number.length; b++ ){
+                    _scope.all_color.push('rgb('+_ary_number[r]+', '+_ary_number[g]+', '+_ary_number[b]+')') ;
                 }
             }
         }
     }
 
+    getAllDistance(){
+        return this.all_distance ;
+    }
+
     getAllColor(){
-        return this.all_color ;
+        return this.all_color || [];
     }
 
     colorPick( str_bg ){
         let _scope = this ;
         let _json_state = this.arrangeState();
-        _json_state.control.color = str_bg;
+        _json_state.control.color = '#'+str_bg;
         console.log('_json_state :: ', _json_state);
         this.setState( _json_state );
         setTimeout(function(){
@@ -97,8 +126,8 @@ export default class MethodControlDot extends React.Component {
 
     render(){
         let _scope = this;
-        let _ary_hex_all = this.getAllColor();
-        let _num_oneline = 6;
+        let _ary_all_color = this.getAllColor();
+        let _num_oneline = _scope.getAllDistance().length;
         let _json_style = {
             display: 'block',
             clear: 'both',
@@ -111,8 +140,8 @@ export default class MethodControlDot extends React.Component {
             <div>
                 <div>{this.state.control.color}</div>
                 <div>
-                    <For each="str_item" of={ _ary_hex_all }>
-                        <ColorPicker color={str_item} oneLine={_num_oneline} whenClick={this.colorPick} />
+                    <For each="str_item" of={ _ary_all_color }>
+                        <ColorPicker key={str_item} color={str_item} oneLine={_num_oneline} whenClick={this.colorPick} />
                     </For>
                     <div style={_json_style}></div>
                 </div>

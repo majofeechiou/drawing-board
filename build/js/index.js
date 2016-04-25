@@ -24595,7 +24595,9 @@
 	        value: function colorPick(e) {
 	            var _obj_self = e.target;
 	            console.log('----', _obj_self.style.backgroundColor);
-	            this.props.whenClick((0, _rgbHex2.default)(_obj_self.style.backgroundColor));
+	            // this.props.whenClick( RgbHex(_obj_self.style.backgroundColor) );
+	            this.props.whenClick((0, _rgbHex2.default)(_obj_self.style.backgroundColor.replace('#', '')));
+	            // this.props.whenClick( _obj_self.style.backgroundColor );
 	        }
 	    }, {
 	        key: 'render',
@@ -26554,12 +26556,16 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlDot).call(this, props));
 
-	        _this.setAllColor();
-	        _this.arrangeProps(props);
+	        var _scope = _this;
 
-	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
-	        _this.submitAction = _this.submitAction.bind(_this);
-	        _this.colorPick = _this.colorPick.bind(_this);
+	        _scope.setAllDistance(function () {
+	            _scope.setAllColor();
+	        });
+	        _scope.arrangeProps(props);
+
+	        _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
+	        _scope.submitAction = _scope.submitAction.bind(_scope);
+	        _scope.colorPick = _scope.colorPick.bind(_scope);
 	        return _this;
 	    }
 
@@ -26611,31 +26617,61 @@
 	            this.setState(_json_new);
 	        }
 	    }, {
+	        key: 'setAllDistance',
+	        value: function setAllDistance(callback) {
+	            console.log('this :: ', this);
+
+	            var _scope = this;
+	            var _ary_number = [0],
+	                _num_distance = 64,
+	                _num_var = void 0;
+
+	            for (var i = 1; i <= 256 / _num_distance; i++) {
+	                _num_var = i * _num_distance;
+	                if (_num_var >= 256) {
+	                    _num_var = 255;
+	                }
+	                _ary_number.push(_num_var);
+	            }
+
+	            this.all_distance = _ary_number;
+
+	            if (callback && callback instanceof Function) {
+	                callback();
+	            }
+	        }
+	    }, {
 	        key: 'setAllColor',
 	        value: function setAllColor() {
 	            var _scope = this;
-	            var _ary_hex = ['0', '3', '6', '9', 'c', 'f'];
-	            this.all_color = [];
+	            var _ary_number = _scope.getAllDistance();
 
-	            for (var r = 0; r < _ary_hex.length; r++) {
-	                for (var g = 0; g < _ary_hex.length; g++) {
-	                    for (var b = 0; b < _ary_hex.length; b++) {
-	                        this.all_color.push('#' + _ary_hex[r] + _ary_hex[g] + _ary_hex[b]);
+	            _scope.all_color = [];
+
+	            for (var r = 0; r < _ary_number.length; r++) {
+	                for (var g = 0; g < _ary_number.length; g++) {
+	                    for (var b = 0; b < _ary_number.length; b++) {
+	                        _scope.all_color.push('rgb(' + _ary_number[r] + ', ' + _ary_number[g] + ', ' + _ary_number[b] + ')');
 	                    }
 	                }
 	            }
 	        }
 	    }, {
+	        key: 'getAllDistance',
+	        value: function getAllDistance() {
+	            return this.all_distance;
+	        }
+	    }, {
 	        key: 'getAllColor',
 	        value: function getAllColor() {
-	            return this.all_color;
+	            return this.all_color || [];
 	        }
 	    }, {
 	        key: 'colorPick',
 	        value: function colorPick(str_bg) {
 	            var _scope = this;
 	            var _json_state = this.arrangeState();
-	            _json_state.control.color = str_bg;
+	            _json_state.control.color = '#' + str_bg;
 	            console.log('_json_state :: ', _json_state);
 	            this.setState(_json_state);
 	            setTimeout(function () {
@@ -26646,8 +26682,8 @@
 	        key: 'render',
 	        value: function render() {
 	            var _scope = this;
-	            var _ary_hex_all = this.getAllColor();
-	            var _num_oneline = 6;
+	            var _ary_all_color = this.getAllColor();
+	            var _num_oneline = _scope.getAllDistance().length;
 	            var _json_style = {
 	                display: 'block',
 	                clear: 'both',
@@ -26667,8 +26703,8 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    null,
-	                    _ary_hex_all.map(function (str_item) {
-	                        return _react2.default.createElement(_ColorPicker2.default, { color: str_item, oneLine: _num_oneline, whenClick: this.colorPick });
+	                    _ary_all_color.map(function (str_item) {
+	                        return _react2.default.createElement(_ColorPicker2.default, { key: str_item, color: str_item, oneLine: _num_oneline, whenClick: this.colorPick });
 	                    }, this),
 	                    _react2.default.createElement('div', { style: _json_style })
 	                ),

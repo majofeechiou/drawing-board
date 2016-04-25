@@ -14,7 +14,9 @@ export default class ColorPicker extends React.Component {
     colorPick(e){
         let _obj_self = e.target;
         console.log( '----', _obj_self.style.backgroundColor );
-        this.props.whenClick( RgbHex(_obj_self.style.backgroundColor) );
+        // this.props.whenClick( RgbHex(_obj_self.style.backgroundColor) );
+        this.props.whenClick( RgbHex(_obj_self.style.backgroundColor.replace('#','')) );
+        // this.props.whenClick( _obj_self.style.backgroundColor );
     }
 
     render(){
