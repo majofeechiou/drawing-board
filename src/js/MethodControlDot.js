@@ -7,7 +7,11 @@ import GloablTools from './GloablTools';
 import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
-import ColorPicker from './ColorPicker';
+import ColorPicker from 'react-color-picker';
+
+// http://jslog.com/react-color-picker/
+// https://www.npmjs.com/package/react-color-picker
+// https://www.npmjs.com/package/color-picker
 
 export default class MethodControlDot extends React.Component {
     constructor(props) {
@@ -113,15 +117,10 @@ export default class MethodControlDot extends React.Component {
         return this.all_color || [];
     }
 
-    colorPick( str_bg ){
-        let _scope = this ;
+    colorPick( str_color ){
         let _json_state = this.arrangeState();
-        _json_state.control.color = '#'+str_bg;
-        console.log('_json_state :: ', _json_state);
+        _json_state.control.color = str_color ;
         this.setState( _json_state );
-        setTimeout(function(){
-            console.log('_scope.state :: ', _scope.state);
-        },200);
     }
 
     render(){
@@ -135,16 +134,20 @@ export default class MethodControlDot extends React.Component {
             overflow: 'hidden',
             position: 'relative'
         };
-
+       
         return (
             <div>
-                <div>{this.state.control.color}</div>
-                <div>
-                    <For each="str_item" of={ _ary_all_color }>
-                        <ColorPicker key={str_item} color={str_item} oneLine={_num_oneline} whenClick={this.colorPick} />
-                    </For>
-                    <div style={_json_style}></div>
+                
+                
+                <ColorPicker 
+                    value={this.state.control.color} 
+                    onDrag={this.colorPick} />
+                <div style={{marginTop: '5px', marginBottom: '15px'}}>
+                    <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
+                        {this.state.control.color}
+                    </span>
                 </div>
+
                 <div>
                     頻率 ： 
                     <input
