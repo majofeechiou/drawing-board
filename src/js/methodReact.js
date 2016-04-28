@@ -73,7 +73,6 @@ export default class MethodReact extends React.Component {
         let _json_method = nextProps.methodStore || this.props.methodStore ;
         return (
             <div>
-                <div>{_json_result.method}</div>
                 <MethodOption 
                     handleChange={ this.handleChange }
                     outputResult={ _json_result }

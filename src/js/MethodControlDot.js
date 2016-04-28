@@ -104,11 +104,10 @@ export default class MethodControlDot extends React.Component {
 
     render(){
         let _scope = this;
-        let _json_store = this.props.methodStore.getState();
+        let _json_sub_store = this.props.methodStore.getState().sub;
        
         return (
             <div>
-                {JSON.stringify(this.state.control.shape.shape)}
                 <ReactGroup 
                     onChange={this.handleChangeShape}
                     outputFormat="json"
@@ -118,20 +117,20 @@ export default class MethodControlDot extends React.Component {
                     outputResult={this.state.control.shape}
                     showKey={this.getShowKey()}
                     between="~"
-                    display={_json_store.display}
-                    padding={_json_store.padding}
-                    fillet={_json_store.fillet}
-                    listStyle={_json_store.listStyle}
-                    listPosition={_json_store.listPosition}
-                    iconPosition={_json_store.iconPosition}
-                    iconShow={_json_store.iconShow}
-                    styleName={_json_store.styleName}
-                    composition={_json_store.composition}
-                    offBack={_json_store.offBack}
-                    styleBorder={_json_store.styleBorder}
-                    styleIcon={_json_store.styleIcon}
-                    styleIconBack={_json_store.styleIconBack}
-                    styleList={_json_store.styleList} />
+                    display={_json_sub_store.display}
+                    padding={_json_sub_store.padding}
+                    fillet={_json_sub_store.fillet}
+                    listStyle={_json_sub_store.listStyle}
+                    listPosition={_json_sub_store.listPosition}
+                    iconPosition={_json_sub_store.iconPosition}
+                    iconShow={_json_sub_store.iconShow}
+                    styleName={_json_sub_store.styleName}
+                    composition={_json_sub_store.composition}
+                    offBack={_json_sub_store.offBack}
+                    styleBorder={_json_sub_store.styleBorder}
+                    styleIcon={_json_sub_store.styleIcon}
+                    styleIconBack={_json_sub_store.styleIconBack}
+                    styleList={_json_sub_store.styleList} />
                 
                 <div style={{marginTop: '15px', marginBottom: '5px'}}>
                     <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
@@ -170,7 +169,7 @@ export default class MethodControlDot extends React.Component {
                         min={this.state.control.minSize}
                         max="200"
                         value={this.state.control.maxSize}
-                        onChange={this.handleChangeRange} /> {this.state.control.maxSize} / 20
+                        onChange={this.handleChangeRange} /> {this.state.control.maxSize} / 200
                 </div>
                 <div>
                     透明度 ： 

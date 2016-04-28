@@ -13613,15 +13613,15 @@
 						showKey: _this2.props.showKey,
 						between: _this2.props.between,
 						item: json_item })));
-				})), _react2.default.createElement('button', { onClick: this.toggleDisabled }, 'toggle disabled'));
+				})));
 			}
 		}]);
 
 		return RadioGroup;
 	}(_react2.default.Component);
+	// <button onClick={this.toggleDisabled}>toggle disabled</button>
 
 	exports.default = RadioGroup;
-
 	RadioGroup.propTypes = {
 		onChange: _react2.default.PropTypes.func,
 		outputResult: _react2.default.PropTypes.any.isRequired,
@@ -28942,12 +28942,14 @@
 
 	'use strict';
 
-	// require('./../lib/react-group/css/index');
+	__webpack_require__(252);
 
+	// require('./../lib/react-group/css/index');
 	__webpack_require__(250);
 	__webpack_require__(251);
 
 	__webpack_require__(233);
+	__webpack_require__(253);
 
 /***/ },
 /* 233 */
@@ -31070,12 +31072,11 @@
 	        key: 'render',
 	        value: function render() {
 	            var _scope = this;
-	            var _json_store = this.props.methodStore.getState();
+	            var _json_sub_store = this.props.methodStore.getState().sub;
 
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                JSON.stringify(this.state.control.shape.shape),
 	                _react2.default.createElement(_ReactGroup2.default, {
 	                    onChange: this.handleChangeShape,
 	                    outputFormat: 'json',
@@ -31085,20 +31086,20 @@
 	                    outputResult: this.state.control.shape,
 	                    showKey: this.getShowKey(),
 	                    between: '~',
-	                    display: _json_store.display,
-	                    padding: _json_store.padding,
-	                    fillet: _json_store.fillet,
-	                    listStyle: _json_store.listStyle,
-	                    listPosition: _json_store.listPosition,
-	                    iconPosition: _json_store.iconPosition,
-	                    iconShow: _json_store.iconShow,
-	                    styleName: _json_store.styleName,
-	                    composition: _json_store.composition,
-	                    offBack: _json_store.offBack,
-	                    styleBorder: _json_store.styleBorder,
-	                    styleIcon: _json_store.styleIcon,
-	                    styleIconBack: _json_store.styleIconBack,
-	                    styleList: _json_store.styleList }),
+	                    display: _json_sub_store.display,
+	                    padding: _json_sub_store.padding,
+	                    fillet: _json_sub_store.fillet,
+	                    listStyle: _json_sub_store.listStyle,
+	                    listPosition: _json_sub_store.listPosition,
+	                    iconPosition: _json_sub_store.iconPosition,
+	                    iconShow: _json_sub_store.iconShow,
+	                    styleName: _json_sub_store.styleName,
+	                    composition: _json_sub_store.composition,
+	                    offBack: _json_sub_store.offBack,
+	                    styleBorder: _json_sub_store.styleBorder,
+	                    styleIcon: _json_sub_store.styleIcon,
+	                    styleIconBack: _json_sub_store.styleIconBack,
+	                    styleList: _json_sub_store.styleList }),
 	                _react2.default.createElement(
 	                    'div',
 	                    { style: { marginTop: '15px', marginBottom: '5px' } },
@@ -31153,7 +31154,7 @@
 	                        onChange: this.handleChangeRange }),
 	                    ' ',
 	                    this.state.control.maxSize,
-	                    ' / 20'
+	                    ' / 200'
 	                ),
 	                _react2.default.createElement(
 	                    'div',
@@ -31555,7 +31556,7 @@
 	        key: 'render',
 	        value: function render() {
 
-	            var _json_store = this.getStoreState();
+	            var _json_method_store = this.getStoreState().method;
 	            return _react2.default.createElement(_ReactGroup2.default, {
 	                onChange: this.handleChange,
 	                outputFormat: 'json',
@@ -31565,20 +31566,20 @@
 	                outputResult: this.getOutputResult(),
 	                showKey: this.getShowKey(),
 	                between: '~',
-	                display: _json_store.display,
-	                padding: _json_store.padding,
-	                fillet: _json_store.fillet,
-	                listStyle: _json_store.listStyle,
-	                listPosition: _json_store.listPosition,
-	                iconPosition: _json_store.iconPosition,
-	                iconShow: _json_store.iconShow,
-	                styleName: _json_store.styleName,
-	                composition: _json_store.composition,
-	                offBack: _json_store.offBack,
-	                styleBorder: _json_store.styleBorder,
-	                styleIcon: _json_store.styleIcon,
-	                styleIconBack: _json_store.styleIconBack,
-	                styleList: _json_store.styleList });
+	                display: _json_method_store.display,
+	                padding: _json_method_store.padding,
+	                fillet: _json_method_store.fillet,
+	                listStyle: _json_method_store.listStyle,
+	                listPosition: _json_method_store.listPosition,
+	                iconPosition: _json_method_store.iconPosition,
+	                iconShow: _json_method_store.iconShow,
+	                styleName: _json_method_store.styleName,
+	                composition: _json_method_store.composition,
+	                offBack: _json_method_store.offBack,
+	                styleBorder: _json_method_store.styleBorder,
+	                styleIcon: _json_method_store.styleIcon,
+	                styleIconBack: _json_method_store.styleIconBack,
+	                styleList: _json_method_store.styleList });
 	        }
 	    }]);
 
@@ -31742,11 +31743,6 @@
 	            return _react2.default.createElement(
 	                'div',
 	                null,
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _json_result.method
-	                ),
 	                _react2.default.createElement(_MethodOption2.default, {
 	                    handleChange: this.handleChange,
 	                    outputResult: _json_result,
@@ -31825,14 +31821,14 @@
 	};
 
 	function MethodReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _json_state_init : arguments[0];
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? { method: _json_state_init, sub: _json_state_test } : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {
 	        case 'METHOD_LOOKS_INIT':
-	            return state = _json_state_init;
+	            return state = { method: _json_state_init, sub: _json_state_test };
 	        case 'METHOD_LOOKS_TEST':
-	            return state = _json_state_test;
+	            return state = { method: _json_state_test, sub: _json_state_init };
 	        default:
 	            return state;
 	    }
@@ -32371,6 +32367,18 @@
 
 /***/ },
 /* 251 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 252 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 253 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

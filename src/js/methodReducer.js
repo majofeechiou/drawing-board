@@ -36,12 +36,12 @@ let _json_state_test = {
     styleList: true
 };
 
-export default function MethodReducer(state = _json_state_init, action) {
+export default function MethodReducer(state = {method:_json_state_init, sub:_json_state_test}, action) {
     switch (action.type) {
         case 'METHOD_LOOKS_INIT':
-            return state = _json_state_init ;
+            return state = {method:_json_state_init, sub:_json_state_test} ;
         case 'METHOD_LOOKS_TEST':
-            return state = _json_state_test ;
+            return state = {method:_json_state_test, sub:_json_state_init} ;
         default:
             return state ;
     }

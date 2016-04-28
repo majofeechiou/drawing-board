@@ -47,7 +47,7 @@ export default class MethodOption extends React.Component {
 
     render(){
 
-        let _json_store = this.getStoreState();
+        let _json_method_store = this.getStoreState().method;
         return (
             <ReactGroup 
                 onChange={this.handleChange}
@@ -58,20 +58,20 @@ export default class MethodOption extends React.Component {
                 outputResult={this.getOutputResult()}
                 showKey={this.getShowKey()}
                 between="~"
-                display={_json_store.display}
-                padding={_json_store.padding}
-                fillet={_json_store.fillet}
-                listStyle={_json_store.listStyle}
-                listPosition={_json_store.listPosition}
-                iconPosition={_json_store.iconPosition}
-                iconShow={_json_store.iconShow}
-                styleName={_json_store.styleName}
-                composition={_json_store.composition}
-                offBack={_json_store.offBack}
-                styleBorder={_json_store.styleBorder}
-                styleIcon={_json_store.styleIcon}
-                styleIconBack={_json_store.styleIconBack}
-                styleList={_json_store.styleList} />
+                display={_json_method_store.display}
+                padding={_json_method_store.padding}
+                fillet={_json_method_store.fillet}
+                listStyle={_json_method_store.listStyle}
+                listPosition={_json_method_store.listPosition}
+                iconPosition={_json_method_store.iconPosition}
+                iconShow={_json_method_store.iconShow}
+                styleName={_json_method_store.styleName}
+                composition={_json_method_store.composition}
+                offBack={_json_method_store.offBack}
+                styleBorder={_json_method_store.styleBorder}
+                styleIcon={_json_method_store.styleIcon}
+                styleIconBack={_json_method_store.styleIconBack}
+                styleList={_json_method_store.styleList} />
         );
     }
 
