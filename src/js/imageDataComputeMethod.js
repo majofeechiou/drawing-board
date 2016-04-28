@@ -1,6 +1,7 @@
 'use strict';
 import Tools from './Tools';
 import HexRgb from 'hex-rgb';
+import Settings from './Settings';
 
 // 運算的方式
 export default class ImageDataComputeMethod extends Tools {
@@ -107,7 +108,8 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_alpha_max = _json_control.maxAlpha,
 			_num_alpha,
 			_num_total,
-			_str_color;
+			_str_color,
+			_str_shape = _json_control.shape.shape;
 
 		let _num_x,
 			_num_y;
@@ -150,7 +152,12 @@ export default class ImageDataComputeMethod extends Tools {
 			}
 
 			_scope.obj_canvas_2d.beginPath();
-			_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
+			if( _str_shape===Settings.SHAPE_CIRCLE ){
+				_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
+			}else if( _str_shape===Settings.SHAPE_RECT ){
+				_scope.obj_canvas_2d.rect(_num_x-_num_size/2, _num_y-_num_size/2, _num_size, _num_size );
+			}
+			
 			_scope.obj_canvas_2d.closePath();
 			_scope.obj_canvas_2d.fill();
 			

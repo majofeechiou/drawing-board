@@ -25,4 +25,17 @@ export default class MethodSettings {
 		];
 	}
 
+	static getAllShape(){
+		return [
+			{
+			    shape: Settings.SHAPE_CIRCLE,
+			    shape_name: Settings.SHAPE_CIRCLE_NAME
+			},
+			{
+			    shape: Settings.SHAPE_RECT,
+			    shape_name: Settings.SHAPE_RECT_NAME
+			}
+		];
+	}
+
 };

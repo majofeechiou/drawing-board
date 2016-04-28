@@ -8,6 +8,8 @@ import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
 import ColorPicker from 'react-color-picker';
+import MethodSettings from './MethodSettings';
+import ReactGroup from 'ReactGroup';
 
 // http://jslog.com/react-color-picker/
 // https://www.npmjs.com/package/react-color-picker
@@ -19,12 +21,17 @@ export default class MethodControlDot extends React.Component {
 
         let _scope = this;
 
-        _scope.setAllDistance(function(){ _scope.setAllColor(); });
         _scope.arrangeProps( props );
 
         _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
+        _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.colorPick = _scope.colorPick.bind(_scope);
+
+    }
+
+    componentWillReceiveProps(nextProps){
+        this.arrangeProps(nextProps);
     }
 
     getComponentMethod(){
@@ -41,20 +48,20 @@ export default class MethodControlDot extends React.Component {
                 minSize: this.refs.minSize.value,
                 maxSize: this.refs.maxSize.value,
                 minAlpha: this.refs.minAlpha.value,
-                maxAlpha: this.refs.maxAlpha.value
+                maxAlpha: this.refs.maxAlpha.value,
             }
         } );
     }
 
-    componentWillReceiveProps(nextProps){
-        this.arrangeProps(nextProps);
-    }
-
-    arrangeProps(json_next){
+    arrangeProps(json_next, callback){
         if( this.state ){
             this.setState( {control:json_next.control} );
         }else{
             this.state = {control:json_next.control};
+        }
+        console.log( 'json_next :: ', json_next );
+        if( callback ){
+            callback();
         }
     }
 
@@ -68,53 +75,25 @@ export default class MethodControlDot extends React.Component {
     }
 
     handleChangeRange() {
-        let _json_new = this.arrangeState({});
+        let _json_new = this.arrangeState();
         this.setState( _json_new );
     }
 
-    setAllDistance( callback ){
-        console.log( 'this :: ', this );
+    handleChangeShape( bln_change, json_return ) {
+        let _scope = this ;
+        let _json_new = _scope.arrangeState();
+        _scope.setState( _json_new );
 
-        let _scope = this;
-        let _ary_number = [0],
-            _num_distance = 64 ,
-            _num_var;
-
-        for( let i=1; i<=256/_num_distance; i++ ){
-            _num_var = i*_num_distance ;
-            if( _num_var>=256 ){
-                _num_var = 255;
-            }
-            _ary_number.push(_num_var);
-        }
-
-        this.all_distance = _ary_number ;
-
-        if( callback && callback instanceof Function ){
-            callback();
-        }
-    }
-    setAllColor(){
-        let _scope = this;
-        let _ary_number = _scope.getAllDistance() ;
-
-        _scope.all_color = [];
-
-        for( let r=0; r<_ary_number.length; r++ ){
-            for( let g=0; g<_ary_number.length; g++ ){
-                for( let b=0; b<_ary_number.length; b++ ){
-                    _scope.all_color.push('rgb('+_ary_number[r]+', '+_ary_number[g]+', '+_ary_number[b]+')') ;
-                }
-            }
-        }
     }
 
-    getAllDistance(){
-        return this.all_distance ;
+    getInputoption(){
+        return MethodSettings.getAllShape();
     }
-
-    getAllColor(){
-        return this.all_color || [];
+    getSelectKey(){
+        return ['shape','shape_name'];
+    }
+    getShowKey(){
+        return ['shape_name'];
     }
 
     colorPick( str_color ){
@@ -125,28 +104,43 @@ export default class MethodControlDot extends React.Component {
 
     render(){
         let _scope = this;
-        let _ary_all_color = this.getAllColor();
-        let _num_oneline = _scope.getAllDistance().length;
-        let _json_style = {
-            display: 'block',
-            clear: 'both',
-            height: 0,
-            overflow: 'hidden',
-            position: 'relative'
-        };
+        let _json_store = this.props.methodStore.getState();
        
         return (
             <div>
+                {JSON.stringify(this.state.control.shape.shape)}
+                <ReactGroup 
+                    onChange={this.handleChangeShape}
+                    outputFormat="json"
+                    name="method_option"
+                    selectKey={this.getSelectKey()}
+                    inputOption={this.getInputoption()}
+                    outputResult={this.state.control.shape}
+                    showKey={this.getShowKey()}
+                    between="~"
+                    display={_json_store.display}
+                    padding={_json_store.padding}
+                    fillet={_json_store.fillet}
+                    listStyle={_json_store.listStyle}
+                    listPosition={_json_store.listPosition}
+                    iconPosition={_json_store.iconPosition}
+                    iconShow={_json_store.iconShow}
+                    styleName={_json_store.styleName}
+                    composition={_json_store.composition}
+                    offBack={_json_store.offBack}
+                    styleBorder={_json_store.styleBorder}
+                    styleIcon={_json_store.styleIcon}
+                    styleIconBack={_json_store.styleIconBack}
+                    styleList={_json_store.styleList} />
                 
-                
-                <ColorPicker 
-                    value={this.state.control.color} 
-                    onDrag={this.colorPick} />
-                <div style={{marginTop: '5px', marginBottom: '15px'}}>
+                <div style={{marginTop: '15px', marginBottom: '5px'}}>
                     <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
                         {this.state.control.color}
                     </span>
                 </div>
+                <ColorPicker 
+                    value={this.state.control.color} 
+                    onDrag={this.colorPick} />
 
                 <div>
                     頻率 ： 
@@ -174,7 +168,7 @@ export default class MethodControlDot extends React.Component {
                         ref="maxSize"
                         step="1"
                         min={this.state.control.minSize}
-                        max="20"
+                        max="200"
                         value={this.state.control.maxSize}
                         onChange={this.handleChangeRange} /> {this.state.control.maxSize} / 20
                 </div>

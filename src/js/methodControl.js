@@ -12,6 +12,7 @@ import MethodControlDot from './MethodControlDot';
 import MethodControlAlpha from './MethodControlAlpha';
 import MethodControlSaturate from './MethodControlSaturate';
 import MethodControlContrast from './MethodControlContrast';
+import MethodSettings from './MethodSettings';
 
 export default class MethodControl extends React.Component {
     constructor(props) {
@@ -53,10 +54,11 @@ export default class MethodControl extends React.Component {
             _json_control = {
                 frequency: 20,
                 minSize: 2,
-                maxSize: 8,
+                maxSize: 18,
                 minAlpha: 100,
                 maxAlpha: 100,
-                color: '#900' // #hex
+                color: '#990000', // #hex
+                shape: MethodSettings.getAllShape()[0]
             };
             return (
                 <MethodControlDot

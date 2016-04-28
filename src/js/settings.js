@@ -32,6 +32,8 @@ export default class Settings {
 	static METHOD_SEPIA = 'SEPIA';
 	static METHOD_SEPIA_NAME = '復古';
 
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
 	static OUTPUT_SIZE_SCALE = 'scale';
 	static OUTPUT_SIZE_CUSTOM = 'custom';
 
@@ -39,6 +41,17 @@ export default class Settings {
 	static OUTPUT_CUSTOM_CONTAIN = 'contain';
 	static OUTPUT_CUSTOM_FILL = 'fill';
 	static OUTPUT_CUSTOM_CLIP = 'clip';
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	static SHAPE_CIRCLE = 'circle';
+	static SHAPE_CIRCLE_NAME = '圓形';
+
+	static SHAPE_RECT = 'rect';
+	static SHAPE_RECT_NAME = '方形';
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static getConstNameByEn( str ){
 		if( (typeof str === 'string') && (str!=='') ){

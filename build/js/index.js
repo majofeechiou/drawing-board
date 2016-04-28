@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(205);
+	module.exports = __webpack_require__(232);
 
 
 /***/ },
@@ -225,7 +225,7 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(15);
-	var ReactDOMComponentFlags = __webpack_require__(72);
+	var ReactDOMComponentFlags = __webpack_require__(79);
 
 	var invariant = __webpack_require__(1);
 
@@ -541,6 +541,14 @@
 
 /***/ },
 /* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(143);
+
+/***/ },
+/* 8 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -561,6 +569,13 @@
 		_createClass(Settings, null, [{
 			key: 'getConstNameByEn',
 
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 			// static METHOD_SNOW = 'SNOW';
 			// static METHOD_SNOW_NAME = '雪花';
@@ -620,11 +635,15 @@
 	Settings.OUTPUT_CUSTOM_CONTAIN = 'contain';
 	Settings.OUTPUT_CUSTOM_FILL = 'fill';
 	Settings.OUTPUT_CUSTOM_CLIP = 'clip';
+	Settings.SHAPE_CIRCLE = 'circle';
+	Settings.SHAPE_CIRCLE_NAME = '圓形';
+	Settings.SHAPE_RECT = 'rect';
+	Settings.SHAPE_RECT_NAME = '方形';
 	exports.default = Settings;
 	;
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -653,7 +672,7 @@
 	var ReactCurrentOwner = __webpack_require__(16);
 
 	var warning = __webpack_require__(2);
-	var canDefineProperty = __webpack_require__(48);
+	var canDefineProperty = __webpack_require__(53);
 
 	// The Symbol used to tag the ReactElement type. If there is no native Symbol
 	// nor polyfill, then a plain number is used for performance.
@@ -924,14 +943,6 @@
 	module.exports = ReactElement;
 
 /***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(132);
-
-/***/ },
 /* 10 */
 /***/ function(module, exports) {
 
@@ -992,12 +1003,12 @@
 
 	var _assign = __webpack_require__(3);
 
-	var CallbackQueue = __webpack_require__(67);
-	var PooledClass = __webpack_require__(18);
-	var ReactFeatureFlags = __webpack_require__(76);
+	var CallbackQueue = __webpack_require__(74);
+	var PooledClass = __webpack_require__(19);
+	var ReactFeatureFlags = __webpack_require__(83);
 	var ReactPerf = __webpack_require__(6);
-	var ReactReconciler = __webpack_require__(21);
-	var Transaction = __webpack_require__(47);
+	var ReactReconciler = __webpack_require__(23);
+	var Transaction = __webpack_require__(52);
 
 	var invariant = __webpack_require__(1);
 
@@ -1236,7 +1247,7 @@
 
 	'use strict';
 
-	var keyMirror = __webpack_require__(29);
+	var keyMirror = __webpack_require__(31);
 
 	var PropagationPhases = keyMirror({ bubbled: null, captured: null });
 
@@ -1340,7 +1351,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var PooledClass = __webpack_require__(18);
+	var PooledClass = __webpack_require__(19);
 
 	var emptyFunction = __webpack_require__(10);
 	var warning = __webpack_require__(2);
@@ -1887,13 +1898,21 @@
 
 	'use strict';
 
+	module.exports = __webpack_require__(228);
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _ComponentEmitter = __webpack_require__(98);
+	var _ComponentEmitter = __webpack_require__(105);
 
 	var _ComponentEmitter2 = _interopRequireDefault(_ComponentEmitter);
 
@@ -1922,7 +1941,7 @@
 	;
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2046,15 +2065,23 @@
 	module.exports = PooledClass;
 
 /***/ },
-/* 19 */
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(146);
+
+/***/ },
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = function () {
 
-	    var exterior = __webpack_require__(99);
-	    var deep = __webpack_require__(195);
+	    var exterior = __webpack_require__(107);
+	    var deep = __webpack_require__(206);
 
 	    return {
 	        exterior: exterior,
@@ -2063,7 +2090,7 @@
 	}();
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2079,8 +2106,8 @@
 
 	'use strict';
 
-	var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
-	var setTextContent = __webpack_require__(92);
+	var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
+	var setTextContent = __webpack_require__(99);
 
 	/**
 	 * In IE (8-11) and Edge, appending nodes with no children is dramatically
@@ -2173,7 +2200,7 @@
 	module.exports = DOMLazyTree;
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2189,8 +2216,8 @@
 
 	'use strict';
 
-	var ReactRef = __webpack_require__(165);
-	var ReactInstrumentation = __webpack_require__(32);
+	var ReactRef = __webpack_require__(176);
+	var ReactInstrumentation = __webpack_require__(35);
 
 	/**
 	 * Helper to call ReactRef.attachRefs with this composite component, split out
@@ -2308,7 +2335,7 @@
 	module.exports = ReactReconciler;
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2387,7 +2414,7 @@
 	;
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2509,7 +2536,7 @@
 	exports.default = Setting;
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2533,12 +2560,12 @@
 	  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 	};
 
-	var EventPluginRegistry = __webpack_require__(30);
-	var EventPluginUtils = __webpack_require__(41);
-	var ReactErrorUtils = __webpack_require__(44);
+	var EventPluginRegistry = __webpack_require__(33);
+	var EventPluginUtils = __webpack_require__(46);
+	var ReactErrorUtils = __webpack_require__(49);
 
-	var accumulateInto = __webpack_require__(86);
-	var forEachAccumulated = __webpack_require__(87);
+	var accumulateInto = __webpack_require__(93);
+	var forEachAccumulated = __webpack_require__(94);
 	var invariant = __webpack_require__(1);
 
 	/**
@@ -2757,7 +2784,7 @@
 	module.exports = EventPluginHub;
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2774,11 +2801,11 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(12);
-	var EventPluginHub = __webpack_require__(24);
-	var EventPluginUtils = __webpack_require__(41);
+	var EventPluginHub = __webpack_require__(26);
+	var EventPluginUtils = __webpack_require__(46);
 
-	var accumulateInto = __webpack_require__(86);
-	var forEachAccumulated = __webpack_require__(87);
+	var accumulateInto = __webpack_require__(93);
+	var forEachAccumulated = __webpack_require__(94);
 	var warning = __webpack_require__(2);
 
 	var PropagationPhases = EventConstants.PropagationPhases;
@@ -2899,7 +2926,7 @@
 	module.exports = EventPropagators;
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2917,7 +2944,7 @@
 
 	var SyntheticEvent = __webpack_require__(13);
 
-	var getEventTarget = __webpack_require__(52);
+	var getEventTarget = __webpack_require__(57);
 
 	/**
 	 * @interface UIEvent
@@ -2963,7 +2990,7 @@
 	module.exports = SyntheticUIEvent;
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2972,7 +2999,7 @@
 	    value: true
 	});
 
-	var _md = __webpack_require__(200);
+	var _md = __webpack_require__(216);
 
 	var _md2 = _interopRequireDefault(_md);
 
@@ -3000,7 +3027,7 @@
 	;
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3024,7 +3051,7 @@
 	module.exports = emptyObject;
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3076,7 +3103,62 @@
 	module.exports = keyMirror;
 
 /***/ },
-/* 30 */
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var tinycolor = __webpack_require__(231);
+
+	if (typeof window != 'undefined') {
+	    window.tinycolor = tinycolor;
+	}
+
+	function toColor(color) {
+	    return tinycolor(color);
+	}
+
+	function toPure(color) {
+	    var h = toColor(color).toHsl().h;
+
+	    return toColor({ h: h, s: 100, l: 50, a: 1 });
+	}
+
+	function fromRatio(color) {
+	    return tinycolor.fromRatio(color);
+	}
+
+	function toAlpha(color, alpha) {
+	    if (alpha > 1) {
+	        alpha = alpha / 100;
+	    }
+
+	    color = toColor(color).toRgb();
+	    color.a = alpha;
+
+	    return toColor(color);
+	}
+
+	function toHsv(color) {
+	    return toColor(color).toHsv();
+	}
+
+	var Color = {
+	    toColor: toColor,
+	    toPure: toPure,
+	    fromRatio: fromRatio,
+	    toAlpha: toAlpha,
+	    toHsv: toHsv
+	};
+
+	if (typeof window != 'undefined') {
+	    window.color = Color;
+	}
+
+	module.exports = Color;
+
+/***/ },
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3322,7 +3404,7 @@
 	module.exports = EventPluginRegistry;
 
 /***/ },
-/* 31 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3341,12 +3423,12 @@
 	var _assign = __webpack_require__(3);
 
 	var EventConstants = __webpack_require__(12);
-	var EventPluginRegistry = __webpack_require__(30);
-	var ReactEventEmitterMixin = __webpack_require__(157);
-	var ViewportMetrics = __webpack_require__(85);
+	var EventPluginRegistry = __webpack_require__(33);
+	var ReactEventEmitterMixin = __webpack_require__(168);
+	var ViewportMetrics = __webpack_require__(92);
 
-	var getVendorPrefixedEventName = __webpack_require__(185);
-	var isEventSupported = __webpack_require__(54);
+	var getVendorPrefixedEventName = __webpack_require__(196);
+	var isEventSupported = __webpack_require__(59);
 
 	/**
 	 * Summary of `ReactBrowserEventEmitter` event handling:
@@ -3644,7 +3726,7 @@
 	module.exports = ReactBrowserEventEmitter;
 
 /***/ },
-/* 32 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3660,12 +3742,12 @@
 
 	'use strict';
 
-	var ReactDebugTool = __webpack_require__(152);
+	var ReactDebugTool = __webpack_require__(163);
 
 	module.exports = { debugTool: ReactDebugTool };
 
 /***/ },
-/* 33 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3694,7 +3776,7 @@
 	module.exports = ReactPropTypeLocationNames;
 
 /***/ },
-/* 34 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3710,7 +3792,7 @@
 
 	'use strict';
 
-	var keyMirror = __webpack_require__(29);
+	var keyMirror = __webpack_require__(31);
 
 	var ReactPropTypeLocations = keyMirror({
 	  prop: null,
@@ -3721,7 +3803,7 @@
 	module.exports = ReactPropTypeLocations;
 
 /***/ },
-/* 35 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3737,10 +3819,10 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(26);
-	var ViewportMetrics = __webpack_require__(85);
+	var SyntheticUIEvent = __webpack_require__(28);
+	var ViewportMetrics = __webpack_require__(92);
 
-	var getEventModifierState = __webpack_require__(51);
+	var getEventModifierState = __webpack_require__(56);
 
 	/**
 	 * @interface MouseEvent
@@ -3798,7 +3880,7 @@
 	module.exports = SyntheticMouseEvent;
 
 /***/ },
-/* 36 */
+/* 39 */
 /***/ function(module, exports) {
 
 	/**
@@ -3841,15 +3923,68 @@
 	module.exports = escapeTextContentForBrowser;
 
 /***/ },
-/* 37 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(135);
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var MethodSettings = function () {
+		function MethodSettings() {
+			_classCallCheck(this, MethodSettings);
+		}
+
+		_createClass(MethodSettings, null, [{
+			key: 'getAllMethod',
+			value: function getAllMethod() {
+				return [{
+					method: _Settings2.default.METHOD_ALPHA,
+					method_name: _Settings2.default.METHOD_ALPHA_NAME
+				}, {
+					method: _Settings2.default.METHOD_DOT,
+					method_name: _Settings2.default.METHOD_DOT_NAME
+				}, {
+					method: _Settings2.default.METHOD_SATURATE,
+					method_name: _Settings2.default.METHOD_SATURATE_NAME
+				}, {
+					method: _Settings2.default.METHOD_CONTRAST,
+					method_name: _Settings2.default.METHOD_CONTRAST_NAME
+				}];
+			}
+		}, {
+			key: 'getAllShape',
+			value: function getAllShape() {
+				return [{
+					shape: _Settings2.default.SHAPE_CIRCLE,
+					shape_name: _Settings2.default.SHAPE_CIRCLE_NAME
+				}, {
+					shape: _Settings2.default.SHAPE_RECT,
+					shape_name: _Settings2.default.SHAPE_RECT_NAME
+				}];
+			}
+		}]);
+
+		return MethodSettings;
+	}();
+
+	exports.default = MethodSettings;
+	;
 
 /***/ },
-/* 38 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3885,7 +4020,30 @@
 	exports.default = Tools;
 
 /***/ },
-/* 39 */
+/* 42 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = 'red';
+
+/***/ },
+/* 43 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var assign = __webpack_require__(3);
+	var toColor = __webpack_require__(32).toColor;
+
+	module.exports = function toStringValue(color) {
+	    color = toColor(assign({}, color));
+
+	    return color.toRgb().a == 1 ? color.toHexString() : color.toRgbString();
+	};
+
+/***/ },
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3901,14 +4059,14 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(20);
-	var Danger = __webpack_require__(127);
-	var ReactMultiChildUpdateTypes = __webpack_require__(78);
+	var DOMLazyTree = __webpack_require__(22);
+	var Danger = __webpack_require__(138);
+	var ReactMultiChildUpdateTypes = __webpack_require__(85);
 	var ReactPerf = __webpack_require__(6);
 
-	var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
-	var setInnerHTML = __webpack_require__(55);
-	var setTextContent = __webpack_require__(92);
+	var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
+	var setInnerHTML = __webpack_require__(60);
+	var setTextContent = __webpack_require__(99);
 
 	function getNodeAfter(parentNode, node) {
 	  // Special case for text components, which return [open, close] comments
@@ -4049,7 +4207,7 @@
 	module.exports = DOMChildrenOperations;
 
 /***/ },
-/* 40 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4066,10 +4224,10 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(15);
-	var ReactDOMInstrumentation = __webpack_require__(145);
+	var ReactDOMInstrumentation = __webpack_require__(156);
 	var ReactPerf = __webpack_require__(6);
 
-	var quoteAttributeValueForBrowser = __webpack_require__(187);
+	var quoteAttributeValueForBrowser = __webpack_require__(198);
 	var warning = __webpack_require__(2);
 
 	var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -4267,7 +4425,7 @@
 	module.exports = DOMPropertyOperations;
 
 /***/ },
-/* 41 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4284,7 +4442,7 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(12);
-	var ReactErrorUtils = __webpack_require__(44);
+	var ReactErrorUtils = __webpack_require__(49);
 
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
@@ -4499,7 +4657,7 @@
 	module.exports = EventPluginUtils;
 
 /***/ },
-/* 42 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4515,8 +4673,8 @@
 
 	'use strict';
 
-	var ReactPropTypes = __webpack_require__(82);
-	var ReactPropTypeLocations = __webpack_require__(34);
+	var ReactPropTypes = __webpack_require__(89);
+	var ReactPropTypeLocations = __webpack_require__(37);
 
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
@@ -4637,7 +4795,7 @@
 	module.exports = LinkedValueUtils;
 
 /***/ },
-/* 43 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4693,7 +4851,7 @@
 	module.exports = ReactComponentEnvironment;
 
 /***/ },
-/* 44 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4774,7 +4932,7 @@
 	module.exports = ReactErrorUtils;
 
 /***/ },
-/* 45 */
+/* 50 */
 /***/ function(module, exports) {
 
 	/**
@@ -4827,7 +4985,7 @@
 	module.exports = ReactInstanceMap;
 
 /***/ },
-/* 46 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -4843,27 +5001,27 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(20);
+	var DOMLazyTree = __webpack_require__(22);
 	var DOMProperty = __webpack_require__(15);
-	var ReactBrowserEventEmitter = __webpack_require__(31);
+	var ReactBrowserEventEmitter = __webpack_require__(34);
 	var ReactCurrentOwner = __webpack_require__(16);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMContainerInfo = __webpack_require__(138);
-	var ReactDOMFeatureFlags = __webpack_require__(142);
-	var ReactElement = __webpack_require__(8);
-	var ReactFeatureFlags = __webpack_require__(76);
-	var ReactInstrumentation = __webpack_require__(32);
-	var ReactMarkupChecksum = __webpack_require__(161);
+	var ReactDOMContainerInfo = __webpack_require__(149);
+	var ReactDOMFeatureFlags = __webpack_require__(153);
+	var ReactElement = __webpack_require__(9);
+	var ReactFeatureFlags = __webpack_require__(83);
+	var ReactInstrumentation = __webpack_require__(35);
+	var ReactMarkupChecksum = __webpack_require__(172);
 	var ReactPerf = __webpack_require__(6);
-	var ReactReconciler = __webpack_require__(21);
-	var ReactUpdateQueue = __webpack_require__(83);
+	var ReactReconciler = __webpack_require__(23);
+	var ReactUpdateQueue = __webpack_require__(90);
 	var ReactUpdates = __webpack_require__(11);
 
-	var emptyObject = __webpack_require__(28);
-	var instantiateReactComponent = __webpack_require__(90);
+	var emptyObject = __webpack_require__(30);
+	var instantiateReactComponent = __webpack_require__(97);
 	var invariant = __webpack_require__(1);
-	var setInnerHTML = __webpack_require__(55);
-	var shouldUpdateReactComponent = __webpack_require__(56);
+	var setInnerHTML = __webpack_require__(60);
+	var shouldUpdateReactComponent = __webpack_require__(61);
 	var warning = __webpack_require__(2);
 
 	var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -5310,7 +5468,7 @@
 	module.exports = ReactMount;
 
 /***/ },
-/* 47 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5546,7 +5704,7 @@
 	module.exports = Transaction;
 
 /***/ },
-/* 48 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5575,7 +5733,7 @@
 	module.exports = canDefineProperty;
 
 /***/ },
-/* 49 */
+/* 54 */
 /***/ function(module, exports) {
 
 	/**
@@ -5612,7 +5770,7 @@
 	module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ },
-/* 50 */
+/* 55 */
 /***/ function(module, exports) {
 
 	/**
@@ -5667,7 +5825,7 @@
 	module.exports = getEventCharCode;
 
 /***/ },
-/* 51 */
+/* 56 */
 /***/ function(module, exports) {
 
 	/**
@@ -5715,7 +5873,7 @@
 	module.exports = getEventModifierState;
 
 /***/ },
-/* 52 */
+/* 57 */
 /***/ function(module, exports) {
 
 	/**
@@ -5755,7 +5913,7 @@
 	module.exports = getEventTarget;
 
 /***/ },
-/* 53 */
+/* 58 */
 /***/ function(module, exports) {
 
 	/**
@@ -5800,7 +5958,7 @@
 	module.exports = getIteratorFn;
 
 /***/ },
-/* 54 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5865,7 +6023,7 @@
 	module.exports = isEventSupported;
 
 /***/ },
-/* 55 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -5886,7 +6044,7 @@
 	var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 	var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-	var createMicrosoftUnsafeLocalFunction = __webpack_require__(49);
+	var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
 
 	/**
 	 * Set the innerHTML property of a node, ensuring that whitespace is preserved
@@ -5952,7 +6110,7 @@
 	module.exports = setInnerHTML;
 
 /***/ },
-/* 56 */
+/* 61 */
 /***/ function(module, exports) {
 
 	/**
@@ -6007,7 +6165,7 @@
 	module.exports = shouldUpdateReactComponent;
 
 /***/ },
-/* 57 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6032,9 +6190,9 @@
 	};
 
 	var ReactCurrentOwner = __webpack_require__(16);
-	var ReactElement = __webpack_require__(8);
+	var ReactElement = __webpack_require__(9);
 
-	var getIteratorFn = __webpack_require__(53);
+	var getIteratorFn = __webpack_require__(58);
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
 
@@ -6209,7 +6367,7 @@
 	module.exports = traverseAllChildren;
 
 /***/ },
-/* 58 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6582,7 +6740,7 @@
 	module.exports = validateDOMNesting;
 
 /***/ },
-/* 59 */
+/* 64 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6618,57 +6776,15 @@
 	;
 
 /***/ },
-/* 60 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var MethodSettings = function () {
-		function MethodSettings() {
-			_classCallCheck(this, MethodSettings);
-		}
-
-		_createClass(MethodSettings, null, [{
-			key: 'getAllMethod',
-			value: function getAllMethod() {
-				return [{
-					method: _Settings2.default.METHOD_ALPHA,
-					method_name: _Settings2.default.METHOD_ALPHA_NAME
-				}, {
-					method: _Settings2.default.METHOD_DOT,
-					method_name: _Settings2.default.METHOD_DOT_NAME
-				}, {
-					method: _Settings2.default.METHOD_SATURATE,
-					method_name: _Settings2.default.METHOD_SATURATE_NAME
-				}, {
-					method: _Settings2.default.METHOD_CONTRAST,
-					method_name: _Settings2.default.METHOD_CONTRAST_NAME
-				}];
-			}
-		}]);
-
-		return MethodSettings;
-	}();
-
-	exports.default = MethodSettings;
-	;
+	module.exports = __webpack_require__(113);
 
 /***/ },
-/* 61 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6756,7 +6872,7 @@
 	module.exports = EventListener;
 
 /***/ },
-/* 62 */
+/* 67 */
 /***/ function(module, exports) {
 
 	/**
@@ -6787,7 +6903,7 @@
 	module.exports = focusNode;
 
 /***/ },
-/* 63 */
+/* 68 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -6827,7 +6943,7 @@
 	module.exports = getActiveElement;
 
 /***/ },
-/* 64 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6926,7 +7042,7 @@
 	module.exports = getMarkupWrap;
 
 /***/ },
-/* 65 */
+/* 70 */
 /***/ function(module, exports) {
 
 	/**
@@ -7005,7 +7121,189 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 66 */
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var ReactDOM = __webpack_require__(20);
+	var Region = __webpack_require__(17);
+	var assign = __webpack_require__(3);
+	var DragHelper = __webpack_require__(207);
+	var toHsv = __webpack_require__(32).toHsv;
+
+	function emptyFn() {}
+
+	exports['default'] = {
+
+	    toColorValue: function toColorValue(value) {
+	        if (typeof value == 'string') {
+	            return toHsv(value);
+	        }
+
+	        return {
+	            h: value.h,
+	            s: value.s,
+	            v: value.v,
+	            a: value.a
+	        };
+	    },
+
+	    onMouseDown: function onMouseDown(event) {
+	        event.preventDefault();
+
+	        var region = Region.fromDOM(ReactDOM.findDOMNode(this));
+	        var info = this.getEventInfo(event, region);
+
+	        DragHelper(event, {
+	            scope: this,
+
+	            constrainTo: region,
+
+	            onDragStart: function onDragStart(event, config) {
+	                config.initialPoint = info;
+
+	                config.minLeft = 0;
+	                config.maxLeft = region.width;
+
+	                this.handleDragStart(event);
+	            },
+	            onDrag: function onDrag(event, config) {
+	                var info = this.getEventInfo(event, region);
+
+	                this.updateColor(info);
+	                this.handleDrag(event, config);
+	            },
+	            onDrop: function onDrop(event, config) {
+	                var info = this.getEventInfo(event, region);
+
+	                this.updateColor(info);
+
+	                this.handleDrop(event, config);
+	            }
+	        });
+
+	        this.updateColor(info);
+	        this.handleMouseDown(event, { initialPoint: info });
+	    },
+
+	    handleMouseDown: function handleMouseDown(event, config) {
+
+	        ;(this.props.onMouseDown || emptyFn).apply(this, this.getColors());
+	        this.handleDrag(event, config);
+	    },
+
+	    handleUpdate: function handleUpdate(event, config) {
+
+	        var diff = config.diff || { top: 0, left: 0 };
+	        var initialPoint = config.initialPoint;
+
+	        if (initialPoint) {
+
+	            var top;
+	            var left;
+
+	            left = initialPoint.x + diff.left;
+	            top = initialPoint.y + diff.top;
+
+	            left = Math.max(left, config.minLeft);
+	            left = Math.min(left, config.maxLeft);
+
+	            this.state.top = top;
+	            this.state.left = left;
+
+	            this.state.mouseDown = {
+	                x: left,
+	                y: top,
+	                width: initialPoint.width,
+	                height: initialPoint.height
+	            };
+	        }
+
+	        if (this.props.inPicker) {
+	            //the picker handles the values
+	            return;
+	        }
+
+	        if (!this.props.value) {
+	            this.setState({
+	                value: this.hsv
+	            });
+	        }
+	    },
+
+	    handleDragStart: function handleDragStart(event) {},
+
+	    handleDrag: function handleDrag(event, config) {
+	        this.handleUpdate(event, config);(this.props.onDrag || emptyFn).apply(this, this.getColors());
+	    },
+
+	    handleDrop: function handleDrop(event, config) {
+	        this.handleUpdate(event, config);
+	        this.state.mouseDown = false;(this.props.onChange || emptyFn).apply(this, this.getColors());
+	    },
+
+	    getColors: function getColors() {
+	        var first = this.props.inPicker ? this.hsv : this.toStringValue(this.hsv);
+	        var args = [first];
+
+	        if (!this.props.inPicker) {
+	            args.push(assign({}, this.hsv));
+	        }
+
+	        return args;
+	    },
+
+	    getEventInfo: function getEventInfo(event, region) {
+	        region = region || Region.fromDOM(ReactDOM.findDOMNode(this));
+
+	        var x = event.clientX - region.left;
+	        var y = event.clientY - region.top;
+
+	        return {
+	            x: x,
+	            y: y,
+	            width: region.getWidth(),
+	            height: region.getHeight()
+	        };
+	    }
+	};
+	module.exports = exports['default'];
+
+/***/ },
+/* 72 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function validate(info) {
+	    var height = info.height;
+	    var width = info.width;
+
+	    if (info.x < 0) {
+	        info.x = 0;
+	    }
+
+	    if (info.x >= width) {
+	        info.x = width;
+	    }
+
+	    if (info.y < 0) {
+	        info.y = 0;
+	    }
+
+	    if (info.y >= height) {
+	        info.y = height;
+	    }
+
+	    return info;
+	};
+
+/***/ },
+/* 73 */
 /***/ function(module, exports) {
 
 	/**
@@ -7158,7 +7456,7 @@
 	module.exports = CSSProperty;
 
 /***/ },
-/* 67 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7176,7 +7474,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var PooledClass = __webpack_require__(18);
+	var PooledClass = __webpack_require__(19);
 
 	var invariant = __webpack_require__(1);
 
@@ -7268,7 +7566,7 @@
 	module.exports = CallbackQueue;
 
 /***/ },
-/* 68 */
+/* 75 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7284,11 +7582,11 @@
 
 	'use strict';
 
-	var PooledClass = __webpack_require__(18);
-	var ReactElement = __webpack_require__(8);
+	var PooledClass = __webpack_require__(19);
+	var ReactElement = __webpack_require__(9);
 
 	var emptyFunction = __webpack_require__(10);
-	var traverseAllChildren = __webpack_require__(57);
+	var traverseAllChildren = __webpack_require__(62);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
 	var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -7455,7 +7753,7 @@
 	module.exports = ReactChildren;
 
 /***/ },
-/* 69 */
+/* 76 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -7481,15 +7779,15 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactComponent = __webpack_require__(70);
-	var ReactElement = __webpack_require__(8);
-	var ReactPropTypeLocations = __webpack_require__(34);
-	var ReactPropTypeLocationNames = __webpack_require__(33);
-	var ReactNoopUpdateQueue = __webpack_require__(81);
+	var ReactComponent = __webpack_require__(77);
+	var ReactElement = __webpack_require__(9);
+	var ReactPropTypeLocations = __webpack_require__(37);
+	var ReactPropTypeLocationNames = __webpack_require__(36);
+	var ReactNoopUpdateQueue = __webpack_require__(88);
 
-	var emptyObject = __webpack_require__(28);
+	var emptyObject = __webpack_require__(30);
 	var invariant = __webpack_require__(1);
-	var keyMirror = __webpack_require__(29);
+	var keyMirror = __webpack_require__(31);
 	var keyOf = __webpack_require__(14);
 	var warning = __webpack_require__(2);
 
@@ -8191,7 +8489,7 @@
 	module.exports = ReactClass;
 
 /***/ },
-/* 70 */
+/* 77 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8215,11 +8513,11 @@
 	  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 	};
 
-	var ReactNoopUpdateQueue = __webpack_require__(81);
-	var ReactInstrumentation = __webpack_require__(32);
+	var ReactNoopUpdateQueue = __webpack_require__(88);
+	var ReactInstrumentation = __webpack_require__(35);
 
-	var canDefineProperty = __webpack_require__(48);
-	var emptyObject = __webpack_require__(28);
+	var canDefineProperty = __webpack_require__(53);
+	var emptyObject = __webpack_require__(30);
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
 
@@ -8325,7 +8623,7 @@
 	module.exports = ReactComponent;
 
 /***/ },
-/* 71 */
+/* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8341,8 +8639,8 @@
 
 	'use strict';
 
-	var DOMChildrenOperations = __webpack_require__(39);
-	var ReactDOMIDOperations = __webpack_require__(143);
+	var DOMChildrenOperations = __webpack_require__(44);
+	var ReactDOMIDOperations = __webpack_require__(154);
 	var ReactPerf = __webpack_require__(6);
 
 	/**
@@ -8374,7 +8672,7 @@
 	module.exports = ReactComponentBrowserEnvironment;
 
 /***/ },
-/* 72 */
+/* 79 */
 /***/ function(module, exports) {
 
 	/**
@@ -8397,7 +8695,7 @@
 	module.exports = ReactDOMComponentFlags;
 
 /***/ },
-/* 73 */
+/* 80 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8415,7 +8713,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var LinkedValueUtils = __webpack_require__(42);
+	var LinkedValueUtils = __webpack_require__(47);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactUpdates = __webpack_require__(11);
 
@@ -8614,7 +8912,7 @@
 	module.exports = ReactDOMSelect;
 
 /***/ },
-/* 74 */
+/* 81 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8645,13 +8943,13 @@
 	  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 	};
 
-	var ReactElement = __webpack_require__(8);
-	var ReactPropTypeLocations = __webpack_require__(34);
-	var ReactPropTypeLocationNames = __webpack_require__(33);
+	var ReactElement = __webpack_require__(9);
+	var ReactPropTypeLocations = __webpack_require__(37);
+	var ReactPropTypeLocationNames = __webpack_require__(36);
 	var ReactCurrentOwner = __webpack_require__(16);
 
-	var canDefineProperty = __webpack_require__(48);
-	var getIteratorFn = __webpack_require__(53);
+	var canDefineProperty = __webpack_require__(53);
+	var getIteratorFn = __webpack_require__(58);
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
 
@@ -8908,7 +9206,7 @@
 	module.exports = ReactElementValidator;
 
 /***/ },
-/* 75 */
+/* 82 */
 /***/ function(module, exports) {
 
 	/**
@@ -8943,7 +9241,7 @@
 	module.exports = ReactEmptyComponent;
 
 /***/ },
-/* 76 */
+/* 83 */
 /***/ function(module, exports) {
 
 	/**
@@ -8969,7 +9267,7 @@
 	module.exports = ReactFeatureFlags;
 
 /***/ },
-/* 77 */
+/* 84 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -8985,11 +9283,11 @@
 
 	'use strict';
 
-	var ReactDOMSelection = __webpack_require__(147);
+	var ReactDOMSelection = __webpack_require__(158);
 
-	var containsNode = __webpack_require__(110);
-	var focusNode = __webpack_require__(62);
-	var getActiveElement = __webpack_require__(63);
+	var containsNode = __webpack_require__(118);
+	var focusNode = __webpack_require__(67);
+	var getActiveElement = __webpack_require__(68);
 
 	function isInDocument(node) {
 	  return containsNode(document.documentElement, node);
@@ -9098,7 +9396,7 @@
 	module.exports = ReactInputSelection;
 
 /***/ },
-/* 78 */
+/* 85 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9114,7 +9412,7 @@
 
 	'use strict';
 
-	var keyMirror = __webpack_require__(29);
+	var keyMirror = __webpack_require__(31);
 
 	/**
 	 * When a component's children are updated, a series of update configuration
@@ -9135,7 +9433,7 @@
 	module.exports = ReactMultiChildUpdateTypes;
 
 /***/ },
-/* 79 */
+/* 86 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9235,7 +9533,7 @@
 	module.exports = ReactNativeComponent;
 
 /***/ },
-/* 80 */
+/* 87 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9251,7 +9549,7 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(8);
+	var ReactElement = __webpack_require__(9);
 
 	var invariant = __webpack_require__(1);
 
@@ -9277,7 +9575,7 @@
 	module.exports = ReactNodeTypes;
 
 /***/ },
-/* 81 */
+/* 88 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9377,7 +9675,7 @@
 	module.exports = ReactNoopUpdateQueue;
 
 /***/ },
-/* 82 */
+/* 89 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9401,11 +9699,11 @@
 	  return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
 	};
 
-	var ReactElement = __webpack_require__(8);
-	var ReactPropTypeLocationNames = __webpack_require__(33);
+	var ReactElement = __webpack_require__(9);
+	var ReactPropTypeLocationNames = __webpack_require__(36);
 
 	var emptyFunction = __webpack_require__(10);
-	var getIteratorFn = __webpack_require__(53);
+	var getIteratorFn = __webpack_require__(58);
 
 	/**
 	 * Collection of methods that allow declaration and validation of props that are
@@ -9770,7 +10068,7 @@
 	module.exports = ReactPropTypes;
 
 /***/ },
-/* 83 */
+/* 90 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9795,7 +10093,7 @@
 	};
 
 	var ReactCurrentOwner = __webpack_require__(16);
-	var ReactInstanceMap = __webpack_require__(45);
+	var ReactInstanceMap = __webpack_require__(50);
 	var ReactUpdates = __webpack_require__(11);
 
 	var invariant = __webpack_require__(1);
@@ -9998,7 +10296,7 @@
 	module.exports = ReactUpdateQueue;
 
 /***/ },
-/* 84 */
+/* 91 */
 /***/ function(module, exports) {
 
 	/**
@@ -10017,7 +10315,7 @@
 	module.exports = '15.0.1';
 
 /***/ },
-/* 85 */
+/* 92 */
 /***/ function(module, exports) {
 
 	/**
@@ -10049,7 +10347,7 @@
 	module.exports = ViewportMetrics;
 
 /***/ },
-/* 86 */
+/* 93 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10113,7 +10411,7 @@
 	module.exports = accumulateInto;
 
 /***/ },
-/* 87 */
+/* 94 */
 /***/ function(module, exports) {
 
 	/**
@@ -10148,7 +10446,7 @@
 	module.exports = forEachAccumulated;
 
 /***/ },
-/* 88 */
+/* 95 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10164,7 +10462,7 @@
 
 	'use strict';
 
-	var ReactNodeTypes = __webpack_require__(80);
+	var ReactNodeTypes = __webpack_require__(87);
 
 	function getNativeComponentFromComposite(inst) {
 	  var type;
@@ -10183,7 +10481,7 @@
 	module.exports = getNativeComponentFromComposite;
 
 /***/ },
-/* 89 */
+/* 96 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10221,7 +10519,7 @@
 	module.exports = getTextContentAccessor;
 
 /***/ },
-/* 90 */
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10247,9 +10545,9 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactCompositeComponent = __webpack_require__(134);
-	var ReactEmptyComponent = __webpack_require__(75);
-	var ReactNativeComponent = __webpack_require__(79);
+	var ReactCompositeComponent = __webpack_require__(145);
+	var ReactEmptyComponent = __webpack_require__(82);
+	var ReactNativeComponent = __webpack_require__(86);
 
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
@@ -10345,7 +10643,7 @@
 	module.exports = instantiateReactComponent;
 
 /***/ },
-/* 91 */
+/* 98 */
 /***/ function(module, exports) {
 
 	/**
@@ -10391,7 +10689,7 @@
 	module.exports = isTextInputElement;
 
 /***/ },
-/* 92 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -10408,8 +10706,8 @@
 	'use strict';
 
 	var ExecutionEnvironment = __webpack_require__(5);
-	var escapeTextContentForBrowser = __webpack_require__(36);
-	var setInnerHTML = __webpack_require__(55);
+	var escapeTextContentForBrowser = __webpack_require__(39);
+	var setInnerHTML = __webpack_require__(60);
 
 	/**
 	 * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -10436,7 +10734,7 @@
 	module.exports = setTextContent;
 
 /***/ },
-/* 93 */
+/* 100 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -10474,7 +10772,7 @@
 	}
 
 /***/ },
-/* 94 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10483,7 +10781,7 @@
 	exports.ActionTypes = undefined;
 	exports["default"] = createStore;
 
-	var _isPlainObject = __webpack_require__(100);
+	var _isPlainObject = __webpack_require__(108);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
@@ -10697,7 +10995,7 @@
 	}
 
 /***/ },
-/* 95 */
+/* 102 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -10726,7 +11024,7 @@
 	}
 
 /***/ },
-/* 96 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
@@ -10739,9 +11037,9 @@
 
 	'use strict';
 
-	var base64 = __webpack_require__(106);
-	var ieee754 = __webpack_require__(197);
-	var isArray = __webpack_require__(199);
+	var base64 = __webpack_require__(114);
+	var ieee754 = __webpack_require__(213);
+	var isArray = __webpack_require__(215);
 
 	exports.Buffer = Buffer;
 	exports.SlowBuffer = SlowBuffer;
@@ -12242,10 +12540,10 @@
 	  }
 	  return i;
 	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(96).Buffer, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(103).Buffer, (function() { return this; }())))
 
 /***/ },
-/* 97 */
+/* 104 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -12285,7 +12583,7 @@
 	module.exports = charenc;
 
 /***/ },
-/* 98 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12449,7 +12747,49 @@
 	};
 
 /***/ },
-/* 99 */
+/* 106 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var hasOwn = Object.prototype.hasOwnProperty;
+
+	function curry(fn, n) {
+
+	    if (typeof n !== 'number') {
+	        n = fn.length;
+	    }
+
+	    function getCurryClosure(prevArgs) {
+
+	        function curryClosure() {
+
+	            var len = arguments.length;
+	            var args = [].concat(prevArgs);
+
+	            if (len) {
+	                args.push.apply(args, arguments);
+	            }
+
+	            if (args.length < n) {
+	                return getCurryClosure(args);
+	            }
+
+	            return fn.apply(this, args);
+	        }
+
+	        return curryClosure;
+	    }
+
+	    return getCurryClosure([]);
+	}
+
+	module.exports = curry(function (object, property) {
+	    return hasOwn.call(object, property);
+	});
+
+/***/ },
+/* 107 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12524,14 +12864,14 @@
 	})(undefined);
 
 /***/ },
-/* 100 */
+/* 108 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var getPrototype = __webpack_require__(201),
-	    isHostObject = __webpack_require__(202),
-	    isObjectLike = __webpack_require__(203);
+	var getPrototype = __webpack_require__(219),
+	    isHostObject = __webpack_require__(220),
+	    isObjectLike = __webpack_require__(221);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -12599,7 +12939,40 @@
 	module.exports = isPlainObject;
 
 /***/ },
-/* 101 */
+/* 109 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * @static
+	 * Returns true if the given region is valid, false otherwise.
+	 * @param  {Region} region The region to check
+	 * @return {Boolean}        True, if the region is valid, false otherwise.
+	 * A region is valid if
+	 *  * left <= right  &&
+	 *  * top  <= bottom
+	 */
+
+	module.exports = function validate(region) {
+
+	    var isValid = true;
+
+	    if (region.right < region.left) {
+	        isValid = false;
+	        region.right = region.left;
+	    }
+
+	    if (region.bottom < region.top) {
+	        isValid = false;
+	        region.bottom = region.top;
+	    }
+
+	    return isValid;
+	};
+
+/***/ },
+/* 110 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -12607,15 +12980,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 102 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(105);
-
-/***/ },
-/* 103 */
+/* 111 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12634,7 +12999,7 @@
 		};
 	}();
 
-	var _Setting = __webpack_require__(23);
+	var _Setting = __webpack_require__(25);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -12774,7 +13139,7 @@
 	exports.default = CheckedUI;
 
 /***/ },
-/* 104 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12795,7 +13160,7 @@
 		};
 	}();
 
-	var _react = __webpack_require__(9);
+	var _react = __webpack_require__(7);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -12917,7 +13282,7 @@
 	};
 
 /***/ },
-/* 105 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12950,27 +13315,27 @@
 		};
 	}();
 
-	var _react = __webpack_require__(9);
+	var _react = __webpack_require__(7);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemBase = __webpack_require__(104);
+	var _ItemBase = __webpack_require__(112);
 
 	var _ItemBase2 = _interopRequireDefault(_ItemBase);
 
-	var _classnames = __webpack_require__(193);
+	var _classnames = __webpack_require__(204);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Setting = __webpack_require__(23);
+	var _Setting = __webpack_require__(25);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
-	var _CheckedUI = __webpack_require__(103);
+	var _CheckedUI = __webpack_require__(111);
 
 	var _CheckedUI2 = _interopRequireDefault(_CheckedUI);
 
-	var _JsonExtend = __webpack_require__(99);
+	var _JsonExtend = __webpack_require__(107);
 
 	var _JsonExtend2 = _interopRequireDefault(_JsonExtend);
 
@@ -13294,7 +13659,7 @@
 	};
 
 /***/ },
-/* 106 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13418,7 +13783,7 @@
 	})( false ? undefined.base64js = {} : exports);
 
 /***/ },
-/* 107 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {/*!
@@ -13569,10 +13934,10 @@
 
 		return target;
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(96).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(103).Buffer))
 
 /***/ },
-/* 108 */
+/* 116 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -13608,7 +13973,7 @@
 	module.exports = camelize;
 
 /***/ },
-/* 109 */
+/* 117 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13624,7 +13989,7 @@
 
 	'use strict';
 
-	var camelize = __webpack_require__(108);
+	var camelize = __webpack_require__(116);
 
 	var msPattern = /^-ms-/;
 
@@ -13652,7 +14017,7 @@
 	module.exports = camelizeStyleName;
 
 /***/ },
-/* 110 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13668,7 +14033,7 @@
 	 * @typechecks
 	 */
 
-	var isTextNode = __webpack_require__(117);
+	var isTextNode = __webpack_require__(125);
 
 	/*eslint-disable no-bitwise */
 
@@ -13700,7 +14065,7 @@
 	module.exports = containsNode;
 
 /***/ },
-/* 111 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13839,7 +14204,7 @@
 	module.exports = createArrayFromMixed;
 
 /***/ },
-/* 112 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13859,8 +14224,8 @@
 
 	var ExecutionEnvironment = __webpack_require__(5);
 
-	var createArrayFromMixed = __webpack_require__(111);
-	var getMarkupWrap = __webpack_require__(64);
+	var createArrayFromMixed = __webpack_require__(119);
+	var getMarkupWrap = __webpack_require__(69);
 	var invariant = __webpack_require__(1);
 
 	/**
@@ -13927,7 +14292,7 @@
 	module.exports = createNodesFromMarkup;
 
 /***/ },
-/* 113 */
+/* 121 */
 /***/ function(module, exports) {
 
 	/**
@@ -13970,7 +14335,7 @@
 	module.exports = getUnboundedScrollPosition;
 
 /***/ },
-/* 114 */
+/* 122 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -14007,7 +14372,7 @@
 	module.exports = hyphenate;
 
 /***/ },
-/* 115 */
+/* 123 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14023,7 +14388,7 @@
 
 	'use strict';
 
-	var hyphenate = __webpack_require__(114);
+	var hyphenate = __webpack_require__(122);
 
 	var msPattern = /^ms-/;
 
@@ -14050,7 +14415,7 @@
 	module.exports = hyphenateStyleName;
 
 /***/ },
-/* 116 */
+/* 124 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -14086,7 +14451,7 @@
 	module.exports = isNode;
 
 /***/ },
-/* 117 */
+/* 125 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14102,7 +14467,7 @@
 	 * @typechecks
 	 */
 
-	var isNode = __webpack_require__(116);
+	var isNode = __webpack_require__(124);
 
 	/**
 	 * @param {*} object The object to check.
@@ -14115,7 +14480,7 @@
 	module.exports = isTextNode;
 
 /***/ },
-/* 118 */
+/* 126 */
 /***/ function(module, exports) {
 
 	/**
@@ -14170,7 +14535,7 @@
 	module.exports = mapObject;
 
 /***/ },
-/* 119 */
+/* 127 */
 /***/ function(module, exports) {
 
 	/**
@@ -14206,7 +14571,7 @@
 	module.exports = memoizeStringOnly;
 
 /***/ },
-/* 120 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14233,7 +14598,7 @@
 	module.exports = performance || {};
 
 /***/ },
-/* 121 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14249,7 +14614,7 @@
 	 * @typechecks
 	 */
 
-	var performance = __webpack_require__(120);
+	var performance = __webpack_require__(128);
 
 	var performanceNow;
 
@@ -14271,7 +14636,444 @@
 	module.exports = performanceNow;
 
 /***/ },
-/* 122 */
+/* 130 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(7);
+	var ReactDOM = __webpack_require__(20);
+	var Region = __webpack_require__(17);
+	var assign = __webpack_require__(3);
+	var common = __webpack_require__(71);
+
+	var VALIDATE = __webpack_require__(72);
+
+	module.exports = React.createClass(assign({
+
+	    displayName: 'HueSpectrum',
+
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            height: 300,
+	            width: 30,
+	            pointerSize: 3,
+	            defaultColor: __webpack_require__(42)
+	        };
+	    },
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            h: 0
+	        };
+	    },
+
+	    componentDidUpdate: function componentDidUpdate() {
+	        // this.updateDragPositionIf()
+	    },
+
+	    componentDidMount: function componentDidMount() {
+	        this.updateDragPositionIf();
+	    },
+
+	    updateDragPositionIf: function updateDragPositionIf() {
+
+	        if (!this.props.height) {
+	            this.setState({});
+	        }
+	    },
+
+	    render: function render() {
+	        this.hsv = this.toColorValue(this.state.value || this.props.value || this.props.defaultValue || this.props.defaultColor);
+	        // console.log('hue:', this.hsv)
+
+	        if (this.state.h == 360 && !this.hsv.h) {
+	            //in order to show bottom red as well on drag
+	            this.hsv.h = 360;
+	        }
+
+	        var style = assign({}, this.props.style);
+
+	        if (this.props.height) {
+	            style.height = this.props.height;
+	        }
+	        if (this.props.width) {
+	            style.width = this.props.width;
+	        }
+
+	        var dragStyle = {
+	            height: this.props.pointerSize
+	        };
+
+	        var dragPos = this.getDragPosition();
+
+	        if (dragPos != null) {
+	            dragStyle.top = dragPos;
+	            dragStyle.display = 'block';
+	        }
+	        return React.createElement('div', { className: 'react-color-picker__hue-spectrum', style: style, onMouseDown: this.onMouseDown }, React.createElement('div', { className: 'react-color-picker__hue-drag', style: dragStyle }, React.createElement('div', { className: 'react-color-picker__hue-inner' })));
+	    },
+
+	    getDragPosition: function getDragPosition(hsv) {
+	        hsv = hsv || this.hsv;
+
+	        if (!this.props.height && !this.isMounted()) {
+	            return null;
+	        }
+
+	        var height = this.props.height || Region.fromDOM(ReactDOM.findDOMNode(this)).getHeight();
+	        var size = this.props.pointerSize;
+
+	        var pos = Math.round(hsv.h * height / 360);
+	        var diff = Math.round(size / 2);
+
+	        return pos - diff;
+	    },
+
+	    updateColor: function updateColor(point) {
+	        point = VALIDATE(point);
+
+	        this.hsv.h = point.y * 360 / point.height;
+
+	        if (this.hsv.h != 0) {
+	            this.state.h = this.hsv.h;
+	        }
+
+	        this.state.h = this.hsv.h != 0 ? this.hsv.h : 0;
+	    },
+
+	    toStringValue: __webpack_require__(43)
+	}, common));
+
+/***/ },
+/* 131 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	    value: true
+	});
+	var React = __webpack_require__(7);
+	var ReactDOM = __webpack_require__(20);
+	var Region = __webpack_require__(17);
+	var assign = __webpack_require__(3);
+	var fromRatio = __webpack_require__(32).fromRatio;
+	var common = __webpack_require__(71);
+
+	var VALIDATE = __webpack_require__(72);
+
+	exports['default'] = React.createClass(assign({
+
+	    displayName: 'SaturationSpectrum',
+
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            height: 300,
+	            width: 300,
+	            pointerSize: 7,
+	            defaultColor: __webpack_require__(42)
+	        };
+	    },
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            pointerTop: null,
+	            pointerLeft: null
+	        };
+	    },
+
+	    componentDidUpdate: function componentDidUpdate() {
+	        // this.updateDragPositionIf()
+	    },
+
+	    componentDidMount: function componentDidMount() {
+	        this.updateDragPositionIf();
+	    },
+
+	    updateDragPositionIf: function updateDragPositionIf() {
+	        if (!this.props.height || !this.props.width) {
+	            this.setState({});
+	        }
+	    },
+
+	    getDragPosition: function getDragPosition(hsv) {
+	        hsv = hsv || this.hsv;
+
+	        var width = this.props.width;
+	        var height = this.props.height;
+	        var sizeDefined = width && height;
+
+	        if (!sizeDefined && !this.isMounted()) {
+	            return null;
+	        }
+
+	        var region;
+
+	        if (!sizeDefined) {
+	            region = Region.fromDOM(ReactDOM.findDOMNode(this));
+	            height = height || region.getHeight();
+	            width = width || region.getWidth();
+	        }
+
+	        var x = hsv.s * width;
+	        var y = height - hsv.v * height;
+	        var size = this.props.pointerSize;
+	        var diff = Math.floor(size / 2);
+
+	        if (this.props.value && this.state.mouseDown && !isNaN(this.state.mouseDown.x)) {
+	            x = this.state.mouseDown.x;
+	        }
+
+	        return {
+	            left: x - diff,
+	            top: y - diff
+	        };
+	    },
+
+	    prepareBackgroundColor: function prepareBackgroundColor(color) {
+	        var hsv = color;
+
+	        var col = fromRatio({
+	            h: hsv.h % 360 / 360,
+	            s: 1,
+	            v: 1
+	        });
+
+	        return col.toRgbString();
+	    },
+
+	    prepareProps: function prepareProps(thisProps, state) {
+	        var props = assign({}, thisProps);
+
+	        var color = state.value || props.value || props.defaultValue || props.defaultColor;
+
+	        props.color = color;
+
+	        this.hsv = this.toColorValue(color);
+
+	        props.style = this.prepareStyle(props);
+	        props.className = this.prepareClassName(props);
+
+	        return props;
+	    },
+
+	    prepareClassName: function prepareClassName(props) {
+	        var className = props.className || '';
+
+	        className += ' react-color-picker__saturation-spectrum';
+
+	        return className;
+	    },
+
+	    prepareStyle: function prepareStyle(props) {
+	        var style = assign({}, props.style);
+
+	        if (props.height) {
+	            style.height = props.height;
+	        }
+	        if (props.width) {
+	            style.width = props.width;
+	        }
+
+	        style.backgroundColor = this.prepareBackgroundColor(this.hsv);
+
+	        return style;
+	    },
+
+	    render: function render() {
+
+	        var props = this.p = this.prepareProps(this.props, this.state);
+
+	        var dragStyle = {
+	            width: this.props.pointerSize,
+	            height: this.props.pointerSize
+	        };
+
+	        var dragPos = this.getDragPosition();
+
+	        if (dragPos) {
+	            dragStyle.top = dragPos.top;
+	            dragStyle.left = dragPos.left;
+	            dragStyle.display = 'block';
+	        }
+
+	        return React.createElement('div', { className: props.className, style: props.style, onMouseDown: this.onMouseDown }, React.createElement('div', { className: 'react-color-picker__saturation-white' }, React.createElement('div', { className: 'react-color-picker__saturation-black' })), React.createElement('div', { className: 'react-color-picker__saturation-drag', style: dragStyle }, React.createElement('div', { className: 'react-color-picker__saturation-inner' })));
+	    },
+
+	    getSaturationForPoint: function getSaturationForPoint(point) {
+	        return point.x / point.width;
+	    },
+
+	    getColorValueForPoint: function getColorValueForPoint(point) {
+	        return (point.height - point.y) / point.height;
+	    },
+
+	    updateColor: function updateColor(point) {
+	        point = VALIDATE(point);
+
+	        this.hsv.s = this.getSaturationForPoint(point);
+	        this.hsv.v = this.getColorValueForPoint(point);
+	    },
+
+	    toStringValue: __webpack_require__(43)
+	}, common));
+	module.exports = exports['default'];
+
+/***/ },
+/* 132 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(7);
+	var assign = __webpack_require__(3);
+	var colorUtils = __webpack_require__(32);
+
+	var HueSpectrum = __webpack_require__(130);
+	var SaturationSpectrum = __webpack_require__(131);
+
+	var toHsv = colorUtils.toHsv;
+
+	function emptyFn() {}
+
+	var RESULT = React.createClass({
+
+	    displayName: 'ColorPicker',
+
+	    getDefaultProps: function getDefaultProps() {
+	        return {
+	            defaultColor: __webpack_require__(42),
+	            saturationWidth: 300,
+	            saturationHeight: 300,
+	            hueHeight: null,
+	            hueWidth: 30,
+	            hueMargin: 10
+	        };
+	    },
+
+	    getInitialState: function getInitialState() {
+	        return {
+	            value: this.props.defaultValue
+	        };
+	    },
+
+	    prepareClassName: function prepareClassName(props) {
+	        var className = props.className || '';
+
+	        className += ' cp';
+
+	        return className;
+	    },
+
+	    prepareProps: function prepareProps(props) {
+
+	        props.className = this.prepareClassName(props);
+
+	        return props;
+	    },
+
+	    render: function render() {
+
+	        var props = this.prepareProps(assign({}, this.props));
+	        var hueStyle = assign({}, this.props.hueStyle) || {};
+
+	        hueStyle.marginLeft = this.props.hueMargin;
+
+	        var value = props.value ? this.toColorValue(this.props.value) : null;
+
+	        var defaultValue = !value ? this.toColorValue(this.state.value || props.defaultValue || props.defaultColor) : null;
+
+	        var saturationConfig = {
+	            onDrag: this.handleSaturationDrag,
+	            onChange: this.handleSaturationChange,
+	            onMouseDown: this.handleSaturationMouseDown,
+	            height: props.saturationHeight,
+	            width: props.saturationWidth,
+	            inPicker: true
+	        };
+
+	        var hueConfig = {
+	            onDrag: this.handleHueDrag,
+	            onChange: this.handleHueChange,
+	            height: props.hueHeight || props.saturationHeight,
+	            width: props.hueWidth,
+	            inPicker: true,
+	            style: hueStyle
+	        };
+
+	        if (this.state.dragHue) {
+	            ;(value || defaultValue).h = this.state.dragHue;
+	        }
+
+	        //both value and defaultValue are objects like: {h,s,v}
+	        if (value) {
+	            saturationConfig.value = assign({}, value);
+	            hueConfig.value = assign({}, value);
+	        } else {
+	            saturationConfig.defaultValue = assign({}, defaultValue);
+	            hueConfig.defaultValue = assign({}, defaultValue);
+	        }
+
+	        return React.createElement('div', props, React.createElement(SaturationSpectrum, saturationConfig), React.createElement(HueSpectrum, hueConfig));
+	    },
+
+	    toColorValue: function toColorValue(value) {
+	        return typeof value == 'string' ? toHsv(value) : value;
+	    },
+
+	    toStringValue: __webpack_require__(43),
+
+	    handleChange: function handleChange(color) {
+
+	        this.state.dragHue = null;
+
+	        color = assign({}, color);
+
+	        var value = this.toStringValue(color);(this.props.onChange || emptyFn)(value, color);
+	    },
+
+	    handleSaturationChange: function handleSaturationChange(color) {
+	        this.handleChange(color);
+	    },
+
+	    handleHueChange: function handleHueChange(color) {
+	        this.handleChange(color);
+	    },
+
+	    handleHueDrag: function handleHueDrag(hsv) {
+	        this.handleDrag(hsv);
+	    },
+
+	    handleSaturationDrag: function handleSaturationDrag(hsv) {
+	        this.handleDrag(hsv);
+	    },
+
+	    handleDrag: function handleDrag(color) {
+
+	        if (!this.props.value) {
+	            this.setState({
+	                value: color
+	            });
+	        }
+
+	        ;(this.props.onDrag || emptyFn)(this.toStringValue(color), color);
+	    },
+
+	    handleSaturationMouseDown: function handleSaturationMouseDown(hsv) {
+	        this.setState({
+	            dragHue: hsv.h
+	        });
+	    }
+	});
+
+	RESULT.HueSpectrum = HueSpectrum;
+	RESULT.SaturationSpectrum = SaturationSpectrum;
+
+	module.exports = RESULT;
+
+/***/ },
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14289,7 +15091,7 @@
 
 	var ReactDOMComponentTree = __webpack_require__(4);
 
-	var focusNode = __webpack_require__(62);
+	var focusNode = __webpack_require__(67);
 
 	var AutoFocusUtils = {
 	  focusDOMComponent: function focusDOMComponent() {
@@ -14300,7 +15102,7 @@
 	module.exports = AutoFocusUtils;
 
 /***/ },
-/* 123 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14325,11 +15127,11 @@
 	};
 
 	var EventConstants = __webpack_require__(12);
-	var EventPropagators = __webpack_require__(25);
+	var EventPropagators = __webpack_require__(27);
 	var ExecutionEnvironment = __webpack_require__(5);
-	var FallbackCompositionState = __webpack_require__(130);
-	var SyntheticCompositionEvent = __webpack_require__(171);
-	var SyntheticInputEvent = __webpack_require__(174);
+	var FallbackCompositionState = __webpack_require__(141);
+	var SyntheticCompositionEvent = __webpack_require__(182);
+	var SyntheticInputEvent = __webpack_require__(185);
 
 	var keyOf = __webpack_require__(14);
 
@@ -14701,7 +15503,7 @@
 	module.exports = BeforeInputEventPlugin;
 
 /***/ },
-/* 124 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14717,14 +15519,14 @@
 
 	'use strict';
 
-	var CSSProperty = __webpack_require__(66);
+	var CSSProperty = __webpack_require__(73);
 	var ExecutionEnvironment = __webpack_require__(5);
 	var ReactPerf = __webpack_require__(6);
 
-	var camelizeStyleName = __webpack_require__(109);
-	var dangerousStyleValue = __webpack_require__(180);
-	var hyphenateStyleName = __webpack_require__(115);
-	var memoizeStringOnly = __webpack_require__(119);
+	var camelizeStyleName = __webpack_require__(117);
+	var dangerousStyleValue = __webpack_require__(191);
+	var hyphenateStyleName = __webpack_require__(123);
+	var memoizeStringOnly = __webpack_require__(127);
 	var warning = __webpack_require__(2);
 
 	var processStyleName = memoizeStringOnly(function (styleName) {
@@ -14911,7 +15713,7 @@
 	module.exports = CSSPropertyOperations;
 
 /***/ },
-/* 125 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14928,16 +15730,16 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(12);
-	var EventPluginHub = __webpack_require__(24);
-	var EventPropagators = __webpack_require__(25);
+	var EventPluginHub = __webpack_require__(26);
+	var EventPropagators = __webpack_require__(27);
 	var ExecutionEnvironment = __webpack_require__(5);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactUpdates = __webpack_require__(11);
 	var SyntheticEvent = __webpack_require__(13);
 
-	var getEventTarget = __webpack_require__(52);
-	var isEventSupported = __webpack_require__(54);
-	var isTextInputElement = __webpack_require__(91);
+	var getEventTarget = __webpack_require__(57);
+	var isEventSupported = __webpack_require__(59);
+	var isTextInputElement = __webpack_require__(98);
 	var keyOf = __webpack_require__(14);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
@@ -15241,7 +16043,7 @@
 	module.exports = ChangeEventPlugin;
 
 /***/ },
-/* 126 */
+/* 137 */
 /***/ function(module, exports) {
 
 	/**
@@ -15266,7 +16068,7 @@
 	module.exports = DOMNamespaces;
 
 /***/ },
-/* 127 */
+/* 138 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15282,12 +16084,12 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(20);
+	var DOMLazyTree = __webpack_require__(22);
 	var ExecutionEnvironment = __webpack_require__(5);
 
-	var createNodesFromMarkup = __webpack_require__(112);
+	var createNodesFromMarkup = __webpack_require__(120);
 	var emptyFunction = __webpack_require__(10);
-	var getMarkupWrap = __webpack_require__(64);
+	var getMarkupWrap = __webpack_require__(69);
 	var invariant = __webpack_require__(1);
 
 	var OPEN_TAG_NAME_EXP = /^(<[^ \/>]+)/;
@@ -15415,7 +16217,7 @@
 	module.exports = Danger;
 
 /***/ },
-/* 128 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15447,7 +16249,7 @@
 	module.exports = DefaultEventPluginOrder;
 
 /***/ },
-/* 129 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15464,9 +16266,9 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(12);
-	var EventPropagators = __webpack_require__(25);
+	var EventPropagators = __webpack_require__(27);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var SyntheticMouseEvent = __webpack_require__(35);
+	var SyntheticMouseEvent = __webpack_require__(38);
 
 	var keyOf = __webpack_require__(14);
 
@@ -15557,7 +16359,7 @@
 	module.exports = EnterLeaveEventPlugin;
 
 /***/ },
-/* 130 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15575,9 +16377,9 @@
 
 	var _assign = __webpack_require__(3);
 
-	var PooledClass = __webpack_require__(18);
+	var PooledClass = __webpack_require__(19);
 
-	var getTextContentAccessor = __webpack_require__(89);
+	var getTextContentAccessor = __webpack_require__(96);
 
 	/**
 	 * This helper class stores information about text content of a target node,
@@ -15657,7 +16459,7 @@
 	module.exports = FallbackCompositionState;
 
 /***/ },
-/* 131 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15871,7 +16673,7 @@
 	module.exports = HTMLDOMPropertyConfig;
 
 /***/ },
-/* 132 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15889,16 +16691,16 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactChildren = __webpack_require__(68);
-	var ReactComponent = __webpack_require__(70);
-	var ReactClass = __webpack_require__(69);
-	var ReactDOMFactories = __webpack_require__(141);
-	var ReactElement = __webpack_require__(8);
-	var ReactElementValidator = __webpack_require__(74);
-	var ReactPropTypes = __webpack_require__(82);
-	var ReactVersion = __webpack_require__(84);
+	var ReactChildren = __webpack_require__(75);
+	var ReactComponent = __webpack_require__(77);
+	var ReactClass = __webpack_require__(76);
+	var ReactDOMFactories = __webpack_require__(152);
+	var ReactElement = __webpack_require__(9);
+	var ReactElementValidator = __webpack_require__(81);
+	var ReactPropTypes = __webpack_require__(89);
+	var ReactVersion = __webpack_require__(91);
 
-	var onlyChild = __webpack_require__(186);
+	var onlyChild = __webpack_require__(197);
 	var warning = __webpack_require__(2);
 
 	var createElement = ReactElement.createElement;
@@ -15963,7 +16765,7 @@
 	module.exports = React;
 
 /***/ },
-/* 133 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15979,11 +16781,11 @@
 
 	'use strict';
 
-	var ReactReconciler = __webpack_require__(21);
+	var ReactReconciler = __webpack_require__(23);
 
-	var instantiateReactComponent = __webpack_require__(90);
-	var shouldUpdateReactComponent = __webpack_require__(56);
-	var traverseAllChildren = __webpack_require__(57);
+	var instantiateReactComponent = __webpack_require__(97);
+	var shouldUpdateReactComponent = __webpack_require__(61);
+	var traverseAllChildren = __webpack_require__(62);
 	var warning = __webpack_require__(2);
 
 	function instantiateChild(childInstances, child, name) {
@@ -16092,7 +16894,7 @@
 	module.exports = ReactChildReconciler;
 
 /***/ },
-/* 134 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16118,22 +16920,22 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactComponentEnvironment = __webpack_require__(43);
+	var ReactComponentEnvironment = __webpack_require__(48);
 	var ReactCurrentOwner = __webpack_require__(16);
-	var ReactElement = __webpack_require__(8);
-	var ReactErrorUtils = __webpack_require__(44);
-	var ReactInstanceMap = __webpack_require__(45);
-	var ReactInstrumentation = __webpack_require__(32);
-	var ReactNodeTypes = __webpack_require__(80);
+	var ReactElement = __webpack_require__(9);
+	var ReactErrorUtils = __webpack_require__(49);
+	var ReactInstanceMap = __webpack_require__(50);
+	var ReactInstrumentation = __webpack_require__(35);
+	var ReactNodeTypes = __webpack_require__(87);
 	var ReactPerf = __webpack_require__(6);
-	var ReactPropTypeLocations = __webpack_require__(34);
-	var ReactPropTypeLocationNames = __webpack_require__(33);
-	var ReactReconciler = __webpack_require__(21);
-	var ReactUpdateQueue = __webpack_require__(83);
+	var ReactPropTypeLocations = __webpack_require__(37);
+	var ReactPropTypeLocationNames = __webpack_require__(36);
+	var ReactReconciler = __webpack_require__(23);
+	var ReactUpdateQueue = __webpack_require__(90);
 
-	var emptyObject = __webpack_require__(28);
+	var emptyObject = __webpack_require__(30);
 	var invariant = __webpack_require__(1);
-	var shouldUpdateReactComponent = __webpack_require__(56);
+	var shouldUpdateReactComponent = __webpack_require__(61);
 	var warning = __webpack_require__(2);
 
 	function getDeclarationErrorAddendum(component) {
@@ -16891,7 +17693,7 @@
 	module.exports = ReactCompositeComponent;
 
 /***/ },
-/* 135 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16910,16 +17712,16 @@
 	'use strict';
 
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDefaultInjection = __webpack_require__(154);
-	var ReactMount = __webpack_require__(46);
+	var ReactDefaultInjection = __webpack_require__(165);
+	var ReactMount = __webpack_require__(51);
 	var ReactPerf = __webpack_require__(6);
-	var ReactReconciler = __webpack_require__(21);
+	var ReactReconciler = __webpack_require__(23);
 	var ReactUpdates = __webpack_require__(11);
-	var ReactVersion = __webpack_require__(84);
+	var ReactVersion = __webpack_require__(91);
 
-	var findDOMNode = __webpack_require__(181);
-	var getNativeComponentFromComposite = __webpack_require__(88);
-	var renderSubtreeIntoContainer = __webpack_require__(188);
+	var findDOMNode = __webpack_require__(192);
+	var getNativeComponentFromComposite = __webpack_require__(95);
+	var renderSubtreeIntoContainer = __webpack_require__(199);
 	var warning = __webpack_require__(2);
 
 	ReactDefaultInjection.inject();
@@ -17000,7 +17802,7 @@
 	module.exports = React;
 
 /***/ },
-/* 136 */
+/* 147 */
 /***/ function(module, exports) {
 
 	/**
@@ -17055,7 +17857,7 @@
 	module.exports = ReactDOMButton;
 
 /***/ },
-/* 137 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17083,33 +17885,33 @@
 
 	var _assign = __webpack_require__(3);
 
-	var AutoFocusUtils = __webpack_require__(122);
-	var CSSPropertyOperations = __webpack_require__(124);
-	var DOMLazyTree = __webpack_require__(20);
-	var DOMNamespaces = __webpack_require__(126);
+	var AutoFocusUtils = __webpack_require__(133);
+	var CSSPropertyOperations = __webpack_require__(135);
+	var DOMLazyTree = __webpack_require__(22);
+	var DOMNamespaces = __webpack_require__(137);
 	var DOMProperty = __webpack_require__(15);
-	var DOMPropertyOperations = __webpack_require__(40);
+	var DOMPropertyOperations = __webpack_require__(45);
 	var EventConstants = __webpack_require__(12);
-	var EventPluginHub = __webpack_require__(24);
-	var EventPluginRegistry = __webpack_require__(30);
-	var ReactBrowserEventEmitter = __webpack_require__(31);
-	var ReactComponentBrowserEnvironment = __webpack_require__(71);
-	var ReactDOMButton = __webpack_require__(136);
-	var ReactDOMComponentFlags = __webpack_require__(72);
+	var EventPluginHub = __webpack_require__(26);
+	var EventPluginRegistry = __webpack_require__(33);
+	var ReactBrowserEventEmitter = __webpack_require__(34);
+	var ReactComponentBrowserEnvironment = __webpack_require__(78);
+	var ReactDOMButton = __webpack_require__(147);
+	var ReactDOMComponentFlags = __webpack_require__(79);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMInput = __webpack_require__(144);
-	var ReactDOMOption = __webpack_require__(146);
-	var ReactDOMSelect = __webpack_require__(73);
-	var ReactDOMTextarea = __webpack_require__(149);
-	var ReactMultiChild = __webpack_require__(162);
+	var ReactDOMInput = __webpack_require__(155);
+	var ReactDOMOption = __webpack_require__(157);
+	var ReactDOMSelect = __webpack_require__(80);
+	var ReactDOMTextarea = __webpack_require__(160);
+	var ReactMultiChild = __webpack_require__(173);
 	var ReactPerf = __webpack_require__(6);
 
-	var escapeTextContentForBrowser = __webpack_require__(36);
+	var escapeTextContentForBrowser = __webpack_require__(39);
 	var invariant = __webpack_require__(1);
-	var isEventSupported = __webpack_require__(54);
+	var isEventSupported = __webpack_require__(59);
 	var keyOf = __webpack_require__(14);
-	var shallowEqual = __webpack_require__(65);
-	var validateDOMNesting = __webpack_require__(58);
+	var shallowEqual = __webpack_require__(70);
+	var validateDOMNesting = __webpack_require__(63);
 	var warning = __webpack_require__(2);
 
 	var Flags = ReactDOMComponentFlags;
@@ -17973,7 +18775,7 @@
 	module.exports = ReactDOMComponent;
 
 /***/ },
-/* 138 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17989,7 +18791,7 @@
 
 	'use strict';
 
-	var validateDOMNesting = __webpack_require__(58);
+	var validateDOMNesting = __webpack_require__(63);
 
 	var DOC_NODE_TYPE = 9;
 
@@ -18010,7 +18812,7 @@
 	module.exports = ReactDOMContainerInfo;
 
 /***/ },
-/* 139 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18026,7 +18828,7 @@
 
 	'use strict';
 
-	var ReactDOMUnknownPropertyDevtool = __webpack_require__(151);
+	var ReactDOMUnknownPropertyDevtool = __webpack_require__(162);
 
 	var warning = __webpack_require__(2);
 
@@ -18076,7 +18878,7 @@
 	module.exports = ReactDOMDebugTool;
 
 /***/ },
-/* 140 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18094,7 +18896,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var DOMLazyTree = __webpack_require__(20);
+	var DOMLazyTree = __webpack_require__(22);
 	var ReactDOMComponentTree = __webpack_require__(4);
 
 	var ReactDOMEmptyComponent = function ReactDOMEmptyComponent(instantiate) {
@@ -18141,7 +18943,7 @@
 	module.exports = ReactDOMEmptyComponent;
 
 /***/ },
-/* 141 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18157,10 +18959,10 @@
 
 	'use strict';
 
-	var ReactElement = __webpack_require__(8);
-	var ReactElementValidator = __webpack_require__(74);
+	var ReactElement = __webpack_require__(9);
+	var ReactElementValidator = __webpack_require__(81);
 
-	var mapObject = __webpack_require__(118);
+	var mapObject = __webpack_require__(126);
 
 	/**
 	 * Create a factory that creates HTML tag elements.
@@ -18322,7 +19124,7 @@
 	module.exports = ReactDOMFactories;
 
 /***/ },
-/* 142 */
+/* 153 */
 /***/ function(module, exports) {
 
 	/**
@@ -18345,7 +19147,7 @@
 	module.exports = ReactDOMFeatureFlags;
 
 /***/ },
-/* 143 */
+/* 154 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18361,7 +19163,7 @@
 
 	'use strict';
 
-	var DOMChildrenOperations = __webpack_require__(39);
+	var DOMChildrenOperations = __webpack_require__(44);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactPerf = __webpack_require__(6);
 
@@ -18389,7 +19191,7 @@
 	module.exports = ReactDOMIDOperations;
 
 /***/ },
-/* 144 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18407,8 +19209,8 @@
 
 	var _assign = __webpack_require__(3);
 
-	var DOMPropertyOperations = __webpack_require__(40);
-	var LinkedValueUtils = __webpack_require__(42);
+	var DOMPropertyOperations = __webpack_require__(45);
+	var LinkedValueUtils = __webpack_require__(47);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactUpdates = __webpack_require__(11);
 
@@ -18597,7 +19399,7 @@
 	module.exports = ReactDOMInput;
 
 /***/ },
-/* 145 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18613,12 +19415,12 @@
 
 	'use strict';
 
-	var ReactDOMDebugTool = __webpack_require__(139);
+	var ReactDOMDebugTool = __webpack_require__(150);
 
 	module.exports = { debugTool: ReactDOMDebugTool };
 
 /***/ },
-/* 146 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18636,9 +19438,9 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactChildren = __webpack_require__(68);
+	var ReactChildren = __webpack_require__(75);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMSelect = __webpack_require__(73);
+	var ReactDOMSelect = __webpack_require__(80);
 
 	var warning = __webpack_require__(2);
 
@@ -18724,7 +19526,7 @@
 	module.exports = ReactDOMOption;
 
 /***/ },
-/* 147 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18742,8 +19544,8 @@
 
 	var ExecutionEnvironment = __webpack_require__(5);
 
-	var getNodeForCharacterOffset = __webpack_require__(184);
-	var getTextContentAccessor = __webpack_require__(89);
+	var getNodeForCharacterOffset = __webpack_require__(195);
+	var getTextContentAccessor = __webpack_require__(96);
 
 	/**
 	 * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -18941,7 +19743,7 @@
 	module.exports = ReactDOMSelection;
 
 /***/ },
-/* 148 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18959,14 +19761,14 @@
 
 	var _assign = __webpack_require__(3);
 
-	var DOMChildrenOperations = __webpack_require__(39);
-	var DOMLazyTree = __webpack_require__(20);
+	var DOMChildrenOperations = __webpack_require__(44);
+	var DOMLazyTree = __webpack_require__(22);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactPerf = __webpack_require__(6);
 
-	var escapeTextContentForBrowser = __webpack_require__(36);
+	var escapeTextContentForBrowser = __webpack_require__(39);
 	var invariant = __webpack_require__(1);
-	var validateDOMNesting = __webpack_require__(58);
+	var validateDOMNesting = __webpack_require__(63);
 
 	/**
 	 * Text nodes violate a couple assumptions that React makes about components:
@@ -19115,7 +19917,7 @@
 	module.exports = ReactDOMTextComponent;
 
 /***/ },
-/* 149 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19133,8 +19935,8 @@
 
 	var _assign = __webpack_require__(3);
 
-	var DOMPropertyOperations = __webpack_require__(40);
-	var LinkedValueUtils = __webpack_require__(42);
+	var DOMPropertyOperations = __webpack_require__(45);
+	var LinkedValueUtils = __webpack_require__(47);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactUpdates = __webpack_require__(11);
 
@@ -19261,7 +20063,7 @@
 	module.exports = ReactDOMTextarea;
 
 /***/ },
-/* 150 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19400,7 +20202,7 @@
 	};
 
 /***/ },
-/* 151 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19417,7 +20219,7 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(15);
-	var EventPluginRegistry = __webpack_require__(30);
+	var EventPluginRegistry = __webpack_require__(33);
 
 	var warning = __webpack_require__(2);
 
@@ -19469,7 +20271,7 @@
 	module.exports = ReactDOMUnknownPropertyDevtool;
 
 /***/ },
-/* 152 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19485,7 +20287,7 @@
 
 	'use strict';
 
-	var ReactInvalidSetStateWarningDevTool = __webpack_require__(160);
+	var ReactInvalidSetStateWarningDevTool = __webpack_require__(171);
 	var warning = __webpack_require__(2);
 
 	var eventHandlers = [];
@@ -19546,7 +20348,7 @@
 	module.exports = ReactDebugTool;
 
 /***/ },
-/* 153 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19565,7 +20367,7 @@
 	var _assign = __webpack_require__(3);
 
 	var ReactUpdates = __webpack_require__(11);
-	var Transaction = __webpack_require__(47);
+	var Transaction = __webpack_require__(52);
 
 	var emptyFunction = __webpack_require__(10);
 
@@ -19619,7 +20421,7 @@
 	module.exports = ReactDefaultBatchingStrategy;
 
 /***/ },
-/* 154 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19635,25 +20437,25 @@
 
 	'use strict';
 
-	var BeforeInputEventPlugin = __webpack_require__(123);
-	var ChangeEventPlugin = __webpack_require__(125);
-	var DefaultEventPluginOrder = __webpack_require__(128);
-	var EnterLeaveEventPlugin = __webpack_require__(129);
+	var BeforeInputEventPlugin = __webpack_require__(134);
+	var ChangeEventPlugin = __webpack_require__(136);
+	var DefaultEventPluginOrder = __webpack_require__(139);
+	var EnterLeaveEventPlugin = __webpack_require__(140);
 	var ExecutionEnvironment = __webpack_require__(5);
-	var HTMLDOMPropertyConfig = __webpack_require__(131);
-	var ReactComponentBrowserEnvironment = __webpack_require__(71);
-	var ReactDOMComponent = __webpack_require__(137);
+	var HTMLDOMPropertyConfig = __webpack_require__(142);
+	var ReactComponentBrowserEnvironment = __webpack_require__(78);
+	var ReactDOMComponent = __webpack_require__(148);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMEmptyComponent = __webpack_require__(140);
-	var ReactDOMTreeTraversal = __webpack_require__(150);
-	var ReactDOMTextComponent = __webpack_require__(148);
-	var ReactDefaultBatchingStrategy = __webpack_require__(153);
-	var ReactEventListener = __webpack_require__(158);
-	var ReactInjection = __webpack_require__(159);
-	var ReactReconcileTransaction = __webpack_require__(164);
-	var SVGDOMPropertyConfig = __webpack_require__(166);
-	var SelectEventPlugin = __webpack_require__(167);
-	var SimpleEventPlugin = __webpack_require__(168);
+	var ReactDOMEmptyComponent = __webpack_require__(151);
+	var ReactDOMTreeTraversal = __webpack_require__(161);
+	var ReactDOMTextComponent = __webpack_require__(159);
+	var ReactDefaultBatchingStrategy = __webpack_require__(164);
+	var ReactEventListener = __webpack_require__(169);
+	var ReactInjection = __webpack_require__(170);
+	var ReactReconcileTransaction = __webpack_require__(175);
+	var SVGDOMPropertyConfig = __webpack_require__(177);
+	var SelectEventPlugin = __webpack_require__(178);
+	var SimpleEventPlugin = __webpack_require__(179);
 
 	var alreadyInjected = false;
 
@@ -19706,7 +20508,7 @@
 	  if (true) {
 	    var url = ExecutionEnvironment.canUseDOM && window.location.href || '';
 	    if (/[?&]react_perf\b/.test(url)) {
-	      var ReactDefaultPerf = __webpack_require__(155);
+	      var ReactDefaultPerf = __webpack_require__(166);
 	      ReactDefaultPerf.start();
 	    }
 	  }
@@ -19717,7 +20519,7 @@
 	};
 
 /***/ },
-/* 155 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19743,11 +20545,11 @@
 
 	var DOMProperty = __webpack_require__(15);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDefaultPerfAnalysis = __webpack_require__(156);
-	var ReactMount = __webpack_require__(46);
+	var ReactDefaultPerfAnalysis = __webpack_require__(167);
+	var ReactMount = __webpack_require__(51);
 	var ReactPerf = __webpack_require__(6);
 
-	var performanceNow = __webpack_require__(121);
+	var performanceNow = __webpack_require__(129);
 	var warning = __webpack_require__(2);
 
 	function roundFloat(val) {
@@ -20046,7 +20848,7 @@
 	module.exports = ReactDefaultPerf;
 
 /***/ },
-/* 156 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20260,7 +21062,7 @@
 	module.exports = ReactDefaultPerfAnalysis;
 
 /***/ },
-/* 157 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20276,7 +21078,7 @@
 
 	'use strict';
 
-	var EventPluginHub = __webpack_require__(24);
+	var EventPluginHub = __webpack_require__(26);
 
 	function runEventQueueInBatch(events) {
 	  EventPluginHub.enqueueEvents(events);
@@ -20298,7 +21100,7 @@
 	module.exports = ReactEventEmitterMixin;
 
 /***/ },
-/* 158 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20316,14 +21118,14 @@
 
 	var _assign = __webpack_require__(3);
 
-	var EventListener = __webpack_require__(61);
+	var EventListener = __webpack_require__(66);
 	var ExecutionEnvironment = __webpack_require__(5);
-	var PooledClass = __webpack_require__(18);
+	var PooledClass = __webpack_require__(19);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactUpdates = __webpack_require__(11);
 
-	var getEventTarget = __webpack_require__(52);
-	var getUnboundedScrollPosition = __webpack_require__(113);
+	var getEventTarget = __webpack_require__(57);
+	var getUnboundedScrollPosition = __webpack_require__(121);
 
 	/**
 	 * Find the deepest React component completely containing the root of the
@@ -20460,7 +21262,7 @@
 	module.exports = ReactEventListener;
 
 /***/ },
-/* 159 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20477,13 +21279,13 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(15);
-	var EventPluginHub = __webpack_require__(24);
-	var EventPluginUtils = __webpack_require__(41);
-	var ReactComponentEnvironment = __webpack_require__(43);
-	var ReactClass = __webpack_require__(69);
-	var ReactEmptyComponent = __webpack_require__(75);
-	var ReactBrowserEventEmitter = __webpack_require__(31);
-	var ReactNativeComponent = __webpack_require__(79);
+	var EventPluginHub = __webpack_require__(26);
+	var EventPluginUtils = __webpack_require__(46);
+	var ReactComponentEnvironment = __webpack_require__(48);
+	var ReactClass = __webpack_require__(76);
+	var ReactEmptyComponent = __webpack_require__(82);
+	var ReactBrowserEventEmitter = __webpack_require__(34);
+	var ReactNativeComponent = __webpack_require__(86);
 	var ReactPerf = __webpack_require__(6);
 	var ReactUpdates = __webpack_require__(11);
 
@@ -20503,7 +21305,7 @@
 	module.exports = ReactInjection;
 
 /***/ },
-/* 160 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20544,7 +21346,7 @@
 	module.exports = ReactInvalidSetStateWarningDevTool;
 
 /***/ },
-/* 161 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20560,7 +21362,7 @@
 
 	'use strict';
 
-	var adler32 = __webpack_require__(179);
+	var adler32 = __webpack_require__(190);
 
 	var TAG_END = /\/?>/;
 	var COMMENT_START = /^<\!\-\-/;
@@ -20599,7 +21401,7 @@
 	module.exports = ReactMarkupChecksum;
 
 /***/ },
-/* 162 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20615,14 +21417,14 @@
 
 	'use strict';
 
-	var ReactComponentEnvironment = __webpack_require__(43);
-	var ReactMultiChildUpdateTypes = __webpack_require__(78);
+	var ReactComponentEnvironment = __webpack_require__(48);
+	var ReactMultiChildUpdateTypes = __webpack_require__(85);
 
 	var ReactCurrentOwner = __webpack_require__(16);
-	var ReactReconciler = __webpack_require__(21);
-	var ReactChildReconciler = __webpack_require__(133);
+	var ReactReconciler = __webpack_require__(23);
+	var ReactChildReconciler = __webpack_require__(144);
 
-	var flattenChildren = __webpack_require__(182);
+	var flattenChildren = __webpack_require__(193);
 	var invariant = __webpack_require__(1);
 
 	/**
@@ -21006,7 +21808,7 @@
 	module.exports = ReactMultiChild;
 
 /***/ },
-/* 163 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21103,7 +21905,7 @@
 	module.exports = ReactOwner;
 
 /***/ },
-/* 164 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21121,11 +21923,11 @@
 
 	var _assign = __webpack_require__(3);
 
-	var CallbackQueue = __webpack_require__(67);
-	var PooledClass = __webpack_require__(18);
-	var ReactBrowserEventEmitter = __webpack_require__(31);
-	var ReactInputSelection = __webpack_require__(77);
-	var Transaction = __webpack_require__(47);
+	var CallbackQueue = __webpack_require__(74);
+	var PooledClass = __webpack_require__(19);
+	var ReactBrowserEventEmitter = __webpack_require__(34);
+	var ReactInputSelection = __webpack_require__(84);
+	var Transaction = __webpack_require__(52);
 
 	/**
 	 * Ensures that, when possible, the selection range (currently selected text
@@ -21270,7 +22072,7 @@
 	module.exports = ReactReconcileTransaction;
 
 /***/ },
-/* 165 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21286,7 +22088,7 @@
 
 	'use strict';
 
-	var ReactOwner = __webpack_require__(163);
+	var ReactOwner = __webpack_require__(174);
 
 	var ReactRef = {};
 
@@ -21353,7 +22155,7 @@
 	module.exports = ReactRef;
 
 /***/ },
-/* 166 */
+/* 177 */
 /***/ function(module, exports) {
 
 	/**
@@ -21658,7 +22460,7 @@
 	module.exports = SVGDOMPropertyConfig;
 
 /***/ },
-/* 167 */
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21675,16 +22477,16 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(12);
-	var EventPropagators = __webpack_require__(25);
+	var EventPropagators = __webpack_require__(27);
 	var ExecutionEnvironment = __webpack_require__(5);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactInputSelection = __webpack_require__(77);
+	var ReactInputSelection = __webpack_require__(84);
 	var SyntheticEvent = __webpack_require__(13);
 
-	var getActiveElement = __webpack_require__(63);
-	var isTextInputElement = __webpack_require__(91);
+	var getActiveElement = __webpack_require__(68);
+	var isTextInputElement = __webpack_require__(98);
 	var keyOf = __webpack_require__(14);
-	var shallowEqual = __webpack_require__(65);
+	var shallowEqual = __webpack_require__(70);
 
 	var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -21859,7 +22661,7 @@
 	module.exports = SelectEventPlugin;
 
 /***/ },
-/* 168 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21876,23 +22678,23 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(12);
-	var EventListener = __webpack_require__(61);
-	var EventPropagators = __webpack_require__(25);
+	var EventListener = __webpack_require__(66);
+	var EventPropagators = __webpack_require__(27);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var SyntheticAnimationEvent = __webpack_require__(169);
-	var SyntheticClipboardEvent = __webpack_require__(170);
+	var SyntheticAnimationEvent = __webpack_require__(180);
+	var SyntheticClipboardEvent = __webpack_require__(181);
 	var SyntheticEvent = __webpack_require__(13);
-	var SyntheticFocusEvent = __webpack_require__(173);
-	var SyntheticKeyboardEvent = __webpack_require__(175);
-	var SyntheticMouseEvent = __webpack_require__(35);
-	var SyntheticDragEvent = __webpack_require__(172);
-	var SyntheticTouchEvent = __webpack_require__(176);
-	var SyntheticTransitionEvent = __webpack_require__(177);
-	var SyntheticUIEvent = __webpack_require__(26);
-	var SyntheticWheelEvent = __webpack_require__(178);
+	var SyntheticFocusEvent = __webpack_require__(184);
+	var SyntheticKeyboardEvent = __webpack_require__(186);
+	var SyntheticMouseEvent = __webpack_require__(38);
+	var SyntheticDragEvent = __webpack_require__(183);
+	var SyntheticTouchEvent = __webpack_require__(187);
+	var SyntheticTransitionEvent = __webpack_require__(188);
+	var SyntheticUIEvent = __webpack_require__(28);
+	var SyntheticWheelEvent = __webpack_require__(189);
 
 	var emptyFunction = __webpack_require__(10);
-	var getEventCharCode = __webpack_require__(50);
+	var getEventCharCode = __webpack_require__(55);
 	var invariant = __webpack_require__(1);
 	var keyOf = __webpack_require__(14);
 
@@ -22491,7 +23293,7 @@
 	module.exports = SimpleEventPlugin;
 
 /***/ },
-/* 169 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22535,7 +23337,7 @@
 	module.exports = SyntheticAnimationEvent;
 
 /***/ },
-/* 170 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22578,7 +23380,7 @@
 	module.exports = SyntheticClipboardEvent;
 
 /***/ },
-/* 171 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22619,7 +23421,7 @@
 	module.exports = SyntheticCompositionEvent;
 
 /***/ },
-/* 172 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22635,7 +23437,7 @@
 
 	'use strict';
 
-	var SyntheticMouseEvent = __webpack_require__(35);
+	var SyntheticMouseEvent = __webpack_require__(38);
 
 	/**
 	 * @interface DragEvent
@@ -22660,7 +23462,7 @@
 	module.exports = SyntheticDragEvent;
 
 /***/ },
-/* 173 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22676,7 +23478,7 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(26);
+	var SyntheticUIEvent = __webpack_require__(28);
 
 	/**
 	 * @interface FocusEvent
@@ -22701,7 +23503,7 @@
 	module.exports = SyntheticFocusEvent;
 
 /***/ },
-/* 174 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22743,7 +23545,7 @@
 	module.exports = SyntheticInputEvent;
 
 /***/ },
-/* 175 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22759,11 +23561,11 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(26);
+	var SyntheticUIEvent = __webpack_require__(28);
 
-	var getEventCharCode = __webpack_require__(50);
-	var getEventKey = __webpack_require__(183);
-	var getEventModifierState = __webpack_require__(51);
+	var getEventCharCode = __webpack_require__(55);
+	var getEventKey = __webpack_require__(194);
+	var getEventModifierState = __webpack_require__(56);
 
 	/**
 	 * @interface KeyboardEvent
@@ -22832,7 +23634,7 @@
 	module.exports = SyntheticKeyboardEvent;
 
 /***/ },
-/* 176 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22848,9 +23650,9 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(26);
+	var SyntheticUIEvent = __webpack_require__(28);
 
-	var getEventModifierState = __webpack_require__(51);
+	var getEventModifierState = __webpack_require__(56);
 
 	/**
 	 * @interface TouchEvent
@@ -22882,7 +23684,7 @@
 	module.exports = SyntheticTouchEvent;
 
 /***/ },
-/* 177 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22926,7 +23728,7 @@
 	module.exports = SyntheticTransitionEvent;
 
 /***/ },
-/* 178 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22942,7 +23744,7 @@
 
 	'use strict';
 
-	var SyntheticMouseEvent = __webpack_require__(35);
+	var SyntheticMouseEvent = __webpack_require__(38);
 
 	/**
 	 * @interface WheelEvent
@@ -22985,7 +23787,7 @@
 	module.exports = SyntheticWheelEvent;
 
 /***/ },
-/* 179 */
+/* 190 */
 /***/ function(module, exports) {
 
 	/**
@@ -23033,7 +23835,7 @@
 	module.exports = adler32;
 
 /***/ },
-/* 180 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23049,7 +23851,7 @@
 
 	'use strict';
 
-	var CSSProperty = __webpack_require__(66);
+	var CSSProperty = __webpack_require__(73);
 	var warning = __webpack_require__(2);
 
 	var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -23115,7 +23917,7 @@
 	module.exports = dangerousStyleValue;
 
 /***/ },
-/* 181 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23133,9 +23935,9 @@
 
 	var ReactCurrentOwner = __webpack_require__(16);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactInstanceMap = __webpack_require__(45);
+	var ReactInstanceMap = __webpack_require__(50);
 
-	var getNativeComponentFromComposite = __webpack_require__(88);
+	var getNativeComponentFromComposite = __webpack_require__(95);
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
 
@@ -23176,7 +23978,7 @@
 	module.exports = findDOMNode;
 
 /***/ },
-/* 182 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23192,7 +23994,7 @@
 
 	'use strict';
 
-	var traverseAllChildren = __webpack_require__(57);
+	var traverseAllChildren = __webpack_require__(62);
 	var warning = __webpack_require__(2);
 
 	/**
@@ -23229,7 +24031,7 @@
 	module.exports = flattenChildren;
 
 /***/ },
-/* 183 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23245,7 +24047,7 @@
 
 	'use strict';
 
-	var getEventCharCode = __webpack_require__(50);
+	var getEventCharCode = __webpack_require__(55);
 
 	/**
 	 * Normalization of deprecated HTML5 `key` values
@@ -23336,7 +24138,7 @@
 	module.exports = getEventKey;
 
 /***/ },
-/* 184 */
+/* 195 */
 /***/ function(module, exports) {
 
 	/**
@@ -23415,7 +24217,7 @@
 	module.exports = getNodeForCharacterOffset;
 
 /***/ },
-/* 185 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23521,7 +24323,7 @@
 	module.exports = getVendorPrefixedEventName;
 
 /***/ },
-/* 186 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23536,7 +24338,7 @@
 	 */
 	'use strict';
 
-	var ReactElement = __webpack_require__(8);
+	var ReactElement = __webpack_require__(9);
 
 	var invariant = __webpack_require__(1);
 
@@ -23559,7 +24361,7 @@
 	module.exports = onlyChild;
 
 /***/ },
-/* 187 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23575,7 +24377,7 @@
 
 	'use strict';
 
-	var escapeTextContentForBrowser = __webpack_require__(36);
+	var escapeTextContentForBrowser = __webpack_require__(39);
 
 	/**
 	 * Escapes attribute value to prevent scripting attacks.
@@ -23590,7 +24392,7 @@
 	module.exports = quoteAttributeValueForBrowser;
 
 /***/ },
-/* 188 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23606,12 +24408,12 @@
 
 	'use strict';
 
-	var ReactMount = __webpack_require__(46);
+	var ReactMount = __webpack_require__(51);
 
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ },
-/* 189 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23630,7 +24432,7 @@
 
 	exports["default"] = applyMiddleware;
 
-	var _compose = __webpack_require__(93);
+	var _compose = __webpack_require__(100);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
@@ -23684,7 +24486,7 @@
 	}
 
 /***/ },
-/* 190 */
+/* 201 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23748,7 +24550,7 @@
 	}
 
 /***/ },
-/* 191 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23756,13 +24558,13 @@
 	exports.__esModule = true;
 	exports["default"] = combineReducers;
 
-	var _createStore = __webpack_require__(94);
+	var _createStore = __webpack_require__(101);
 
-	var _isPlainObject = __webpack_require__(100);
+	var _isPlainObject = __webpack_require__(108);
 
 	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
 
-	var _warning = __webpack_require__(95);
+	var _warning = __webpack_require__(102);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -23882,7 +24684,7 @@
 	}
 
 /***/ },
-/* 192 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23890,27 +24692,27 @@
 	exports.__esModule = true;
 	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
 
-	var _createStore = __webpack_require__(94);
+	var _createStore = __webpack_require__(101);
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(191);
+	var _combineReducers = __webpack_require__(202);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(190);
+	var _bindActionCreators = __webpack_require__(201);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(189);
+	var _applyMiddleware = __webpack_require__(200);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
-	var _compose = __webpack_require__(93);
+	var _compose = __webpack_require__(100);
 
 	var _compose2 = _interopRequireDefault(_compose);
 
-	var _warning = __webpack_require__(95);
+	var _warning = __webpack_require__(102);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -23935,7 +24737,7 @@
 	exports.compose = _compose2["default"];
 
 /***/ },
-/* 193 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -23981,7 +24783,7 @@
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(101)) === 'object' && __webpack_require__(101)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(110)) === 'object' && __webpack_require__(110)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -23992,7 +24794,7 @@
 	})();
 
 /***/ },
-/* 194 */
+/* 205 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24088,4466 +24890,23 @@
 	})();
 
 /***/ },
-/* 195 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(107);
-
-/***/ },
-/* 196 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function (hex) {
-		if (typeof hex !== 'string') {
-			throw new TypeError('Expected a string');
-		}
-
-		hex = hex.replace(/^#/, '');
-
-		if (hex.length === 3) {
-			hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
-		}
-
-		var num = parseInt(hex, 16);
-
-		return [num >> 16, num >> 8 & 255, num & 255];
-	};
-
-/***/ },
-/* 197 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
-	  var e, m;
-	  var eLen = nBytes * 8 - mLen - 1;
-	  var eMax = (1 << eLen) - 1;
-	  var eBias = eMax >> 1;
-	  var nBits = -7;
-	  var i = isLE ? nBytes - 1 : 0;
-	  var d = isLE ? -1 : 1;
-	  var s = buffer[offset + i];
-
-	  i += d;
-
-	  e = s & (1 << -nBits) - 1;
-	  s >>= -nBits;
-	  nBits += eLen;
-	  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
-
-	  m = e & (1 << -nBits) - 1;
-	  e >>= -nBits;
-	  nBits += mLen;
-	  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
-
-	  if (e === 0) {
-	    e = 1 - eBias;
-	  } else if (e === eMax) {
-	    return m ? NaN : (s ? -1 : 1) * Infinity;
-	  } else {
-	    m = m + Math.pow(2, mLen);
-	    e = e - eBias;
-	  }
-	  return (s ? -1 : 1) * m * Math.pow(2, e - mLen);
-	};
-
-	exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
-	  var e, m, c;
-	  var eLen = nBytes * 8 - mLen - 1;
-	  var eMax = (1 << eLen) - 1;
-	  var eBias = eMax >> 1;
-	  var rt = mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0;
-	  var i = isLE ? 0 : nBytes - 1;
-	  var d = isLE ? 1 : -1;
-	  var s = value < 0 || value === 0 && 1 / value < 0 ? 1 : 0;
-
-	  value = Math.abs(value);
-
-	  if (isNaN(value) || value === Infinity) {
-	    m = isNaN(value) ? 1 : 0;
-	    e = eMax;
-	  } else {
-	    e = Math.floor(Math.log(value) / Math.LN2);
-	    if (value * (c = Math.pow(2, -e)) < 1) {
-	      e--;
-	      c *= 2;
-	    }
-	    if (e + eBias >= 1) {
-	      value += rt / c;
-	    } else {
-	      value += rt * Math.pow(2, 1 - eBias);
-	    }
-	    if (value * c >= 2) {
-	      e++;
-	      c /= 2;
-	    }
-
-	    if (e + eBias >= eMax) {
-	      m = 0;
-	      e = eMax;
-	    } else if (e + eBias >= 1) {
-	      m = (value * c - 1) * Math.pow(2, mLen);
-	      e = e + eBias;
-	    } else {
-	      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen);
-	      e = 0;
-	    }
-	  }
-
-	  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
-
-	  e = e << mLen | m;
-	  eLen += mLen;
-	  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
-
-	  buffer[offset + i - d] |= s * 128;
-	};
-
-/***/ },
-/* 198 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/**
-	 * Determine if an object is Buffer
-	 *
-	 * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
-	 * License:  MIT
-	 *
-	 * `npm install is-buffer`
-	 */
-
-	module.exports = function (obj) {
-	  return !!(obj != null && (obj._isBuffer || // For Safari 5-7 (missing Object.prototype.constructor)
-	  obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)));
-	};
-
-/***/ },
-/* 199 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var toString = {}.toString;
-
-	module.exports = Array.isArray || function (arr) {
-	  return toString.call(arr) == '[object Array]';
-	};
-
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	(function () {
-	  var crypt = __webpack_require__(194),
-	      utf8 = __webpack_require__(97).utf8,
-	      isBuffer = __webpack_require__(198),
-	      bin = __webpack_require__(97).bin,
-
-
-	  // The core
-	  md5 = function md5(message, options) {
-	    // Convert to byte array
-	    if (message.constructor == String) {
-	      if (options && options.encoding === 'binary') message = bin.stringToBytes(message);else message = utf8.stringToBytes(message);
-	    } else if (isBuffer(message)) message = Array.prototype.slice.call(message, 0);else if (!Array.isArray(message)) message = message.toString();
-	    // else, assume byte array already
-
-	    var m = crypt.bytesToWords(message),
-	        l = message.length * 8,
-	        a = 1732584193,
-	        b = -271733879,
-	        c = -1732584194,
-	        d = 271733878;
-
-	    // Swap endian
-	    for (var i = 0; i < m.length; i++) {
-	      m[i] = (m[i] << 8 | m[i] >>> 24) & 0x00FF00FF | (m[i] << 24 | m[i] >>> 8) & 0xFF00FF00;
-	    }
-
-	    // Padding
-	    m[l >>> 5] |= 0x80 << l % 32;
-	    m[(l + 64 >>> 9 << 4) + 14] = l;
-
-	    // Method shortcuts
-	    var FF = md5._ff,
-	        GG = md5._gg,
-	        HH = md5._hh,
-	        II = md5._ii;
-
-	    for (var i = 0; i < m.length; i += 16) {
-
-	      var aa = a,
-	          bb = b,
-	          cc = c,
-	          dd = d;
-
-	      a = FF(a, b, c, d, m[i + 0], 7, -680876936);
-	      d = FF(d, a, b, c, m[i + 1], 12, -389564586);
-	      c = FF(c, d, a, b, m[i + 2], 17, 606105819);
-	      b = FF(b, c, d, a, m[i + 3], 22, -1044525330);
-	      a = FF(a, b, c, d, m[i + 4], 7, -176418897);
-	      d = FF(d, a, b, c, m[i + 5], 12, 1200080426);
-	      c = FF(c, d, a, b, m[i + 6], 17, -1473231341);
-	      b = FF(b, c, d, a, m[i + 7], 22, -45705983);
-	      a = FF(a, b, c, d, m[i + 8], 7, 1770035416);
-	      d = FF(d, a, b, c, m[i + 9], 12, -1958414417);
-	      c = FF(c, d, a, b, m[i + 10], 17, -42063);
-	      b = FF(b, c, d, a, m[i + 11], 22, -1990404162);
-	      a = FF(a, b, c, d, m[i + 12], 7, 1804603682);
-	      d = FF(d, a, b, c, m[i + 13], 12, -40341101);
-	      c = FF(c, d, a, b, m[i + 14], 17, -1502002290);
-	      b = FF(b, c, d, a, m[i + 15], 22, 1236535329);
-
-	      a = GG(a, b, c, d, m[i + 1], 5, -165796510);
-	      d = GG(d, a, b, c, m[i + 6], 9, -1069501632);
-	      c = GG(c, d, a, b, m[i + 11], 14, 643717713);
-	      b = GG(b, c, d, a, m[i + 0], 20, -373897302);
-	      a = GG(a, b, c, d, m[i + 5], 5, -701558691);
-	      d = GG(d, a, b, c, m[i + 10], 9, 38016083);
-	      c = GG(c, d, a, b, m[i + 15], 14, -660478335);
-	      b = GG(b, c, d, a, m[i + 4], 20, -405537848);
-	      a = GG(a, b, c, d, m[i + 9], 5, 568446438);
-	      d = GG(d, a, b, c, m[i + 14], 9, -1019803690);
-	      c = GG(c, d, a, b, m[i + 3], 14, -187363961);
-	      b = GG(b, c, d, a, m[i + 8], 20, 1163531501);
-	      a = GG(a, b, c, d, m[i + 13], 5, -1444681467);
-	      d = GG(d, a, b, c, m[i + 2], 9, -51403784);
-	      c = GG(c, d, a, b, m[i + 7], 14, 1735328473);
-	      b = GG(b, c, d, a, m[i + 12], 20, -1926607734);
-
-	      a = HH(a, b, c, d, m[i + 5], 4, -378558);
-	      d = HH(d, a, b, c, m[i + 8], 11, -2022574463);
-	      c = HH(c, d, a, b, m[i + 11], 16, 1839030562);
-	      b = HH(b, c, d, a, m[i + 14], 23, -35309556);
-	      a = HH(a, b, c, d, m[i + 1], 4, -1530992060);
-	      d = HH(d, a, b, c, m[i + 4], 11, 1272893353);
-	      c = HH(c, d, a, b, m[i + 7], 16, -155497632);
-	      b = HH(b, c, d, a, m[i + 10], 23, -1094730640);
-	      a = HH(a, b, c, d, m[i + 13], 4, 681279174);
-	      d = HH(d, a, b, c, m[i + 0], 11, -358537222);
-	      c = HH(c, d, a, b, m[i + 3], 16, -722521979);
-	      b = HH(b, c, d, a, m[i + 6], 23, 76029189);
-	      a = HH(a, b, c, d, m[i + 9], 4, -640364487);
-	      d = HH(d, a, b, c, m[i + 12], 11, -421815835);
-	      c = HH(c, d, a, b, m[i + 15], 16, 530742520);
-	      b = HH(b, c, d, a, m[i + 2], 23, -995338651);
-
-	      a = II(a, b, c, d, m[i + 0], 6, -198630844);
-	      d = II(d, a, b, c, m[i + 7], 10, 1126891415);
-	      c = II(c, d, a, b, m[i + 14], 15, -1416354905);
-	      b = II(b, c, d, a, m[i + 5], 21, -57434055);
-	      a = II(a, b, c, d, m[i + 12], 6, 1700485571);
-	      d = II(d, a, b, c, m[i + 3], 10, -1894986606);
-	      c = II(c, d, a, b, m[i + 10], 15, -1051523);
-	      b = II(b, c, d, a, m[i + 1], 21, -2054922799);
-	      a = II(a, b, c, d, m[i + 8], 6, 1873313359);
-	      d = II(d, a, b, c, m[i + 15], 10, -30611744);
-	      c = II(c, d, a, b, m[i + 6], 15, -1560198380);
-	      b = II(b, c, d, a, m[i + 13], 21, 1309151649);
-	      a = II(a, b, c, d, m[i + 4], 6, -145523070);
-	      d = II(d, a, b, c, m[i + 11], 10, -1120210379);
-	      c = II(c, d, a, b, m[i + 2], 15, 718787259);
-	      b = II(b, c, d, a, m[i + 9], 21, -343485551);
-
-	      a = a + aa >>> 0;
-	      b = b + bb >>> 0;
-	      c = c + cc >>> 0;
-	      d = d + dd >>> 0;
-	    }
-
-	    return crypt.endian([a, b, c, d]);
-	  };
-
-	  // Auxiliary functions
-	  md5._ff = function (a, b, c, d, x, s, t) {
-	    var n = a + (b & c | ~b & d) + (x >>> 0) + t;
-	    return (n << s | n >>> 32 - s) + b;
-	  };
-	  md5._gg = function (a, b, c, d, x, s, t) {
-	    var n = a + (b & d | c & ~d) + (x >>> 0) + t;
-	    return (n << s | n >>> 32 - s) + b;
-	  };
-	  md5._hh = function (a, b, c, d, x, s, t) {
-	    var n = a + (b ^ c ^ d) + (x >>> 0) + t;
-	    return (n << s | n >>> 32 - s) + b;
-	  };
-	  md5._ii = function (a, b, c, d, x, s, t) {
-	    var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
-	    return (n << s | n >>> 32 - s) + b;
-	  };
-
-	  // Package private blocksize
-	  md5._blocksize = 16;
-	  md5._digestsize = 16;
-
-	  module.exports = function (message, options) {
-	    if (typeof message == 'undefined') return;
-
-	    var digestbytes = crypt.wordsToBytes(md5(message, options));
-	    return options && options.asBytes ? digestbytes : options && options.asString ? bin.bytesToString(digestbytes) : crypt.bytesToHex(digestbytes);
-	  };
-	})();
-
-/***/ },
-/* 201 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/* Built-in method references for those with the same name as other `lodash` methods. */
-	var nativeGetPrototype = Object.getPrototypeOf;
-
-	/**
-	 * Gets the `[[Prototype]]` of `value`.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {null|Object} Returns the `[[Prototype]]`.
-	 */
-	function getPrototype(value) {
-	  return nativeGetPrototype(Object(value));
-	}
-
-	module.exports = getPrototype;
-
-/***/ },
-/* 202 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/**
-	 * Checks if `value` is a host object in IE < 9.
-	 *
-	 * @private
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
-	 */
-	function isHostObject(value) {
-	  // Many host objects are `Object` objects that can coerce to strings
-	  // despite having improperly defined `toString` methods.
-	  var result = false;
-	  if (value != null && typeof value.toString != 'function') {
-	    try {
-	      result = !!(value + '');
-	    } catch (e) {}
-	  }
-	  return result;
-	}
-
-	module.exports = isHostObject;
-
-/***/ },
-/* 203 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
-
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return !!value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-	}
-
-	module.exports = isObjectLike;
-
-/***/ },
-/* 204 */,
-/* 205 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	// require('./../lib/react-group/css/index');
-
-	__webpack_require__(223);
-	__webpack_require__(257);
-
-	__webpack_require__(206);
-
-/***/ },
 /* 206 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var _PictureDraw = __webpack_require__(221);
-
-	var _PictureDraw2 = _interopRequireDefault(_PictureDraw);
-
-	var _MethodSection = __webpack_require__(220);
-
-	var _MethodSection2 = _interopRequireDefault(_MethodSection);
-
-	var _Utils = __webpack_require__(27);
-
-	var _Utils2 = _interopRequireDefault(_Utils);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	(function body() {
-
-	    var methodSection = new _MethodSection2.default(_Utils2.default.createUniqueId());
-	    methodSection.create();
-
-	    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-	    var _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
-
-	    var pictureDraw = new _PictureDraw2.default(_obj_main[0], _Utils2.default.createUniqueId());
-
-	    //    new PictureDraw( _obj_main[1], Utils.createUniqueId() );
-	    // new PictureDraw( _obj_main[2], Utils.createUniqueId() );
-	})(); // 用input抓原始圖片資料
-	// 用canvas修改圖片資料
-	// 預覽圖（固定某大小做為預覽圖）
-	// 送給php產生圖檔，以進一步存下新的圖檔
+	module.exports = __webpack_require__(115);
 
 /***/ },
-/* 207 */,
-/* 208 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Tools2 = __webpack_require__(38);
-
-	var _Tools3 = _interopRequireDefault(_Tools2);
-
-	var _hexRgb = __webpack_require__(196);
-
-	var _hexRgb2 = _interopRequireDefault(_hexRgb);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// 運算的方式
-
-	var ImageDataComputeMethod = function (_Tools) {
-		_inherits(ImageDataComputeMethod, _Tools);
-
-		function ImageDataComputeMethod(json_tools) {
-			_classCallCheck(this, ImageDataComputeMethod);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeMethod).call(this));
-
-			var _scope = _this;
-
-			_scope.setEmitter(json_tools.emitter);
-
-			_scope.obj_canvas = document.createElement('canvas');
-			_scope.obj_canvas_2d = _scope.obj_canvas.getContext('2d');
-
-			_scope.obj_image = new Image();
-
-			_scope.obj_image.onload = function () {
-
-				if (typeof this.src === 'string' && this.src !== '') {
-
-					var _num_width = this.width;
-					var _num_height = this.height;
-					_scope.obj_canvas.width = _num_width;
-					_scope.obj_canvas.height = _num_height;
-					_scope.obj_canvas_2d.clearRect(0, 0, _num_width, _num_height);
-					_scope.obj_canvas_2d.drawImage(this, 0, 0, _num_width, _num_height);
-
-					_scope.setComputeWidth(_num_width); // 在此先用圖片本身的長寬去做的
-					_scope.setComputeHeight(_num_height); // 在此先用圖片本身的長寬去做的
-
-					var _json_emit = _scope.getOtherData();
-					_json_emit.origin_data = this.src;
-					_json_emit.method = _scope.getPainterMethod();
-
-					_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
-				} else {
-					console.log('***');
-				}
-			};
-
-			_scope.obj_image.error = function () {
-				_scope.getEmitter().emit('step.image.error.loaded', {
-					origin_data: this.src
-				});
-			};
-
-			return _this;
-		}
-
-		_createClass(ImageDataComputeMethod, [{
-			key: 'getOtherData',
-			value: function getOtherData() {
-				var _scope = this;
-				return _scope.other_data;
-			}
-		}, {
-			key: 'getPainterMethod',
-			value: function getPainterMethod() {
-				var _scope = this;
-				return _scope.painter_method;
-			}
-			// 圖片運算是用多大寬度運算出來的
-
-		}, {
-			key: 'getComputeWidth',
-			value: function getComputeWidth() {
-				return this.compute_width;
-			}
-			// 圖片運算是用多大高度運算出來的
-
-		}, {
-			key: 'getComputeHeight',
-			value: function getComputeHeight() {
-				return this.compute_height;
-			}
-
-			// 圖片運算是用多大寬度運算出來的
-
-		}, {
-			key: 'setComputeWidth',
-			value: function setComputeWidth(num) {
-				this.compute_width = num || 0;
-			}
-			// 圖片運算是用多大高度運算出來的
-
-		}, {
-			key: 'setComputeHeight',
-			value: function setComputeHeight(num) {
-				this.compute_height = num || 0;
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-			// 在照片中添加纹理
-			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
-
-		}, {
-			key: 'methodDot',
-			value: function methodDot(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _bln_old = false;
-				if (json.created && json.created.dot && json.created.dot.length > 0) {
-					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height) {
-						// 輸出的圖片大小是相同的
-						_bln_old = true;
-					} else {
-						_bln_old = false;
-					}
-				}
-
-				json.created.dot = _bln_old === true ? json.created.dot : [];
-
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
-				    _json_control = json.control,
-				    _num_size_min = _json_control.minSize,
-				    _num_size_max = _json_control.maxSize,
-				    _num_size = void 0,
-				    _num_alpha_min = _json_control.minAlpha,
-				    _num_alpha_max = _json_control.maxAlpha,
-				    _num_alpha = void 0,
-				    _num_total = void 0,
-				    _str_color = void 0;
-
-				var _num_x = void 0,
-				    _num_y = void 0;
-
-				var _ary_dot_origin = JSON.parse(JSON.stringify(json.created.dot));
-
-				if (_bln_old === true) {
-					_num_total = _ary_dot_origin.length;
-				} else {
-					_num_total = Math.floor(_num_width * _num_height / _num_size_max / _num_size_max / 100 * _json_control.frequency);
-					json.created.setting = _extends({}, json.setting);
-				}
-
-				var _ary_rgb = (0, _hexRgb2.default)(_json_control.color);
-
-				for (var i = 0; i < _num_total; i++) {
-					if (_bln_old === true) {
-						_scope.obj_canvas_2d.fillStyle = _ary_dot_origin[i].color;
-
-						_num_x = _ary_dot_origin[i].xPos;
-						_num_y = _ary_dot_origin[i].yPos;
-						_num_size = _ary_dot_origin[i].size;
-					} else {
-						_num_alpha = (parseInt(_num_alpha_min, 10) + Math.floor((_num_alpha_max - _num_alpha_min) * Math.random())) / 100;
-						_str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _num_alpha + ')';
-						_scope.obj_canvas_2d.fillStyle = _str_color;
-
-						_num_x = Math.floor(Math.random() * _num_width);
-						_num_y = Math.floor(Math.random() * _num_height);
-						_num_size = (parseInt(_num_size_min, 10) + Math.floor((_num_size_max - _num_size_min) * Math.random())) / 2;
-
-						json.created.dot.push({
-							xPos: _num_x,
-							yPos: _num_y,
-							size: _num_size,
-							color: _str_color
-						});
-					}
-
-					_scope.obj_canvas_2d.beginPath();
-					_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
-					_scope.obj_canvas_2d.closePath();
-					_scope.obj_canvas_2d.fill();
-				}
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 透明
-			// https://msdn.microsoft.com/zh-cn/library/gg589493(v=vs.85).aspx
-
-		}, {
-			key: 'methodAlpha',
-			value: function methodAlpha(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
-				    _num_range = json.control.range;
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
-
-				// Loop through data.
-				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
-
-					// First bytes are red bytes.       
-					// Second bytes are green bytes.
-					// Third bytes are blue bytes.
-					// Fourth bytes are alpha bytes
-					// Test of alpha channel at 50%.
-					// _json_image_data.data[i + 3] = 128;
-					_json_image_data.data[i + 3] = _json_image_data.data[i + 3] * (_num_range / 100);
-				}
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 灰階
-			// https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
-
-		}, {
-			key: 'methodGray',
-			value: function methodGray(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight();
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
-
-				var _num_red = void 0,
-				    _num_green = void 0,
-				    _num_blue = void 0,
-				    _num_gray = void 0;
-
-				// Loop through data.
-				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
-
-					// First bytes are red bytes.       
-					// Get red value.
-					_num_red = _json_image_data.data[i];
-
-					// Second bytes are green bytes.
-					// Get green value.
-					_num_green = _json_image_data.data[i + 1];
-
-					// Third bytes are blue bytes.
-					// Get blue value.
-					_num_blue = _json_image_data.data[i + 2];
-
-					// Fourth bytes are alpha bytes
-					// We don't care about alpha here.
-					// Add the three values and divide by three.
-					// Make it an integer.
-					_num_gray = parseInt((_num_red + _num_green + _num_blue) / 3);
-
-					// Assign average to red, green, and blue.
-					_json_image_data.data[i] = _num_gray;
-					_json_image_data.data[i + 1] = _num_gray;
-					_json_image_data.data[i + 2] = _num_gray;
-				}
-
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 彩度（飽和度）
-			// 拿這個網址來改的https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
-
-		}, {
-			key: 'methodSaturate',
-			value: function methodSaturate(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
-				    _num_range = json.control.range;
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
-
-				var _num_red = void 0,
-				    _num_green = void 0,
-				    _num_blue = void 0,
-				    _json_rgb = {};
-
-				if (_num_range > 0 || _num_range < 0) {
-					// Loop through data.
-					for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
-
-						_num_red = _json_image_data.data[i];
-						_num_green = _json_image_data.data[i + 1];
-						_num_blue = _json_image_data.data[i + 2];
-
-						_json_rgb = _scope.operateSaturateRGB(_num_range, _num_red, _num_green, _num_blue);
-
-						_json_image_data.data[i] = _json_rgb.red;
-						_json_image_data.data[i + 1] = _json_rgb.green;
-						_json_image_data.data[i + 2] = _json_rgb.blue;
-					}
-				}
-
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 對比
-			// 其實有另外這兒的可以參考，但我沒用 http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
-
-		}, {
-			key: 'methodContrast',
-			value: function methodContrast(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
-				    _num_range = json.control.range;
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
-
-				var _num_red = void 0,
-				    _num_green = void 0,
-				    _num_blue = void 0,
-				    _json_rgb = {};
-
-				if (_num_range > 0 || _num_range < 0) {
-					for (var i = 0; i < _json_image_data.data.length; i += 4) {
-
-						_num_red = _json_image_data.data[i];
-						_num_green = _json_image_data.data[i + 1];
-						_num_blue = _json_image_data.data[i + 2];
-
-						_json_rgb = _scope.operateContrastRGB(_num_range, _num_red, _num_green, _num_blue);
-
-						_json_image_data.data[i] = _json_rgb.red;
-						_json_image_data.data[i + 1] = _json_rgb.green;
-						_json_image_data.data[i + 2] = _json_rgb.blue;
-					}
-				}
-
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-		}, {
-			key: 'clearCanvas',
-			value: function clearCanvas(callback) {
-
-				this.obj_canvas_2d.clearRect(0, 0, this.getComputeWidth(), this.getComputeHeight()); // ????
-
-				if (callback && callback instanceof Function) {
-					setTimeout(function () {
-						callback();
-					}, 10);
-				}
-			}
-
-			// json_other : 會有 setting, control
-
-		}, {
-			key: 'changeData',
-			value: function changeData(str_painter_method, str_base64, json_other, callback) {
-				var _scope = this;
-				_scope.clearCanvas(function () {
-					_scope.painter_method = str_painter_method;
-					_scope.obj_image.src = str_base64;
-					_scope.other_data = json_other;
-					if (callback && callback instanceof Function) {
-						setTimeout(function () {
-							callback();
-						}, 10);
-					}
-				});
-			}
-
-			// 傳來什麼，就如實地回傳
-
-		}, {
-			key: 'methodOrigin',
-			value: function methodOrigin(json) {
-				var _scope = this;
-				_scope.emitAfterMethod(json);
-			}
-		}, {
-			key: 'methodVars',
-			value: function methodVars(json) {
-				json = json || {};
-				json.setting = json.setting || {};
-				json.control = json.control || {};
-				json.created = json.created || {};
-
-				return json;
-			}
-		}, {
-			key: 'emitAfterMethod',
-			value: function emitAfterMethod(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _data_url = _scope.obj_canvas.toDataURL();
-
-				var _json_emit = {
-					origin_data: json.origin_data,
-					data: _data_url
-				};
-
-				if (json.method_id !== undefined) {
-					_json_emit.method_id = json.method_id;
-					// _json_emit.method = json.method ;
-				}
-
-				_scope.getEmitter().emit('step.image.success.computed', _json_emit);
-			}
-		}, {
-			key: 'operateSaturateRGB',
-			value: function operateSaturateRGB(num_range, num_red, num_green, num_blue) {
-				var _num_saturate_min = Math.floor((num_red + num_green + num_blue) / 3); // 全灰階
-				var _json_output = {};
-				if (num_range < 0) {
-					_json_output = {
-						red: _num_saturate_min + Math.floor((num_red - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
-						green: _num_saturate_min + Math.floor((num_green - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
-						blue: _num_saturate_min + Math.floor((num_blue - _num_saturate_min) * (1 - Math.abs(num_range / 100)))
-					};
-				} else {
-					_json_output = {
-						red: num_red + Math.floor((num_red - _num_saturate_min) * (num_range / 100)),
-						green: num_green + Math.floor((num_green - _num_saturate_min) * (num_range / 100)),
-						blue: num_blue + Math.floor((num_blue - _num_saturate_min) * (num_range / 100))
-					};
-				}
-
-				_json_output.red = this.checkColorRange(_json_output.red);
-				_json_output.green = this.checkColorRange(_json_output.green);
-				_json_output.blue = this.checkColorRange(_json_output.blue);
-				return _json_output;
-			}
-		}, {
-			key: 'operateContrastRGB',
-			value: function operateContrastRGB(num_range, num_red, num_green, num_blue) {
-				var _num_contrast_base = 128;
-				var _json_output = {};
-
-				var _bln_red_bigger = num_red > _num_contrast_base;
-				var _bln_green_bigger = num_green > _num_contrast_base;
-				var _bln_blue_bigger = num_blue > _num_contrast_base;
-
-				var _num_red_end = num_red > _num_contrast_base ? 255 : 0;
-				var _num_green_end = num_green > _num_contrast_base ? 255 : 0;
-				var _num_blue_end = num_blue > _num_contrast_base ? 255 : 0;
-
-				if (num_range < 0) {
-					// ok
-					_json_output = {
-						red: _num_contrast_base + Math.floor((num_red - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
-						green: _num_contrast_base + Math.floor((num_green - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
-						blue: _num_contrast_base + Math.floor((num_blue - _num_contrast_base) * (1 - Math.abs(num_range / 100)))
-					};
-				} else {
-					_json_output = {
-						red: num_red + Math.floor((_num_red_end - num_red) * (num_range / 100) / 2),
-						green: num_green + Math.floor((_num_green_end - num_green) * (num_range / 100) / 2),
-						blue: num_blue + Math.floor((_num_blue_end - num_blue) * (num_range / 100) / 2)
-					};
-				}
-				_json_output.red = this.checkColorRange(_json_output.red);
-				_json_output.green = this.checkColorRange(_json_output.green);
-				_json_output.blue = this.checkColorRange(_json_output.blue);
-				return _json_output;
-			}
-		}, {
-			key: 'checkColorRange',
-			value: function checkColorRange(num) {
-				return num > 255 ? 255 : num < 0 ? 0 : num;
-			}
-		}]);
-
-		return ImageDataComputeMethod;
-	}(_Tools3.default);
-
-	exports.default = ImageDataComputeMethod;
-
-/***/ },
-/* 209 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Tools2 = __webpack_require__(38);
-
-	var _Tools3 = _interopRequireDefault(_Tools2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// 利用事件的補捉，來記錄我們的圖片運算狀況
-
-	var ImageDataComputeProcess = function (_Tools) {
-		_inherits(ImageDataComputeProcess, _Tools);
-
-		function ImageDataComputeProcess(json_tools) {
-			_classCallCheck(this, ImageDataComputeProcess);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeProcess).call(this));
-
-			_this.step_image = [];
-			_this.setEmitter(json_tools.emitter);
-			return _this;
-		}
-
-		_createClass(ImageDataComputeProcess, [{
-			key: 'getStepImage',
-			value: function getStepImage() {
-				return this.step_image || [];
-			}
-		}, {
-			key: 'setStepImage',
-			value: function setStepImage(sary, str_timmimg, json_other) {
-
-				var _scope = this;
-
-				sary = sary || [];
-				str_timmimg = str_timmimg || _scope.TIMMING_SET;
-				json_other = json_other || {};
-
-				var _sary = JSON.parse(JSON.stringify(sary));
-
-				_scope.step_image = _sary;
-
-				setTimeout(function () {
-					_scope.getEmitter().emit('step.image.seted', str_timmimg, json_other);
-					window.step_image = _scope.step_image;
-				}, 500);
-			}
-		}, {
-			key: 'pushStepData',
-			value: function pushStepData(json_data, sary_step_method) {
-				var _scope = this;
-
-				if (json_data.method_id === undefined) {
-					var _sary_step_image = JSON.parse(JSON.stringify(_scope.getStepImage())),
-					    _num_step_image = _sary_step_image.length;
-					var _sary_step_method = JSON.parse(JSON.stringify(sary_step_method)),
-					    _num_step_method = _sary_step_method.length;
-					if (_num_step_method >= _num_step_image) {
-						// 去step_method中的記錄中找來用
-						var _str_method_id = _sary_step_method[_num_step_image].method_id;
-						json_data.method_id = _str_method_id;
-					}
-				}
-
-				_scope.step_image.push(json_data);
-				_scope.getEmitter().emit('step.image.pushed');
-			}
-		}]);
-
-		return ImageDataComputeProcess;
-	}(_Tools3.default);
-
-	ImageDataComputeProcess.TIMMING_RESET = 'reset';
-	ImageDataComputeProcess.TIMMING_SET = 'set';
-	exports.default = ImageDataComputeProcess;
-	;
-
-/***/ },
-/* 210 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Tools2 = __webpack_require__(38);
-
-	var _Tools3 = _interopRequireDefault(_Tools2);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _Extend = __webpack_require__(19);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// 運算的方式
-
-	var ImageDataOriginal = function (_Tools) {
-	    _inherits(ImageDataOriginal, _Tools);
-
-	    function ImageDataOriginal(json_tools) {
-	        _classCallCheck(this, ImageDataOriginal);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataOriginal).call(this));
-
-	        var _scope = _this;
-
-	        _scope.setEmitter(json_tools.emitter);
-
-	        _scope.setObjImage();
-	        _scope.obj_canvas = document.createElement('canvas');
-	        _scope.obj_canvas_2d = _scope.getObjCanvas().getContext('2d');
-
-	        _scope.objOnloadAction();
-
-	        return _this;
-	    }
-
-	    _createClass(ImageDataOriginal, [{
-	        key: 'getObjImage',
-	        value: function getObjImage() {
-	            return this.obj_image;
-	        }
-	    }, {
-	        key: 'getObjCanvas',
-	        value: function getObjCanvas() {
-	            return this.obj_canvas;
-	        }
-	    }, {
-	        key: 'getObjCanvas2d',
-	        value: function getObjCanvas2d() {
-	            return this.obj_canvas_2d;
-	        }
-	    }, {
-	        key: 'setObjImage',
-	        value: function setObjImage(obj_image) {
-	            this.obj_image = obj_image || new Image();
-	        }
-
-	        /*
-	           origin_data -> bas64
-	        */
-
-	    }, {
-	        key: 'setOriginImage',
-	        value: function setOriginImage(json_data) {
-	            var _scope = this;
-	            _scope.origin_data = json_data;
-	            _scope.getEmitter().emit('init.data.changed', json_data);
-	        }
-	    }, {
-	        key: 'objOnloadAction',
-	        value: function objOnloadAction() {
-	            var _scope = this;
-	            _scope.obj_image.onload = function () {
-
-	                _scope.setOriginImageSize(this.width, this.height);
-
-	                var _json_data = {
-	                    data: this.src // ,
-	                    // // origin_width: this.width,
-	                    // // origin_height: this.height,
-	                    // setting: {
-	                    //     origin_width: this.width,
-	                    //     origin_height: this.height
-	                    // }
-	                };
-
-	                setTimeout(function () {
-	                    _scope.getEmitter().emit('init.data.size.asking', _json_data);
-	                }, 10);
-	            };
-	        }
-	    }, {
-	        key: 'setOriginImageSize',
-	        value: function setOriginImageSize(num_width, num_height) {
-	            this.origin_image_size = {
-	                origin_width: num_width,
-	                origin_height: num_height
-	            };
-	        }
-	    }, {
-	        key: 'getOriginImageSize',
-	        value: function getOriginImageSize() {
-	            return this.origin_image_size;
-	        }
-	    }, {
-	        key: 'operateImageSize',
-	        value: function operateImageSize(json_data) {
-	            var _scope = this;
-
-	            _scope.getObjCanvas2d().clearRect(0, 0, _scope.getObjCanvas().width, _scope.getObjCanvas().height);
-
-	            var _str_output = '';
-
-	            // **************** 圖片
-	            var _json_setting = json_data.setting,
-	                _str_size = _json_setting.size;
-
-	            if (_str_size === _Settings2.default.OUTPUT_SIZE_SCALE) {
-	                var _num_width = Math.floor(_json_setting.origin_width * _json_setting.range / 100);
-	                var _num_height = Math.floor(_json_setting.origin_height * _json_setting.range / 100);
-	                _scope.getObjCanvas().width = _num_width;
-	                _scope.getObjCanvas().height = _num_height;
-	                _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, _json_setting.origin_width, _json_setting.origin_height, 0, 0, _num_width, _num_height);
-	                // _scope.getObjImagePreview().src = _scope.getObjCanvas().toDataURL();
-	                _str_output = _scope.getObjCanvas().toDataURL();
-	            } else if (_str_size === _Settings2.default.OUTPUT_SIZE_CUSTOM) {
-	                _scope.getObjCanvas().width = _json_setting.width;
-	                _scope.getObjCanvas().height = _json_setting.height;
-
-	                var _num_origin_ratio = _json_setting.origin_height / _json_setting.origin_width;
-	                var _num_output_ratio = _json_setting.height / _json_setting.width;
-
-	                var _num_outreal_height = _json_setting.width / _json_setting.origin_width * _json_setting.origin_height;
-	                var _num_outreal_width = _json_setting.height / _json_setting.origin_height * _json_setting.origin_width;
-
-	                if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_COVER) {
-	                    // 填滿區域，可能造成圖片放大的失真
-	                    if (_num_origin_ratio > _num_output_ratio) {
-	                        _scope.baseOnWidth(json_data, _json_setting);
-	                    } else if (_num_origin_ratio < _num_output_ratio) {
-	                        _scope.baseOnHeight(json_data, _json_setting);
-	                    } else {
-	                        _scope.baseOnWidthHeight(json_data, _json_setting);
-	                    }
-	                } else if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_CONTAIN) {
-	                    // 內容全放入，可能造成空白
-	                    if (_num_origin_ratio > _num_output_ratio) {
-	                        _scope.baseOnHeight(json_data, _json_setting);
-	                    } else if (_num_origin_ratio < _num_output_ratio) {
-	                        _scope.baseOnWidth(json_data, _json_setting);
-	                    } else {
-	                        _scope.baseOnWidthHeight(json_data, _json_setting);
-	                    }
-	                } else if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_FILL) {
-	                    // 填滿（不考慮寬高比）
-	                    _scope.baseOnWidthHeight(json_data, _json_setting);
-	                } else if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_CLIP) {
-	                    // 裁切
-	                    _scope.baseOnClip(json_data, _json_setting);
-	                }
-	                // _scope.getObjImagePreview().src = _scope.getObjCanvas().toDataURL() ;
-	                _str_output = _scope.getObjCanvas().toDataURL();
-	            }
-
-	            if (_str_output !== '') {
-	                var _json_emit = _Extend2.default.deep(json_data, { origin_data: _str_output });
-	                _scope.setOriginImage(_json_emit);
-	            }
-	        }
-
-	        // 固定輸出的寬度
-
-	    }, {
-	        key: 'baseOnWidth',
-	        value: function baseOnWidth(json_data, json_setting) {
-	            var _scope = this;
-	            var _num_outreal_height = json_setting.width / json_setting.origin_width * json_setting.origin_height;
-	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, 0, json_setting.height / 2 - _num_outreal_height / 2, json_setting.width, _num_outreal_height);
-	        }
-
-	        // 固定輸出的高度
-
-	    }, {
-	        key: 'baseOnHeight',
-	        value: function baseOnHeight(json_data, json_setting) {
-	            var _scope = this;
-	            var _num_outreal_width = json_setting.height / json_setting.origin_height * json_setting.origin_width;
-	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, json_setting.width / 2 - _num_outreal_width / 2, 0, _num_outreal_width, json_setting.height);
-	        }
-
-	        // 填滿（不考慮寬高比）
-
-	    }, {
-	        key: 'baseOnWidthHeight',
-	        value: function baseOnWidthHeight(json_data, json_setting) {
-	            var _scope = this;
-	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, 0, 0, json_setting.width, json_setting.height);
-	        }
-
-	        // 裁切
-
-	    }, {
-	        key: 'baseOnClip',
-	        value: function baseOnClip(json_data, json_setting) {
-	            var _scope = this;
-	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, json_setting.origin_width / 2 - json_setting.width / 2, json_setting.origin_height / 2 - json_setting.height / 2, json_setting.width, json_setting.height, 0, 0, json_setting.width, json_setting.height);
-	        }
-	    }]);
-
-	    return ImageDataOriginal;
-	}(_Tools3.default);
-
-	exports.default = ImageDataOriginal;
-
-/***/ },
-/* 211 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Utils = __webpack_require__(27);
-
-	var _Utils2 = _interopRequireDefault(_Utils);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _MethodSettings = __webpack_require__(60);
-
-	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
-
-	var _GlobalConst2 = __webpack_require__(59);
-
-	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MainImageFilter = function (_GlobalConst) {
-		_inherits(MainImageFilter, _GlobalConst);
-
-		function MainImageFilter(obj, json_tools) {
-			_classCallCheck(this, MainImageFilter);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MainImageFilter).call(this));
-
-			_this.setEmitter(json_tools.emitter);
-			_this.setModuleId(_Utils2.default.createUniqueId());
-
-			// this.setOutputImageSetting( this.getInitOutputImageScale() );
-			_this.setOutputImageSetting(_this.getInitOutputImageCustom());
-
-			_this.defaultAction(obj);
-
-			return _this;
-		}
-
-		_createClass(MainImageFilter, [{
-			key: 'setModuleId',
-			value: function setModuleId(str) {
-				this.module_id = str;
-			}
-		}, {
-			key: 'setEmitter',
-			value: function setEmitter(object) {
-				this.emitter = object;
-			}
-		}, {
-			key: 'setOutputImageSetting',
-			value: function setOutputImageSetting(json) {
-				this.output_image_setting = json || {};
-			}
-		}, {
-			key: 'getInitOutputImageScale',
-			value: function getInitOutputImageScale() {
-				return _Settings2.default.getInitOutputImageScale();
-			}
-		}, {
-			key: 'getInitOutputImageCustom',
-			value: function getInitOutputImageCustom() {
-				return _Settings2.default.getInitOutputImageCustom();
-			}
-		}, {
-			key: 'getOutputImageSetting',
-			value: function getOutputImageSetting() {
-				return this.output_image_setting || {};
-			}
-		}, {
-			key: 'getEmitter',
-			value: function getEmitter() {
-				return this.emitter;
-			}
-		}, {
-			key: 'getModuleId',
-			value: function getModuleId() {
-				return this.module_id;
-			}
-
-			// 得到用來產生版形的區塊
-
-		}, {
-			key: 'getMainSection',
-			value: function getMainSection() {
-				return this.getGlobalConst(this).MAIN_SECTION;
-			}
-
-			// 在預覽產生前，把這東西元件設定src
-
-		}, {
-			key: 'getObjImagePreview',
-			value: function getObjImagePreview() {
-				return this.getGlobalConst(this).OBJ_IMAGE_PREVIEW;
-			}
-
-			// 效果選項的元件
-
-		}, {
-			key: 'getObjMethodSelect',
-			value: function getObjMethodSelect() {
-				return this.getGlobalConst(this).OBJ_METHOD_SELECT;
-			}
-
-			// 選出來什麼效果選項的元件
-
-		}, {
-			key: 'getObjMethodResult',
-			value: function getObjMethodResult() {
-				return this.getGlobalConst(this).OBJ_METHOD_RESULT;
-			}
-
-			// 原圖預覽圖片
-
-		}, {
-			key: 'getObjOriginImage',
-			value: function getObjOriginImage() {
-				return this.getGlobalConst(this).OBJ_ORIGIN_IMAGE;
-			}
-
-			// 得到上傳圖片的按鈕
-
-		}, {
-			key: 'getObjUpload',
-			value: function getObjUpload() {
-				return this.getGlobalConst(this).OBJ_UPLOAD;
-			}
-
-			// 確定圖片的size設定
-
-		}, {
-			key: 'getObjsSizeSubmit',
-			value: function getObjsSizeSubmit() {
-				return this.getGlobalConst(this).OBJ_SIZE_SUBMIT;
-			}
-
-			// 哪種圖片的大小設定 - scale
-
-		}, {
-			key: 'getObjsSizeScaleRadio',
-			value: function getObjsSizeScaleRadio() {
-				return this.getGlobalConst(this).OBJ_SIZE_SCALE_RADIO;
-			}
-
-			// 哪種圖片的大小設定 - custom
-
-		}, {
-			key: 'getObjsSizeCustomRadio',
-			value: function getObjsSizeCustomRadio() {
-				return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_RADIO;
-			}
-
-			// 哪種圖片的大小設定 - custom
-
-		}, {
-			key: 'getObjsSizeRange',
-			value: function getObjsSizeRange() {
-				return this.getGlobalConst(this).OBJ_SCALE_RANGE;
-			}
-
-			// 哪種圖片的大小設定 - custom - 多少%的顯非
-
-		}, {
-			key: 'getObjsSizeRangesShow',
-			value: function getObjsSizeRangesShow() {
-				return this.getGlobalConst(this).OBJ_SCALE_RANGE_SHOW;
-			}
-
-			// 自訂寬度
-
-		}, {
-			key: 'getObjsSizeCustomWidth',
-			value: function getObjsSizeCustomWidth() {
-				return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_WIDTH;
-			}
-
-			// 自訂高度
-
-		}, {
-			key: 'getObjsSizeCustomHeight',
-			value: function getObjsSizeCustomHeight() {
-				return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_HEIGHT;
-			}
-
-			// 原圖預覽圖片
-
-		}, {
-			key: 'returnOriginImageSection',
-			value: function returnOriginImageSection() {
-				var _obj_image_section = document.createElement('div');
-				var _obj_origin_image = document.createElement('img');
-				this.addGlobalConst(this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image);
-				_obj_image_section.appendChild(_obj_origin_image);
-				return _obj_image_section;
-			}
-
-			// 上傳檔案
-
-		}, {
-			key: 'returnUploadSection',
-			value: function returnUploadSection() {
-				var _obj_upload_section = document.createElement('div');
-				var _obj_upload = document.createElement('input');
-				_obj_upload.type = "file";
-				this.uploadAction.call(_obj_upload, this);
-				this.addGlobalConst(this, 'OBJ_UPLOAD', _obj_upload);
-				_obj_upload_section.appendChild(_obj_upload);
-				return _obj_upload_section;
-			}
-
-			// 預覽圖片
-
-		}, {
-			key: 'returnCanvasSection',
-			value: function returnCanvasSection() {
-				var _obj_canvas_section = document.createElement('div');
-				var _obj_canvas_preview = new Image();
-
-				this.addGlobalConst(this, 'OBJ_IMAGE_PREVIEW', _obj_canvas_preview);
-
-				_obj_canvas_section.appendChild(_obj_canvas_preview);
-
-				return _obj_canvas_section;
-			}
-
-			// 新增效果
-
-		}, {
-			key: 'returnMethodSection',
-			value: function returnMethodSection() {
-				var _obj_method_section = document.createElement('div');
-
-				// 選出了哪些效果
-				var _obj_method_result = document.createElement('span');
-				_obj_method_section.appendChild(_obj_method_result);
-
-				// 下拉式選單
-				var _obj_method_select = document.createElement('select');
-				_obj_method_select.name = 'method';
-				var _sary_option = _MethodSettings2.default.getAllMethod();
-				var _str_method_select = '';
-				_str_method_select += '<option value="">---請選擇---</option>';
-				for (var i = 0; i < _sary_option.length; i++) {
-					_str_method_select += '<option value="' + _sary_option[i].method + '">' + _sary_option[i].method_name + '</option>';
-				}
-				_obj_method_select.insertAdjacentHTML('afterbegin', _str_method_select);
-
-				// 新增按鈕
-				var _obj_method_button = document.createElement('button');
-				_obj_method_button.innerText = '新增效果';
-				this.methodAddBtnAction.call(_obj_method_button, this);
-				_obj_method_section.appendChild(_obj_method_select);
-				_obj_method_section.appendChild(_obj_method_button);
-
-				this.addGlobalConst(this, 'OBJ_METHOD_SECTION', _obj_method_section);
-				this.addGlobalConst(this, 'OBJ_METHOD_RESULT', _obj_method_result);
-				this.addGlobalConst(this, 'OBJ_METHOD_SELECT', _obj_method_select);
-				return _obj_method_section;
-			}
-
-			// 新增效果 - 新方法
-
-		}, {
-			key: 'returnMethodAddSection',
-			value: function returnMethodAddSection() {
-				var _obj_method_section = document.createElement('div');
-
-				// 新增按鈕
-				var _obj_method_button = document.createElement('button');
-				_obj_method_button.innerText = '新增效果';
-				this.methodAddBtnActive.call(_obj_method_button, this);
-				_obj_method_section.appendChild(_obj_method_button);
-
-				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button);
-				return _obj_method_section;
-			}
-
-			// 輸出圖片尺寸
-
-		}, {
-			key: 'returnSizeSection',
-			value: function returnSizeSection() {
-				var _obj_size_section = document.createElement('div');
-				_obj_size_section.innerText = '圖片輸出尺寸';
-
-				var _obj_scale_section = document.createElement('div');
-				var _obj_custom_section = document.createElement('div');
-
-				// 圖片尺寸 - 原圖等比縮放 - radio
-				var _obj_size_scale = document.createElement('input');
-				_obj_size_scale.type = 'radio';
-				_obj_size_scale.name = 'size_' + this.getModuleId();
-				_obj_size_scale.value = 'scale';
-				_obj_size_scale.checked = this.getOutputImageSetting().size === _Settings2.default.OUTPUT_SIZE_SCALE;
-				this.addGlobalConst(this, 'OBJ_SIZE_SCALE_RADIO', _obj_size_scale);
-				// 圖片尺寸 - 原圖等比縮放 - label
-				var _obj_label_scale = document.createElement('label');
-				_obj_label_scale.appendChild(_obj_size_scale);
-				_obj_label_scale.insertAdjacentHTML('beforeend', '原圖等比縮放');
-				// 圖片尺寸 - 自訂尺寸 - input
-				var _obj_scale_range = document.createElement('input');
-				_obj_scale_range.type = 'range';
-				_obj_scale_range.name = 'range_' + this.getModuleId();
-				_obj_scale_range.value = this.getInitOutputImageScale().range;
-				_obj_scale_range.min = 1;
-				_obj_scale_range.max = 200;
-				this.addGlobalConst(this, 'OBJ_SCALE_RANGE', _obj_scale_range);
-				var _obj_scale_range_show = document.createElement('span');
-				this.addGlobalConst(this, 'OBJ_SCALE_RANGE_SHOW', _obj_scale_range_show);
-
-				_obj_scale_section.appendChild(_obj_label_scale);
-				_obj_scale_section.appendChild(_obj_scale_range);
-				_obj_scale_section.appendChild(_obj_scale_range_show);
-
-				// 圖片尺寸 - 自訂尺寸 - radio
-				var _obj_size_custom = document.createElement('input');
-				_obj_size_custom.type = 'radio';
-				_obj_size_custom.name = 'size_' + this.getModuleId();
-				_obj_size_custom.value = 'custom';
-				_obj_size_custom.checked = this.getOutputImageSetting().size === _Settings2.default.OUTPUT_SIZE_CUSTOM;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_RADIO', _obj_size_custom);
-				// 圖片尺寸 - 自訂尺寸 - label
-				var _obj_label_custom = document.createElement('label');
-				_obj_label_custom.appendChild(_obj_size_custom);
-				_obj_label_custom.insertAdjacentHTML('beforeend', '自訂尺寸');
-				var _obj_custom_width = document.createElement('input');
-				_obj_custom_width.type = 'number';
-				_obj_custom_width.name = 'custom_width_' + this.getModuleId();
-				_obj_custom_width.min = 10;
-				_obj_custom_width.max = 3000;
-				_obj_custom_width.value = this.getInitOutputImageCustom().width;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_WIDTH', _obj_custom_width);
-				var _obj_custom_height = document.createElement('input');
-				_obj_custom_height.type = 'number';
-				_obj_custom_height.name = 'custom_height_' + this.getModuleId();
-				_obj_custom_height.min = 10;
-				_obj_custom_height.max = 3000;
-				_obj_custom_height.value = this.getInitOutputImageCustom().height;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_HEIGHT', _obj_custom_height);
-				// 圖片尺寸 - 自訂尺寸 - cover - radio
-				var _obj_size_custom_cover = document.createElement('input');
-				_obj_size_custom_cover.type = 'radio';
-				_obj_size_custom_cover.name = 'custom_' + this.getModuleId();
-				_obj_size_custom_cover.value = 'cover';
-				_obj_size_custom_cover.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_COVER;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_COVER', _obj_size_custom_cover);
-				// 圖片尺寸 - 自訂尺寸 - cover - label
-				var _obj_label_custom_cover = document.createElement('label');
-				_obj_label_custom_cover.appendChild(_obj_size_custom_cover);
-				_obj_label_custom_cover.insertAdjacentHTML('beforeend', 'COVER');
-				// 圖片尺寸 - 自訂尺寸 - contain - radio
-				var _obj_size_custom_contain = document.createElement('input');
-				_obj_size_custom_contain.type = 'radio';
-				_obj_size_custom_contain.name = 'custom_' + this.getModuleId();
-				_obj_size_custom_contain.value = 'contain';
-				_obj_size_custom_contain.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_CONTAIN;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_CONTAIN', _obj_size_custom_contain);
-				// 圖片尺寸 - 自訂尺寸 - contain - label
-				var _obj_label_custom_contain = document.createElement('label');
-				_obj_label_custom_contain.appendChild(_obj_size_custom_contain);
-				_obj_label_custom_contain.insertAdjacentHTML('beforeend', 'CONTAIN');
-				// 圖片尺寸 - 自訂尺寸 - fill - radio
-				var _obj_size_custom_fill = document.createElement('input');
-				_obj_size_custom_fill.type = 'radio';
-				_obj_size_custom_fill.name = 'custom_' + this.getModuleId();
-				_obj_size_custom_fill.value = 'fill';
-				_obj_size_custom_fill.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_FILL;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_FILL', _obj_size_custom_fill);
-				// 圖片尺寸 - 自訂尺寸 - fill - label
-				var _obj_label_custom_fill = document.createElement('label');
-				_obj_label_custom_fill.appendChild(_obj_size_custom_fill);
-				_obj_label_custom_fill.insertAdjacentHTML('beforeend', 'FILL');
-				// 圖片尺寸 - 自訂尺寸 - clip - radio
-				var _obj_size_custom_clip = document.createElement('input');
-				_obj_size_custom_clip.type = 'radio';
-				_obj_size_custom_clip.name = 'custom_' + this.getModuleId();
-				_obj_size_custom_clip.value = 'clip';
-				_obj_size_custom_clip.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_CLIP;
-				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_CLIP', _obj_size_custom_clip);
-				// 圖片尺寸 - 自訂尺寸 - clip - label
-				var _obj_label_custom_clip = document.createElement('label');
-				_obj_label_custom_clip.appendChild(_obj_size_custom_clip);
-				_obj_label_custom_clip.insertAdjacentHTML('beforeend', 'CLIP');
-
-				_obj_custom_section.appendChild(_obj_label_custom);
-				_obj_custom_section.insertAdjacentHTML('beforeend', '寬');
-				_obj_custom_section.appendChild(_obj_custom_width);
-				_obj_custom_section.insertAdjacentHTML('beforeend', '高');
-				_obj_custom_section.appendChild(_obj_custom_height);
-				_obj_custom_section.appendChild(_obj_label_custom_cover);
-				_obj_custom_section.appendChild(_obj_label_custom_contain);
-				_obj_custom_section.appendChild(_obj_label_custom_fill);
-				_obj_custom_section.appendChild(_obj_label_custom_clip);
-
-				// 圖片尺寸 - 自訂尺寸 - radio
-				var _obj_size_submit = document.createElement('button');
-				_obj_size_submit.innerText = '確定';
-				this.addGlobalConst(this, 'OBJ_SIZE_SUBMIT', _obj_size_submit);
-
-				_obj_size_section.appendChild(_obj_scale_section);
-				_obj_size_section.appendChild(_obj_custom_section);
-				_obj_size_section.appendChild(_obj_size_submit);
-				return _obj_size_section;
-			}
-
-			// 用dom去產生頁面上的排版
-
-		}, {
-			key: 'makeTempate',
-			value: function makeTempate() {
-
-				var _scope = this;
-
-				var _obj_main = this.getMainSection();
-
-				if (_obj_main !== undefined) {
-
-					// 上傳檔案
-					var _obj_upload_section = this.returnUploadSection();
-
-					// 預覽圖片
-					var _obj_canvas_section = this.returnCanvasSection();
-
-					// 輸出圖片尺寸
-					var _obj_size_section = this.returnSizeSection();
-
-					// 新增效果
-					var _obj_method_section = this.returnMethodSection();
-
-					// 新增效果 - 新方法
-					var _obj_method_add_section = this.returnMethodAddSection();
-
-					// 原圖預覽圖片
-					var _obj_origin_image_section = this.returnOriginImageSection();
-
-					_obj_main.appendChild(_obj_size_section);
-					_obj_main.appendChild(_obj_upload_section);
-					_obj_main.appendChild(_obj_method_section);
-					_obj_main.appendChild(_obj_method_add_section);
-					_obj_main.appendChild(_obj_origin_image_section);
-					_obj_main.appendChild(_obj_canvas_section);
-
-					_scope.judgeOutputImageSetting.call(_scope.getObjsSizeSubmit(), _scope);
-					_scope.listenRangeChange.call(_scope.getObjsSizeRange(), _scope);
-					_scope.getRangeShowText();
-				}
-			}
-		}, {
-			key: 'judgeOutputImageSetting',
-			value: function judgeOutputImageSetting(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onclick = function (e) {
-					var _obj_scale_radio = scope_calss.getObjsSizeScaleRadio(),
-					    _obj_custom_radio = scope_calss.getObjsSizeCustomRadio();
-					var _str_size = _obj_scale_radio.checked === true ? _obj_scale_radio.value : _obj_custom_radio.checked === true ? _obj_custom_radio.value : '';
-					var _json_setting = {
-						size: _str_size
-					};
-
-					if (_str_size === _Settings2.default.OUTPUT_SIZE_SCALE) {
-						_json_setting.range = scope_calss.getObjsSizeRange().value;
-					} else if (_str_size === _Settings2.default.OUTPUT_SIZE_CUSTOM) {
-						_json_setting.width = scope_calss.getObjsSizeCustomWidth().value;
-						_json_setting.height = scope_calss.getObjsSizeCustomHeight().value;
-						_json_setting.custom = document.querySelectorAll('[name="custom_' + scope_calss.getModuleId() + '"]:checked')[0].value || '';
-					}
-					scope_calss.setOutputImageSetting(_json_setting);
-				};
-			}
-		}, {
-			key: 'uploadAction',
-			value: function uploadAction(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onchange = function (e) {
-					// 從頭更換圖片
-					var windowURL = window.URL || window.webkitURL;
-					var _str_image_data = windowURL.createObjectURL(this.files[0]);
-					// scope_calss.setImageInitData( _str_image_data );
-
-					scope_calss.getEmitter().emit('origin.data.changed', {
-						origin_data: _str_image_data,
-						setting: scope_calss.getOutputImageSetting()
-					});
-				};
-			}
-
-			// 新增效果的按鈕
-
-		}, {
-			key: 'methodAddBtnAction',
-			value: function methodAddBtnAction(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onclick = function (e) {
-					var _str_method_value = scope_calss.getObjMethodSelect().value;
-					if (_str_method_value !== '') {
-						scope_calss.getEmitter().emit('step.method.pushing', {
-							method: _str_method_value
-						});
-					} else {
-						console.log('不應為空!!');
-					}
-				};
-			}
-
-			// 新增效果的按鈕 - 新方法
-
-		}, {
-			key: 'methodAddBtnActive',
-			value: function methodAddBtnActive(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onclick = function (e) {
-					scope_calss.getEmitter().emit('method.setting.open.asking');
-				};
-			}
-
-			// 刪除效果的按鈕
-
-		}, {
-			key: 'methodDeleteBtnAction',
-			value: function methodDeleteBtnAction(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onclick = function (e) {
-					// 先直接發出刪除methodid的事件，之後再來擴充
-					scope_calss.getEmitter().emit('step.method.splicing', {
-						method: _obj_self.data.method,
-						method_id: _obj_self.data.method_id,
-						method_btn: this
-					});
-				};
-			}
-		}, {
-			key: 'listenRangeChange',
-			value: function listenRangeChange(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onchange = function (e) {
-					scope_calss.getRangeShowText();
-				};
-			}
-		}, {
-			key: 'getRangeShowText',
-			value: function getRangeShowText() {
-				var _scope = this;
-				_scope.getObjsSizeRangesShow().innerText = _scope.getObjsSizeRange().value + '%';
-			}
-		}, {
-			key: 'defaultAction',
-			value: function defaultAction(obj) {
-				var _scope = this;
-				_scope.initGlobalConst(this);
-
-				if (obj.nodeType >= 1) {
-					_scope.addGlobalConst(this, 'MAIN_SECTION', obj);
-					_scope.makeTempate();
-				}
-			}
-		}]);
-
-		return MainImageFilter;
-	}(_GlobalConst3.default);
-
-	exports.default = MainImageFilter;
-	;
-
-/***/ },
-/* 212 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Utils = __webpack_require__(27);
-
-	var _Utils2 = _interopRequireDefault(_Utils);
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(37);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _Setting = __webpack_require__(23);
-
-	var _Setting2 = _interopRequireDefault(_Setting);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _MethodControlDot = __webpack_require__(215);
-
-	var _MethodControlDot2 = _interopRequireDefault(_MethodControlDot);
-
-	var _MethodControlAlpha = __webpack_require__(213);
-
-	var _MethodControlAlpha2 = _interopRequireDefault(_MethodControlAlpha);
-
-	var _MethodControlSaturate = __webpack_require__(216);
-
-	var _MethodControlSaturate2 = _interopRequireDefault(_MethodControlSaturate);
-
-	var _MethodControlContrast = __webpack_require__(214);
-
-	var _MethodControlContrast2 = _interopRequireDefault(_MethodControlContrast);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MethodControl = function (_React$Component) {
-	    _inherits(MethodControl, _React$Component);
-
-	    function MethodControl(props) {
-	        _classCallCheck(this, MethodControl);
-
-	        // this.setComponentId( Utils.createUniqueId() );
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControl).call(this, props));
-
-	        _this.arrangeProps(props);
-
-	        return _this;
-	    }
-
-	    _createClass(MethodControl, [{
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            this.arrangeProps(nextProps);
-	        }
-
-	        // getComponentId(){
-	        //     return this.component_id;
-	        // }
-
-	        // setComponentId( data ){
-	        //     this.component_id = data;
-	        // }
-
-	    }, {
-	        key: 'arrangeProps',
-	        value: function arrangeProps(json_next) {
-	            if (this.state) {
-	                // this.setState( {methodStore:json_next.methodStore.getState()} );
-	                this.setState({});
-	            } else {
-	                // this.state = {methodStore:json_next.methodStore.getState()};
-	                this.state = {};
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _scope = this;
-	            var _json_control = {};
-
-	            if (this.props.outputResult.method === _Settings2.default.METHOD_DOT) {
-	                _json_control = {
-	                    frequency: 20,
-	                    minSize: 2,
-	                    maxSize: 8,
-	                    minAlpha: 100,
-	                    maxAlpha: 100,
-	                    color: '#900' // #hex
-	                };
-	                return _react2.default.createElement(_MethodControlDot2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
-	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_ALPHA) {
-	                _json_control = {
-	                    range: 100
-	                };
-	                return _react2.default.createElement(_MethodControlAlpha2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
-	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_SATURATE) {
-	                _json_control = {
-	                    range: 0
-	                };
-	                return _react2.default.createElement(_MethodControlSaturate2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
-	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_CONTRAST) {
-	                _json_control = {
-	                    range: 0
-	                };
-	                return _react2.default.createElement(_MethodControlContrast2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
-	            } else {
-	                return _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    'else'
-	                );
-	            }
-	            // return (
-	            //     <div>
-	            //         <div>123</div>
-	            //         <If cond={ this.props.outputResult.method===Settings.METHOD_SNOW }>
-	            //             snow
-	            //         </If>
-	            //         <ReactCond>
-	            //             { this.props.outputResult.method===Settings.METHOD_SNOW } ssss
-	            //             { this.props.outputResult.method!==Settings.METHOD_SNOW } not
-	            //         </ReactCond>
-	            //     </div>
-	            // );
-	        }
-	    }]);
-
-	    return MethodControl;
-	}(_react2.default.Component);
-
-	exports.default = MethodControl;
-	;
-
-	MethodControl.propTypes = {
-	    outputResult: _react2.default.PropTypes.object.isRequired,
-	    methodStore: _react2.default.PropTypes.object.isRequired
-	}, MethodControl.defaultProps = {
-	    outputResult: {},
-	    methodStore: {}
-	};
-
-/***/ },
-/* 213 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _Extend = __webpack_require__(19);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _GloablData = __webpack_require__(22);
-
-	var _GloablData2 = _interopRequireDefault(_GloablData);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MethodControlAlpha = function (_React$Component) {
-	    _inherits(MethodControlAlpha, _React$Component);
-
-	    function MethodControlAlpha(props) {
-	        _classCallCheck(this, MethodControlAlpha);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlAlpha).call(this, props));
-
-	        _this.arrangeProps(props);
-
-	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
-	        _this.submitAction = _this.submitAction.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(MethodControlAlpha, [{
-	        key: 'getComponentMethod',
-	        value: function getComponentMethod() {
-	            return _Settings2.default.METHOD_ALPHA;
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            this.arrangeProps(nextProps);
-	        }
-	    }, {
-	        key: 'arrangeProps',
-	        value: function arrangeProps(json_next) {
-	            if (this.state) {
-	                this.setState({ control: json_next.control });
-	            } else {
-	                this.state = { control: json_next.control };
-	            }
-	        }
-	    }, {
-	        key: 'submitAction',
-	        value: function submitAction() {
-	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
-	                from: _GloablData2.default.getFrom(),
-	                method: _scope.getComponentMethod(),
-	                control: _scope.state.control
-	            });
-	        }
-	    }, {
-	        key: 'handleChangeRange',
-	        value: function handleChangeRange(e) {
-	            var _json_new = _Extend2.default.deep(this.state, {
-	                control: {
-	                    range: e.target.value
-	                }
-	            });
-	            this.setState(_json_new);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _scope = this;
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement('input', {
-	                    type: 'range',
-	                    ref: 'range',
-	                    step: '1',
-	                    min: '0',
-	                    max: '100',
-	                    value: this.state.control.range,
-	                    onChange: this.handleChangeRange }),
-	                ' ',
-	                this.state.control.range,
-	                ' / 100',
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MethodControlAlpha;
-	}(_react2.default.Component);
-
-	exports.default = MethodControlAlpha;
-	;
-
-	MethodControlAlpha.propTypes = {
-	    control: _react2.default.PropTypes.object
-	}, MethodControlAlpha.defaultProps = {
-	    control: {}
-	};
-
-/***/ },
-/* 214 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _Extend = __webpack_require__(19);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _GloablData = __webpack_require__(22);
-
-	var _GloablData2 = _interopRequireDefault(_GloablData);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MethodControlContrast = function (_React$Component) {
-	    _inherits(MethodControlContrast, _React$Component);
-
-	    function MethodControlContrast(props) {
-	        _classCallCheck(this, MethodControlContrast);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlContrast).call(this, props));
-
-	        _this.arrangeProps(props);
-
-	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
-	        _this.submitAction = _this.submitAction.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(MethodControlContrast, [{
-	        key: 'getComponentMethod',
-	        value: function getComponentMethod() {
-	            return _Settings2.default.METHOD_CONTRAST;
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            this.arrangeProps(nextProps);
-	        }
-	    }, {
-	        key: 'arrangeProps',
-	        value: function arrangeProps(json_next) {
-	            if (this.state) {
-	                this.setState({ control: json_next.control });
-	            } else {
-	                this.state = { control: json_next.control };
-	            }
-	        }
-	    }, {
-	        key: 'submitAction',
-	        value: function submitAction() {
-	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
-	                from: _GloablData2.default.getFrom(),
-	                method: _scope.getComponentMethod(),
-	                control: _scope.state.control
-	            });
-	        }
-	    }, {
-	        key: 'handleChangeRange',
-	        value: function handleChangeRange(e) {
-	            var _json_new = _Extend2.default.deep(this.state, {
-	                control: {
-	                    range: e.target.value
-	                }
-	            });
-	            this.setState(_json_new);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _scope = this;
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement('input', {
-	                    type: 'range',
-	                    ref: 'range',
-	                    step: '1',
-	                    min: '-100',
-	                    max: '100',
-	                    value: this.state.control.range,
-	                    onChange: this.handleChangeRange }),
-	                ' ',
-	                this.state.control.range,
-	                ' / 100',
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MethodControlContrast;
-	}(_react2.default.Component);
-
-	exports.default = MethodControlContrast;
-	;
-
-	MethodControlContrast.propTypes = {
-	    control: _react2.default.PropTypes.object
-	}, MethodControlContrast.defaultProps = {
-	    control: {}
-	};
-
-/***/ },
-/* 215 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _Extend = __webpack_require__(19);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _GloablData = __webpack_require__(22);
-
-	var _GloablData2 = _interopRequireDefault(_GloablData);
-
-	var _reactColorPicker = __webpack_require__(239);
-
-	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// http://jslog.com/react-color-picker/
-	// https://www.npmjs.com/package/react-color-picker
-	// https://www.npmjs.com/package/color-picker
-
-	var MethodControlDot = function (_React$Component) {
-	    _inherits(MethodControlDot, _React$Component);
-
-	    function MethodControlDot(props) {
-	        _classCallCheck(this, MethodControlDot);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlDot).call(this, props));
-
-	        var _scope = _this;
-
-	        _scope.setAllDistance(function () {
-	            _scope.setAllColor();
-	        });
-	        _scope.arrangeProps(props);
-
-	        _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
-	        _scope.submitAction = _scope.submitAction.bind(_scope);
-	        _scope.colorPick = _scope.colorPick.bind(_scope);
-	        return _this;
-	    }
-
-	    _createClass(MethodControlDot, [{
-	        key: 'getComponentMethod',
-	        value: function getComponentMethod() {
-	            return _Settings2.default.METHOD_DOT;
-	        }
-	    }, {
-	        key: 'arrangeState',
-	        value: function arrangeState() {
-	            return _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
-	                    frequency: this.refs.frequency.value,
-	                    minSize: this.refs.minSize.value,
-	                    maxSize: this.refs.maxSize.value,
-	                    minAlpha: this.refs.minAlpha.value,
-	                    maxAlpha: this.refs.maxAlpha.value
-	                }
-	            });
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            this.arrangeProps(nextProps);
-	        }
-	    }, {
-	        key: 'arrangeProps',
-	        value: function arrangeProps(json_next) {
-	            if (this.state) {
-	                this.setState({ control: json_next.control });
-	            } else {
-	                this.state = { control: json_next.control };
-	            }
-	        }
-	    }, {
-	        key: 'submitAction',
-	        value: function submitAction() {
-	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
-	                from: _GloablData2.default.getFrom(),
-	                method: _scope.getComponentMethod(),
-	                control: _scope.state.control
-	            });
-	        }
-	    }, {
-	        key: 'handleChangeRange',
-	        value: function handleChangeRange() {
-	            var _json_new = this.arrangeState({});
-	            this.setState(_json_new);
-	        }
-	    }, {
-	        key: 'setAllDistance',
-	        value: function setAllDistance(callback) {
-	            console.log('this :: ', this);
-
-	            var _scope = this;
-	            var _ary_number = [0],
-	                _num_distance = 64,
-	                _num_var = void 0;
-
-	            for (var i = 1; i <= 256 / _num_distance; i++) {
-	                _num_var = i * _num_distance;
-	                if (_num_var >= 256) {
-	                    _num_var = 255;
-	                }
-	                _ary_number.push(_num_var);
-	            }
-
-	            this.all_distance = _ary_number;
-
-	            if (callback && callback instanceof Function) {
-	                callback();
-	            }
-	        }
-	    }, {
-	        key: 'setAllColor',
-	        value: function setAllColor() {
-	            var _scope = this;
-	            var _ary_number = _scope.getAllDistance();
-
-	            _scope.all_color = [];
-
-	            for (var r = 0; r < _ary_number.length; r++) {
-	                for (var g = 0; g < _ary_number.length; g++) {
-	                    for (var b = 0; b < _ary_number.length; b++) {
-	                        _scope.all_color.push('rgb(' + _ary_number[r] + ', ' + _ary_number[g] + ', ' + _ary_number[b] + ')');
-	                    }
-	                }
-	            }
-	        }
-	    }, {
-	        key: 'getAllDistance',
-	        value: function getAllDistance() {
-	            return this.all_distance;
-	        }
-	    }, {
-	        key: 'getAllColor',
-	        value: function getAllColor() {
-	            return this.all_color || [];
-	        }
-	    }, {
-	        key: 'colorPick',
-	        value: function colorPick(str_color) {
-	            var _json_state = this.arrangeState();
-	            _json_state.control.color = str_color;
-	            this.setState(_json_state);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _scope = this;
-	            var _ary_all_color = this.getAllColor();
-	            var _num_oneline = _scope.getAllDistance().length;
-	            var _json_style = {
-	                display: 'block',
-	                clear: 'both',
-	                height: 0,
-	                overflow: 'hidden',
-	                position: 'relative'
-	            };
-
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(_reactColorPicker2.default, {
-	                    value: this.state.control.color,
-	                    onDrag: this.colorPick }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { style: { marginTop: '5px', marginBottom: '15px' } },
-	                    _react2.default.createElement(
-	                        'span',
-	                        { style: { display: 'inline-block', background: this.state.control.color, padding: '5px', color: 'white' } },
-	                        this.state.control.color
-	                    )
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    '頻率 ：',
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'frequency',
-	                        step: '1',
-	                        min: '1',
-	                        max: '100',
-	                        value: this.state.control.frequency,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.frequency,
-	                    ' / 100'
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    '大小 ：',
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'minSize',
-	                        step: '1',
-	                        min: '1',
-	                        max: this.state.control.maxSize,
-	                        value: this.state.control.minSize,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.minSize,
-	                    ' / ',
-	                    this.state.control.maxSize,
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'maxSize',
-	                        step: '1',
-	                        min: this.state.control.minSize,
-	                        max: '20',
-	                        value: this.state.control.maxSize,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.maxSize,
-	                    ' / 20'
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    '透明度 ：',
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'minAlpha',
-	                        step: '1',
-	                        min: '1',
-	                        max: this.state.control.maxSize,
-	                        value: this.state.control.minAlpha,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.minAlpha,
-	                    ' / ',
-	                    this.state.control.maxAlpha,
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'maxAlpha',
-	                        step: '1',
-	                        min: this.state.control.minAlpha,
-	                        max: '100',
-	                        value: this.state.control.maxAlpha,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.maxAlpha,
-	                    ' / 100'
-	                ),
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MethodControlDot;
-	}(_react2.default.Component);
-
-	exports.default = MethodControlDot;
-	;
-
-	MethodControlDot.propTypes = {
-	    control: _react2.default.PropTypes.object
-	}, MethodControlDot.defaultProps = {
-	    control: {}
-	};
-
-/***/ },
-/* 216 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _Extend = __webpack_require__(19);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _GloablData = __webpack_require__(22);
-
-	var _GloablData2 = _interopRequireDefault(_GloablData);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MethodControlSaturate = function (_React$Component) {
-	    _inherits(MethodControlSaturate, _React$Component);
-
-	    function MethodControlSaturate(props) {
-	        _classCallCheck(this, MethodControlSaturate);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlSaturate).call(this, props));
-
-	        _this.arrangeProps(props);
-
-	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
-	        _this.submitAction = _this.submitAction.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(MethodControlSaturate, [{
-	        key: 'getComponentMethod',
-	        value: function getComponentMethod() {
-	            return _Settings2.default.METHOD_SATURATE;
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            this.arrangeProps(nextProps);
-	        }
-	    }, {
-	        key: 'arrangeProps',
-	        value: function arrangeProps(json_next) {
-	            if (this.state) {
-	                this.setState({ control: json_next.control });
-	            } else {
-	                this.state = { control: json_next.control };
-	            }
-	        }
-	    }, {
-	        key: 'submitAction',
-	        value: function submitAction() {
-	            var _scope = this;
-	            var _num_range = _scope.state.control.range;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
-	                from: _GloablData2.default.getFrom(),
-	                method: _scope.getComponentMethod(),
-	                control: {
-	                    range: _num_range
-	                }
-	            });
-	        }
-	    }, {
-	        key: 'handleChangeRange',
-	        value: function handleChangeRange(e) {
-	            var _json_new = _Extend2.default.deep(this.state, {
-	                control: {
-	                    range: this.refs.range.value
-	                }
-	            });
-	            this.setState(_json_new);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _scope = this;
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement('input', {
-	                    type: 'range',
-	                    ref: 'range',
-	                    step: '1',
-	                    min: '-100',
-	                    max: '100',
-	                    value: this.state.control.range,
-	                    onChange: this.handleChangeRange }),
-	                ' ',
-	                this.state.control.range,
-	                ' / 100',
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MethodControlSaturate;
-	}(_react2.default.Component);
-
-	exports.default = MethodControlSaturate;
-	;
-
-	MethodControlSaturate.propTypes = {
-	    control: _react2.default.PropTypes.object
-	}, MethodControlSaturate.defaultProps = {
-	    control: {}
-	};
-
-/***/ },
-/* 217 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _ReactGroup = __webpack_require__(102);
-
-	var _ReactGroup2 = _interopRequireDefault(_ReactGroup);
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(37);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _MethodSettings = __webpack_require__(60);
-
-	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
-
-	var _Setting = __webpack_require__(23);
-
-	var _Setting2 = _interopRequireDefault(_Setting);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MethodOption = function (_React$Component) {
-	    _inherits(MethodOption, _React$Component);
-
-	    function MethodOption(props) {
-	        _classCallCheck(this, MethodOption);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodOption).call(this, props));
-
-	        _this.state = {};
-	        _this.handleChange = _this.handleChange.bind(_this);
-	        return _this;
-	    }
-
-	    _createClass(MethodOption, [{
-	        key: 'getStore',
-	        value: function getStore() {
-	            return this.props.methodStore;
-	        }
-	    }, {
-	        key: 'getStoreState',
-	        value: function getStoreState() {
-	            return this.getStore().getState();
-	        }
-	    }, {
-	        key: 'getInputoption',
-	        value: function getInputoption() {
-	            return _MethodSettings2.default.getAllMethod();
-	        }
-	    }, {
-	        key: 'getSelectKey',
-	        value: function getSelectKey() {
-	            return ['method'];
-	        }
-	    }, {
-	        key: 'getShowKey',
-	        value: function getShowKey() {
-	            return ['method_name'];
-	        }
-	    }, {
-	        key: 'getOutputResult',
-	        value: function getOutputResult() {
-	            return this.props.outputResult;
-	        }
-	    }, {
-	        key: 'handleChange',
-	        value: function handleChange(bln_change, json_return) {
-	            if (bln_change === true) {
-	                this.props.handleChange(json_return);
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-
-	            var _json_store = this.getStoreState();
-	            return _react2.default.createElement(_ReactGroup2.default, {
-	                onChange: this.handleChange,
-	                outputFormat: 'json',
-	                name: 'method_option',
-	                selectKey: this.getSelectKey(),
-	                inputOption: this.getInputoption(),
-	                outputResult: this.getOutputResult(),
-	                showKey: this.getShowKey(),
-	                between: '~',
-	                display: _json_store.display,
-	                padding: _json_store.padding,
-	                fillet: _json_store.fillet,
-	                listStyle: _json_store.listStyle,
-	                listPosition: _json_store.listPosition,
-	                iconPosition: _json_store.iconPosition,
-	                iconShow: _json_store.iconShow,
-	                styleName: _json_store.styleName,
-	                composition: _json_store.composition,
-	                offBack: _json_store.offBack,
-	                styleBorder: _json_store.styleBorder,
-	                styleIcon: _json_store.styleIcon,
-	                styleIconBack: _json_store.styleIconBack,
-	                styleList: _json_store.styleList });
-	        }
-	    }]);
-
-	    return MethodOption;
-	}(_react2.default.Component);
-
-	exports.default = MethodOption;
-	;
-
-	MethodOption.propTypes = {
-	    handleChange: _react2.default.PropTypes.func.isRequired,
-	    outputResult: _react2.default.PropTypes.object.isRequired,
-	    methodStore: _react2.default.PropTypes.object.isRequired
-	}, MethodOption.defaultProps = {
-	    handleChange: function handleChange() {},
-	    outputResult: {},
-	    methodStore: {}
-	};
-
-	// this.arrangeProps( props );
-
-	// componentWillReceiveProps(nextProps){
-	//     this.arrangeProps(nextProps);
-	// }
-
-	// arrangeProps(json_next){
-	//     this.setState( {methodStore:json_next.methodStore.getState()} );
-	// }
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _MethodOption = __webpack_require__(217);
-
-	var _MethodOption2 = _interopRequireDefault(_MethodOption);
-
-	var _MethodControl = __webpack_require__(212);
-
-	var _MethodControl2 = _interopRequireDefault(_MethodControl);
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(37);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _MethodSettings = __webpack_require__(60);
-
-	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
-
-	var _GloablData = __webpack_require__(22);
-
-	var _GloablData2 = _interopRequireDefault(_GloablData);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var MethodReact = function (_React$Component) {
-	    _inherits(MethodReact, _React$Component);
-
-	    function MethodReact(props) {
-	        _classCallCheck(this, MethodReact);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodReact).call(this, props));
-
-	        _this.defaultMethod = _extends({}, _MethodSettings2.default.getAllMethod()[0]);
-
-
-	        _this.arrangeStates(props);
-
-	        _this.handleChange = _this.handleChange.bind(_this);
-
-	        _this.default();
-
-	        // setTimeout(function(){
-	        //     props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
-	        //     setTimeout(function(){
-	        //         props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
-	        //     },2000);
-	        // },2000);
-
-	        return _this;
-	    }
-
-	    _createClass(MethodReact, [{
-	        key: 'default',
-	        value: function _default() {
-	            var _scope = this;
-	            _GloablTools2.default.Emitter().on('method.setting.opening', function () {
-	                var _str_from = _GloablData2.default.getFrom();
-	                _scope.arrangeStates(_scope.getDefaultMethod());
-	            });
-	        }
-	    }, {
-	        key: 'getDefaultMethod',
-	        value: function getDefaultMethod() {
-	            return this.defaultMethod;
-	        }
-	    }, {
-	        key: 'getOutputResult',
-	        value: function getOutputResult() {
-	            return this.state.outputResult;
-	        }
-	    }, {
-	        key: 'arrangeStates',
-	        value: function arrangeStates(json_next) {
-	            var _json = {};
-	            _json.outputResult = json_next.outputResult || this.getDefaultMethod();
-	            if (this.state) {
-	                this.setState(_json);
-	            } else {
-	                this.state = _json;
-	            }
-	        }
-	    }, {
-	        key: 'handleChange',
-	        value: function handleChange(_ref) {
-	            var json_return = _objectWithoutProperties(_ref, []);
-
-	            var _json = _extends({}, this.state);
-	            _json.outputResult = json_return.result;
-	            this.setState(_json);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render(nextProps, nextState) {
-	            nextProps = nextProps || {};
-	            nextState = nextState || {};
-	            var _json_result = nextState.outputResult || this.getOutputResult();
-	            var _json_method = nextProps.methodStore || this.props.methodStore;
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _json_result.method
-	                ),
-	                _react2.default.createElement(_MethodOption2.default, {
-	                    handleChange: this.handleChange,
-	                    outputResult: _json_result,
-	                    methodStore: this.props.methodStore }),
-	                _react2.default.createElement(_MethodControl2.default, {
-	                    outputResult: _json_result,
-	                    methodStore: this.props.methodStore })
-	            );
-	        }
-	    }]);
-
-	    return MethodReact;
-	}(_react2.default.Component);
-
-	exports.default = MethodReact;
-	;
-
-	MethodReact.propTypes = {
-	    methodStore: _react2.default.PropTypes.object.isRequired
-	}, MethodReact.defaultProps = {
-	    methodStore: {}
-	};
-
-/***/ },
-/* 219 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.default = MethodReducer;
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _Setting = __webpack_require__(23);
-
-	var _Setting2 = _interopRequireDefault(_Setting);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var _json_state_init = {
-	    display: _Setting2.default.DISPLAY_INBLOCK,
-	    padding: _Setting2.default.PADDING_BASE,
-	    fillet: _Setting2.default.FILLET_BASE,
-	    listStyle: _Setting2.default.LIST_STYLE_CIRCLE,
-	    listPosition: _Setting2.default.LIST_POSITION_INNER,
-	    iconPosition: _Setting2.default.ICON_POSTION_LEFT,
-	    iconShow: [_Setting2.default.ICON_SHOW_EMPTY_HEART, _Setting2.default.ICON_SHOW_HEART],
-	    styleName: _Setting2.default.STYLE_NAME_LUXURY,
-	    composition: _Setting2.default.COMPOSITION_TINY,
-	    offBack: false,
-	    styleBorder: true,
-	    styleIcon: true,
-	    styleIconBack: true,
-	    styleList: true
-	};
-	var _json_state_test = {
-	    display: _Setting2.default.DISPLAY_INBLOCK,
-	    padding: _Setting2.default.PADDING_TINY,
-	    fillet: _Setting2.default.FILLET_BASE,
-	    listStyle: _Setting2.default.LIST_STYLE_CIRCLE,
-	    listPosition: _Setting2.default.LIST_POSITION_INNER,
-	    iconPosition: _Setting2.default.ICON_POSTION_LEFT,
-	    iconShow: [_Setting2.default.ICON_SHOW_EMPTY_HEART, _Setting2.default.ICON_SHOW_HEART],
-	    styleName: _Setting2.default.STYLE_NAME_LUXURY,
-	    composition: _Setting2.default.COMPOSITION_TINY,
-	    offBack: true,
-	    styleBorder: true,
-	    styleIcon: true,
-	    styleIconBack: true,
-	    styleList: true
-	};
-
-	function MethodReducer() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? _json_state_init : arguments[0];
-	    var action = arguments[1];
-
-	    switch (action.type) {
-	        case 'METHOD_LOOKS_INIT':
-	            return state = _json_state_init;
-	        case 'METHOD_LOOKS_TEST':
-	            return state = _json_state_test;
-	        default:
-	            return state;
-	    }
-	}
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/* *** 這部份用 ReactJs + redux + nativeJS 做 *** */
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(9);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(37);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _GlobalConst2 = __webpack_require__(59);
-
-	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _redux = __webpack_require__(192);
-
-	var _MethodReact = __webpack_require__(218);
-
-	var _MethodReact2 = _interopRequireDefault(_MethodReact);
-
-	var _MethodReducer = __webpack_require__(219);
-
-	var _MethodReducer2 = _interopRequireDefault(_MethodReducer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var methodStore = (0, _redux.createStore)(_MethodReducer2.default);
-
-	var MethodSection = function (_GlobalConst) {
-	    _inherits(MethodSection, _GlobalConst);
-
-	    function MethodSection(str_id) {
-	        _classCallCheck(this, MethodSection);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodSection).call(this));
-
-	        _this.addGlobalConst(_this, 'globalId', str_id);
-
-	        _this.default();
-
-	        return _this;
-	    }
-
-	    _createClass(MethodSection, [{
-	        key: 'default',
-	        value: function _default() {
-	            _GloablTools2.default.Emitter().on('method.setting.open.asked', function () {
-	                _GloablTools2.default.Emitter().emit('method.setting.opening');
-	            });
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _scope = this;
-	            _reactDom2.default.render(_react2.default.createElement(_MethodReact2.default, {
-	                methodStore: methodStore }), document.getElementById("method-popup"));
-	        }
-	    }, {
-	        key: 'create',
-	        value: function create() {
-	            this.render();
-	            methodStore.subscribe(this.render);
-	        }
-	    }]);
-
-	    return MethodSection;
-	}(_GlobalConst3.default);
-
-	exports.default = MethodSection;
-	;
-
-	/*
-	https://github.com/reactjs/redux/blob/master/examples/counter/
-
-	import Counter from './components/Counter'
-	import counter from './reducers'
-
-	const store = createStore(counter)
-	const rootEl = document.getElementById('root')
-
-	function render() {
-	  ReactDOM.render(
-	    <Counter
-	      value={store.getState()}
-	      onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
-	      onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-	    />,
-	    rootEl  
-	  )
-	}
-
-	render()
-	store.subscribe(render)
-	*/
-
-/***/ },
-/* 221 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _Utils = __webpack_require__(27);
-
-	var _Utils2 = _interopRequireDefault(_Utils);
-
-	var _MainImageFilter = __webpack_require__(211);
-
-	var _MainImageFilter2 = _interopRequireDefault(_MainImageFilter);
-
-	var _ImageDataComputeMethod = __webpack_require__(208);
-
-	var _ImageDataComputeMethod2 = _interopRequireDefault(_ImageDataComputeMethod);
-
-	var _ImageDataComputeProcess = __webpack_require__(209);
-
-	var _ImageDataComputeProcess2 = _interopRequireDefault(_ImageDataComputeProcess);
-
-	var _ImageDataOriginal = __webpack_require__(210);
-
-	var _ImageDataOriginal2 = _interopRequireDefault(_ImageDataOriginal);
-
-	var _StepMethod = __webpack_require__(222);
-
-	var _StepMethod2 = _interopRequireDefault(_StepMethod);
-
-	var _GlobalConst2 = __webpack_require__(59);
-
-	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
-
-	var _ComponentEmitter = __webpack_require__(98);
-
-	var _ComponentEmitter2 = _interopRequireDefault(_ComponentEmitter);
-
-	var _GloablTools = __webpack_require__(17);
-
-	var _GloablTools2 = _interopRequireDefault(_GloablTools);
-
-	var _GloablData = __webpack_require__(22);
-
-	var _GloablData2 = _interopRequireDefault(_GloablData);
-
-	var _Extend = __webpack_require__(19);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var PictureDraw = function (_GlobalConst) {
-		_inherits(PictureDraw, _GlobalConst);
-
-		function PictureDraw(obj_main, str_id) {
-			_classCallCheck(this, PictureDraw);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PictureDraw).call(this));
-
-			var _scope = _this;
-
-			_scope.addGlobalConst(_scope, 'ComponentId', str_id);
-
-			var emitter = new _ComponentEmitter2.default();
-			_scope.addGlobalConst(_scope, 'emitter', emitter);
-
-			_scope.mainImageFilter = new _MainImageFilter2.default(obj_main, { emitter: emitter });
-			_scope.stepMethod = new _StepMethod2.default({ emitter: emitter });
-			_scope.imageDataComputeProcess = new _ImageDataComputeProcess2.default({ emitter: emitter });
-			_scope.imageDataComputeMethod = new _ImageDataComputeMethod2.default({ emitter: emitter });
-			_scope.imageDataOriginal = new _ImageDataOriginal2.default({ emitter: emitter });
-
-			if (obj_main !== undefined) {
-
-				// 用完運算結束後，我們要用出預覽圖
-				_scope.getGlobalConst(_scope).emitter.on('step.image.final.step.computed', function (e) {
-					var _json_data = arguments[0];
-					_scope.mainImageFilter.getObjImagePreview().src = _json_data.data;
-				});
-
-				// 新增效果
-				_scope.getGlobalConst(_scope).emitter.on('step.method.show.adding', function (e) {
-					// 新增顯示method的文字
-					var _json_data = arguments[0];
-					var _obj_result = document.createElement('span');
-					_obj_result.style.marginRight = '20px';
-					_obj_result.data = _obj_result.data || {};
-					_obj_result.data.method_id = _json_data.method_id;
-					_obj_result.data.method = _json_data.method;
-					_obj_result.setAttribute('data-method-id', _json_data.method_id);
-					_obj_result.insertAdjacentHTML('beforeend', _Settings2.default.getConstNameByEn(_json_data.method));
-					_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
-
-					_scope.mainImageFilter.methodDeleteBtnAction.call(_obj_result, _scope.mainImageFilter);
-
-					// 以下是實際執行新的圖片運算工作
-
-					var _sary_step_data = _scope.imageDataComputeProcess.getStepImage();
-
-					if (_sary_step_data instanceof Array === true && _sary_step_data.length > 0) {
-
-						var _num_width = _scope.imageDataComputeMethod.getComputeWidth();
-						var _num_height = _scope.imageDataComputeMethod.getComputeHeight();
-
-						_json_data.origin_data = _sary_step_data[_sary_step_data.length - 1].data; // 目前得到的最後一次運算結果
-
-						_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', _json_data, true);
-					}
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.method.show.deleting', function (e) {
-					var _json_data = arguments[0];
-					var _sary_step_data = _scope.imageDataComputeProcess.getStepImage();
-
-					if (_sary_step_data instanceof Array === true && _sary_step_data.length > 0) {
-						(function () {
-
-							var _num_step_data = _sary_step_data.length;
-
-							var _sary_new_step_data = [];
-
-							for (var i = 0; i < _num_step_data; i++) {
-								if (_sary_step_data[i].method_id === _json_data.method_id) {
-									break;
-								} else {
-									_sary_new_step_data.push(_sary_step_data[i]);
-								}
-							}
-
-							var _num_new_step_data_length = _sary_new_step_data.length;
-
-							if (_num_new_step_data_length < _sary_step_data.length) {
-								if (_sary_new_step_data.length === 1) {
-									_scope.imageDataComputeMethod.changeData('', _sary_new_step_data[0].origin_data, _sary_new_step_data[0], function () {
-										_scope.imageDataComputeProcess.setStepImage(_sary_new_step_data);
-									});
-								} else {
-									_scope.imageDataComputeProcess.setStepImage(_sary_new_step_data);
-								}
-							}
-						})();
-					}
-
-					_scope.mainImageFilter.getObjMethodResult().removeChild(_json_data.method_btn);
-				});
-
-				// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-				_GloablTools2.default.Emitter().on('method.cotroller.control.operating', function () {
-					// 新的設定的做法
-					var _json = arguments[0];
-					if (_json.from === _scope.getGlobalConst(_scope).ComponentId) {
-						_json.from = null;
-						delete _json.from;
-						_json.setting = _scope.getEmitSetting();
-						_scope.stepMethod.pushStepMethod(_json);
-					}
-				});
-				_scope.getGlobalConst(_scope).emitter.on('step.method.pushing', function () {
-					var _scope$stepMethod;
-
-					// 舊的下直式選單的做法
-					(_scope$stepMethod = _scope.stepMethod).pushStepMethod.apply(_scope$stepMethod, arguments);
-				});
-				// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-				_scope.getGlobalConst(_scope).emitter.on('step.method.splicing', function () {
-					var _scope$stepMethod2;
-
-					(_scope$stepMethod2 = _scope.stepMethod).spliceStepMethod.apply(_scope$stepMethod2, arguments);
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.method.option.added', function (e) {
-					var _json_data = arguments[0];
-					_scope.getGlobalConst(_scope).emitter.emit('step.method.show.adding', _json_data); // 要改了，先不傳這事件?!
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.method.option.deleted', function (e) {
-					var _json_data = arguments[0];
-					_scope.getGlobalConst(_scope).emitter.emit('step.method.show.deleting', _json_data); // 要改了，先不傳這事件?!
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('init.data.changed', function (e) {
-					console.log('----- init.data.changed -----');
-					var _json_data = arguments[0];
-					_scope.imageDataComputeProcess.setStepImage([], _ImageDataComputeProcess2.default.TIMMING_RESET, _json_data);
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('init.data.size.asking', function (e) {
-					console.log('----- init.data.size.asking -----');
-					var _json_data = arguments[0];
-					_json_data.setting = _scope.getEmitSetting();
-					_scope.imageDataOriginal.operateImageSize(_json_data);
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('origin.data.changed', function (e) {
-					console.log('----- origin.data.changed -----');
-					var _json_data = arguments[0];
-					_scope.imageDataOriginal.getObjImage().src = _json_data.origin_data;
-					_scope.mainImageFilter.getObjOriginImage().src = _json_data.origin_data;
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function (e) {
-					var _json = arguments[0],
-					    _bln_delete_created = arguments[1],
-					    _str_method = _json.method;
-
-					if (_bln_delete_created === true) {
-						_json.created = _json.created || {};
-					}
-
-					if (_str_method === _Settings2.default.METHOD_DOT) {
-						_scope.imageDataComputeMethod.methodDot(_json);
-					} else if (_str_method === _Settings2.default.METHOD_ALPHA) {
-						_scope.imageDataComputeMethod.methodAlpha(_json);
-					} else if (_str_method === _Settings2.default.METHOD_SATURATE) {
-						_scope.imageDataComputeMethod.methodSaturate(_json);
-					} else if (_str_method === _Settings2.default.METHOD_CONTRAST) {
-						_scope.imageDataComputeMethod.methodContrast(_json);
-					} else {
-						_scope.imageDataComputeMethod.methodOrigin(_json);
-					}
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.image.error.loaded', function (e) {
-					'錯誤!!';
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.image.success.computed', function (e) {
-					var _json_data = arguments[0];
-					if (_json_data && typeof _json_data.origin_data === 'string' && _json_data.origin_data !== '') {
-						_scope.imageDataComputeProcess.pushStepData(_json_data, _scope.stepMethod.getStepMethod());
-					}
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.image.seted', function (e) {
-					var _str_timming = arguments[0],
-					    _json_other = arguments[1] || {};
-
-					if (_str_timming === _ImageDataComputeProcess2.default.TIMMING_RESET) {
-						_scope.imageDataComputeMethod.changeData('', _json_other.origin_data, _json_other);
-					} else {
-						_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
-					}
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('step.image.pushed', function (e) {
-					var _str_timming = arguments[0],
-					    _json_other = arguments[1] || {};
-
-					var _num_step_length = _scope.imageDataComputeProcess.getStepImage().length,
-					    _sary_step_method = _scope.stepMethod.getStepMethod();
-					var _sary_step_image = _scope.imageDataComputeProcess.getStepImage(),
-					    _json_data = _sary_step_image[_sary_step_image.length - 1];
-
-					// +* +* +* +* +* +* +* +* +* +* +* +* +* +* +* +*
-
-					if (_num_step_length < _sary_step_method.length) {
-						// 先處理圖片
-						_scope.imageDataComputeMethod.changeData(_sary_step_method[_num_step_length].method, _json_data.data, _sary_step_method[_num_step_length]);
-					} else {
-						// 圖片處理好了，我們現在要準備預覽
-						_scope.getGlobalConst(_scope).emitter.emit('step.image.final.step.computed', _json_data);
-						console.log('******************* 預覽圖片!! *******************');
-					}
-				});
-
-				_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function (e) {
-					var _str_from = _scope.getGlobalConst(_scope).ComponentId;
-					_GloablData2.default.setFrom(_str_from);
-					_GloablTools2.default.Emitter().emit('method.setting.open.asked');
-				});
-			}
-
-			return _this;
-		}
-
-		// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-		_createClass(PictureDraw, [{
-			key: 'getEmitSetting',
-			value: function getEmitSetting(json_setting) {
-				var _scope = this;
-				json_setting = json_setting || {};
-				return _Extend2.default.deep(json_setting, _scope.mainImageFilter.getOutputImageSetting(), _scope.imageDataOriginal.getOriginImageSize());
-			}
-		}]);
-
-		return PictureDraw;
-	}(_GlobalConst3.default);
-
-	exports.default = PictureDraw;
-	;
-
-/***/ },
-/* 222 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Settings = __webpack_require__(7);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _Utils = __webpack_require__(27);
-
-	var _Utils2 = _interopRequireDefault(_Utils);
-
-	var _Tools2 = __webpack_require__(38);
-
-	var _Tools3 = _interopRequireDefault(_Tools2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var StepMethod = function (_Tools) {
-		_inherits(StepMethod, _Tools);
-
-		function StepMethod(json_tools) {
-			_classCallCheck(this, StepMethod);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(StepMethod).call(this));
-
-			_this.init_step_method = [{
-				method: '',
-				method_id: _Utils2.default.createMethodId()
-			}];
-			var _sary_step_method_other = [];
-
-			_this.step_method = _this.init_step_method.concat(_sary_step_method_other);
-			_this.setEmitter(json_tools.emitter);
-
-			window.step_method = _this.step_method;
-
-			return _this;
-		}
-
-		_createClass(StepMethod, [{
-			key: 'getStepMethod',
-			value: function getStepMethod() {
-				return this.step_method || [];
-			}
-		}, {
-			key: 'pushStepMethod',
-			value: function pushStepMethod(json) {
-				var _scope = this;
-				if (json !== undefined) {
-					json.method_id = json.method_id || _Utils2.default.createMethodId();
-					_scope.step_method.push(json);
-					setTimeout(function () {
-						_scope.getEmitter().emit('step.method.option.added', json);
-					}, 100);
-				}
-			}
-		}, {
-			key: 'spliceStepMethod',
-			value: function spliceStepMethod(json) {
-				if (json !== undefined && typeof json.method_id === 'string' && json.method_id !== '') {
-					var _num_index = void 0;
-					for (var i = 0; i < this.step_method.length; i++) {
-						if (this.step_method[i].method_id === json.method_id) {
-							_num_index = i;
-							break;
-						}
-					}
-					if (_num_index >= 0) {
-						this.step_method.splice(_num_index, 1);
-						this.getEmitter().emit('step.method.option.deleted', json);
-					}
-				}
-			}
-		}]);
-
-		return StepMethod;
-	}(_Tools3.default);
-
-	exports.default = StepMethod;
-	;
-
-/***/ },
-/* 223 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
-/* 224 */,
-/* 225 */,
-/* 226 */,
-/* 227 */,
-/* 228 */,
-/* 229 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(253);
-
-/***/ },
-/* 230 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var tinycolor = __webpack_require__(256);
-
-	if (typeof window != 'undefined') {
-	    window.tinycolor = tinycolor;
-	}
-
-	function toColor(color) {
-	    return tinycolor(color);
-	}
-
-	function toPure(color) {
-	    var h = toColor(color).toHsl().h;
-
-	    return toColor({ h: h, s: 100, l: 50, a: 1 });
-	}
-
-	function fromRatio(color) {
-	    return tinycolor.fromRatio(color);
-	}
-
-	function toAlpha(color, alpha) {
-	    if (alpha > 1) {
-	        alpha = alpha / 100;
-	    }
-
-	    color = toColor(color).toRgb();
-	    color.a = alpha;
-
-	    return toColor(color);
-	}
-
-	function toHsv(color) {
-	    return toColor(color).toHsv();
-	}
-
-	var Color = {
-	    toColor: toColor,
-	    toPure: toPure,
-	    fromRatio: fromRatio,
-	    toAlpha: toAlpha,
-	    toHsv: toHsv
-	};
-
-	if (typeof window != 'undefined') {
-	    window.color = Color;
-	}
-
-	module.exports = Color;
-
-/***/ },
-/* 231 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = 'red';
-
-/***/ },
-/* 232 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var assign = __webpack_require__(3);
-	var toColor = __webpack_require__(230).toColor;
-
-	module.exports = function toStringValue(color) {
-	    color = toColor(assign({}, color));
-
-	    return color.toRgb().a == 1 ? color.toHexString() : color.toRgbString();
-	};
-
-/***/ },
-/* 233 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	var ReactDOM = __webpack_require__(37);
-	var Region = __webpack_require__(229);
-	var assign = __webpack_require__(3);
-	var DragHelper = __webpack_require__(240);
-	var toHsv = __webpack_require__(230).toHsv;
-
-	function emptyFn() {}
-
-	exports['default'] = {
-
-	    toColorValue: function toColorValue(value) {
-	        if (typeof value == 'string') {
-	            return toHsv(value);
-	        }
-
-	        return {
-	            h: value.h,
-	            s: value.s,
-	            v: value.v,
-	            a: value.a
-	        };
-	    },
-
-	    onMouseDown: function onMouseDown(event) {
-	        event.preventDefault();
-
-	        var region = Region.fromDOM(ReactDOM.findDOMNode(this));
-	        var info = this.getEventInfo(event, region);
-
-	        DragHelper(event, {
-	            scope: this,
-
-	            constrainTo: region,
-
-	            onDragStart: function onDragStart(event, config) {
-	                config.initialPoint = info;
-
-	                config.minLeft = 0;
-	                config.maxLeft = region.width;
-
-	                this.handleDragStart(event);
-	            },
-	            onDrag: function onDrag(event, config) {
-	                var info = this.getEventInfo(event, region);
-
-	                this.updateColor(info);
-	                this.handleDrag(event, config);
-	            },
-	            onDrop: function onDrop(event, config) {
-	                var info = this.getEventInfo(event, region);
-
-	                this.updateColor(info);
-
-	                this.handleDrop(event, config);
-	            }
-	        });
-
-	        this.updateColor(info);
-	        this.handleMouseDown(event, { initialPoint: info });
-	    },
-
-	    handleMouseDown: function handleMouseDown(event, config) {
-
-	        ;(this.props.onMouseDown || emptyFn).apply(this, this.getColors());
-	        this.handleDrag(event, config);
-	    },
-
-	    handleUpdate: function handleUpdate(event, config) {
-
-	        var diff = config.diff || { top: 0, left: 0 };
-	        var initialPoint = config.initialPoint;
-
-	        if (initialPoint) {
-
-	            var top;
-	            var left;
-
-	            left = initialPoint.x + diff.left;
-	            top = initialPoint.y + diff.top;
-
-	            left = Math.max(left, config.minLeft);
-	            left = Math.min(left, config.maxLeft);
-
-	            this.state.top = top;
-	            this.state.left = left;
-
-	            this.state.mouseDown = {
-	                x: left,
-	                y: top,
-	                width: initialPoint.width,
-	                height: initialPoint.height
-	            };
-	        }
-
-	        if (this.props.inPicker) {
-	            //the picker handles the values
-	            return;
-	        }
-
-	        if (!this.props.value) {
-	            this.setState({
-	                value: this.hsv
-	            });
-	        }
-	    },
-
-	    handleDragStart: function handleDragStart(event) {},
-
-	    handleDrag: function handleDrag(event, config) {
-	        this.handleUpdate(event, config);(this.props.onDrag || emptyFn).apply(this, this.getColors());
-	    },
-
-	    handleDrop: function handleDrop(event, config) {
-	        this.handleUpdate(event, config);
-	        this.state.mouseDown = false;(this.props.onChange || emptyFn).apply(this, this.getColors());
-	    },
-
-	    getColors: function getColors() {
-	        var first = this.props.inPicker ? this.hsv : this.toStringValue(this.hsv);
-	        var args = [first];
-
-	        if (!this.props.inPicker) {
-	            args.push(assign({}, this.hsv));
-	        }
-
-	        return args;
-	    },
-
-	    getEventInfo: function getEventInfo(event, region) {
-	        region = region || Region.fromDOM(ReactDOM.findDOMNode(this));
-
-	        var x = event.clientX - region.left;
-	        var y = event.clientY - region.top;
-
-	        return {
-	            x: x,
-	            y: y,
-	            width: region.getWidth(),
-	            height: region.getHeight()
-	        };
-	    }
-	};
-	module.exports = exports['default'];
-
-/***/ },
-/* 234 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	module.exports = function validate(info) {
-	    var height = info.height;
-	    var width = info.width;
-
-	    if (info.x < 0) {
-	        info.x = 0;
-	    }
-
-	    if (info.x >= width) {
-	        info.x = width;
-	    }
-
-	    if (info.y < 0) {
-	        info.y = 0;
-	    }
-
-	    if (info.y >= height) {
-	        info.y = height;
-	    }
-
-	    return info;
-	};
-
-/***/ },
-/* 235 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var hasOwn = Object.prototype.hasOwnProperty;
-
-	function curry(fn, n) {
-
-	    if (typeof n !== 'number') {
-	        n = fn.length;
-	    }
-
-	    function getCurryClosure(prevArgs) {
-
-	        function curryClosure() {
-
-	            var len = arguments.length;
-	            var args = [].concat(prevArgs);
-
-	            if (len) {
-	                args.push.apply(args, arguments);
-	            }
-
-	            if (args.length < n) {
-	                return getCurryClosure(args);
-	            }
-
-	            return fn.apply(this, args);
-	        }
-
-	        return curryClosure;
-	    }
-
-	    return getCurryClosure([]);
-	}
-
-	module.exports = curry(function (object, property) {
-	    return hasOwn.call(object, property);
-	});
-
-/***/ },
-/* 236 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/**
-	 * @static
-	 * Returns true if the given region is valid, false otherwise.
-	 * @param  {Region} region The region to check
-	 * @return {Boolean}        True, if the region is valid, false otherwise.
-	 * A region is valid if
-	 *  * left <= right  &&
-	 *  * top  <= bottom
-	 */
-
-	module.exports = function validate(region) {
-
-	    var isValid = true;
-
-	    if (region.right < region.left) {
-	        isValid = false;
-	        region.right = region.left;
-	    }
-
-	    if (region.bottom < region.top) {
-	        isValid = false;
-	        region.bottom = region.top;
-	    }
-
-	    return isValid;
-	};
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(9);
-	var ReactDOM = __webpack_require__(37);
-	var Region = __webpack_require__(229);
-	var assign = __webpack_require__(3);
-	var common = __webpack_require__(233);
-
-	var VALIDATE = __webpack_require__(234);
-
-	module.exports = React.createClass(assign({
-
-	    displayName: 'HueSpectrum',
-
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            height: 300,
-	            width: 30,
-	            pointerSize: 3,
-	            defaultColor: __webpack_require__(231)
-	        };
-	    },
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            h: 0
-	        };
-	    },
-
-	    componentDidUpdate: function componentDidUpdate() {
-	        // this.updateDragPositionIf()
-	    },
-
-	    componentDidMount: function componentDidMount() {
-	        this.updateDragPositionIf();
-	    },
-
-	    updateDragPositionIf: function updateDragPositionIf() {
-
-	        if (!this.props.height) {
-	            this.setState({});
-	        }
-	    },
-
-	    render: function render() {
-	        this.hsv = this.toColorValue(this.state.value || this.props.value || this.props.defaultValue || this.props.defaultColor);
-	        // console.log('hue:', this.hsv)
-
-	        if (this.state.h == 360 && !this.hsv.h) {
-	            //in order to show bottom red as well on drag
-	            this.hsv.h = 360;
-	        }
-
-	        var style = assign({}, this.props.style);
-
-	        if (this.props.height) {
-	            style.height = this.props.height;
-	        }
-	        if (this.props.width) {
-	            style.width = this.props.width;
-	        }
-
-	        var dragStyle = {
-	            height: this.props.pointerSize
-	        };
-
-	        var dragPos = this.getDragPosition();
-
-	        if (dragPos != null) {
-	            dragStyle.top = dragPos;
-	            dragStyle.display = 'block';
-	        }
-	        return React.createElement('div', { className: 'react-color-picker__hue-spectrum', style: style, onMouseDown: this.onMouseDown }, React.createElement('div', { className: 'react-color-picker__hue-drag', style: dragStyle }, React.createElement('div', { className: 'react-color-picker__hue-inner' })));
-	    },
-
-	    getDragPosition: function getDragPosition(hsv) {
-	        hsv = hsv || this.hsv;
-
-	        if (!this.props.height && !this.isMounted()) {
-	            return null;
-	        }
-
-	        var height = this.props.height || Region.fromDOM(ReactDOM.findDOMNode(this)).getHeight();
-	        var size = this.props.pointerSize;
-
-	        var pos = Math.round(hsv.h * height / 360);
-	        var diff = Math.round(size / 2);
-
-	        return pos - diff;
-	    },
-
-	    updateColor: function updateColor(point) {
-	        point = VALIDATE(point);
-
-	        this.hsv.h = point.y * 360 / point.height;
-
-	        if (this.hsv.h != 0) {
-	            this.state.h = this.hsv.h;
-	        }
-
-	        this.state.h = this.hsv.h != 0 ? this.hsv.h : 0;
-	    },
-
-	    toStringValue: __webpack_require__(232)
-	}, common));
-
-/***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, '__esModule', {
-	    value: true
-	});
-	var React = __webpack_require__(9);
-	var ReactDOM = __webpack_require__(37);
-	var Region = __webpack_require__(229);
-	var assign = __webpack_require__(3);
-	var fromRatio = __webpack_require__(230).fromRatio;
-	var common = __webpack_require__(233);
-
-	var VALIDATE = __webpack_require__(234);
-
-	exports['default'] = React.createClass(assign({
-
-	    displayName: 'SaturationSpectrum',
-
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            height: 300,
-	            width: 300,
-	            pointerSize: 7,
-	            defaultColor: __webpack_require__(231)
-	        };
-	    },
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            pointerTop: null,
-	            pointerLeft: null
-	        };
-	    },
-
-	    componentDidUpdate: function componentDidUpdate() {
-	        // this.updateDragPositionIf()
-	    },
-
-	    componentDidMount: function componentDidMount() {
-	        this.updateDragPositionIf();
-	    },
-
-	    updateDragPositionIf: function updateDragPositionIf() {
-	        if (!this.props.height || !this.props.width) {
-	            this.setState({});
-	        }
-	    },
-
-	    getDragPosition: function getDragPosition(hsv) {
-	        hsv = hsv || this.hsv;
-
-	        var width = this.props.width;
-	        var height = this.props.height;
-	        var sizeDefined = width && height;
-
-	        if (!sizeDefined && !this.isMounted()) {
-	            return null;
-	        }
-
-	        var region;
-
-	        if (!sizeDefined) {
-	            region = Region.fromDOM(ReactDOM.findDOMNode(this));
-	            height = height || region.getHeight();
-	            width = width || region.getWidth();
-	        }
-
-	        var x = hsv.s * width;
-	        var y = height - hsv.v * height;
-	        var size = this.props.pointerSize;
-	        var diff = Math.floor(size / 2);
-
-	        if (this.props.value && this.state.mouseDown && !isNaN(this.state.mouseDown.x)) {
-	            x = this.state.mouseDown.x;
-	        }
-
-	        return {
-	            left: x - diff,
-	            top: y - diff
-	        };
-	    },
-
-	    prepareBackgroundColor: function prepareBackgroundColor(color) {
-	        var hsv = color;
-
-	        var col = fromRatio({
-	            h: hsv.h % 360 / 360,
-	            s: 1,
-	            v: 1
-	        });
-
-	        return col.toRgbString();
-	    },
-
-	    prepareProps: function prepareProps(thisProps, state) {
-	        var props = assign({}, thisProps);
-
-	        var color = state.value || props.value || props.defaultValue || props.defaultColor;
-
-	        props.color = color;
-
-	        this.hsv = this.toColorValue(color);
-
-	        props.style = this.prepareStyle(props);
-	        props.className = this.prepareClassName(props);
-
-	        return props;
-	    },
-
-	    prepareClassName: function prepareClassName(props) {
-	        var className = props.className || '';
-
-	        className += ' react-color-picker__saturation-spectrum';
-
-	        return className;
-	    },
-
-	    prepareStyle: function prepareStyle(props) {
-	        var style = assign({}, props.style);
-
-	        if (props.height) {
-	            style.height = props.height;
-	        }
-	        if (props.width) {
-	            style.width = props.width;
-	        }
-
-	        style.backgroundColor = this.prepareBackgroundColor(this.hsv);
-
-	        return style;
-	    },
-
-	    render: function render() {
-
-	        var props = this.p = this.prepareProps(this.props, this.state);
-
-	        var dragStyle = {
-	            width: this.props.pointerSize,
-	            height: this.props.pointerSize
-	        };
-
-	        var dragPos = this.getDragPosition();
-
-	        if (dragPos) {
-	            dragStyle.top = dragPos.top;
-	            dragStyle.left = dragPos.left;
-	            dragStyle.display = 'block';
-	        }
-
-	        return React.createElement('div', { className: props.className, style: props.style, onMouseDown: this.onMouseDown }, React.createElement('div', { className: 'react-color-picker__saturation-white' }, React.createElement('div', { className: 'react-color-picker__saturation-black' })), React.createElement('div', { className: 'react-color-picker__saturation-drag', style: dragStyle }, React.createElement('div', { className: 'react-color-picker__saturation-inner' })));
-	    },
-
-	    getSaturationForPoint: function getSaturationForPoint(point) {
-	        return point.x / point.width;
-	    },
-
-	    getColorValueForPoint: function getColorValueForPoint(point) {
-	        return (point.height - point.y) / point.height;
-	    },
-
-	    updateColor: function updateColor(point) {
-	        point = VALIDATE(point);
-
-	        this.hsv.s = this.getSaturationForPoint(point);
-	        this.hsv.v = this.getColorValueForPoint(point);
-	    },
-
-	    toStringValue: __webpack_require__(232)
-	}, common));
-	module.exports = exports['default'];
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var React = __webpack_require__(9);
-	var assign = __webpack_require__(3);
-	var colorUtils = __webpack_require__(230);
-
-	var HueSpectrum = __webpack_require__(237);
-	var SaturationSpectrum = __webpack_require__(238);
-
-	var toHsv = colorUtils.toHsv;
-
-	function emptyFn() {}
-
-	var RESULT = React.createClass({
-
-	    displayName: 'ColorPicker',
-
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            defaultColor: __webpack_require__(231),
-	            saturationWidth: 300,
-	            saturationHeight: 300,
-	            hueHeight: null,
-	            hueWidth: 30,
-	            hueMargin: 10
-	        };
-	    },
-
-	    getInitialState: function getInitialState() {
-	        return {
-	            value: this.props.defaultValue
-	        };
-	    },
-
-	    prepareClassName: function prepareClassName(props) {
-	        var className = props.className || '';
-
-	        className += ' cp';
-
-	        return className;
-	    },
-
-	    prepareProps: function prepareProps(props) {
-
-	        props.className = this.prepareClassName(props);
-
-	        return props;
-	    },
-
-	    render: function render() {
-
-	        var props = this.prepareProps(assign({}, this.props));
-	        var hueStyle = assign({}, this.props.hueStyle) || {};
-
-	        hueStyle.marginLeft = this.props.hueMargin;
-
-	        var value = props.value ? this.toColorValue(this.props.value) : null;
-
-	        var defaultValue = !value ? this.toColorValue(this.state.value || props.defaultValue || props.defaultColor) : null;
-
-	        var saturationConfig = {
-	            onDrag: this.handleSaturationDrag,
-	            onChange: this.handleSaturationChange,
-	            onMouseDown: this.handleSaturationMouseDown,
-	            height: props.saturationHeight,
-	            width: props.saturationWidth,
-	            inPicker: true
-	        };
-
-	        var hueConfig = {
-	            onDrag: this.handleHueDrag,
-	            onChange: this.handleHueChange,
-	            height: props.hueHeight || props.saturationHeight,
-	            width: props.hueWidth,
-	            inPicker: true,
-	            style: hueStyle
-	        };
-
-	        if (this.state.dragHue) {
-	            ;(value || defaultValue).h = this.state.dragHue;
-	        }
-
-	        //both value and defaultValue are objects like: {h,s,v}
-	        if (value) {
-	            saturationConfig.value = assign({}, value);
-	            hueConfig.value = assign({}, value);
-	        } else {
-	            saturationConfig.defaultValue = assign({}, defaultValue);
-	            hueConfig.defaultValue = assign({}, defaultValue);
-	        }
-
-	        return React.createElement('div', props, React.createElement(SaturationSpectrum, saturationConfig), React.createElement(HueSpectrum, hueConfig));
-	    },
-
-	    toColorValue: function toColorValue(value) {
-	        return typeof value == 'string' ? toHsv(value) : value;
-	    },
-
-	    toStringValue: __webpack_require__(232),
-
-	    handleChange: function handleChange(color) {
-
-	        this.state.dragHue = null;
-
-	        color = assign({}, color);
-
-	        var value = this.toStringValue(color);(this.props.onChange || emptyFn)(value, color);
-	    },
-
-	    handleSaturationChange: function handleSaturationChange(color) {
-	        this.handleChange(color);
-	    },
-
-	    handleHueChange: function handleHueChange(color) {
-	        this.handleChange(color);
-	    },
-
-	    handleHueDrag: function handleHueDrag(hsv) {
-	        this.handleDrag(hsv);
-	    },
-
-	    handleSaturationDrag: function handleSaturationDrag(hsv) {
-	        this.handleDrag(hsv);
-	    },
-
-	    handleDrag: function handleDrag(color) {
-
-	        if (!this.props.value) {
-	            this.setState({
-	                value: color
-	            });
-	        }
-
-	        ;(this.props.onDrag || emptyFn)(this.toStringValue(color), color);
-	    },
-
-	    handleSaturationMouseDown: function handleSaturationMouseDown(hsv) {
-	        this.setState({
-	            dragHue: hsv.h
-	        });
-	    }
-	});
-
-	RESULT.HueSpectrum = HueSpectrum;
-	RESULT.SaturationSpectrum = SaturationSpectrum;
-
-	module.exports = RESULT;
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var assign = __webpack_require__(241);
-	var Region = __webpack_require__(251);
-	var hasTouch = __webpack_require__(244);
-	var once = __webpack_require__(242);
+	var assign = __webpack_require__(208);
+	var Region = __webpack_require__(226);
+	var hasTouch = __webpack_require__(211);
+	var once = __webpack_require__(209);
 
 	var Helper = function Helper(config) {
 	    this.config = config;
@@ -28736,7 +25095,7 @@
 	};
 
 /***/ },
-/* 241 */
+/* 208 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28767,7 +25126,7 @@
 	};
 
 /***/ },
-/* 242 */
+/* 209 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -28790,7 +25149,7 @@
 	};
 
 /***/ },
-/* 243 */
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29064,7 +25423,7 @@
 	}
 
 /***/ },
-/* 244 */
+/* 211 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -29073,7 +25432,309 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 245 */
+/* 212 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function (hex) {
+		if (typeof hex !== 'string') {
+			throw new TypeError('Expected a string');
+		}
+
+		hex = hex.replace(/^#/, '');
+
+		if (hex.length === 3) {
+			hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+		}
+
+		var num = parseInt(hex, 16);
+
+		return [num >> 16, num >> 8 & 255, num & 255];
+	};
+
+/***/ },
+/* 213 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
+	  var e, m;
+	  var eLen = nBytes * 8 - mLen - 1;
+	  var eMax = (1 << eLen) - 1;
+	  var eBias = eMax >> 1;
+	  var nBits = -7;
+	  var i = isLE ? nBytes - 1 : 0;
+	  var d = isLE ? -1 : 1;
+	  var s = buffer[offset + i];
+
+	  i += d;
+
+	  e = s & (1 << -nBits) - 1;
+	  s >>= -nBits;
+	  nBits += eLen;
+	  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
+
+	  m = e & (1 << -nBits) - 1;
+	  e >>= -nBits;
+	  nBits += mLen;
+	  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
+
+	  if (e === 0) {
+	    e = 1 - eBias;
+	  } else if (e === eMax) {
+	    return m ? NaN : (s ? -1 : 1) * Infinity;
+	  } else {
+	    m = m + Math.pow(2, mLen);
+	    e = e - eBias;
+	  }
+	  return (s ? -1 : 1) * m * Math.pow(2, e - mLen);
+	};
+
+	exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
+	  var e, m, c;
+	  var eLen = nBytes * 8 - mLen - 1;
+	  var eMax = (1 << eLen) - 1;
+	  var eBias = eMax >> 1;
+	  var rt = mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0;
+	  var i = isLE ? 0 : nBytes - 1;
+	  var d = isLE ? 1 : -1;
+	  var s = value < 0 || value === 0 && 1 / value < 0 ? 1 : 0;
+
+	  value = Math.abs(value);
+
+	  if (isNaN(value) || value === Infinity) {
+	    m = isNaN(value) ? 1 : 0;
+	    e = eMax;
+	  } else {
+	    e = Math.floor(Math.log(value) / Math.LN2);
+	    if (value * (c = Math.pow(2, -e)) < 1) {
+	      e--;
+	      c *= 2;
+	    }
+	    if (e + eBias >= 1) {
+	      value += rt / c;
+	    } else {
+	      value += rt * Math.pow(2, 1 - eBias);
+	    }
+	    if (value * c >= 2) {
+	      e++;
+	      c /= 2;
+	    }
+
+	    if (e + eBias >= eMax) {
+	      m = 0;
+	      e = eMax;
+	    } else if (e + eBias >= 1) {
+	      m = (value * c - 1) * Math.pow(2, mLen);
+	      e = e + eBias;
+	    } else {
+	      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen);
+	      e = 0;
+	    }
+	  }
+
+	  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
+
+	  e = e << mLen | m;
+	  eLen += mLen;
+	  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
+
+	  buffer[offset + i - d] |= s * 128;
+	};
+
+/***/ },
+/* 214 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Determine if an object is Buffer
+	 *
+	 * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+	 * License:  MIT
+	 *
+	 * `npm install is-buffer`
+	 */
+
+	module.exports = function (obj) {
+	  return !!(obj != null && (obj._isBuffer || // For Safari 5-7 (missing Object.prototype.constructor)
+	  obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)));
+	};
+
+/***/ },
+/* 215 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var toString = {}.toString;
+
+	module.exports = Array.isArray || function (arr) {
+	  return toString.call(arr) == '[object Array]';
+	};
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	(function () {
+	  var crypt = __webpack_require__(205),
+	      utf8 = __webpack_require__(104).utf8,
+	      isBuffer = __webpack_require__(214),
+	      bin = __webpack_require__(104).bin,
+
+
+	  // The core
+	  md5 = function md5(message, options) {
+	    // Convert to byte array
+	    if (message.constructor == String) {
+	      if (options && options.encoding === 'binary') message = bin.stringToBytes(message);else message = utf8.stringToBytes(message);
+	    } else if (isBuffer(message)) message = Array.prototype.slice.call(message, 0);else if (!Array.isArray(message)) message = message.toString();
+	    // else, assume byte array already
+
+	    var m = crypt.bytesToWords(message),
+	        l = message.length * 8,
+	        a = 1732584193,
+	        b = -271733879,
+	        c = -1732584194,
+	        d = 271733878;
+
+	    // Swap endian
+	    for (var i = 0; i < m.length; i++) {
+	      m[i] = (m[i] << 8 | m[i] >>> 24) & 0x00FF00FF | (m[i] << 24 | m[i] >>> 8) & 0xFF00FF00;
+	    }
+
+	    // Padding
+	    m[l >>> 5] |= 0x80 << l % 32;
+	    m[(l + 64 >>> 9 << 4) + 14] = l;
+
+	    // Method shortcuts
+	    var FF = md5._ff,
+	        GG = md5._gg,
+	        HH = md5._hh,
+	        II = md5._ii;
+
+	    for (var i = 0; i < m.length; i += 16) {
+
+	      var aa = a,
+	          bb = b,
+	          cc = c,
+	          dd = d;
+
+	      a = FF(a, b, c, d, m[i + 0], 7, -680876936);
+	      d = FF(d, a, b, c, m[i + 1], 12, -389564586);
+	      c = FF(c, d, a, b, m[i + 2], 17, 606105819);
+	      b = FF(b, c, d, a, m[i + 3], 22, -1044525330);
+	      a = FF(a, b, c, d, m[i + 4], 7, -176418897);
+	      d = FF(d, a, b, c, m[i + 5], 12, 1200080426);
+	      c = FF(c, d, a, b, m[i + 6], 17, -1473231341);
+	      b = FF(b, c, d, a, m[i + 7], 22, -45705983);
+	      a = FF(a, b, c, d, m[i + 8], 7, 1770035416);
+	      d = FF(d, a, b, c, m[i + 9], 12, -1958414417);
+	      c = FF(c, d, a, b, m[i + 10], 17, -42063);
+	      b = FF(b, c, d, a, m[i + 11], 22, -1990404162);
+	      a = FF(a, b, c, d, m[i + 12], 7, 1804603682);
+	      d = FF(d, a, b, c, m[i + 13], 12, -40341101);
+	      c = FF(c, d, a, b, m[i + 14], 17, -1502002290);
+	      b = FF(b, c, d, a, m[i + 15], 22, 1236535329);
+
+	      a = GG(a, b, c, d, m[i + 1], 5, -165796510);
+	      d = GG(d, a, b, c, m[i + 6], 9, -1069501632);
+	      c = GG(c, d, a, b, m[i + 11], 14, 643717713);
+	      b = GG(b, c, d, a, m[i + 0], 20, -373897302);
+	      a = GG(a, b, c, d, m[i + 5], 5, -701558691);
+	      d = GG(d, a, b, c, m[i + 10], 9, 38016083);
+	      c = GG(c, d, a, b, m[i + 15], 14, -660478335);
+	      b = GG(b, c, d, a, m[i + 4], 20, -405537848);
+	      a = GG(a, b, c, d, m[i + 9], 5, 568446438);
+	      d = GG(d, a, b, c, m[i + 14], 9, -1019803690);
+	      c = GG(c, d, a, b, m[i + 3], 14, -187363961);
+	      b = GG(b, c, d, a, m[i + 8], 20, 1163531501);
+	      a = GG(a, b, c, d, m[i + 13], 5, -1444681467);
+	      d = GG(d, a, b, c, m[i + 2], 9, -51403784);
+	      c = GG(c, d, a, b, m[i + 7], 14, 1735328473);
+	      b = GG(b, c, d, a, m[i + 12], 20, -1926607734);
+
+	      a = HH(a, b, c, d, m[i + 5], 4, -378558);
+	      d = HH(d, a, b, c, m[i + 8], 11, -2022574463);
+	      c = HH(c, d, a, b, m[i + 11], 16, 1839030562);
+	      b = HH(b, c, d, a, m[i + 14], 23, -35309556);
+	      a = HH(a, b, c, d, m[i + 1], 4, -1530992060);
+	      d = HH(d, a, b, c, m[i + 4], 11, 1272893353);
+	      c = HH(c, d, a, b, m[i + 7], 16, -155497632);
+	      b = HH(b, c, d, a, m[i + 10], 23, -1094730640);
+	      a = HH(a, b, c, d, m[i + 13], 4, 681279174);
+	      d = HH(d, a, b, c, m[i + 0], 11, -358537222);
+	      c = HH(c, d, a, b, m[i + 3], 16, -722521979);
+	      b = HH(b, c, d, a, m[i + 6], 23, 76029189);
+	      a = HH(a, b, c, d, m[i + 9], 4, -640364487);
+	      d = HH(d, a, b, c, m[i + 12], 11, -421815835);
+	      c = HH(c, d, a, b, m[i + 15], 16, 530742520);
+	      b = HH(b, c, d, a, m[i + 2], 23, -995338651);
+
+	      a = II(a, b, c, d, m[i + 0], 6, -198630844);
+	      d = II(d, a, b, c, m[i + 7], 10, 1126891415);
+	      c = II(c, d, a, b, m[i + 14], 15, -1416354905);
+	      b = II(b, c, d, a, m[i + 5], 21, -57434055);
+	      a = II(a, b, c, d, m[i + 12], 6, 1700485571);
+	      d = II(d, a, b, c, m[i + 3], 10, -1894986606);
+	      c = II(c, d, a, b, m[i + 10], 15, -1051523);
+	      b = II(b, c, d, a, m[i + 1], 21, -2054922799);
+	      a = II(a, b, c, d, m[i + 8], 6, 1873313359);
+	      d = II(d, a, b, c, m[i + 15], 10, -30611744);
+	      c = II(c, d, a, b, m[i + 6], 15, -1560198380);
+	      b = II(b, c, d, a, m[i + 13], 21, 1309151649);
+	      a = II(a, b, c, d, m[i + 4], 6, -145523070);
+	      d = II(d, a, b, c, m[i + 11], 10, -1120210379);
+	      c = II(c, d, a, b, m[i + 2], 15, 718787259);
+	      b = II(b, c, d, a, m[i + 9], 21, -343485551);
+
+	      a = a + aa >>> 0;
+	      b = b + bb >>> 0;
+	      c = c + cc >>> 0;
+	      d = d + dd >>> 0;
+	    }
+
+	    return crypt.endian([a, b, c, d]);
+	  };
+
+	  // Auxiliary functions
+	  md5._ff = function (a, b, c, d, x, s, t) {
+	    var n = a + (b & c | ~b & d) + (x >>> 0) + t;
+	    return (n << s | n >>> 32 - s) + b;
+	  };
+	  md5._gg = function (a, b, c, d, x, s, t) {
+	    var n = a + (b & d | c & ~d) + (x >>> 0) + t;
+	    return (n << s | n >>> 32 - s) + b;
+	  };
+	  md5._hh = function (a, b, c, d, x, s, t) {
+	    var n = a + (b ^ c ^ d) + (x >>> 0) + t;
+	    return (n << s | n >>> 32 - s) + b;
+	  };
+	  md5._ii = function (a, b, c, d, x, s, t) {
+	    var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
+	    return (n << s | n >>> 32 - s) + b;
+	  };
+
+	  // Package private blocksize
+	  md5._blocksize = 16;
+	  md5._digestsize = 16;
+
+	  module.exports = function (message, options) {
+	    if (typeof message == 'undefined') return;
+
+	    var digestbytes = crypt.wordsToBytes(md5(message, options));
+	    return options && options.asBytes ? digestbytes : options && options.asString ? bin.bytesToString(digestbytes) : crypt.bytesToHex(digestbytes);
+	  };
+	})();
+
+/***/ },
+/* 217 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29103,24 +25764,111 @@
 	}();
 
 /***/ },
-/* 246 */
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var getInstantiatorFunction = __webpack_require__(245);
+	var getInstantiatorFunction = __webpack_require__(217);
 
 	module.exports = function (fn, args) {
 		return getInstantiatorFunction(args.length)(fn, args);
 	};
 
 /***/ },
-/* 247 */
+/* 219 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/* Built-in method references for those with the same name as other `lodash` methods. */
+	var nativeGetPrototype = Object.getPrototypeOf;
+
+	/**
+	 * Gets the `[[Prototype]]` of `value`.
+	 *
+	 * @private
+	 * @param {*} value The value to query.
+	 * @returns {null|Object} Returns the `[[Prototype]]`.
+	 */
+	function getPrototype(value) {
+	  return nativeGetPrototype(Object(value));
+	}
+
+	module.exports = getPrototype;
+
+/***/ },
+/* 220 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Checks if `value` is a host object in IE < 9.
+	 *
+	 * @private
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a host object, else `false`.
+	 */
+	function isHostObject(value) {
+	  // Many host objects are `Object` objects that can coerce to strings
+	  // despite having improperly defined `toString` methods.
+	  var result = false;
+	  if (value != null && typeof value.toString != 'function') {
+	    try {
+	      result = !!(value + '');
+	    } catch (e) {}
+	  }
+	  return result;
+	}
+
+	module.exports = isHostObject;
+
+/***/ },
+/* 221 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+	/**
+	 * Checks if `value` is object-like. A value is object-like if it's not `null`
+	 * and has a `typeof` result of "object".
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 4.0.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+	 * @example
+	 *
+	 * _.isObjectLike({});
+	 * // => true
+	 *
+	 * _.isObjectLike([1, 2, 3]);
+	 * // => true
+	 *
+	 * _.isObjectLike(_.noop);
+	 * // => false
+	 *
+	 * _.isObjectLike(null);
+	 * // => false
+	 */
+	function isObjectLike(value) {
+	  return !!value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+	}
+
+	module.exports = isObjectLike;
+
+/***/ },
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Region = __webpack_require__(229);
+	var Region = __webpack_require__(17);
 
 	/**
 	 *
@@ -29157,12 +25905,12 @@
 	};
 
 /***/ },
-/* 248 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Region = __webpack_require__(229);
+	var Region = __webpack_require__(17);
 
 	/**
 	 * @static
@@ -29271,12 +26019,12 @@
 	};
 
 /***/ },
-/* 249 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Region = __webpack_require__(229);
+	var Region = __webpack_require__(17);
 
 	/**
 	 *
@@ -29444,14 +26192,14 @@
 	module.exports = ALIGN_TO_NORMALIZED;
 
 /***/ },
-/* 250 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ALIGN_TO_NORMALIZED = __webpack_require__(249);
+	var ALIGN_TO_NORMALIZED = __webpack_require__(224);
 
-	var Region = __webpack_require__(229);
+	var Region = __webpack_require__(17);
 
 	/**
 	 * @localdoc Given source and target regions, and the given alignments required, returns a region that is the resulting allignment.
@@ -29524,17 +26272,17 @@
 	module.exports = COMPUTE_ALIGN_REGION;
 
 /***/ },
-/* 251 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Region = __webpack_require__(229);
+	var Region = __webpack_require__(17);
 
-	__webpack_require__(248);
-	__webpack_require__(247);
+	__webpack_require__(223);
+	__webpack_require__(222);
 
-	var COMPUTE_ALIGN_REGION = __webpack_require__(250);
+	var COMPUTE_ALIGN_REGION = __webpack_require__(225);
 
 	/**
 	 * region-align module exposes methods for aligning {@link Element} and {@link Region} instances
@@ -29708,7 +26456,7 @@
 	module.exports = Region;
 
 /***/ },
-/* 252 */
+/* 227 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -29739,19 +26487,19 @@
 	};
 
 /***/ },
-/* 253 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var hasOwn = __webpack_require__(235);
-	var newify = __webpack_require__(246);
+	var hasOwn = __webpack_require__(106);
+	var newify = __webpack_require__(218);
 
-	var assign = __webpack_require__(252);
-	var EventEmitter = __webpack_require__(243).EventEmitter;
+	var assign = __webpack_require__(227);
+	var EventEmitter = __webpack_require__(210).EventEmitter;
 
-	var inherits = __webpack_require__(254);
-	var VALIDATE = __webpack_require__(236);
+	var inherits = __webpack_require__(229);
+	var VALIDATE = __webpack_require__(109);
 
 	var objectToString = Object.prototype.toString;
 
@@ -30777,12 +27525,12 @@
 	    }
 	});
 
-	__webpack_require__(255)(REGION);
+	__webpack_require__(230)(REGION);
 
 	module.exports = REGION;
 
 /***/ },
-/* 254 */
+/* 229 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -30800,13 +27548,13 @@
 	};
 
 /***/ },
-/* 255 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var hasOwn = __webpack_require__(235);
-	var VALIDATE = __webpack_require__(236);
+	var hasOwn = __webpack_require__(106);
+	var VALIDATE = __webpack_require__(109);
 
 	module.exports = function (REGION) {
 
@@ -31017,7 +27765,7 @@
 	};
 
 /***/ },
-/* 256 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
@@ -32183,7 +28931,3288 @@
 	})();
 
 /***/ },
-/* 257 */
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	// require('./../lib/react-group/css/index');
+
+	__webpack_require__(249);
+	__webpack_require__(250);
+
+	__webpack_require__(233);
+
+/***/ },
+/* 233 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _PictureDraw = __webpack_require__(247);
+
+	var _PictureDraw2 = _interopRequireDefault(_PictureDraw);
+
+	var _MethodSection = __webpack_require__(246);
+
+	var _MethodSection2 = _interopRequireDefault(_MethodSection);
+
+	var _Utils = __webpack_require__(29);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	(function body() {
+
+	    var methodSection = new _MethodSection2.default(_Utils2.default.createUniqueId());
+	    methodSection.create();
+
+	    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	    var _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
+
+	    var pictureDraw = new _PictureDraw2.default(_obj_main[0], _Utils2.default.createUniqueId());
+
+	    //    new PictureDraw( _obj_main[1], Utils.createUniqueId() );
+	    // new PictureDraw( _obj_main[2], Utils.createUniqueId() );
+	})(); // 用input抓原始圖片資料
+	// 用canvas修改圖片資料
+	// 預覽圖（固定某大小做為預覽圖）
+	// 送給php產生圖檔，以進一步存下新的圖檔
+
+/***/ },
+/* 234 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Tools2 = __webpack_require__(41);
+
+	var _Tools3 = _interopRequireDefault(_Tools2);
+
+	var _hexRgb = __webpack_require__(212);
+
+	var _hexRgb2 = _interopRequireDefault(_hexRgb);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// 運算的方式
+
+	var ImageDataComputeMethod = function (_Tools) {
+		_inherits(ImageDataComputeMethod, _Tools);
+
+		function ImageDataComputeMethod(json_tools) {
+			_classCallCheck(this, ImageDataComputeMethod);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeMethod).call(this));
+
+			var _scope = _this;
+
+			_scope.setEmitter(json_tools.emitter);
+
+			_scope.obj_canvas = document.createElement('canvas');
+			_scope.obj_canvas_2d = _scope.obj_canvas.getContext('2d');
+
+			_scope.obj_image = new Image();
+
+			_scope.obj_image.onload = function () {
+
+				if (typeof this.src === 'string' && this.src !== '') {
+
+					var _num_width = this.width;
+					var _num_height = this.height;
+					_scope.obj_canvas.width = _num_width;
+					_scope.obj_canvas.height = _num_height;
+					_scope.obj_canvas_2d.clearRect(0, 0, _num_width, _num_height);
+					_scope.obj_canvas_2d.drawImage(this, 0, 0, _num_width, _num_height);
+
+					_scope.setComputeWidth(_num_width); // 在此先用圖片本身的長寬去做的
+					_scope.setComputeHeight(_num_height); // 在此先用圖片本身的長寬去做的
+
+					var _json_emit = _scope.getOtherData();
+					_json_emit.origin_data = this.src;
+					_json_emit.method = _scope.getPainterMethod();
+
+					_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
+				} else {
+					console.log('***');
+				}
+			};
+
+			_scope.obj_image.error = function () {
+				_scope.getEmitter().emit('step.image.error.loaded', {
+					origin_data: this.src
+				});
+			};
+
+			return _this;
+		}
+
+		_createClass(ImageDataComputeMethod, [{
+			key: 'getOtherData',
+			value: function getOtherData() {
+				var _scope = this;
+				return _scope.other_data;
+			}
+		}, {
+			key: 'getPainterMethod',
+			value: function getPainterMethod() {
+				var _scope = this;
+				return _scope.painter_method;
+			}
+			// 圖片運算是用多大寬度運算出來的
+
+		}, {
+			key: 'getComputeWidth',
+			value: function getComputeWidth() {
+				return this.compute_width;
+			}
+			// 圖片運算是用多大高度運算出來的
+
+		}, {
+			key: 'getComputeHeight',
+			value: function getComputeHeight() {
+				return this.compute_height;
+			}
+
+			// 圖片運算是用多大寬度運算出來的
+
+		}, {
+			key: 'setComputeWidth',
+			value: function setComputeWidth(num) {
+				this.compute_width = num || 0;
+			}
+			// 圖片運算是用多大高度運算出來的
+
+		}, {
+			key: 'setComputeHeight',
+			value: function setComputeHeight(num) {
+				this.compute_height = num || 0;
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+			// 在照片中添加纹理
+			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
+
+		}, {
+			key: 'methodDot',
+			value: function methodDot(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _bln_old = false;
+				if (json.created && json.created.dot && json.created.dot.length > 0) {
+					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height) {
+						// 輸出的圖片大小是相同的
+						_bln_old = true;
+					} else {
+						_bln_old = false;
+					}
+				}
+
+				json.created.dot = _bln_old === true ? json.created.dot : [];
+
+				var _num_width = _scope.getComputeWidth(),
+				    _num_height = _scope.getComputeHeight(),
+				    _json_control = json.control,
+				    _num_size_min = _json_control.minSize,
+				    _num_size_max = _json_control.maxSize,
+				    _num_size = void 0,
+				    _num_alpha_min = _json_control.minAlpha,
+				    _num_alpha_max = _json_control.maxAlpha,
+				    _num_alpha = void 0,
+				    _num_total = void 0,
+				    _str_color = void 0,
+				    _str_shape = _json_control.shape.shape;
+
+				var _num_x = void 0,
+				    _num_y = void 0;
+
+				var _ary_dot_origin = JSON.parse(JSON.stringify(json.created.dot));
+
+				if (_bln_old === true) {
+					_num_total = _ary_dot_origin.length;
+				} else {
+					_num_total = Math.floor(_num_width * _num_height / _num_size_max / _num_size_max / 100 * _json_control.frequency);
+					json.created.setting = _extends({}, json.setting);
+				}
+
+				var _ary_rgb = (0, _hexRgb2.default)(_json_control.color);
+
+				for (var i = 0; i < _num_total; i++) {
+					if (_bln_old === true) {
+						_scope.obj_canvas_2d.fillStyle = _ary_dot_origin[i].color;
+
+						_num_x = _ary_dot_origin[i].xPos;
+						_num_y = _ary_dot_origin[i].yPos;
+						_num_size = _ary_dot_origin[i].size;
+					} else {
+						_num_alpha = (parseInt(_num_alpha_min, 10) + Math.floor((_num_alpha_max - _num_alpha_min) * Math.random())) / 100;
+						_str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _num_alpha + ')';
+						_scope.obj_canvas_2d.fillStyle = _str_color;
+
+						_num_x = Math.floor(Math.random() * _num_width);
+						_num_y = Math.floor(Math.random() * _num_height);
+						_num_size = (parseInt(_num_size_min, 10) + Math.floor((_num_size_max - _num_size_min) * Math.random())) / 2;
+
+						json.created.dot.push({
+							xPos: _num_x,
+							yPos: _num_y,
+							size: _num_size,
+							color: _str_color
+						});
+					}
+
+					_scope.obj_canvas_2d.beginPath();
+					if (_str_shape === _Settings2.default.SHAPE_CIRCLE) {
+						_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
+					} else if (_str_shape === _Settings2.default.SHAPE_RECT) {
+						_scope.obj_canvas_2d.rect(_num_x - _num_size / 2, _num_y - _num_size / 2, _num_size, _num_size);
+					}
+
+					_scope.obj_canvas_2d.closePath();
+					_scope.obj_canvas_2d.fill();
+				}
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 透明
+			// https://msdn.microsoft.com/zh-cn/library/gg589493(v=vs.85).aspx
+
+		}, {
+			key: 'methodAlpha',
+			value: function methodAlpha(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_width = _scope.getComputeWidth(),
+				    _num_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+
+				// Loop through data.
+				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+
+					// First bytes are red bytes.       
+					// Second bytes are green bytes.
+					// Third bytes are blue bytes.
+					// Fourth bytes are alpha bytes
+					// Test of alpha channel at 50%.
+					// _json_image_data.data[i + 3] = 128;
+					_json_image_data.data[i + 3] = _json_image_data.data[i + 3] * (_num_range / 100);
+				}
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 灰階
+			// https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
+
+		}, {
+			key: 'methodGray',
+			value: function methodGray(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_width = _scope.getComputeWidth(),
+				    _num_height = _scope.getComputeHeight();
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+
+				var _num_red = void 0,
+				    _num_green = void 0,
+				    _num_blue = void 0,
+				    _num_gray = void 0;
+
+				// Loop through data.
+				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+
+					// First bytes are red bytes.       
+					// Get red value.
+					_num_red = _json_image_data.data[i];
+
+					// Second bytes are green bytes.
+					// Get green value.
+					_num_green = _json_image_data.data[i + 1];
+
+					// Third bytes are blue bytes.
+					// Get blue value.
+					_num_blue = _json_image_data.data[i + 2];
+
+					// Fourth bytes are alpha bytes
+					// We don't care about alpha here.
+					// Add the three values and divide by three.
+					// Make it an integer.
+					_num_gray = parseInt((_num_red + _num_green + _num_blue) / 3);
+
+					// Assign average to red, green, and blue.
+					_json_image_data.data[i] = _num_gray;
+					_json_image_data.data[i + 1] = _num_gray;
+					_json_image_data.data[i + 2] = _num_gray;
+				}
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 彩度（飽和度）
+			// 拿這個網址來改的https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
+
+		}, {
+			key: 'methodSaturate',
+			value: function methodSaturate(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_width = _scope.getComputeWidth(),
+				    _num_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+
+				var _num_red = void 0,
+				    _num_green = void 0,
+				    _num_blue = void 0,
+				    _json_rgb = {};
+
+				if (_num_range > 0 || _num_range < 0) {
+					// Loop through data.
+					for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+
+						_num_red = _json_image_data.data[i];
+						_num_green = _json_image_data.data[i + 1];
+						_num_blue = _json_image_data.data[i + 2];
+
+						_json_rgb = _scope.operateSaturateRGB(_num_range, _num_red, _num_green, _num_blue);
+
+						_json_image_data.data[i] = _json_rgb.red;
+						_json_image_data.data[i + 1] = _json_rgb.green;
+						_json_image_data.data[i + 2] = _json_rgb.blue;
+					}
+				}
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 對比
+			// 其實有另外這兒的可以參考，但我沒用 http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
+
+		}, {
+			key: 'methodContrast',
+			value: function methodContrast(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_width = _scope.getComputeWidth(),
+				    _num_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+
+				var _num_red = void 0,
+				    _num_green = void 0,
+				    _num_blue = void 0,
+				    _json_rgb = {};
+
+				if (_num_range > 0 || _num_range < 0) {
+					for (var i = 0; i < _json_image_data.data.length; i += 4) {
+
+						_num_red = _json_image_data.data[i];
+						_num_green = _json_image_data.data[i + 1];
+						_num_blue = _json_image_data.data[i + 2];
+
+						_json_rgb = _scope.operateContrastRGB(_num_range, _num_red, _num_green, _num_blue);
+
+						_json_image_data.data[i] = _json_rgb.red;
+						_json_image_data.data[i + 1] = _json_rgb.green;
+						_json_image_data.data[i + 2] = _json_rgb.blue;
+					}
+				}
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+		}, {
+			key: 'clearCanvas',
+			value: function clearCanvas(callback) {
+
+				this.obj_canvas_2d.clearRect(0, 0, this.getComputeWidth(), this.getComputeHeight()); // ????
+
+				if (callback && callback instanceof Function) {
+					setTimeout(function () {
+						callback();
+					}, 10);
+				}
+			}
+
+			// json_other : 會有 setting, control
+
+		}, {
+			key: 'changeData',
+			value: function changeData(str_painter_method, str_base64, json_other, callback) {
+				var _scope = this;
+				_scope.clearCanvas(function () {
+					_scope.painter_method = str_painter_method;
+					_scope.obj_image.src = str_base64;
+					_scope.other_data = json_other;
+					if (callback && callback instanceof Function) {
+						setTimeout(function () {
+							callback();
+						}, 10);
+					}
+				});
+			}
+
+			// 傳來什麼，就如實地回傳
+
+		}, {
+			key: 'methodOrigin',
+			value: function methodOrigin(json) {
+				var _scope = this;
+				_scope.emitAfterMethod(json);
+			}
+		}, {
+			key: 'methodVars',
+			value: function methodVars(json) {
+				json = json || {};
+				json.setting = json.setting || {};
+				json.control = json.control || {};
+				json.created = json.created || {};
+
+				return json;
+			}
+		}, {
+			key: 'emitAfterMethod',
+			value: function emitAfterMethod(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _data_url = _scope.obj_canvas.toDataURL();
+
+				var _json_emit = {
+					origin_data: json.origin_data,
+					data: _data_url
+				};
+
+				if (json.method_id !== undefined) {
+					_json_emit.method_id = json.method_id;
+					// _json_emit.method = json.method ;
+				}
+
+				_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+			}
+		}, {
+			key: 'operateSaturateRGB',
+			value: function operateSaturateRGB(num_range, num_red, num_green, num_blue) {
+				var _num_saturate_min = Math.floor((num_red + num_green + num_blue) / 3); // 全灰階
+				var _json_output = {};
+				if (num_range < 0) {
+					_json_output = {
+						red: _num_saturate_min + Math.floor((num_red - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
+						green: _num_saturate_min + Math.floor((num_green - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
+						blue: _num_saturate_min + Math.floor((num_blue - _num_saturate_min) * (1 - Math.abs(num_range / 100)))
+					};
+				} else {
+					_json_output = {
+						red: num_red + Math.floor((num_red - _num_saturate_min) * (num_range / 100)),
+						green: num_green + Math.floor((num_green - _num_saturate_min) * (num_range / 100)),
+						blue: num_blue + Math.floor((num_blue - _num_saturate_min) * (num_range / 100))
+					};
+				}
+
+				_json_output.red = this.checkColorRange(_json_output.red);
+				_json_output.green = this.checkColorRange(_json_output.green);
+				_json_output.blue = this.checkColorRange(_json_output.blue);
+				return _json_output;
+			}
+		}, {
+			key: 'operateContrastRGB',
+			value: function operateContrastRGB(num_range, num_red, num_green, num_blue) {
+				var _num_contrast_base = 128;
+				var _json_output = {};
+
+				var _bln_red_bigger = num_red > _num_contrast_base;
+				var _bln_green_bigger = num_green > _num_contrast_base;
+				var _bln_blue_bigger = num_blue > _num_contrast_base;
+
+				var _num_red_end = num_red > _num_contrast_base ? 255 : 0;
+				var _num_green_end = num_green > _num_contrast_base ? 255 : 0;
+				var _num_blue_end = num_blue > _num_contrast_base ? 255 : 0;
+
+				if (num_range < 0) {
+					// ok
+					_json_output = {
+						red: _num_contrast_base + Math.floor((num_red - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
+						green: _num_contrast_base + Math.floor((num_green - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
+						blue: _num_contrast_base + Math.floor((num_blue - _num_contrast_base) * (1 - Math.abs(num_range / 100)))
+					};
+				} else {
+					_json_output = {
+						red: num_red + Math.floor((_num_red_end - num_red) * (num_range / 100) / 2),
+						green: num_green + Math.floor((_num_green_end - num_green) * (num_range / 100) / 2),
+						blue: num_blue + Math.floor((_num_blue_end - num_blue) * (num_range / 100) / 2)
+					};
+				}
+				_json_output.red = this.checkColorRange(_json_output.red);
+				_json_output.green = this.checkColorRange(_json_output.green);
+				_json_output.blue = this.checkColorRange(_json_output.blue);
+				return _json_output;
+			}
+		}, {
+			key: 'checkColorRange',
+			value: function checkColorRange(num) {
+				return num > 255 ? 255 : num < 0 ? 0 : num;
+			}
+		}]);
+
+		return ImageDataComputeMethod;
+	}(_Tools3.default);
+
+	exports.default = ImageDataComputeMethod;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Tools2 = __webpack_require__(41);
+
+	var _Tools3 = _interopRequireDefault(_Tools2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// 利用事件的補捉，來記錄我們的圖片運算狀況
+
+	var ImageDataComputeProcess = function (_Tools) {
+		_inherits(ImageDataComputeProcess, _Tools);
+
+		function ImageDataComputeProcess(json_tools) {
+			_classCallCheck(this, ImageDataComputeProcess);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeProcess).call(this));
+
+			_this.step_image = [];
+			_this.setEmitter(json_tools.emitter);
+			return _this;
+		}
+
+		_createClass(ImageDataComputeProcess, [{
+			key: 'getStepImage',
+			value: function getStepImage() {
+				return this.step_image || [];
+			}
+		}, {
+			key: 'setStepImage',
+			value: function setStepImage(sary, str_timmimg, json_other) {
+
+				var _scope = this;
+
+				sary = sary || [];
+				str_timmimg = str_timmimg || _scope.TIMMING_SET;
+				json_other = json_other || {};
+
+				var _sary = JSON.parse(JSON.stringify(sary));
+
+				_scope.step_image = _sary;
+
+				setTimeout(function () {
+					_scope.getEmitter().emit('step.image.seted', str_timmimg, json_other);
+					window.step_image = _scope.step_image;
+				}, 500);
+			}
+		}, {
+			key: 'pushStepData',
+			value: function pushStepData(json_data, sary_step_method) {
+				var _scope = this;
+
+				if (json_data.method_id === undefined) {
+					var _sary_step_image = JSON.parse(JSON.stringify(_scope.getStepImage())),
+					    _num_step_image = _sary_step_image.length;
+					var _sary_step_method = JSON.parse(JSON.stringify(sary_step_method)),
+					    _num_step_method = _sary_step_method.length;
+					if (_num_step_method >= _num_step_image) {
+						// 去step_method中的記錄中找來用
+						var _str_method_id = _sary_step_method[_num_step_image].method_id;
+						json_data.method_id = _str_method_id;
+					}
+				}
+
+				_scope.step_image.push(json_data);
+				_scope.getEmitter().emit('step.image.pushed');
+			}
+		}]);
+
+		return ImageDataComputeProcess;
+	}(_Tools3.default);
+
+	ImageDataComputeProcess.TIMMING_RESET = 'reset';
+	ImageDataComputeProcess.TIMMING_SET = 'set';
+	exports.default = ImageDataComputeProcess;
+	;
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Tools2 = __webpack_require__(41);
+
+	var _Tools3 = _interopRequireDefault(_Tools2);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _Extend = __webpack_require__(21);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// 運算的方式
+
+	var ImageDataOriginal = function (_Tools) {
+	    _inherits(ImageDataOriginal, _Tools);
+
+	    function ImageDataOriginal(json_tools) {
+	        _classCallCheck(this, ImageDataOriginal);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataOriginal).call(this));
+
+	        var _scope = _this;
+
+	        _scope.setEmitter(json_tools.emitter);
+
+	        _scope.setObjImage();
+	        _scope.obj_canvas = document.createElement('canvas');
+	        _scope.obj_canvas_2d = _scope.getObjCanvas().getContext('2d');
+
+	        _scope.objOnloadAction();
+
+	        return _this;
+	    }
+
+	    _createClass(ImageDataOriginal, [{
+	        key: 'getObjImage',
+	        value: function getObjImage() {
+	            return this.obj_image;
+	        }
+	    }, {
+	        key: 'getObjCanvas',
+	        value: function getObjCanvas() {
+	            return this.obj_canvas;
+	        }
+	    }, {
+	        key: 'getObjCanvas2d',
+	        value: function getObjCanvas2d() {
+	            return this.obj_canvas_2d;
+	        }
+	    }, {
+	        key: 'setObjImage',
+	        value: function setObjImage(obj_image) {
+	            this.obj_image = obj_image || new Image();
+	        }
+
+	        /*
+	           origin_data -> bas64
+	        */
+
+	    }, {
+	        key: 'setOriginImage',
+	        value: function setOriginImage(json_data) {
+	            var _scope = this;
+	            _scope.origin_data = json_data;
+	            _scope.getEmitter().emit('init.data.changed', json_data);
+	        }
+	    }, {
+	        key: 'objOnloadAction',
+	        value: function objOnloadAction() {
+	            var _scope = this;
+	            _scope.obj_image.onload = function () {
+
+	                _scope.setOriginImageSize(this.width, this.height);
+
+	                var _json_data = {
+	                    data: this.src // ,
+	                    // // origin_width: this.width,
+	                    // // origin_height: this.height,
+	                    // setting: {
+	                    //     origin_width: this.width,
+	                    //     origin_height: this.height
+	                    // }
+	                };
+
+	                setTimeout(function () {
+	                    _scope.getEmitter().emit('init.data.size.asking', _json_data);
+	                }, 10);
+	            };
+	        }
+	    }, {
+	        key: 'setOriginImageSize',
+	        value: function setOriginImageSize(num_width, num_height) {
+	            this.origin_image_size = {
+	                origin_width: num_width,
+	                origin_height: num_height
+	            };
+	        }
+	    }, {
+	        key: 'getOriginImageSize',
+	        value: function getOriginImageSize() {
+	            return this.origin_image_size;
+	        }
+	    }, {
+	        key: 'operateImageSize',
+	        value: function operateImageSize(json_data) {
+	            var _scope = this;
+
+	            _scope.getObjCanvas2d().clearRect(0, 0, _scope.getObjCanvas().width, _scope.getObjCanvas().height);
+
+	            var _str_output = '';
+
+	            // **************** 圖片
+	            var _json_setting = json_data.setting,
+	                _str_size = _json_setting.size;
+
+	            if (_str_size === _Settings2.default.OUTPUT_SIZE_SCALE) {
+	                var _num_width = Math.floor(_json_setting.origin_width * _json_setting.range / 100);
+	                var _num_height = Math.floor(_json_setting.origin_height * _json_setting.range / 100);
+	                _scope.getObjCanvas().width = _num_width;
+	                _scope.getObjCanvas().height = _num_height;
+	                _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, _json_setting.origin_width, _json_setting.origin_height, 0, 0, _num_width, _num_height);
+	                // _scope.getObjImagePreview().src = _scope.getObjCanvas().toDataURL();
+	                _str_output = _scope.getObjCanvas().toDataURL();
+	            } else if (_str_size === _Settings2.default.OUTPUT_SIZE_CUSTOM) {
+	                _scope.getObjCanvas().width = _json_setting.width;
+	                _scope.getObjCanvas().height = _json_setting.height;
+
+	                var _num_origin_ratio = _json_setting.origin_height / _json_setting.origin_width;
+	                var _num_output_ratio = _json_setting.height / _json_setting.width;
+
+	                var _num_outreal_height = _json_setting.width / _json_setting.origin_width * _json_setting.origin_height;
+	                var _num_outreal_width = _json_setting.height / _json_setting.origin_height * _json_setting.origin_width;
+
+	                if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_COVER) {
+	                    // 填滿區域，可能造成圖片放大的失真
+	                    if (_num_origin_ratio > _num_output_ratio) {
+	                        _scope.baseOnWidth(json_data, _json_setting);
+	                    } else if (_num_origin_ratio < _num_output_ratio) {
+	                        _scope.baseOnHeight(json_data, _json_setting);
+	                    } else {
+	                        _scope.baseOnWidthHeight(json_data, _json_setting);
+	                    }
+	                } else if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_CONTAIN) {
+	                    // 內容全放入，可能造成空白
+	                    if (_num_origin_ratio > _num_output_ratio) {
+	                        _scope.baseOnHeight(json_data, _json_setting);
+	                    } else if (_num_origin_ratio < _num_output_ratio) {
+	                        _scope.baseOnWidth(json_data, _json_setting);
+	                    } else {
+	                        _scope.baseOnWidthHeight(json_data, _json_setting);
+	                    }
+	                } else if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_FILL) {
+	                    // 填滿（不考慮寬高比）
+	                    _scope.baseOnWidthHeight(json_data, _json_setting);
+	                } else if (_json_setting.custom === _Settings2.default.OUTPUT_CUSTOM_CLIP) {
+	                    // 裁切
+	                    _scope.baseOnClip(json_data, _json_setting);
+	                }
+	                // _scope.getObjImagePreview().src = _scope.getObjCanvas().toDataURL() ;
+	                _str_output = _scope.getObjCanvas().toDataURL();
+	            }
+
+	            if (_str_output !== '') {
+	                var _json_emit = _Extend2.default.deep(json_data, { origin_data: _str_output });
+	                _scope.setOriginImage(_json_emit);
+	            }
+	        }
+
+	        // 固定輸出的寬度
+
+	    }, {
+	        key: 'baseOnWidth',
+	        value: function baseOnWidth(json_data, json_setting) {
+	            var _scope = this;
+	            var _num_outreal_height = json_setting.width / json_setting.origin_width * json_setting.origin_height;
+	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, 0, json_setting.height / 2 - _num_outreal_height / 2, json_setting.width, _num_outreal_height);
+	        }
+
+	        // 固定輸出的高度
+
+	    }, {
+	        key: 'baseOnHeight',
+	        value: function baseOnHeight(json_data, json_setting) {
+	            var _scope = this;
+	            var _num_outreal_width = json_setting.height / json_setting.origin_height * json_setting.origin_width;
+	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, json_setting.width / 2 - _num_outreal_width / 2, 0, _num_outreal_width, json_setting.height);
+	        }
+
+	        // 填滿（不考慮寬高比）
+
+	    }, {
+	        key: 'baseOnWidthHeight',
+	        value: function baseOnWidthHeight(json_data, json_setting) {
+	            var _scope = this;
+	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, 0, 0, json_setting.origin_width, json_setting.origin_height, 0, 0, json_setting.width, json_setting.height);
+	        }
+
+	        // 裁切
+
+	    }, {
+	        key: 'baseOnClip',
+	        value: function baseOnClip(json_data, json_setting) {
+	            var _scope = this;
+	            _scope.getObjCanvas2d().drawImage(_scope.obj_image, json_setting.origin_width / 2 - json_setting.width / 2, json_setting.origin_height / 2 - json_setting.height / 2, json_setting.width, json_setting.height, 0, 0, json_setting.width, json_setting.height);
+	        }
+	    }]);
+
+	    return ImageDataOriginal;
+	}(_Tools3.default);
+
+	exports.default = ImageDataOriginal;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Utils = __webpack_require__(29);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _MethodSettings = __webpack_require__(40);
+
+	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
+
+	var _GlobalConst2 = __webpack_require__(64);
+
+	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MainImageFilter = function (_GlobalConst) {
+		_inherits(MainImageFilter, _GlobalConst);
+
+		function MainImageFilter(obj, json_tools) {
+			_classCallCheck(this, MainImageFilter);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MainImageFilter).call(this));
+
+			_this.setEmitter(json_tools.emitter);
+			_this.setModuleId(_Utils2.default.createUniqueId());
+
+			// this.setOutputImageSetting( this.getInitOutputImageScale() );
+			_this.setOutputImageSetting(_this.getInitOutputImageCustom());
+
+			_this.defaultAction(obj);
+
+			return _this;
+		}
+
+		_createClass(MainImageFilter, [{
+			key: 'setModuleId',
+			value: function setModuleId(str) {
+				this.module_id = str;
+			}
+		}, {
+			key: 'setEmitter',
+			value: function setEmitter(object) {
+				this.emitter = object;
+			}
+		}, {
+			key: 'setOutputImageSetting',
+			value: function setOutputImageSetting(json) {
+				this.output_image_setting = json || {};
+			}
+		}, {
+			key: 'getInitOutputImageScale',
+			value: function getInitOutputImageScale() {
+				return _Settings2.default.getInitOutputImageScale();
+			}
+		}, {
+			key: 'getInitOutputImageCustom',
+			value: function getInitOutputImageCustom() {
+				return _Settings2.default.getInitOutputImageCustom();
+			}
+		}, {
+			key: 'getOutputImageSetting',
+			value: function getOutputImageSetting() {
+				return this.output_image_setting || {};
+			}
+		}, {
+			key: 'getEmitter',
+			value: function getEmitter() {
+				return this.emitter;
+			}
+		}, {
+			key: 'getModuleId',
+			value: function getModuleId() {
+				return this.module_id;
+			}
+
+			// 得到用來產生版形的區塊
+
+		}, {
+			key: 'getMainSection',
+			value: function getMainSection() {
+				return this.getGlobalConst(this).MAIN_SECTION;
+			}
+
+			// 在預覽產生前，把這東西元件設定src
+
+		}, {
+			key: 'getObjImagePreview',
+			value: function getObjImagePreview() {
+				return this.getGlobalConst(this).OBJ_IMAGE_PREVIEW;
+			}
+
+			// 效果選項的元件
+
+		}, {
+			key: 'getObjMethodSelect',
+			value: function getObjMethodSelect() {
+				return this.getGlobalConst(this).OBJ_METHOD_SELECT;
+			}
+
+			// 選出來什麼效果選項的元件
+
+		}, {
+			key: 'getObjMethodResult',
+			value: function getObjMethodResult() {
+				return this.getGlobalConst(this).OBJ_METHOD_RESULT;
+			}
+
+			// 原圖預覽圖片
+
+		}, {
+			key: 'getObjOriginImage',
+			value: function getObjOriginImage() {
+				return this.getGlobalConst(this).OBJ_ORIGIN_IMAGE;
+			}
+
+			// 得到上傳圖片的按鈕
+
+		}, {
+			key: 'getObjUpload',
+			value: function getObjUpload() {
+				return this.getGlobalConst(this).OBJ_UPLOAD;
+			}
+
+			// 確定圖片的size設定
+
+		}, {
+			key: 'getObjsSizeSubmit',
+			value: function getObjsSizeSubmit() {
+				return this.getGlobalConst(this).OBJ_SIZE_SUBMIT;
+			}
+
+			// 哪種圖片的大小設定 - scale
+
+		}, {
+			key: 'getObjsSizeScaleRadio',
+			value: function getObjsSizeScaleRadio() {
+				return this.getGlobalConst(this).OBJ_SIZE_SCALE_RADIO;
+			}
+
+			// 哪種圖片的大小設定 - custom
+
+		}, {
+			key: 'getObjsSizeCustomRadio',
+			value: function getObjsSizeCustomRadio() {
+				return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_RADIO;
+			}
+
+			// 哪種圖片的大小設定 - custom
+
+		}, {
+			key: 'getObjsSizeRange',
+			value: function getObjsSizeRange() {
+				return this.getGlobalConst(this).OBJ_SCALE_RANGE;
+			}
+
+			// 哪種圖片的大小設定 - custom - 多少%的顯非
+
+		}, {
+			key: 'getObjsSizeRangesShow',
+			value: function getObjsSizeRangesShow() {
+				return this.getGlobalConst(this).OBJ_SCALE_RANGE_SHOW;
+			}
+
+			// 自訂寬度
+
+		}, {
+			key: 'getObjsSizeCustomWidth',
+			value: function getObjsSizeCustomWidth() {
+				return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_WIDTH;
+			}
+
+			// 自訂高度
+
+		}, {
+			key: 'getObjsSizeCustomHeight',
+			value: function getObjsSizeCustomHeight() {
+				return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_HEIGHT;
+			}
+
+			// 原圖預覽圖片
+
+		}, {
+			key: 'returnOriginImageSection',
+			value: function returnOriginImageSection() {
+				var _obj_image_section = document.createElement('div');
+				var _obj_origin_image = document.createElement('img');
+				this.addGlobalConst(this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image);
+				_obj_image_section.appendChild(_obj_origin_image);
+				return _obj_image_section;
+			}
+
+			// 上傳檔案
+
+		}, {
+			key: 'returnUploadSection',
+			value: function returnUploadSection() {
+				var _obj_upload_section = document.createElement('div');
+				var _obj_upload = document.createElement('input');
+				_obj_upload.type = "file";
+				this.uploadAction.call(_obj_upload, this);
+				this.addGlobalConst(this, 'OBJ_UPLOAD', _obj_upload);
+				_obj_upload_section.appendChild(_obj_upload);
+				return _obj_upload_section;
+			}
+
+			// 預覽圖片
+
+		}, {
+			key: 'returnCanvasSection',
+			value: function returnCanvasSection() {
+				var _obj_canvas_section = document.createElement('div');
+				var _obj_canvas_preview = new Image();
+
+				this.addGlobalConst(this, 'OBJ_IMAGE_PREVIEW', _obj_canvas_preview);
+
+				_obj_canvas_section.appendChild(_obj_canvas_preview);
+
+				return _obj_canvas_section;
+			}
+
+			// 新增效果
+
+		}, {
+			key: 'returnMethodSection',
+			value: function returnMethodSection() {
+				var _obj_method_section = document.createElement('div');
+
+				// 選出了哪些效果
+				var _obj_method_result = document.createElement('span');
+				_obj_method_section.appendChild(_obj_method_result);
+
+				// 下拉式選單
+				var _obj_method_select = document.createElement('select');
+				_obj_method_select.name = 'method';
+				var _sary_option = _MethodSettings2.default.getAllMethod();
+				var _str_method_select = '';
+				_str_method_select += '<option value="">---請選擇---</option>';
+				for (var i = 0; i < _sary_option.length; i++) {
+					_str_method_select += '<option value="' + _sary_option[i].method + '">' + _sary_option[i].method_name + '</option>';
+				}
+				_obj_method_select.insertAdjacentHTML('afterbegin', _str_method_select);
+
+				// 新增按鈕
+				var _obj_method_button = document.createElement('button');
+				_obj_method_button.innerText = '新增效果';
+				this.methodAddBtnAction.call(_obj_method_button, this);
+				_obj_method_section.appendChild(_obj_method_select);
+				_obj_method_section.appendChild(_obj_method_button);
+
+				this.addGlobalConst(this, 'OBJ_METHOD_SECTION', _obj_method_section);
+				this.addGlobalConst(this, 'OBJ_METHOD_RESULT', _obj_method_result);
+				this.addGlobalConst(this, 'OBJ_METHOD_SELECT', _obj_method_select);
+				return _obj_method_section;
+			}
+
+			// 新增效果 - 新方法
+
+		}, {
+			key: 'returnMethodAddSection',
+			value: function returnMethodAddSection() {
+				var _obj_method_section = document.createElement('div');
+
+				// 新增按鈕
+				var _obj_method_button = document.createElement('button');
+				_obj_method_button.innerText = '新增效果';
+				this.methodAddBtnActive.call(_obj_method_button, this);
+				_obj_method_section.appendChild(_obj_method_button);
+
+				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button);
+				return _obj_method_section;
+			}
+
+			// 輸出圖片尺寸
+
+		}, {
+			key: 'returnSizeSection',
+			value: function returnSizeSection() {
+				var _obj_size_section = document.createElement('div');
+				_obj_size_section.innerText = '圖片輸出尺寸';
+
+				var _obj_scale_section = document.createElement('div');
+				var _obj_custom_section = document.createElement('div');
+
+				// 圖片尺寸 - 原圖等比縮放 - radio
+				var _obj_size_scale = document.createElement('input');
+				_obj_size_scale.type = 'radio';
+				_obj_size_scale.name = 'size_' + this.getModuleId();
+				_obj_size_scale.value = 'scale';
+				_obj_size_scale.checked = this.getOutputImageSetting().size === _Settings2.default.OUTPUT_SIZE_SCALE;
+				this.addGlobalConst(this, 'OBJ_SIZE_SCALE_RADIO', _obj_size_scale);
+				// 圖片尺寸 - 原圖等比縮放 - label
+				var _obj_label_scale = document.createElement('label');
+				_obj_label_scale.appendChild(_obj_size_scale);
+				_obj_label_scale.insertAdjacentHTML('beforeend', '原圖等比縮放');
+				// 圖片尺寸 - 自訂尺寸 - input
+				var _obj_scale_range = document.createElement('input');
+				_obj_scale_range.type = 'range';
+				_obj_scale_range.name = 'range_' + this.getModuleId();
+				_obj_scale_range.value = this.getInitOutputImageScale().range;
+				_obj_scale_range.min = 1;
+				_obj_scale_range.max = 200;
+				this.addGlobalConst(this, 'OBJ_SCALE_RANGE', _obj_scale_range);
+				var _obj_scale_range_show = document.createElement('span');
+				this.addGlobalConst(this, 'OBJ_SCALE_RANGE_SHOW', _obj_scale_range_show);
+
+				_obj_scale_section.appendChild(_obj_label_scale);
+				_obj_scale_section.appendChild(_obj_scale_range);
+				_obj_scale_section.appendChild(_obj_scale_range_show);
+
+				// 圖片尺寸 - 自訂尺寸 - radio
+				var _obj_size_custom = document.createElement('input');
+				_obj_size_custom.type = 'radio';
+				_obj_size_custom.name = 'size_' + this.getModuleId();
+				_obj_size_custom.value = 'custom';
+				_obj_size_custom.checked = this.getOutputImageSetting().size === _Settings2.default.OUTPUT_SIZE_CUSTOM;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_RADIO', _obj_size_custom);
+				// 圖片尺寸 - 自訂尺寸 - label
+				var _obj_label_custom = document.createElement('label');
+				_obj_label_custom.appendChild(_obj_size_custom);
+				_obj_label_custom.insertAdjacentHTML('beforeend', '自訂尺寸');
+				var _obj_custom_width = document.createElement('input');
+				_obj_custom_width.type = 'number';
+				_obj_custom_width.name = 'custom_width_' + this.getModuleId();
+				_obj_custom_width.min = 10;
+				_obj_custom_width.max = 3000;
+				_obj_custom_width.value = this.getInitOutputImageCustom().width;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_WIDTH', _obj_custom_width);
+				var _obj_custom_height = document.createElement('input');
+				_obj_custom_height.type = 'number';
+				_obj_custom_height.name = 'custom_height_' + this.getModuleId();
+				_obj_custom_height.min = 10;
+				_obj_custom_height.max = 3000;
+				_obj_custom_height.value = this.getInitOutputImageCustom().height;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_HEIGHT', _obj_custom_height);
+				// 圖片尺寸 - 自訂尺寸 - cover - radio
+				var _obj_size_custom_cover = document.createElement('input');
+				_obj_size_custom_cover.type = 'radio';
+				_obj_size_custom_cover.name = 'custom_' + this.getModuleId();
+				_obj_size_custom_cover.value = 'cover';
+				_obj_size_custom_cover.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_COVER;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_COVER', _obj_size_custom_cover);
+				// 圖片尺寸 - 自訂尺寸 - cover - label
+				var _obj_label_custom_cover = document.createElement('label');
+				_obj_label_custom_cover.appendChild(_obj_size_custom_cover);
+				_obj_label_custom_cover.insertAdjacentHTML('beforeend', 'COVER');
+				// 圖片尺寸 - 自訂尺寸 - contain - radio
+				var _obj_size_custom_contain = document.createElement('input');
+				_obj_size_custom_contain.type = 'radio';
+				_obj_size_custom_contain.name = 'custom_' + this.getModuleId();
+				_obj_size_custom_contain.value = 'contain';
+				_obj_size_custom_contain.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_CONTAIN;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_CONTAIN', _obj_size_custom_contain);
+				// 圖片尺寸 - 自訂尺寸 - contain - label
+				var _obj_label_custom_contain = document.createElement('label');
+				_obj_label_custom_contain.appendChild(_obj_size_custom_contain);
+				_obj_label_custom_contain.insertAdjacentHTML('beforeend', 'CONTAIN');
+				// 圖片尺寸 - 自訂尺寸 - fill - radio
+				var _obj_size_custom_fill = document.createElement('input');
+				_obj_size_custom_fill.type = 'radio';
+				_obj_size_custom_fill.name = 'custom_' + this.getModuleId();
+				_obj_size_custom_fill.value = 'fill';
+				_obj_size_custom_fill.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_FILL;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_FILL', _obj_size_custom_fill);
+				// 圖片尺寸 - 自訂尺寸 - fill - label
+				var _obj_label_custom_fill = document.createElement('label');
+				_obj_label_custom_fill.appendChild(_obj_size_custom_fill);
+				_obj_label_custom_fill.insertAdjacentHTML('beforeend', 'FILL');
+				// 圖片尺寸 - 自訂尺寸 - clip - radio
+				var _obj_size_custom_clip = document.createElement('input');
+				_obj_size_custom_clip.type = 'radio';
+				_obj_size_custom_clip.name = 'custom_' + this.getModuleId();
+				_obj_size_custom_clip.value = 'clip';
+				_obj_size_custom_clip.checked = this.getInitOutputImageCustom().custom === _Settings2.default.OUTPUT_CUSTOM_CLIP;
+				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_CLIP', _obj_size_custom_clip);
+				// 圖片尺寸 - 自訂尺寸 - clip - label
+				var _obj_label_custom_clip = document.createElement('label');
+				_obj_label_custom_clip.appendChild(_obj_size_custom_clip);
+				_obj_label_custom_clip.insertAdjacentHTML('beforeend', 'CLIP');
+
+				_obj_custom_section.appendChild(_obj_label_custom);
+				_obj_custom_section.insertAdjacentHTML('beforeend', '寬');
+				_obj_custom_section.appendChild(_obj_custom_width);
+				_obj_custom_section.insertAdjacentHTML('beforeend', '高');
+				_obj_custom_section.appendChild(_obj_custom_height);
+				_obj_custom_section.appendChild(_obj_label_custom_cover);
+				_obj_custom_section.appendChild(_obj_label_custom_contain);
+				_obj_custom_section.appendChild(_obj_label_custom_fill);
+				_obj_custom_section.appendChild(_obj_label_custom_clip);
+
+				// 圖片尺寸 - 自訂尺寸 - radio
+				var _obj_size_submit = document.createElement('button');
+				_obj_size_submit.innerText = '確定';
+				this.addGlobalConst(this, 'OBJ_SIZE_SUBMIT', _obj_size_submit);
+
+				_obj_size_section.appendChild(_obj_scale_section);
+				_obj_size_section.appendChild(_obj_custom_section);
+				_obj_size_section.appendChild(_obj_size_submit);
+				return _obj_size_section;
+			}
+
+			// 用dom去產生頁面上的排版
+
+		}, {
+			key: 'makeTempate',
+			value: function makeTempate() {
+
+				var _scope = this;
+
+				var _obj_main = this.getMainSection();
+
+				if (_obj_main !== undefined) {
+
+					// 上傳檔案
+					var _obj_upload_section = this.returnUploadSection();
+
+					// 預覽圖片
+					var _obj_canvas_section = this.returnCanvasSection();
+
+					// 輸出圖片尺寸
+					var _obj_size_section = this.returnSizeSection();
+
+					// 新增效果
+					var _obj_method_section = this.returnMethodSection();
+
+					// 新增效果 - 新方法
+					var _obj_method_add_section = this.returnMethodAddSection();
+
+					// 原圖預覽圖片
+					var _obj_origin_image_section = this.returnOriginImageSection();
+
+					_obj_main.appendChild(_obj_size_section);
+					_obj_main.appendChild(_obj_upload_section);
+					_obj_main.appendChild(_obj_method_section);
+					_obj_main.appendChild(_obj_method_add_section);
+					_obj_main.appendChild(_obj_origin_image_section);
+					_obj_main.appendChild(_obj_canvas_section);
+
+					_scope.judgeOutputImageSetting.call(_scope.getObjsSizeSubmit(), _scope);
+					_scope.listenRangeChange.call(_scope.getObjsSizeRange(), _scope);
+					_scope.getRangeShowText();
+				}
+			}
+		}, {
+			key: 'judgeOutputImageSetting',
+			value: function judgeOutputImageSetting(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onclick = function (e) {
+					var _obj_scale_radio = scope_calss.getObjsSizeScaleRadio(),
+					    _obj_custom_radio = scope_calss.getObjsSizeCustomRadio();
+					var _str_size = _obj_scale_radio.checked === true ? _obj_scale_radio.value : _obj_custom_radio.checked === true ? _obj_custom_radio.value : '';
+					var _json_setting = {
+						size: _str_size
+					};
+
+					if (_str_size === _Settings2.default.OUTPUT_SIZE_SCALE) {
+						_json_setting.range = scope_calss.getObjsSizeRange().value;
+					} else if (_str_size === _Settings2.default.OUTPUT_SIZE_CUSTOM) {
+						_json_setting.width = scope_calss.getObjsSizeCustomWidth().value;
+						_json_setting.height = scope_calss.getObjsSizeCustomHeight().value;
+						_json_setting.custom = document.querySelectorAll('[name="custom_' + scope_calss.getModuleId() + '"]:checked')[0].value || '';
+					}
+					scope_calss.setOutputImageSetting(_json_setting);
+				};
+			}
+		}, {
+			key: 'uploadAction',
+			value: function uploadAction(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onchange = function (e) {
+					// 從頭更換圖片
+					var windowURL = window.URL || window.webkitURL;
+					var _str_image_data = windowURL.createObjectURL(this.files[0]);
+					// scope_calss.setImageInitData( _str_image_data );
+
+					scope_calss.getEmitter().emit('origin.data.changed', {
+						origin_data: _str_image_data,
+						setting: scope_calss.getOutputImageSetting()
+					});
+				};
+			}
+
+			// 新增效果的按鈕
+
+		}, {
+			key: 'methodAddBtnAction',
+			value: function methodAddBtnAction(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onclick = function (e) {
+					var _str_method_value = scope_calss.getObjMethodSelect().value;
+					if (_str_method_value !== '') {
+						scope_calss.getEmitter().emit('step.method.pushing', {
+							method: _str_method_value
+						});
+					} else {
+						console.log('不應為空!!');
+					}
+				};
+			}
+
+			// 新增效果的按鈕 - 新方法
+
+		}, {
+			key: 'methodAddBtnActive',
+			value: function methodAddBtnActive(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onclick = function (e) {
+					scope_calss.getEmitter().emit('method.setting.open.asking');
+				};
+			}
+
+			// 刪除效果的按鈕
+
+		}, {
+			key: 'methodDeleteBtnAction',
+			value: function methodDeleteBtnAction(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onclick = function (e) {
+					// 先直接發出刪除methodid的事件，之後再來擴充
+					scope_calss.getEmitter().emit('step.method.splicing', {
+						method: _obj_self.data.method,
+						method_id: _obj_self.data.method_id,
+						method_btn: this
+					});
+				};
+			}
+		}, {
+			key: 'listenRangeChange',
+			value: function listenRangeChange(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onchange = function (e) {
+					scope_calss.getRangeShowText();
+				};
+			}
+		}, {
+			key: 'getRangeShowText',
+			value: function getRangeShowText() {
+				var _scope = this;
+				_scope.getObjsSizeRangesShow().innerText = _scope.getObjsSizeRange().value + '%';
+			}
+		}, {
+			key: 'defaultAction',
+			value: function defaultAction(obj) {
+				var _scope = this;
+				_scope.initGlobalConst(this);
+
+				if (obj.nodeType >= 1) {
+					_scope.addGlobalConst(this, 'MAIN_SECTION', obj);
+					_scope.makeTempate();
+				}
+			}
+		}]);
+
+		return MainImageFilter;
+	}(_GlobalConst3.default);
+
+	exports.default = MainImageFilter;
+	;
+
+/***/ },
+/* 238 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Utils = __webpack_require__(29);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(20);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _Setting = __webpack_require__(25);
+
+	var _Setting2 = _interopRequireDefault(_Setting);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _MethodControlDot = __webpack_require__(241);
+
+	var _MethodControlDot2 = _interopRequireDefault(_MethodControlDot);
+
+	var _MethodControlAlpha = __webpack_require__(239);
+
+	var _MethodControlAlpha2 = _interopRequireDefault(_MethodControlAlpha);
+
+	var _MethodControlSaturate = __webpack_require__(242);
+
+	var _MethodControlSaturate2 = _interopRequireDefault(_MethodControlSaturate);
+
+	var _MethodControlContrast = __webpack_require__(240);
+
+	var _MethodControlContrast2 = _interopRequireDefault(_MethodControlContrast);
+
+	var _MethodSettings = __webpack_require__(40);
+
+	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControl = function (_React$Component) {
+	    _inherits(MethodControl, _React$Component);
+
+	    function MethodControl(props) {
+	        _classCallCheck(this, MethodControl);
+
+	        // this.setComponentId( Utils.createUniqueId() );
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControl).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        return _this;
+	    }
+
+	    _createClass(MethodControl, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+
+	        // getComponentId(){
+	        //     return this.component_id;
+	        // }
+
+	        // setComponentId( data ){
+	        //     this.component_id = data;
+	        // }
+
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next) {
+	            if (this.state) {
+	                // this.setState( {methodStore:json_next.methodStore.getState()} );
+	                this.setState({});
+	            } else {
+	                // this.state = {methodStore:json_next.methodStore.getState()};
+	                this.state = {};
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            var _json_control = {};
+
+	            if (this.props.outputResult.method === _Settings2.default.METHOD_DOT) {
+	                _json_control = {
+	                    frequency: 20,
+	                    minSize: 2,
+	                    maxSize: 18,
+	                    minAlpha: 100,
+	                    maxAlpha: 100,
+	                    color: '#990000', // #hex
+	                    shape: _MethodSettings2.default.getAllShape()[0]
+	                };
+	                return _react2.default.createElement(_MethodControlDot2.default, {
+	                    methodStore: this.props.methodStore,
+	                    control: _json_control });
+	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_ALPHA) {
+	                _json_control = {
+	                    range: 100
+	                };
+	                return _react2.default.createElement(_MethodControlAlpha2.default, {
+	                    methodStore: this.props.methodStore,
+	                    control: _json_control });
+	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_SATURATE) {
+	                _json_control = {
+	                    range: 0
+	                };
+	                return _react2.default.createElement(_MethodControlSaturate2.default, {
+	                    methodStore: this.props.methodStore,
+	                    control: _json_control });
+	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_CONTRAST) {
+	                _json_control = {
+	                    range: 0
+	                };
+	                return _react2.default.createElement(_MethodControlContrast2.default, {
+	                    methodStore: this.props.methodStore,
+	                    control: _json_control });
+	            } else {
+	                return _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    'else'
+	                );
+	            }
+	            // return (
+	            //     <div>
+	            //         <div>123</div>
+	            //         <If cond={ this.props.outputResult.method===Settings.METHOD_SNOW }>
+	            //             snow
+	            //         </If>
+	            //         <ReactCond>
+	            //             { this.props.outputResult.method===Settings.METHOD_SNOW } ssss
+	            //             { this.props.outputResult.method!==Settings.METHOD_SNOW } not
+	            //         </ReactCond>
+	            //     </div>
+	            // );
+	        }
+	    }]);
+
+	    return MethodControl;
+	}(_react2.default.Component);
+
+	exports.default = MethodControl;
+	;
+
+	MethodControl.propTypes = {
+	    outputResult: _react2.default.PropTypes.object.isRequired,
+	    methodStore: _react2.default.PropTypes.object.isRequired
+	}, MethodControl.defaultProps = {
+	    outputResult: {},
+	    methodStore: {}
+	};
+
+/***/ },
+/* 239 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _Extend = __webpack_require__(21);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _GloablData = __webpack_require__(24);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControlAlpha = function (_React$Component) {
+	    _inherits(MethodControlAlpha, _React$Component);
+
+	    function MethodControlAlpha(props) {
+	        _classCallCheck(this, MethodControlAlpha);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlAlpha).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
+	        _this.submitAction = _this.submitAction.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(MethodControlAlpha, [{
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_ALPHA;
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next) {
+	            if (this.state) {
+	                this.setState({ control: json_next.control });
+	            } else {
+	                this.state = { control: json_next.control };
+	            }
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'handleChangeRange',
+	        value: function handleChangeRange(e) {
+	            var _json_new = _Extend2.default.deep(this.state, {
+	                control: {
+	                    range: e.target.value
+	                }
+	            });
+	            this.setState(_json_new);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('input', {
+	                    type: 'range',
+	                    ref: 'range',
+	                    step: '1',
+	                    min: '0',
+	                    max: '100',
+	                    value: this.state.control.range,
+	                    onChange: this.handleChangeRange }),
+	                ' ',
+	                this.state.control.range,
+	                ' / 100',
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: _scope.submitAction },
+	                    '確定'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlAlpha;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlAlpha;
+	;
+
+	MethodControlAlpha.propTypes = {
+	    control: _react2.default.PropTypes.object
+	}, MethodControlAlpha.defaultProps = {
+	    control: {}
+	};
+
+/***/ },
+/* 240 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _Extend = __webpack_require__(21);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _GloablData = __webpack_require__(24);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControlContrast = function (_React$Component) {
+	    _inherits(MethodControlContrast, _React$Component);
+
+	    function MethodControlContrast(props) {
+	        _classCallCheck(this, MethodControlContrast);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlContrast).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
+	        _this.submitAction = _this.submitAction.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(MethodControlContrast, [{
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_CONTRAST;
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next) {
+	            if (this.state) {
+	                this.setState({ control: json_next.control });
+	            } else {
+	                this.state = { control: json_next.control };
+	            }
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'handleChangeRange',
+	        value: function handleChangeRange(e) {
+	            var _json_new = _Extend2.default.deep(this.state, {
+	                control: {
+	                    range: e.target.value
+	                }
+	            });
+	            this.setState(_json_new);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('input', {
+	                    type: 'range',
+	                    ref: 'range',
+	                    step: '1',
+	                    min: '-100',
+	                    max: '100',
+	                    value: this.state.control.range,
+	                    onChange: this.handleChangeRange }),
+	                ' ',
+	                this.state.control.range,
+	                ' / 100',
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: _scope.submitAction },
+	                    '確定'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlContrast;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlContrast;
+	;
+
+	MethodControlContrast.propTypes = {
+	    control: _react2.default.PropTypes.object
+	}, MethodControlContrast.defaultProps = {
+	    control: {}
+	};
+
+/***/ },
+/* 241 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _Extend = __webpack_require__(21);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _GloablData = __webpack_require__(24);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	var _reactColorPicker = __webpack_require__(132);
+
+	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
+
+	var _MethodSettings = __webpack_require__(40);
+
+	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
+
+	var _ReactGroup = __webpack_require__(65);
+
+	var _ReactGroup2 = _interopRequireDefault(_ReactGroup);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// http://jslog.com/react-color-picker/
+	// https://www.npmjs.com/package/react-color-picker
+	// https://www.npmjs.com/package/color-picker
+
+	var MethodControlDot = function (_React$Component) {
+	    _inherits(MethodControlDot, _React$Component);
+
+	    function MethodControlDot(props) {
+	        _classCallCheck(this, MethodControlDot);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlDot).call(this, props));
+
+	        var _scope = _this;
+
+	        _scope.arrangeProps(props);
+
+	        _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
+	        _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
+	        _scope.submitAction = _scope.submitAction.bind(_scope);
+	        _scope.colorPick = _scope.colorPick.bind(_scope);
+
+	        return _this;
+	    }
+
+	    _createClass(MethodControlDot, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_DOT;
+	        }
+	    }, {
+	        key: 'arrangeState',
+	        value: function arrangeState() {
+	            return _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
+	                    frequency: this.refs.frequency.value,
+	                    minSize: this.refs.minSize.value,
+	                    maxSize: this.refs.maxSize.value,
+	                    minAlpha: this.refs.minAlpha.value,
+	                    maxAlpha: this.refs.maxAlpha.value
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next, callback) {
+	            if (this.state) {
+	                this.setState({ control: json_next.control });
+	            } else {
+	                this.state = { control: json_next.control };
+	            }
+	            console.log('json_next :: ', json_next);
+	            if (callback) {
+	                callback();
+	            }
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'handleChangeRange',
+	        value: function handleChangeRange() {
+	            var _json_new = this.arrangeState();
+	            this.setState(_json_new);
+	        }
+	    }, {
+	        key: 'handleChangeShape',
+	        value: function handleChangeShape(bln_change, json_return) {
+	            var _scope = this;
+	            var _json_new = _scope.arrangeState();
+	            _scope.setState(_json_new);
+	        }
+	    }, {
+	        key: 'getInputoption',
+	        value: function getInputoption() {
+	            return _MethodSettings2.default.getAllShape();
+	        }
+	    }, {
+	        key: 'getSelectKey',
+	        value: function getSelectKey() {
+	            return ['shape', 'shape_name'];
+	        }
+	    }, {
+	        key: 'getShowKey',
+	        value: function getShowKey() {
+	            return ['shape_name'];
+	        }
+	    }, {
+	        key: 'colorPick',
+	        value: function colorPick(str_color) {
+	            var _json_state = this.arrangeState();
+	            _json_state.control.color = str_color;
+	            this.setState(_json_state);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            var _json_store = this.props.methodStore.getState();
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                JSON.stringify(this.state.control.shape.shape),
+	                _react2.default.createElement(_ReactGroup2.default, {
+	                    onChange: this.handleChangeShape,
+	                    outputFormat: 'json',
+	                    name: 'method_option',
+	                    selectKey: this.getSelectKey(),
+	                    inputOption: this.getInputoption(),
+	                    outputResult: this.state.control.shape,
+	                    showKey: this.getShowKey(),
+	                    between: '~',
+	                    display: _json_store.display,
+	                    padding: _json_store.padding,
+	                    fillet: _json_store.fillet,
+	                    listStyle: _json_store.listStyle,
+	                    listPosition: _json_store.listPosition,
+	                    iconPosition: _json_store.iconPosition,
+	                    iconShow: _json_store.iconShow,
+	                    styleName: _json_store.styleName,
+	                    composition: _json_store.composition,
+	                    offBack: _json_store.offBack,
+	                    styleBorder: _json_store.styleBorder,
+	                    styleIcon: _json_store.styleIcon,
+	                    styleIconBack: _json_store.styleIconBack,
+	                    styleList: _json_store.styleList }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: { marginTop: '15px', marginBottom: '5px' } },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { style: { display: 'inline-block', background: this.state.control.color, padding: '5px', color: 'white' } },
+	                        this.state.control.color
+	                    )
+	                ),
+	                _react2.default.createElement(_reactColorPicker2.default, {
+	                    value: this.state.control.color,
+	                    onDrag: this.colorPick }),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    '頻率 ：',
+	                    _react2.default.createElement('input', {
+	                        type: 'range',
+	                        ref: 'frequency',
+	                        step: '1',
+	                        min: '1',
+	                        max: '100',
+	                        value: this.state.control.frequency,
+	                        onChange: this.handleChangeRange }),
+	                    ' ',
+	                    this.state.control.frequency,
+	                    ' / 100'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    '大小 ：',
+	                    _react2.default.createElement('input', {
+	                        type: 'range',
+	                        ref: 'minSize',
+	                        step: '1',
+	                        min: '1',
+	                        max: this.state.control.maxSize,
+	                        value: this.state.control.minSize,
+	                        onChange: this.handleChangeRange }),
+	                    ' ',
+	                    this.state.control.minSize,
+	                    ' / ',
+	                    this.state.control.maxSize,
+	                    _react2.default.createElement('input', {
+	                        type: 'range',
+	                        ref: 'maxSize',
+	                        step: '1',
+	                        min: this.state.control.minSize,
+	                        max: '200',
+	                        value: this.state.control.maxSize,
+	                        onChange: this.handleChangeRange }),
+	                    ' ',
+	                    this.state.control.maxSize,
+	                    ' / 20'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    '透明度 ：',
+	                    _react2.default.createElement('input', {
+	                        type: 'range',
+	                        ref: 'minAlpha',
+	                        step: '1',
+	                        min: '1',
+	                        max: this.state.control.maxSize,
+	                        value: this.state.control.minAlpha,
+	                        onChange: this.handleChangeRange }),
+	                    ' ',
+	                    this.state.control.minAlpha,
+	                    ' / ',
+	                    this.state.control.maxAlpha,
+	                    _react2.default.createElement('input', {
+	                        type: 'range',
+	                        ref: 'maxAlpha',
+	                        step: '1',
+	                        min: this.state.control.minAlpha,
+	                        max: '100',
+	                        value: this.state.control.maxAlpha,
+	                        onChange: this.handleChangeRange }),
+	                    ' ',
+	                    this.state.control.maxAlpha,
+	                    ' / 100'
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: _scope.submitAction },
+	                    '確定'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlDot;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlDot;
+	;
+
+	MethodControlDot.propTypes = {
+	    control: _react2.default.PropTypes.object
+	}, MethodControlDot.defaultProps = {
+	    control: {}
+	};
+
+/***/ },
+/* 242 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _Extend = __webpack_require__(21);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _GloablData = __webpack_require__(24);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControlSaturate = function (_React$Component) {
+	    _inherits(MethodControlSaturate, _React$Component);
+
+	    function MethodControlSaturate(props) {
+	        _classCallCheck(this, MethodControlSaturate);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlSaturate).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
+	        _this.submitAction = _this.submitAction.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(MethodControlSaturate, [{
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_SATURATE;
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next) {
+	            if (this.state) {
+	                this.setState({ control: json_next.control });
+	            } else {
+	                this.state = { control: json_next.control };
+	            }
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            var _num_range = _scope.state.control.range;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: {
+	                    range: _num_range
+	                }
+	            });
+	        }
+	    }, {
+	        key: 'handleChangeRange',
+	        value: function handleChangeRange(e) {
+	            var _json_new = _Extend2.default.deep(this.state, {
+	                control: {
+	                    range: this.refs.range.value
+	                }
+	            });
+	            this.setState(_json_new);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('input', {
+	                    type: 'range',
+	                    ref: 'range',
+	                    step: '1',
+	                    min: '-100',
+	                    max: '100',
+	                    value: this.state.control.range,
+	                    onChange: this.handleChangeRange }),
+	                ' ',
+	                this.state.control.range,
+	                ' / 100',
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: _scope.submitAction },
+	                    '確定'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlSaturate;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlSaturate;
+	;
+
+	MethodControlSaturate.propTypes = {
+	    control: _react2.default.PropTypes.object
+	}, MethodControlSaturate.defaultProps = {
+	    control: {}
+	};
+
+/***/ },
+/* 243 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _ReactGroup = __webpack_require__(65);
+
+	var _ReactGroup2 = _interopRequireDefault(_ReactGroup);
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(20);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _MethodSettings = __webpack_require__(40);
+
+	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
+
+	var _Setting = __webpack_require__(25);
+
+	var _Setting2 = _interopRequireDefault(_Setting);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodOption = function (_React$Component) {
+	    _inherits(MethodOption, _React$Component);
+
+	    function MethodOption(props) {
+	        _classCallCheck(this, MethodOption);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodOption).call(this, props));
+
+	        _this.state = {};
+	        _this.handleChange = _this.handleChange.bind(_this);
+	        return _this;
+	    }
+
+	    _createClass(MethodOption, [{
+	        key: 'getStore',
+	        value: function getStore() {
+	            return this.props.methodStore;
+	        }
+	    }, {
+	        key: 'getStoreState',
+	        value: function getStoreState() {
+	            return this.getStore().getState();
+	        }
+	    }, {
+	        key: 'getInputoption',
+	        value: function getInputoption() {
+	            return _MethodSettings2.default.getAllMethod();
+	        }
+	    }, {
+	        key: 'getSelectKey',
+	        value: function getSelectKey() {
+	            return ['method'];
+	        }
+	    }, {
+	        key: 'getShowKey',
+	        value: function getShowKey() {
+	            return ['method_name'];
+	        }
+	    }, {
+	        key: 'getOutputResult',
+	        value: function getOutputResult() {
+	            return this.props.outputResult;
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(bln_change, json_return) {
+	            if (bln_change === true) {
+	                this.props.handleChange(json_return);
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+
+	            var _json_store = this.getStoreState();
+	            return _react2.default.createElement(_ReactGroup2.default, {
+	                onChange: this.handleChange,
+	                outputFormat: 'json',
+	                name: 'method_option',
+	                selectKey: this.getSelectKey(),
+	                inputOption: this.getInputoption(),
+	                outputResult: this.getOutputResult(),
+	                showKey: this.getShowKey(),
+	                between: '~',
+	                display: _json_store.display,
+	                padding: _json_store.padding,
+	                fillet: _json_store.fillet,
+	                listStyle: _json_store.listStyle,
+	                listPosition: _json_store.listPosition,
+	                iconPosition: _json_store.iconPosition,
+	                iconShow: _json_store.iconShow,
+	                styleName: _json_store.styleName,
+	                composition: _json_store.composition,
+	                offBack: _json_store.offBack,
+	                styleBorder: _json_store.styleBorder,
+	                styleIcon: _json_store.styleIcon,
+	                styleIconBack: _json_store.styleIconBack,
+	                styleList: _json_store.styleList });
+	        }
+	    }]);
+
+	    return MethodOption;
+	}(_react2.default.Component);
+
+	exports.default = MethodOption;
+	;
+
+	MethodOption.propTypes = {
+	    handleChange: _react2.default.PropTypes.func.isRequired,
+	    outputResult: _react2.default.PropTypes.object.isRequired,
+	    methodStore: _react2.default.PropTypes.object.isRequired
+	}, MethodOption.defaultProps = {
+	    handleChange: function handleChange() {},
+	    outputResult: {},
+	    methodStore: {}
+	};
+
+	// this.arrangeProps( props );
+
+	// componentWillReceiveProps(nextProps){
+	//     this.arrangeProps(nextProps);
+	// }
+
+	// arrangeProps(json_next){
+	//     this.setState( {methodStore:json_next.methodStore.getState()} );
+	// }
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _MethodOption = __webpack_require__(243);
+
+	var _MethodOption2 = _interopRequireDefault(_MethodOption);
+
+	var _MethodControl = __webpack_require__(238);
+
+	var _MethodControl2 = _interopRequireDefault(_MethodControl);
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(20);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _MethodSettings = __webpack_require__(40);
+
+	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
+
+	var _GloablData = __webpack_require__(24);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodReact = function (_React$Component) {
+	    _inherits(MethodReact, _React$Component);
+
+	    function MethodReact(props) {
+	        _classCallCheck(this, MethodReact);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodReact).call(this, props));
+
+	        _this.defaultMethod = _extends({}, _MethodSettings2.default.getAllMethod()[0]);
+
+
+	        _this.arrangeStates(props);
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+
+	        _this.default();
+
+	        // setTimeout(function(){
+	        //     props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
+	        //     setTimeout(function(){
+	        //         props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
+	        //     },2000);
+	        // },2000);
+
+	        return _this;
+	    }
+
+	    _createClass(MethodReact, [{
+	        key: 'default',
+	        value: function _default() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().on('method.setting.opening', function () {
+	                var _str_from = _GloablData2.default.getFrom();
+	                _scope.arrangeStates(_scope.getDefaultMethod());
+	            });
+	        }
+	    }, {
+	        key: 'getDefaultMethod',
+	        value: function getDefaultMethod() {
+	            return this.defaultMethod;
+	        }
+	    }, {
+	        key: 'getOutputResult',
+	        value: function getOutputResult() {
+	            return this.state.outputResult;
+	        }
+	    }, {
+	        key: 'arrangeStates',
+	        value: function arrangeStates(json_next) {
+	            var _json = {};
+	            _json.outputResult = json_next.outputResult || this.getDefaultMethod();
+	            if (this.state) {
+	                this.setState(_json);
+	            } else {
+	                this.state = _json;
+	            }
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(_ref) {
+	            var json_return = _objectWithoutProperties(_ref, []);
+
+	            var _json = _extends({}, this.state);
+	            _json.outputResult = json_return.result;
+	            this.setState(_json);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render(nextProps, nextState) {
+	            nextProps = nextProps || {};
+	            nextState = nextState || {};
+	            var _json_result = nextState.outputResult || this.getOutputResult();
+	            var _json_method = nextProps.methodStore || this.props.methodStore;
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'div',
+	                    null,
+	                    _json_result.method
+	                ),
+	                _react2.default.createElement(_MethodOption2.default, {
+	                    handleChange: this.handleChange,
+	                    outputResult: _json_result,
+	                    methodStore: this.props.methodStore }),
+	                _react2.default.createElement(_MethodControl2.default, {
+	                    outputResult: _json_result,
+	                    methodStore: this.props.methodStore })
+	            );
+	        }
+	    }]);
+
+	    return MethodReact;
+	}(_react2.default.Component);
+
+	exports.default = MethodReact;
+	;
+
+	MethodReact.propTypes = {
+	    methodStore: _react2.default.PropTypes.object.isRequired
+	}, MethodReact.defaultProps = {
+	    methodStore: {}
+	};
+
+/***/ },
+/* 245 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = MethodReducer;
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _Setting = __webpack_require__(25);
+
+	var _Setting2 = _interopRequireDefault(_Setting);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var _json_state_init = {
+	    display: _Setting2.default.DISPLAY_INBLOCK,
+	    padding: _Setting2.default.PADDING_BASE,
+	    fillet: _Setting2.default.FILLET_BASE,
+	    listStyle: _Setting2.default.LIST_STYLE_CIRCLE,
+	    listPosition: _Setting2.default.LIST_POSITION_INNER,
+	    iconPosition: _Setting2.default.ICON_POSTION_LEFT,
+	    iconShow: [_Setting2.default.ICON_SHOW_EMPTY_HEART, _Setting2.default.ICON_SHOW_HEART],
+	    styleName: _Setting2.default.STYLE_NAME_LUXURY,
+	    composition: _Setting2.default.COMPOSITION_TINY,
+	    offBack: false,
+	    styleBorder: true,
+	    styleIcon: true,
+	    styleIconBack: true,
+	    styleList: true
+	};
+	var _json_state_test = {
+	    display: _Setting2.default.DISPLAY_INBLOCK,
+	    padding: _Setting2.default.PADDING_TINY,
+	    fillet: _Setting2.default.FILLET_BASE,
+	    listStyle: _Setting2.default.LIST_STYLE_CIRCLE,
+	    listPosition: _Setting2.default.LIST_POSITION_INNER,
+	    iconPosition: _Setting2.default.ICON_POSTION_LEFT,
+	    iconShow: [_Setting2.default.ICON_SHOW_EMPTY_HEART, _Setting2.default.ICON_SHOW_HEART],
+	    styleName: _Setting2.default.STYLE_NAME_LUXURY,
+	    composition: _Setting2.default.COMPOSITION_TINY,
+	    offBack: true,
+	    styleBorder: true,
+	    styleIcon: true,
+	    styleIconBack: true,
+	    styleList: true
+	};
+
+	function MethodReducer() {
+	    var state = arguments.length <= 0 || arguments[0] === undefined ? _json_state_init : arguments[0];
+	    var action = arguments[1];
+
+	    switch (action.type) {
+	        case 'METHOD_LOOKS_INIT':
+	            return state = _json_state_init;
+	        case 'METHOD_LOOKS_TEST':
+	            return state = _json_state_test;
+	        default:
+	            return state;
+	    }
+	}
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux + nativeJS 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(20);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _GlobalConst2 = __webpack_require__(64);
+
+	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _redux = __webpack_require__(203);
+
+	var _MethodReact = __webpack_require__(244);
+
+	var _MethodReact2 = _interopRequireDefault(_MethodReact);
+
+	var _MethodReducer = __webpack_require__(245);
+
+	var _MethodReducer2 = _interopRequireDefault(_MethodReducer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var methodStore = (0, _redux.createStore)(_MethodReducer2.default);
+
+	var MethodSection = function (_GlobalConst) {
+	    _inherits(MethodSection, _GlobalConst);
+
+	    function MethodSection(str_id) {
+	        _classCallCheck(this, MethodSection);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodSection).call(this));
+
+	        _this.addGlobalConst(_this, 'globalId', str_id);
+
+	        _this.default();
+
+	        return _this;
+	    }
+
+	    _createClass(MethodSection, [{
+	        key: 'default',
+	        value: function _default() {
+	            _GloablTools2.default.Emitter().on('method.setting.open.asked', function () {
+	                _GloablTools2.default.Emitter().emit('method.setting.opening');
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            _reactDom2.default.render(_react2.default.createElement(_MethodReact2.default, {
+	                methodStore: methodStore }), document.getElementById("method-popup"));
+	        }
+	    }, {
+	        key: 'create',
+	        value: function create() {
+	            this.render();
+	            methodStore.subscribe(this.render);
+	        }
+	    }]);
+
+	    return MethodSection;
+	}(_GlobalConst3.default);
+
+	exports.default = MethodSection;
+	;
+
+	/*
+	https://github.com/reactjs/redux/blob/master/examples/counter/
+
+	import Counter from './components/Counter'
+	import counter from './reducers'
+
+	const store = createStore(counter)
+	const rootEl = document.getElementById('root')
+
+	function render() {
+	  ReactDOM.render(
+	    <Counter
+	      value={store.getState()}
+	      onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+	      onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
+	    />,
+	    rootEl  
+	  )
+	}
+
+	render()
+	store.subscribe(render)
+	*/
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _Utils = __webpack_require__(29);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	var _MainImageFilter = __webpack_require__(237);
+
+	var _MainImageFilter2 = _interopRequireDefault(_MainImageFilter);
+
+	var _ImageDataComputeMethod = __webpack_require__(234);
+
+	var _ImageDataComputeMethod2 = _interopRequireDefault(_ImageDataComputeMethod);
+
+	var _ImageDataComputeProcess = __webpack_require__(235);
+
+	var _ImageDataComputeProcess2 = _interopRequireDefault(_ImageDataComputeProcess);
+
+	var _ImageDataOriginal = __webpack_require__(236);
+
+	var _ImageDataOriginal2 = _interopRequireDefault(_ImageDataOriginal);
+
+	var _StepMethod = __webpack_require__(248);
+
+	var _StepMethod2 = _interopRequireDefault(_StepMethod);
+
+	var _GlobalConst2 = __webpack_require__(64);
+
+	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
+
+	var _ComponentEmitter = __webpack_require__(105);
+
+	var _ComponentEmitter2 = _interopRequireDefault(_ComponentEmitter);
+
+	var _GloablTools = __webpack_require__(18);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _GloablData = __webpack_require__(24);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	var _Extend = __webpack_require__(21);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PictureDraw = function (_GlobalConst) {
+		_inherits(PictureDraw, _GlobalConst);
+
+		function PictureDraw(obj_main, str_id) {
+			_classCallCheck(this, PictureDraw);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PictureDraw).call(this));
+
+			var _scope = _this;
+
+			_scope.addGlobalConst(_scope, 'ComponentId', str_id);
+
+			var emitter = new _ComponentEmitter2.default();
+			_scope.addGlobalConst(_scope, 'emitter', emitter);
+
+			_scope.mainImageFilter = new _MainImageFilter2.default(obj_main, { emitter: emitter });
+			_scope.stepMethod = new _StepMethod2.default({ emitter: emitter });
+			_scope.imageDataComputeProcess = new _ImageDataComputeProcess2.default({ emitter: emitter });
+			_scope.imageDataComputeMethod = new _ImageDataComputeMethod2.default({ emitter: emitter });
+			_scope.imageDataOriginal = new _ImageDataOriginal2.default({ emitter: emitter });
+
+			if (obj_main !== undefined) {
+
+				// 用完運算結束後，我們要用出預覽圖
+				_scope.getGlobalConst(_scope).emitter.on('step.image.final.step.computed', function (e) {
+					var _json_data = arguments[0];
+					_scope.mainImageFilter.getObjImagePreview().src = _json_data.data;
+				});
+
+				// 新增效果
+				_scope.getGlobalConst(_scope).emitter.on('step.method.show.adding', function (e) {
+					// 新增顯示method的文字
+					var _json_data = arguments[0];
+					var _obj_result = document.createElement('span');
+					_obj_result.style.marginRight = '20px';
+					_obj_result.data = _obj_result.data || {};
+					_obj_result.data.method_id = _json_data.method_id;
+					_obj_result.data.method = _json_data.method;
+					_obj_result.setAttribute('data-method-id', _json_data.method_id);
+					_obj_result.insertAdjacentHTML('beforeend', _Settings2.default.getConstNameByEn(_json_data.method));
+					_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
+
+					_scope.mainImageFilter.methodDeleteBtnAction.call(_obj_result, _scope.mainImageFilter);
+
+					// 以下是實際執行新的圖片運算工作
+
+					var _sary_step_data = _scope.imageDataComputeProcess.getStepImage();
+
+					if (_sary_step_data instanceof Array === true && _sary_step_data.length > 0) {
+
+						var _num_width = _scope.imageDataComputeMethod.getComputeWidth();
+						var _num_height = _scope.imageDataComputeMethod.getComputeHeight();
+
+						_json_data.origin_data = _sary_step_data[_sary_step_data.length - 1].data; // 目前得到的最後一次運算結果
+
+						_scope.getGlobalConst(_scope).emitter.emit('step.image.success.loaded', _json_data, true);
+					}
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.method.show.deleting', function (e) {
+					var _json_data = arguments[0];
+					var _sary_step_data = _scope.imageDataComputeProcess.getStepImage();
+
+					if (_sary_step_data instanceof Array === true && _sary_step_data.length > 0) {
+						(function () {
+
+							var _num_step_data = _sary_step_data.length;
+
+							var _sary_new_step_data = [];
+
+							for (var i = 0; i < _num_step_data; i++) {
+								if (_sary_step_data[i].method_id === _json_data.method_id) {
+									break;
+								} else {
+									_sary_new_step_data.push(_sary_step_data[i]);
+								}
+							}
+
+							var _num_new_step_data_length = _sary_new_step_data.length;
+
+							if (_num_new_step_data_length < _sary_step_data.length) {
+								if (_sary_new_step_data.length === 1) {
+									_scope.imageDataComputeMethod.changeData('', _sary_new_step_data[0].origin_data, _sary_new_step_data[0], function () {
+										_scope.imageDataComputeProcess.setStepImage(_sary_new_step_data);
+									});
+								} else {
+									_scope.imageDataComputeProcess.setStepImage(_sary_new_step_data);
+								}
+							}
+						})();
+					}
+
+					_scope.mainImageFilter.getObjMethodResult().removeChild(_json_data.method_btn);
+				});
+
+				// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+				_GloablTools2.default.Emitter().on('method.cotroller.control.operating', function () {
+					// 新的設定的做法
+					var _json = arguments[0];
+					if (_json.from === _scope.getGlobalConst(_scope).ComponentId) {
+						_json.from = null;
+						delete _json.from;
+						_json.setting = _scope.getEmitSetting();
+						_scope.stepMethod.pushStepMethod(_json);
+					}
+				});
+				_scope.getGlobalConst(_scope).emitter.on('step.method.pushing', function () {
+					var _scope$stepMethod;
+
+					// 舊的下直式選單的做法
+					(_scope$stepMethod = _scope.stepMethod).pushStepMethod.apply(_scope$stepMethod, arguments);
+				});
+				// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+				_scope.getGlobalConst(_scope).emitter.on('step.method.splicing', function () {
+					var _scope$stepMethod2;
+
+					(_scope$stepMethod2 = _scope.stepMethod).spliceStepMethod.apply(_scope$stepMethod2, arguments);
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.method.option.added', function (e) {
+					var _json_data = arguments[0];
+					_scope.getGlobalConst(_scope).emitter.emit('step.method.show.adding', _json_data); // 要改了，先不傳這事件?!
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.method.option.deleted', function (e) {
+					var _json_data = arguments[0];
+					_scope.getGlobalConst(_scope).emitter.emit('step.method.show.deleting', _json_data); // 要改了，先不傳這事件?!
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('init.data.changed', function (e) {
+					console.log('----- init.data.changed -----');
+					var _json_data = arguments[0];
+					_scope.imageDataComputeProcess.setStepImage([], _ImageDataComputeProcess2.default.TIMMING_RESET, _json_data);
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('init.data.size.asking', function (e) {
+					console.log('----- init.data.size.asking -----');
+					var _json_data = arguments[0];
+					_json_data.setting = _scope.getEmitSetting();
+					_scope.imageDataOriginal.operateImageSize(_json_data);
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('origin.data.changed', function (e) {
+					console.log('----- origin.data.changed -----');
+					var _json_data = arguments[0];
+					_scope.imageDataOriginal.getObjImage().src = _json_data.origin_data;
+					_scope.mainImageFilter.getObjOriginImage().src = _json_data.origin_data;
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function (e) {
+					var _json = arguments[0],
+					    _bln_delete_created = arguments[1],
+					    _str_method = _json.method;
+
+					if (_bln_delete_created === true) {
+						_json.created = _json.created || {};
+					}
+
+					if (_str_method === _Settings2.default.METHOD_DOT) {
+						_scope.imageDataComputeMethod.methodDot(_json);
+					} else if (_str_method === _Settings2.default.METHOD_ALPHA) {
+						_scope.imageDataComputeMethod.methodAlpha(_json);
+					} else if (_str_method === _Settings2.default.METHOD_SATURATE) {
+						_scope.imageDataComputeMethod.methodSaturate(_json);
+					} else if (_str_method === _Settings2.default.METHOD_CONTRAST) {
+						_scope.imageDataComputeMethod.methodContrast(_json);
+					} else {
+						_scope.imageDataComputeMethod.methodOrigin(_json);
+					}
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.image.error.loaded', function (e) {
+					'錯誤!!';
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.image.success.computed', function (e) {
+					var _json_data = arguments[0];
+					if (_json_data && typeof _json_data.origin_data === 'string' && _json_data.origin_data !== '') {
+						_scope.imageDataComputeProcess.pushStepData(_json_data, _scope.stepMethod.getStepMethod());
+					}
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.image.seted', function (e) {
+					var _str_timming = arguments[0],
+					    _json_other = arguments[1] || {};
+
+					if (_str_timming === _ImageDataComputeProcess2.default.TIMMING_RESET) {
+						_scope.imageDataComputeMethod.changeData('', _json_other.origin_data, _json_other);
+					} else {
+						_scope.getGlobalConst(_scope).emitter.emit('step.image.pushed');
+					}
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('step.image.pushed', function (e) {
+					var _str_timming = arguments[0],
+					    _json_other = arguments[1] || {};
+
+					var _num_step_length = _scope.imageDataComputeProcess.getStepImage().length,
+					    _sary_step_method = _scope.stepMethod.getStepMethod();
+					var _sary_step_image = _scope.imageDataComputeProcess.getStepImage(),
+					    _json_data = _sary_step_image[_sary_step_image.length - 1];
+
+					// +* +* +* +* +* +* +* +* +* +* +* +* +* +* +* +*
+
+					if (_num_step_length < _sary_step_method.length) {
+						// 先處理圖片
+						_scope.imageDataComputeMethod.changeData(_sary_step_method[_num_step_length].method, _json_data.data, _sary_step_method[_num_step_length]);
+					} else {
+						// 圖片處理好了，我們現在要準備預覽
+						_scope.getGlobalConst(_scope).emitter.emit('step.image.final.step.computed', _json_data);
+						console.log('******************* 預覽圖片!! *******************');
+					}
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function (e) {
+					var _str_from = _scope.getGlobalConst(_scope).ComponentId;
+					_GloablData2.default.setFrom(_str_from);
+					_GloablTools2.default.Emitter().emit('method.setting.open.asked');
+				});
+			}
+
+			return _this;
+		}
+
+		// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+		_createClass(PictureDraw, [{
+			key: 'getEmitSetting',
+			value: function getEmitSetting(json_setting) {
+				var _scope = this;
+				json_setting = json_setting || {};
+				return _Extend2.default.deep(json_setting, _scope.mainImageFilter.getOutputImageSetting(), _scope.imageDataOriginal.getOriginImageSize());
+			}
+		}]);
+
+		return PictureDraw;
+	}(_GlobalConst3.default);
+
+	exports.default = PictureDraw;
+	;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Settings = __webpack_require__(8);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _Utils = __webpack_require__(29);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	var _Tools2 = __webpack_require__(41);
+
+	var _Tools3 = _interopRequireDefault(_Tools2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var StepMethod = function (_Tools) {
+		_inherits(StepMethod, _Tools);
+
+		function StepMethod(json_tools) {
+			_classCallCheck(this, StepMethod);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(StepMethod).call(this));
+
+			_this.init_step_method = [{
+				method: '',
+				method_id: _Utils2.default.createMethodId()
+			}];
+			var _sary_step_method_other = [];
+
+			_this.step_method = _this.init_step_method.concat(_sary_step_method_other);
+			_this.setEmitter(json_tools.emitter);
+
+			window.step_method = _this.step_method;
+
+			return _this;
+		}
+
+		_createClass(StepMethod, [{
+			key: 'getStepMethod',
+			value: function getStepMethod() {
+				return this.step_method || [];
+			}
+		}, {
+			key: 'pushStepMethod',
+			value: function pushStepMethod(json) {
+				var _scope = this;
+				if (json !== undefined) {
+					json.method_id = json.method_id || _Utils2.default.createMethodId();
+					_scope.step_method.push(json);
+					setTimeout(function () {
+						_scope.getEmitter().emit('step.method.option.added', json);
+					}, 100);
+				}
+			}
+		}, {
+			key: 'spliceStepMethod',
+			value: function spliceStepMethod(json) {
+				if (json !== undefined && typeof json.method_id === 'string' && json.method_id !== '') {
+					var _num_index = void 0;
+					for (var i = 0; i < this.step_method.length; i++) {
+						if (this.step_method[i].method_id === json.method_id) {
+							_num_index = i;
+							break;
+						}
+					}
+					if (_num_index >= 0) {
+						this.step_method.splice(_num_index, 1);
+						this.getEmitter().emit('step.method.option.deleted', json);
+					}
+				}
+			}
+		}]);
+
+		return StepMethod;
+	}(_Tools3.default);
+
+	exports.default = StepMethod;
+	;
+
+/***/ },
+/* 249 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 250 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
