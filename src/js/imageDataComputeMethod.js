@@ -181,7 +181,7 @@ export default class ImageDataComputeMethod extends Tools {
         let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
 
         // Loop through data.
-        for (var i = 0; i < (_num_width*_num_height*4); i += 4) {
+        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
 
           // First bytes are red bytes.        
           // Second bytes are green bytes.
@@ -190,6 +190,29 @@ export default class ImageDataComputeMethod extends Tools {
           // Test of alpha channel at 50%.
           // _json_image_data.data[i + 3] = 128;
           _json_image_data.data[i + 3] = _json_image_data.data[i + 3]*(_num_range/100);
+        }
+		_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+		_scope.emitAfterMethod( json );
+
+	}
+
+	// 負片效果
+	methodInvert( json ){
+		let _scope = this;
+
+		json = _scope.methodVars( json );
+
+		let _num_width = _scope.getComputeWidth(),
+			_num_height = _scope.getComputeHeight();
+
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+
+        // Loop through data.
+        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
+          _json_image_data.data[i] = 255-_json_image_data.data[i];
+          _json_image_data.data[(i+1)] = 255-_json_image_data.data[(i+1)];
+          _json_image_data.data[(i+2)] = 255-_json_image_data.data[(i+2)];
         }
 		_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
 
@@ -215,7 +238,7 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_gray;
 
         // Loop through data.
-        for (var i = 0; i < (_num_width*_num_height*4); i += 4) {
+        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
 
 			// First bytes are red bytes.        
 			// Get red value.
@@ -268,7 +291,7 @@ export default class ImageDataComputeMethod extends Tools {
 
 		if( _num_range>0 || _num_range<0 ){
 	        // Loop through data.
-	        for (var i = 0; i < (_num_width*_num_height*4); i += 4) {
+	        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
 
 				_num_red = _json_image_data.data[i];
 				_num_green = _json_image_data.data[i + 1];
@@ -308,7 +331,7 @@ export default class ImageDataComputeMethod extends Tools {
         	_json_rgb = {};
 
         if( _num_range>0 || _num_range<0 ){
-		    for(var i=0;i<_json_image_data.data.length;i+=4){
+		    for(let i=0;i<_json_image_data.data.length;i+=4){
 
 				_num_red = _json_image_data.data[i];
 				_num_green = _json_image_data.data[i + 1];
@@ -391,6 +414,8 @@ export default class ImageDataComputeMethod extends Tools {
 
 		_scope.getEmitter().emit('step.image.success.computed', _json_emit);
 	}
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	operateSaturateRGB( num_range, num_red, num_green, num_blue ){
 		let _num_saturate_min =  Math.floor((num_red + num_green + num_blue) / 3); // 全灰階

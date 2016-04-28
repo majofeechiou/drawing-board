@@ -12,6 +12,7 @@ import MethodControlDot from './MethodControlDot';
 import MethodControlAlpha from './MethodControlAlpha';
 import MethodControlSaturate from './MethodControlSaturate';
 import MethodControlContrast from './MethodControlContrast';
+import MethodControlInvert from './MethodControlInvert';
 import MethodSettings from './MethodSettings';
 
 export default class MethodControl extends React.Component {
@@ -89,6 +90,13 @@ export default class MethodControl extends React.Component {
             };
             return (
                 <MethodControlContrast
+                    methodStore={this.props.methodStore}
+                    control={_json_control} />
+            );
+        }else if( this.props.outputResult.method===Settings.METHOD_INVERT ){
+            _json_control = {};
+            return (
+                <MethodControlInvert
                     methodStore={this.props.methodStore}
                     control={_json_control} />
             );

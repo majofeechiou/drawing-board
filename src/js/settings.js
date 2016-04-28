@@ -32,6 +32,9 @@ export default class Settings {
 	static METHOD_SEPIA = 'SEPIA';
 	static METHOD_SEPIA_NAME = '復古';
 
+	// static METHOD_SEPIA = 'blurry';
+	// static METHOD_SEPIA_NAME = '模糊';
+
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static OUTPUT_SIZE_SCALE = 'scale';
