@@ -2118,51 +2118,11 @@
 	        value: function getFrom() {
 	            return sessionStorage.from;
 	        }
-	        // static getStepMethod(){
-	        //     return sessionStorage.stepMethod || [] ;
-	        // }
-	        // static getInitStepMethod(){
-	        //     return sessionStorage.initStepMethod || [] ;
-	        // }
-	        // static getOtherStepMethod(){
-	        //     return sessionStorage.otherStepMethod || [] ;
-	        // }
-
 	    }, {
 	        key: 'setFrom',
 	        value: function setFrom(str) {
 	            sessionStorage.from = str || '';
 	        }
-	        // static setStepMethod( sary ){
-	        //     sessionStorage.stepMethod = sary || [] ;
-	        // }
-	        // static setInitStepMethod( sary ){
-	        //     sessionStorage.initStepMethod = sary || [] ;
-	        // }
-	        // static setOtherStepMethod( sary ){
-	        //     sessionStorage.otherStepMethod = sary || [] ;
-	        // }
-
-	        // static pushStepMethod( json, callback ){
-	        //     if( typeof sessionStorage.stepMethod !== 'array' ){
-	        //         sessionStorage.stepMethod = [] ;
-	        //     }
-	        //     console.log('sessionStorage.stepMethod :: ', sessionStorage.stepMethod );
-	        //     sessionStorage.stepMethod.push(json) ;
-	        //     if( callback && callback instanceof Function ){
-	        //         callback();
-	        //     }
-	        // }
-	        // static spliceStepMethod( num_index, num_delete, callback ){
-	        //     if( typeof sessionStorage.stepMethod !== 'array' ){
-	        //         sessionStorage.stepMethod = [] ;
-	        //     }
-	        //     sessionStorage.stepMethod.splice( num_index, num_delete ) ;
-	        //     if( callback && callback instanceof Function ){
-	        //         callback();
-	        //     }
-	        // }
-
 	    }]);
 
 	    return GloablData;
@@ -3088,6 +3048,20 @@
 
 	Utils.createMethodId = function () {
 	    return Date.now() + '-' + Math.floor(Math.random() * 100);
+	};
+
+	Utils.addClassName = function (obj, data) {
+	    var _ary_origin = obj.className.split(/\s+/),
+	        _ary_add = void 0;
+	    if (typeof data === 'string') {
+	        _ary_add = data.split(/\s+/);
+	    } else if (data instanceof Array === true) {
+	        _ary_add = data;
+	    }
+
+	    if (_ary_add instanceof Array === true && _ary_add.length > 0) {
+	        obj.className = _ary_origin.concat(_ary_add).join(' ').replace(/\s{2,}/, ' ').replace(/(^\s)|(\s$)/mg, '');
+	    }
 	};
 
 	exports.default = Utils;
@@ -28973,17 +28947,17 @@
 
 	(function body() {
 
-	    var methodSection = new _MethodSection2.default(_Utils2.default.createUniqueId());
-	    methodSection.create();
+	   var methodSection = new _MethodSection2.default(_Utils2.default.createUniqueId());
+	   methodSection.create();
 
-	    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	   // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-	    var _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
+	   var _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
 
-	    var pictureDraw = new _PictureDraw2.default(_obj_main[0], _Utils2.default.createUniqueId());
+	   var pictureDraw = new _PictureDraw2.default(_obj_main[0], _Utils2.default.createUniqueId());
 
-	    //    new PictureDraw( _obj_main[1], Utils.createUniqueId() );
-	    // new PictureDraw( _obj_main[2], Utils.createUniqueId() );
+	   new _PictureDraw2.default(_obj_main[1], _Utils2.default.createUniqueId());
+	   new _PictureDraw2.default(_obj_main[2], _Utils2.default.createUniqueId());
 	})(); // 用input抓原始圖片資料
 	// 用canvas修改圖片資料
 	// 預覽圖（固定某大小做為預覽圖）
@@ -29917,8 +29891,8 @@
 			_this.setEmitter(json_tools.emitter);
 			_this.setModuleId(_Utils2.default.createUniqueId());
 
-			// this.setOutputImageSetting( this.getInitOutputImageScale() );
-			_this.setOutputImageSetting(_this.getInitOutputImageCustom());
+			_this.setOutputImageSetting(_this.getInitOutputImageScale());
+			// this.setOutputImageSetting( this.getInitOutputImageCustom() );
 
 			_this.defaultAction(obj);
 
@@ -29980,14 +29954,6 @@
 			key: 'getObjImagePreview',
 			value: function getObjImagePreview() {
 				return this.getGlobalConst(this).OBJ_IMAGE_PREVIEW;
-			}
-
-			// 效果選項的元件
-
-		}, {
-			key: 'getObjMethodSelect',
-			value: function getObjMethodSelect() {
-				return this.getGlobalConst(this).OBJ_METHOD_SELECT;
 			}
 
 			// 選出來什麼效果選項的元件
@@ -30082,7 +30048,7 @@
 				return _obj_image_section;
 			}
 
-			// 上傳檔案
+			// 工具 - 上傳檔案
 
 		}, {
 			key: 'returnUploadSection',
@@ -30093,6 +30059,11 @@
 				this.uploadAction.call(_obj_upload, this);
 				this.addGlobalConst(this, 'OBJ_UPLOAD', _obj_upload);
 				_obj_upload_section.appendChild(_obj_upload);
+
+				// 原圖預覽圖片
+				var _obj_origin_image_section = this.returnOriginImageSection();
+				_obj_upload_section.appendChild(_obj_origin_image_section);
+
 				return _obj_upload_section;
 			}
 
@@ -30111,46 +30082,27 @@
 				return _obj_canvas_section;
 			}
 
-			// 新增效果
+			// 新增效果的結果選項集
 
 		}, {
-			key: 'returnMethodSection',
-			value: function returnMethodSection() {
+			key: 'returnResultSection',
+			value: function returnResultSection() {
 				var _obj_method_section = document.createElement('div');
 
 				// 選出了哪些效果
 				var _obj_method_result = document.createElement('span');
 				_obj_method_section.appendChild(_obj_method_result);
 
-				// 下拉式選單
-				var _obj_method_select = document.createElement('select');
-				_obj_method_select.name = 'method';
-				var _sary_option = _MethodSettings2.default.getAllMethod();
-				var _str_method_select = '';
-				_str_method_select += '<option value="">---請選擇---</option>';
-				for (var i = 0; i < _sary_option.length; i++) {
-					_str_method_select += '<option value="' + _sary_option[i].method + '">' + _sary_option[i].method_name + '</option>';
-				}
-				_obj_method_select.insertAdjacentHTML('afterbegin', _str_method_select);
-
-				// 新增按鈕
-				var _obj_method_button = document.createElement('button');
-				_obj_method_button.innerText = '新增效果';
-				this.methodAddBtnAction.call(_obj_method_button, this);
-				_obj_method_section.appendChild(_obj_method_select);
-				_obj_method_section.appendChild(_obj_method_button);
-
-				this.addGlobalConst(this, 'OBJ_METHOD_SECTION', _obj_method_section);
+				// this.addGlobalConst( this, 'OBJ_METHOD_SECTION', _obj_method_section );
 				this.addGlobalConst(this, 'OBJ_METHOD_RESULT', _obj_method_result);
-				this.addGlobalConst(this, 'OBJ_METHOD_SELECT', _obj_method_select);
 				return _obj_method_section;
 			}
 
-			// 新增效果 - 新方法
+			// 工具 - 新增效果 、 下載圖片
 
 		}, {
-			key: 'returnMethodAddSection',
-			value: function returnMethodAddSection() {
+			key: 'returnActionSection',
+			value: function returnActionSection() {
 				var _obj_method_section = document.createElement('div');
 
 				// 新增按鈕
@@ -30159,23 +30111,34 @@
 				this.methodAddBtnActive.call(_obj_method_button, this);
 				_obj_method_section.appendChild(_obj_method_button);
 
+				// 新增效果的結果選項集
+				var _obj_result_section = this.returnResultSection();
+				_obj_method_section.appendChild(_obj_result_section);
+
 				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button);
 				return _obj_method_section;
 			}
 
-			// 輸出圖片尺寸
+			// 工具 - 輸出圖片尺寸
 
 		}, {
 			key: 'returnSizeSection',
 			value: function returnSizeSection() {
 				var _obj_size_section = document.createElement('div');
-				_obj_size_section.innerText = '圖片輸出尺寸';
+				_obj_size_section.className = 'pkg-size';
+
+				var _obj_size_title = document.createElement('h3');
+				_obj_size_title.className = 'blk-subtitle';
+				_obj_size_title.innerText = '圖片輸出尺寸';
 
 				var _obj_scale_section = document.createElement('div');
+				_obj_scale_section.className = 'pkg-size-item';
 				var _obj_custom_section = document.createElement('div');
+				_obj_custom_section.className = 'pkg-size-item';
 
 				// 圖片尺寸 - 原圖等比縮放 - radio
 				var _obj_size_scale = document.createElement('input');
+				_obj_size_scale.className = 'mrg-rt-base dpy-inblock';
 				_obj_size_scale.type = 'radio';
 				_obj_size_scale.name = 'size_' + this.getModuleId();
 				_obj_size_scale.value = 'scale';
@@ -30183,6 +30146,7 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_SCALE_RADIO', _obj_size_scale);
 				// 圖片尺寸 - 原圖等比縮放 - label
 				var _obj_label_scale = document.createElement('label');
+				_obj_label_scale.className = 'mrg-rt-base dpy-inblock';
 				_obj_label_scale.appendChild(_obj_size_scale);
 				_obj_label_scale.insertAdjacentHTML('beforeend', '原圖等比縮放');
 				// 圖片尺寸 - 自訂尺寸 - input
@@ -30202,6 +30166,7 @@
 
 				// 圖片尺寸 - 自訂尺寸 - radio
 				var _obj_size_custom = document.createElement('input');
+				_obj_size_custom.className = 'mrg-rt-base dpy-inblock';
 				_obj_size_custom.type = 'radio';
 				_obj_size_custom.name = 'size_' + this.getModuleId();
 				_obj_size_custom.value = 'custom';
@@ -30209,9 +30174,11 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_RADIO', _obj_size_custom);
 				// 圖片尺寸 - 自訂尺寸 - label
 				var _obj_label_custom = document.createElement('label');
+				_obj_label_custom.className = 'mrg-rt-base dpy-inblock';
 				_obj_label_custom.appendChild(_obj_size_custom);
-				_obj_label_custom.insertAdjacentHTML('beforeend', '自訂尺寸');
+				_obj_label_custom.insertAdjacentHTML('beforeend', '自訂尺寸（PX）');
 				var _obj_custom_width = document.createElement('input');
+				_obj_custom_width.className = 'mrg-lt-tiny mrg-rt-base dpy-inblock';
 				_obj_custom_width.type = 'number';
 				_obj_custom_width.name = 'custom_width_' + this.getModuleId();
 				_obj_custom_width.min = 10;
@@ -30219,6 +30186,7 @@
 				_obj_custom_width.value = this.getInitOutputImageCustom().width;
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_WIDTH', _obj_custom_width);
 				var _obj_custom_height = document.createElement('input');
+				_obj_custom_height.className = 'mrg-lt-tiny dpy-inblock';
 				_obj_custom_height.type = 'number';
 				_obj_custom_height.name = 'custom_height_' + this.getModuleId();
 				_obj_custom_height.min = 10;
@@ -30227,6 +30195,7 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_HEIGHT', _obj_custom_height);
 				// 圖片尺寸 - 自訂尺寸 - cover - radio
 				var _obj_size_custom_cover = document.createElement('input');
+				_obj_size_custom_cover.className = 'mrg-rt-tiny dpy-inblock';
 				_obj_size_custom_cover.type = 'radio';
 				_obj_size_custom_cover.name = 'custom_' + this.getModuleId();
 				_obj_size_custom_cover.value = 'cover';
@@ -30234,10 +30203,12 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_COVER', _obj_size_custom_cover);
 				// 圖片尺寸 - 自訂尺寸 - cover - label
 				var _obj_label_custom_cover = document.createElement('label');
+				_obj_label_custom_cover.className = 'mrg-rt-base dpy-inblock';
 				_obj_label_custom_cover.appendChild(_obj_size_custom_cover);
 				_obj_label_custom_cover.insertAdjacentHTML('beforeend', 'COVER');
 				// 圖片尺寸 - 自訂尺寸 - contain - radio
 				var _obj_size_custom_contain = document.createElement('input');
+				_obj_size_custom_contain.className = 'mrg-rt-tiny dpy-inblock';
 				_obj_size_custom_contain.type = 'radio';
 				_obj_size_custom_contain.name = 'custom_' + this.getModuleId();
 				_obj_size_custom_contain.value = 'contain';
@@ -30245,10 +30216,12 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_CONTAIN', _obj_size_custom_contain);
 				// 圖片尺寸 - 自訂尺寸 - contain - label
 				var _obj_label_custom_contain = document.createElement('label');
+				_obj_label_custom_contain.className = 'mrg-rt-base dpy-inblock';
 				_obj_label_custom_contain.appendChild(_obj_size_custom_contain);
 				_obj_label_custom_contain.insertAdjacentHTML('beforeend', 'CONTAIN');
 				// 圖片尺寸 - 自訂尺寸 - fill - radio
 				var _obj_size_custom_fill = document.createElement('input');
+				_obj_size_custom_fill.className = 'mrg-rt-tiny dpy-inblock';
 				_obj_size_custom_fill.type = 'radio';
 				_obj_size_custom_fill.name = 'custom_' + this.getModuleId();
 				_obj_size_custom_fill.value = 'fill';
@@ -30256,10 +30229,12 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_FILL', _obj_size_custom_fill);
 				// 圖片尺寸 - 自訂尺寸 - fill - label
 				var _obj_label_custom_fill = document.createElement('label');
+				_obj_label_custom_fill.className = 'mrg-rt-base dpy-inblock';
 				_obj_label_custom_fill.appendChild(_obj_size_custom_fill);
 				_obj_label_custom_fill.insertAdjacentHTML('beforeend', 'FILL');
 				// 圖片尺寸 - 自訂尺寸 - clip - radio
 				var _obj_size_custom_clip = document.createElement('input');
+				_obj_size_custom_clip.className = 'mrg-rt-tiny dpy-inblock';
 				_obj_size_custom_clip.type = 'radio';
 				_obj_size_custom_clip.name = 'custom_' + this.getModuleId();
 				_obj_size_custom_clip.value = 'clip';
@@ -30267,24 +30242,32 @@
 				this.addGlobalConst(this, 'OBJ_SIZE_CUSTOM_CLIP', _obj_size_custom_clip);
 				// 圖片尺寸 - 自訂尺寸 - clip - label
 				var _obj_label_custom_clip = document.createElement('label');
+				_obj_label_custom_clip.className = 'dpy-inblock';
 				_obj_label_custom_clip.appendChild(_obj_size_custom_clip);
 				_obj_label_custom_clip.insertAdjacentHTML('beforeend', 'CLIP');
 
-				_obj_custom_section.appendChild(_obj_label_custom);
-				_obj_custom_section.insertAdjacentHTML('beforeend', '寬');
-				_obj_custom_section.appendChild(_obj_custom_width);
-				_obj_custom_section.insertAdjacentHTML('beforeend', '高');
-				_obj_custom_section.appendChild(_obj_custom_height);
-				_obj_custom_section.appendChild(_obj_label_custom_cover);
-				_obj_custom_section.appendChild(_obj_label_custom_contain);
-				_obj_custom_section.appendChild(_obj_label_custom_fill);
-				_obj_custom_section.appendChild(_obj_label_custom_clip);
+				var _obj_size_custom_setting = document.createElement('div');
+				_obj_size_custom_setting.appendChild(_obj_label_custom);
+				_obj_size_custom_setting.insertAdjacentHTML('beforeend', '寬');
+				_obj_size_custom_setting.appendChild(_obj_custom_width);
+				_obj_size_custom_setting.insertAdjacentHTML('beforeend', '高');
+				_obj_size_custom_setting.appendChild(_obj_custom_height);
+				_obj_custom_section.appendChild(_obj_size_custom_setting);
+
+				var _obj_size_custom_setting2 = document.createElement('div');
+				_obj_size_custom_setting2.className = 'pkg-size-item-indent';
+				_obj_size_custom_setting2.appendChild(_obj_label_custom_cover);
+				_obj_size_custom_setting2.appendChild(_obj_label_custom_contain);
+				_obj_size_custom_setting2.appendChild(_obj_label_custom_fill);
+				_obj_size_custom_setting2.appendChild(_obj_label_custom_clip);
+				_obj_custom_section.appendChild(_obj_size_custom_setting2);
 
 				// 圖片尺寸 - 自訂尺寸 - radio
 				var _obj_size_submit = document.createElement('button');
 				_obj_size_submit.innerText = '確定';
 				this.addGlobalConst(this, 'OBJ_SIZE_SUBMIT', _obj_size_submit);
 
+				_obj_size_section.appendChild(_obj_size_title);
 				_obj_size_section.appendChild(_obj_scale_section);
 				_obj_size_section.appendChild(_obj_custom_section);
 				_obj_size_section.appendChild(_obj_size_submit);
@@ -30303,30 +30286,39 @@
 
 				if (_obj_main !== undefined) {
 
-					// 上傳檔案
+					_Utils2.default.addClassName(_obj_main, 'pkg-workspace');
+
+					// ** ** ** ** ** ** ** ** **
+
+					// 工具
+					var _obj_tools_section = document.createElement('div');
+					_Utils2.default.addClassName(_obj_tools_section, 'pkg-workspace-tools');
+
+					// 工具 - 輸出圖片尺寸
+					var _obj_size_section = this.returnSizeSection();
+					_Utils2.default.addClassName(_obj_size_section, 'pkg-workspace-tools-size');
+					_obj_tools_section.appendChild(_obj_size_section);
+
+					// 工具 - 上傳檔案
 					var _obj_upload_section = this.returnUploadSection();
+					_Utils2.default.addClassName(_obj_upload_section, 'pkg-workspace-tools-upload');
+					_obj_tools_section.appendChild(_obj_upload_section);
+
+					// 工具 - 新增效果 、 下載圖片
+					var _obj_action_section = this.returnActionSection();
+					_Utils2.default.addClassName(_obj_action_section, 'pkg-workspace-tools-action');
+					_obj_tools_section.appendChild(_obj_action_section);
+
+					_obj_main.appendChild(_obj_tools_section);
+
+					// ** ** ** ** ** ** ** ** **
 
 					// 預覽圖片
 					var _obj_canvas_section = this.returnCanvasSection();
-
-					// 輸出圖片尺寸
-					var _obj_size_section = this.returnSizeSection();
-
-					// 新增效果
-					var _obj_method_section = this.returnMethodSection();
-
-					// 新增效果 - 新方法
-					var _obj_method_add_section = this.returnMethodAddSection();
-
-					// 原圖預覽圖片
-					var _obj_origin_image_section = this.returnOriginImageSection();
-
-					_obj_main.appendChild(_obj_size_section);
-					_obj_main.appendChild(_obj_upload_section);
-					_obj_main.appendChild(_obj_method_section);
-					_obj_main.appendChild(_obj_method_add_section);
-					_obj_main.appendChild(_obj_origin_image_section);
+					_Utils2.default.addClassName(_obj_canvas_section, 'pkg-workspace-tools');
 					_obj_main.appendChild(_obj_canvas_section);
+
+					// ** ** ** ** ** ** ** ** **
 
 					_scope.judgeOutputImageSetting.call(_scope.getObjsSizeSubmit(), _scope);
 					_scope.listenRangeChange.call(_scope.getObjsSizeRange(), _scope);
@@ -30369,24 +30361,6 @@
 						origin_data: _str_image_data,
 						setting: scope_calss.getOutputImageSetting()
 					});
-				};
-			}
-
-			// 新增效果的按鈕
-
-		}, {
-			key: 'methodAddBtnAction',
-			value: function methodAddBtnAction(scope_calss) {
-				var _obj_self = this;
-				_obj_self.onclick = function (e) {
-					var _str_method_value = scope_calss.getObjMethodSelect().value;
-					if (_str_method_value !== '') {
-						scope_calss.getEmitter().emit('step.method.pushing', {
-							method: _str_method_value
-						});
-					} else {
-						console.log('不應為空!!');
-					}
 				};
 			}
 
@@ -31165,7 +31139,7 @@
 	                        ref: 'minAlpha',
 	                        step: '1',
 	                        min: '1',
-	                        max: this.state.control.maxSize,
+	                        max: this.state.control.maxAlpha,
 	                        value: this.state.control.minAlpha,
 	                        onChange: this.handleChangeRange }),
 	                    ' ',

@@ -13,8 +13,8 @@ export default class MainImageFilter extends GlobalConst {
 		this.setEmitter( json_tools.emitter );
 		this.setModuleId( Utils.createUniqueId() );
 
-		// this.setOutputImageSetting( this.getInitOutputImageScale() );
-		this.setOutputImageSetting( this.getInitOutputImageCustom() );
+		this.setOutputImageSetting( this.getInitOutputImageScale() );
+		// this.setOutputImageSetting( this.getInitOutputImageCustom() );
 
 		this.defaultAction( obj );
 
@@ -59,11 +59,6 @@ export default class MainImageFilter extends GlobalConst {
 	// 在預覽產生前，把這東西元件設定src
 	getObjImagePreview(){
 		return this.getGlobalConst(this).OBJ_IMAGE_PREVIEW;
-	}
-
-	// 效果選項的元件
-	getObjMethodSelect(){
-		return this.getGlobalConst(this).OBJ_METHOD_SELECT;
 	}
 
 	// 選出來什麼效果選項的元件
@@ -125,7 +120,7 @@ export default class MainImageFilter extends GlobalConst {
 		return _obj_image_section;
 	}
 
-	// 上傳檔案
+	// 工具 - 上傳檔案
 	returnUploadSection(){
 		let _obj_upload_section 	= document.createElement('div');
 		let _obj_upload 	= document.createElement('input');
@@ -133,6 +128,11 @@ export default class MainImageFilter extends GlobalConst {
 		this.uploadAction.call( _obj_upload, this );
 		this.addGlobalConst( this, 'OBJ_UPLOAD', _obj_upload );
 		_obj_upload_section.appendChild(_obj_upload);
+
+		// 原圖預覽圖片
+		let _obj_origin_image_section = this.returnOriginImageSection();
+		_obj_upload_section.appendChild(_obj_origin_image_section);
+
 		return _obj_upload_section;
 	}
 	
@@ -148,40 +148,21 @@ export default class MainImageFilter extends GlobalConst {
 		return _obj_canvas_section;
 	}
 
-	// 新增效果
-	returnMethodSection(){
+	// 新增效果的結果選項集
+	returnResultSection(){
 		let _obj_method_section = document.createElement('div');
 
 		// 選出了哪些效果
 		let _obj_method_result = document.createElement('span');
 		_obj_method_section.appendChild(_obj_method_result);
 
-		// 下拉式選單
-		let _obj_method_select = document.createElement('select');
-		_obj_method_select.name = 'method';
-		let _sary_option = MethodSettings.getAllMethod();
-		let _str_method_select = '';
-		_str_method_select += '<option value="">---請選擇---</option>';
-		for( let i=0; i<_sary_option.length; i++ ){
-			_str_method_select += '<option value="'+_sary_option[i].method+'">'+_sary_option[i].method_name+'</option>';
-		}
-		_obj_method_select.insertAdjacentHTML('afterbegin',_str_method_select);
-
-		// 新增按鈕
-		let _obj_method_button = document.createElement('button');
-		_obj_method_button.innerText = '新增效果';
-		this.methodAddBtnAction.call( _obj_method_button, this );
-		_obj_method_section.appendChild(_obj_method_select);
-		_obj_method_section.appendChild(_obj_method_button);
-
-		this.addGlobalConst( this, 'OBJ_METHOD_SECTION', _obj_method_section );
+		// this.addGlobalConst( this, 'OBJ_METHOD_SECTION', _obj_method_section );
 		this.addGlobalConst( this, 'OBJ_METHOD_RESULT', _obj_method_result );
-		this.addGlobalConst( this, 'OBJ_METHOD_SELECT', _obj_method_select );
 		return _obj_method_section;
 	}
 
-	// 新增效果 - 新方法
-	returnMethodAddSection(){
+	// 工具 - 新增效果 、 下載圖片
+	returnActionSection(){
 		let _obj_method_section = document.createElement('div');
 
 		// 新增按鈕
@@ -190,20 +171,31 @@ export default class MainImageFilter extends GlobalConst {
 		this.methodAddBtnActive.call( _obj_method_button, this );
 		_obj_method_section.appendChild(_obj_method_button);
 
+		// 新增效果的結果選項集
+		let _obj_result_section = this.returnResultSection();
+		_obj_method_section.appendChild(_obj_result_section);
+
 		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button );
 		return _obj_method_section;
 	}
 
-	// 輸出圖片尺寸
+	// 工具 - 輸出圖片尺寸
 	returnSizeSection(){
 		let _obj_size_section = document.createElement('div');
-		_obj_size_section.innerText = '圖片輸出尺寸';
+		_obj_size_section.className = 'pkg-size';
+
+		let _obj_size_title = document.createElement('h3');
+		_obj_size_title.className = 'blk-subtitle';
+		_obj_size_title.innerText = '圖片輸出尺寸';
 
 		let _obj_scale_section = document.createElement('div');
+		_obj_scale_section.className = 'pkg-size-item';
 		let _obj_custom_section = document.createElement('div');
+		_obj_custom_section.className = 'pkg-size-item';
 
 		// 圖片尺寸 - 原圖等比縮放 - radio
 		let _obj_size_scale = document.createElement('input');
+		_obj_size_scale.className = 'mrg-rt-base dpy-inblock';
 		_obj_size_scale.type = 'radio';
 		_obj_size_scale.name = 'size_'+this.getModuleId();
 		_obj_size_scale.value = 'scale';
@@ -211,6 +203,7 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_SCALE_RADIO', _obj_size_scale );
 		// 圖片尺寸 - 原圖等比縮放 - label
 		let _obj_label_scale = document.createElement('label');
+		_obj_label_scale.className = 'mrg-rt-base dpy-inblock';
 		_obj_label_scale.appendChild(_obj_size_scale);
 		_obj_label_scale.insertAdjacentHTML('beforeend','原圖等比縮放');
 		// 圖片尺寸 - 自訂尺寸 - input
@@ -230,6 +223,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 圖片尺寸 - 自訂尺寸 - radio
 		let _obj_size_custom = document.createElement('input');
+		_obj_size_custom.className = 'mrg-rt-base dpy-inblock';
 		_obj_size_custom.type = 'radio';
 		_obj_size_custom.name = 'size_'+this.getModuleId();
 		_obj_size_custom.value = 'custom';
@@ -237,9 +231,11 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_RADIO', _obj_size_custom );
 		// 圖片尺寸 - 自訂尺寸 - label
 		let _obj_label_custom = document.createElement('label');
+		_obj_label_custom.className = 'mrg-rt-base dpy-inblock';
 		_obj_label_custom.appendChild(_obj_size_custom);
-		_obj_label_custom.insertAdjacentHTML('beforeend','自訂尺寸');
+		_obj_label_custom.insertAdjacentHTML('beforeend','自訂尺寸（PX）');
 		let _obj_custom_width = document.createElement('input');
+		_obj_custom_width.className = 'mrg-lt-tiny mrg-rt-base dpy-inblock';
 		_obj_custom_width.type = 'number';
 		_obj_custom_width.name = 'custom_width_'+this.getModuleId();
 		_obj_custom_width.min = 10;
@@ -247,6 +243,7 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_custom_width.value = this.getInitOutputImageCustom().width;
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_WIDTH', _obj_custom_width );
 		let _obj_custom_height = document.createElement('input');
+		_obj_custom_height.className = 'mrg-lt-tiny dpy-inblock';
 		_obj_custom_height.type = 'number';
 		_obj_custom_height.name = 'custom_height_'+this.getModuleId();
 		_obj_custom_height.min = 10;
@@ -255,6 +252,7 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_HEIGHT', _obj_custom_height );
 		// 圖片尺寸 - 自訂尺寸 - cover - radio
 		let _obj_size_custom_cover = document.createElement('input');
+		_obj_size_custom_cover.className = 'mrg-rt-tiny dpy-inblock';
 		_obj_size_custom_cover.type = 'radio';
 		_obj_size_custom_cover.name = 'custom_'+this.getModuleId();
 		_obj_size_custom_cover.value = 'cover';
@@ -262,10 +260,12 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_COVER', _obj_size_custom_cover );
 		// 圖片尺寸 - 自訂尺寸 - cover - label
 		let _obj_label_custom_cover = document.createElement('label');
+		_obj_label_custom_cover.className = 'mrg-rt-base dpy-inblock';
 		_obj_label_custom_cover.appendChild(_obj_size_custom_cover);
 		_obj_label_custom_cover.insertAdjacentHTML('beforeend','COVER');
 		// 圖片尺寸 - 自訂尺寸 - contain - radio
 		let _obj_size_custom_contain = document.createElement('input');
+		_obj_size_custom_contain.className = 'mrg-rt-tiny dpy-inblock';
 		_obj_size_custom_contain.type = 'radio';
 		_obj_size_custom_contain.name = 'custom_'+this.getModuleId();
 		_obj_size_custom_contain.value = 'contain';
@@ -273,10 +273,12 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_CONTAIN', _obj_size_custom_contain );
 		// 圖片尺寸 - 自訂尺寸 - contain - label
 		let _obj_label_custom_contain = document.createElement('label');
+		_obj_label_custom_contain.className = 'mrg-rt-base dpy-inblock';
 		_obj_label_custom_contain.appendChild(_obj_size_custom_contain);
 		_obj_label_custom_contain.insertAdjacentHTML('beforeend','CONTAIN');
 		// 圖片尺寸 - 自訂尺寸 - fill - radio
 		let _obj_size_custom_fill = document.createElement('input');
+		_obj_size_custom_fill.className = 'mrg-rt-tiny dpy-inblock';
 		_obj_size_custom_fill.type = 'radio';
 		_obj_size_custom_fill.name = 'custom_'+this.getModuleId();
 		_obj_size_custom_fill.value = 'fill';
@@ -284,10 +286,12 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_FILL', _obj_size_custom_fill );
 		// 圖片尺寸 - 自訂尺寸 - fill - label
 		let _obj_label_custom_fill = document.createElement('label');
+		_obj_label_custom_fill.className = 'mrg-rt-base dpy-inblock';
 		_obj_label_custom_fill.appendChild(_obj_size_custom_fill);
 		_obj_label_custom_fill.insertAdjacentHTML('beforeend','FILL');
 		// 圖片尺寸 - 自訂尺寸 - clip - radio
 		let _obj_size_custom_clip = document.createElement('input');
+		_obj_size_custom_clip.className = 'mrg-rt-tiny dpy-inblock';
 		_obj_size_custom_clip.type = 'radio';
 		_obj_size_custom_clip.name = 'custom_'+this.getModuleId();
 		_obj_size_custom_clip.value = 'clip';
@@ -295,24 +299,32 @@ export default class MainImageFilter extends GlobalConst {
 		this.addGlobalConst( this, 'OBJ_SIZE_CUSTOM_CLIP', _obj_size_custom_clip );
 		// 圖片尺寸 - 自訂尺寸 - clip - label
 		let _obj_label_custom_clip = document.createElement('label');
+		_obj_label_custom_clip.className = 'dpy-inblock';
 		_obj_label_custom_clip.appendChild(_obj_size_custom_clip);
 		_obj_label_custom_clip.insertAdjacentHTML('beforeend','CLIP');
 
-		_obj_custom_section.appendChild( _obj_label_custom );
-		_obj_custom_section.insertAdjacentHTML('beforeend','寬');
-		_obj_custom_section.appendChild( _obj_custom_width );
-		_obj_custom_section.insertAdjacentHTML('beforeend','高');
-		_obj_custom_section.appendChild( _obj_custom_height );
-		_obj_custom_section.appendChild( _obj_label_custom_cover );
-		_obj_custom_section.appendChild( _obj_label_custom_contain );
-		_obj_custom_section.appendChild( _obj_label_custom_fill );
-		_obj_custom_section.appendChild( _obj_label_custom_clip );
+		let _obj_size_custom_setting = document.createElement('div');
+		_obj_size_custom_setting.appendChild( _obj_label_custom );
+		_obj_size_custom_setting.insertAdjacentHTML('beforeend','寬');
+		_obj_size_custom_setting.appendChild( _obj_custom_width );
+		_obj_size_custom_setting.insertAdjacentHTML('beforeend','高');
+		_obj_size_custom_setting.appendChild( _obj_custom_height );
+		_obj_custom_section.appendChild( _obj_size_custom_setting );
+
+		let _obj_size_custom_setting2 = document.createElement('div');
+		_obj_size_custom_setting2.className = 'pkg-size-item-indent';
+		_obj_size_custom_setting2.appendChild( _obj_label_custom_cover );
+		_obj_size_custom_setting2.appendChild( _obj_label_custom_contain );
+		_obj_size_custom_setting2.appendChild( _obj_label_custom_fill );
+		_obj_size_custom_setting2.appendChild( _obj_label_custom_clip );
+		_obj_custom_section.appendChild( _obj_size_custom_setting2 );
 
 		// 圖片尺寸 - 自訂尺寸 - radio
 		let _obj_size_submit = document.createElement('button');
 		_obj_size_submit.innerText = '確定';
 		this.addGlobalConst( this, 'OBJ_SIZE_SUBMIT', _obj_size_submit );
 
+		_obj_size_section.appendChild( _obj_size_title );
 		_obj_size_section.appendChild( _obj_scale_section );
 		_obj_size_section.appendChild( _obj_custom_section );
 		_obj_size_section.appendChild( _obj_size_submit );
@@ -329,30 +341,39 @@ export default class MainImageFilter extends GlobalConst {
 
 		if( _obj_main!==undefined ){
 
-			// 上傳檔案
+			Utils.addClassName(_obj_main, 'pkg-workspace');
+
+			// ** ** ** ** ** ** ** ** **
+
+			// 工具
+			let _obj_tools_section = document.createElement('div');
+			Utils.addClassName(_obj_tools_section, 'pkg-workspace-tools');
+
+			// 工具 - 輸出圖片尺寸
+			let _obj_size_section = this.returnSizeSection();
+			Utils.addClassName(_obj_size_section, 'pkg-workspace-tools-size');
+			_obj_tools_section.appendChild(_obj_size_section);
+
+			// 工具 - 上傳檔案
 			let _obj_upload_section = this.returnUploadSection();
+			Utils.addClassName(_obj_upload_section, 'pkg-workspace-tools-upload');
+			_obj_tools_section.appendChild(_obj_upload_section);
+
+			// 工具 - 新增效果 、 下載圖片
+			let _obj_action_section = this.returnActionSection();
+			Utils.addClassName(_obj_action_section, 'pkg-workspace-tools-action');
+			_obj_tools_section.appendChild(_obj_action_section);
+
+			_obj_main.appendChild(_obj_tools_section);
+
+			// ** ** ** ** ** ** ** ** **
 
 			// 預覽圖片
 			let _obj_canvas_section = this.returnCanvasSection();
-
-			// 輸出圖片尺寸
-			let _obj_size_section = this.returnSizeSection();
-
-			// 新增效果
-			let _obj_method_section = this.returnMethodSection();
-
-			// 新增效果 - 新方法
-			let _obj_method_add_section = this.returnMethodAddSection();
-
-			// 原圖預覽圖片
-			let _obj_origin_image_section = this.returnOriginImageSection();
-
-			_obj_main.appendChild(_obj_size_section);
-			_obj_main.appendChild(_obj_upload_section);
-			_obj_main.appendChild(_obj_method_section);
-			_obj_main.appendChild(_obj_method_add_section);
-			_obj_main.appendChild(_obj_origin_image_section);
+			Utils.addClassName(_obj_canvas_section, 'pkg-workspace-tools');
 			_obj_main.appendChild(_obj_canvas_section);
+
+			// ** ** ** ** ** ** ** ** **
 
 			_scope.judgeOutputImageSetting.call( _scope.getObjsSizeSubmit(), _scope );
 			_scope.listenRangeChange.call( _scope.getObjsSizeRange(), _scope );
@@ -397,21 +418,6 @@ export default class MainImageFilter extends GlobalConst {
 				setting: scope_calss.getOutputImageSetting()
 			});
 
-		}
-	}
-
-	// 新增效果的按鈕
-	methodAddBtnAction( scope_calss ){
-		let _obj_self = this;
-		_obj_self.onclick = function( e ){
-			let _str_method_value = scope_calss.getObjMethodSelect().value;
-			if( _str_method_value!=='' ){
-				scope_calss.getEmitter().emit('step.method.pushing',{
-					method: _str_method_value
-				});
-			}else{
-				console.log( '不應為空!!' );
-			}
 		}
 	}
 

@@ -178,7 +178,7 @@ export default class MethodControlDot extends React.Component {
                         ref="minAlpha"
                         step="1"
                         min="1"
-                        max={this.state.control.maxSize}
+                        max={this.state.control.maxAlpha}
                         value={this.state.control.minAlpha}
                         onChange={this.handleChangeRange} /> {this.state.control.minAlpha} / {this.state.control.maxAlpha}
                     <input

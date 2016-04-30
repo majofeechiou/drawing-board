@@ -82,6 +82,9 @@ module.exports = {
             'Extend': path.join(__dirname, 'lib/extend/index.js')
         }
 	},
+    postcss: function () {
+        return [ require('autoprefixer')({browsers: ['> 1%', 'IE 7']}), require('precss'), require('postcss-fontpath'), require("postcss-calc"), require('postcss-color-alpha'), require('postcss-mixins') ];
+    },
 	plugins: [
 		new HtmlPack({ 
 			title: 'Images',// 在這設定的變數，可在template.html中用 {%= o.htmlWebpackPlugin.options.title %} 帶入
