@@ -163,35 +163,51 @@ export default class MainImageFilter extends GlobalConst {
 		return _obj_preview_section;
 	}
 
+	// 新增按鈕、下載按鈕
+	returnToolsSection(){
+		let _obj_section = document.createElement('div');
+
+		// 新增按鈕
+		let _obj_add_button = document.createElement('button');
+		_obj_add_button.innerText = '新增效果';
+		this.methodAddBtnActive.call( _obj_add_button, this );
+		_obj_section.appendChild(_obj_add_button);
+		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button );
+
+		// 下載按鈕
+		let _obj_download_button = document.createElement('button');
+		_obj_download_button.innerText = '下載圖片';
+		this.downloadBtnActive.call( _obj_download_button, this );
+		_obj_section.appendChild(_obj_download_button);
+		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_download_button );
+
+		return _obj_section;
+	}
+
 	// 新增效果的結果選項集
 	returnResultSection(){
-		let _obj_method_section = document.createElement('div');
+		let _obj_method_section = document.createElement('ul');
 
-		// 選出了哪些效果
-		let _obj_method_result = document.createElement('span');
-		_obj_method_section.appendChild(_obj_method_result);
-
-		// this.addGlobalConst( this, 'OBJ_METHOD_SECTION', _obj_method_section );
-		this.addGlobalConst( this, 'OBJ_METHOD_RESULT', _obj_method_result );
+		this.addGlobalConst( this, 'OBJ_METHOD_RESULT', _obj_method_section );
 		return _obj_method_section;
 	}
 
-	// 工具 - 新增效果 、 下載圖片
+	// 工具 - 新增效果 、 下載圖片，以及新增效果的結果選項集
 	returnActionSection(){
-		let _obj_method_section = document.createElement('div');
-
-		// 新增按鈕
-		let _obj_method_button = document.createElement('button');
-		_obj_method_button.innerText = '新增效果';
-		this.methodAddBtnActive.call( _obj_method_button, this );
-		_obj_method_section.appendChild(_obj_method_button);
+		let _obj_section = document.createElement('div');
+		_obj_section.className = 'pkg-action';
 
 		// 新增效果的結果選項集
-		let _obj_result_section = this.returnResultSection();
-		_obj_method_section.appendChild(_obj_result_section);
+		let _obj_tools_section = this.returnToolsSection();
+		Utils.addClassName(_obj_tools_section, 'pkg-action-tools');
+		_obj_section.appendChild(_obj_tools_section);
 
-		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button );
-		return _obj_method_section;
+		// 新增效果的結果選項集
+		let _obj_method_section = this.returnResultSection();
+		Utils.addClassName(_obj_method_section, 'pkg-action-method');
+		_obj_section.appendChild(_obj_method_section);
+		
+		return _obj_section;
 	}
 
 	// 工具 - 輸出圖片尺寸
@@ -444,15 +460,23 @@ export default class MainImageFilter extends GlobalConst {
 		}
 	}
 
+	// 下載圖片的按鈕
+	downloadBtnActive( scope_calss ){
+		let _obj_self = this;
+		_obj_self.onclick = function( e ){
+			scope_calss.getEmitter().emit('images.downloading');
+		}
+	}
+
 	// 刪除效果的按鈕
-	methodDeleteBtnAction( scope_calss ){
+	methodDeleteBtnAction( scope_calss, obj_item ){
 		let _obj_self = this;
 		_obj_self.onclick = function( e ){
 			// 先直接發出刪除methodid的事件，之後再來擴充
 			scope_calss.getEmitter().emit('step.method.splicing',{
-				method: _obj_self.data.method,
-				method_id: _obj_self.data.method_id,
-				method_btn:this
+				method: obj_item.data.method,
+				method_id: obj_item.data.method_id,
+				method_btn: obj_item
 			});
 		}
 	}

@@ -38,9 +38,12 @@ html, body {
         align-items: stretch;
         flex-wrap: nowrap;
         .pkg-workspace-tools-size,
+        .pkg-workspace-tools-upload {
+            padding: $wrap_spacing;
+        }
         .pkg-workspace-tools-upload,
         .pkg-workspace-tools-action {
-            padding: $wrap_spacing;
+            min-width: 60px;
         }
         .pkg-workspace-tools-size {
             flex-grow: 2;
@@ -99,6 +102,25 @@ html, body {
 .pkg-preview {
     .pkg-preview-image {
         @mixin blk-center;
+    }
+}
+
+.pkg-action {
+    .pkg-action-tools {
+        padding: $wrap_spacing $item_spacing;
+    }
+    .pkg-action-method {
+        display: block;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        li {
+            display: inline-block;
+            margin: $tiny_spacing $item_spacing;
+            padding: $tiny_spacing $item_spacing ;
+            border: 1px solid #f00;
+            border-radius: $tiny_spacing ;
+        }
     }
 }
 

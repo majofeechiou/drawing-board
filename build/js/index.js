@@ -30097,41 +30097,60 @@
 				return _obj_preview_section;
 			}
 
+			// 新增按鈕、下載按鈕
+
+		}, {
+			key: 'returnToolsSection',
+			value: function returnToolsSection() {
+				var _obj_section = document.createElement('div');
+
+				// 新增按鈕
+				var _obj_add_button = document.createElement('button');
+				_obj_add_button.innerText = '新增效果';
+				this.methodAddBtnActive.call(_obj_add_button, this);
+				_obj_section.appendChild(_obj_add_button);
+				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button);
+
+				// 下載按鈕
+				var _obj_download_button = document.createElement('button');
+				_obj_download_button.innerText = '下載圖片';
+				this.downloadBtnActive.call(_obj_download_button, this);
+				_obj_section.appendChild(_obj_download_button);
+				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_download_button);
+
+				return _obj_section;
+			}
+
 			// 新增效果的結果選項集
 
 		}, {
 			key: 'returnResultSection',
 			value: function returnResultSection() {
-				var _obj_method_section = document.createElement('div');
+				var _obj_method_section = document.createElement('ul');
 
-				// 選出了哪些效果
-				var _obj_method_result = document.createElement('span');
-				_obj_method_section.appendChild(_obj_method_result);
-
-				// this.addGlobalConst( this, 'OBJ_METHOD_SECTION', _obj_method_section );
-				this.addGlobalConst(this, 'OBJ_METHOD_RESULT', _obj_method_result);
+				this.addGlobalConst(this, 'OBJ_METHOD_RESULT', _obj_method_section);
 				return _obj_method_section;
 			}
 
-			// 工具 - 新增效果 、 下載圖片
+			// 工具 - 新增效果 、 下載圖片，以及新增效果的結果選項集
 
 		}, {
 			key: 'returnActionSection',
 			value: function returnActionSection() {
-				var _obj_method_section = document.createElement('div');
-
-				// 新增按鈕
-				var _obj_method_button = document.createElement('button');
-				_obj_method_button.innerText = '新增效果';
-				this.methodAddBtnActive.call(_obj_method_button, this);
-				_obj_method_section.appendChild(_obj_method_button);
+				var _obj_section = document.createElement('div');
+				_obj_section.className = 'pkg-action';
 
 				// 新增效果的結果選項集
-				var _obj_result_section = this.returnResultSection();
-				_obj_method_section.appendChild(_obj_result_section);
+				var _obj_tools_section = this.returnToolsSection();
+				_Utils2.default.addClassName(_obj_tools_section, 'pkg-action-tools');
+				_obj_section.appendChild(_obj_tools_section);
 
-				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_method_button);
-				return _obj_method_section;
+				// 新增效果的結果選項集
+				var _obj_method_section = this.returnResultSection();
+				_Utils2.default.addClassName(_obj_method_section, 'pkg-action-method');
+				_obj_section.appendChild(_obj_method_section);
+
+				return _obj_section;
 			}
 
 			// 工具 - 輸出圖片尺寸
@@ -30390,18 +30409,29 @@
 				};
 			}
 
+			// 下載圖片的按鈕
+
+		}, {
+			key: 'downloadBtnActive',
+			value: function downloadBtnActive(scope_calss) {
+				var _obj_self = this;
+				_obj_self.onclick = function (e) {
+					scope_calss.getEmitter().emit('images.downloading');
+				};
+			}
+
 			// 刪除效果的按鈕
 
 		}, {
 			key: 'methodDeleteBtnAction',
-			value: function methodDeleteBtnAction(scope_calss) {
+			value: function methodDeleteBtnAction(scope_calss, obj_item) {
 				var _obj_self = this;
 				_obj_self.onclick = function (e) {
 					// 先直接發出刪除methodid的事件，之後再來擴充
 					scope_calss.getEmitter().emit('step.method.splicing', {
-						method: _obj_self.data.method,
-						method_id: _obj_self.data.method_id,
-						method_btn: this
+						method: obj_item.data.method,
+						method_id: obj_item.data.method_id,
+						method_btn: obj_item
 					});
 				};
 			}
@@ -32041,16 +32071,19 @@
 				_scope.getGlobalConst(_scope).emitter.on('step.method.show.adding', function (e) {
 					// 新增顯示method的文字
 					var _json_data = arguments[0];
-					var _obj_result = document.createElement('span');
-					_obj_result.style.marginRight = '20px';
+					var _obj_result = document.createElement('li');
 					_obj_result.data = _obj_result.data || {};
 					_obj_result.data.method_id = _json_data.method_id;
 					_obj_result.data.method = _json_data.method;
 					_obj_result.setAttribute('data-method-id', _json_data.method_id);
 					_obj_result.insertAdjacentHTML('beforeend', _Settings2.default.getConstNameByEn(_json_data.method));
+					var _obj_delete = document.createElement('span');
+					_obj_delete.innerText = 'X';
+					_obj_result.appendChild(_obj_delete);
 					_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
 
-					_scope.mainImageFilter.methodDeleteBtnAction.call(_obj_result, _scope.mainImageFilter);
+					// _scope.mainImageFilter.methodDeleteBtnAction.call( _obj_result, _scope.mainImageFilter );
+					_scope.mainImageFilter.methodDeleteBtnAction.call(_obj_delete, _scope.mainImageFilter, _obj_result);
 
 					// 以下是實際執行新的圖片運算工作
 

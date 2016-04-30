@@ -113,8 +113,12 @@ html, body {
     flex-wrap: nowrap;
 }
 
-.pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-size, .pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-upload, .pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-action {
+.pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-size, .pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-upload {
     padding: 10px;
+}
+
+.pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-upload, .pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-action {
+    min-width: 60px;
 }
 
 .pkg-workspace .pkg-workspace-tools .pkg-workspace-tools-size {
@@ -187,6 +191,25 @@ html, body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.pkg-action .pkg-action-tools {
+    padding: 10px 0.5em;
+}
+
+.pkg-action .pkg-action-method {
+    display: block;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pkg-action .pkg-action-method li {
+    display: inline-block;
+    margin: 0.3em 0.5em;
+    padding: 0.3em 0.5em;
+    border: 1px solid #f00;
+    border-radius: 0.3em;
 }
 
 .blk-subtitle {
