@@ -30041,11 +30041,15 @@
 		}, {
 			key: 'returnOriginImageSection',
 			value: function returnOriginImageSection() {
-				var _obj_image_section = document.createElement('div');
+				// let _obj_image_section = document.createElement('div');
+				// let _obj_origin_image 	= document.createElement('img');
+				// this.addGlobalConst( this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image );
+				// _obj_image_section.appendChild(_obj_origin_image);
+				// return _obj_image_section;
+
 				var _obj_origin_image = document.createElement('img');
 				this.addGlobalConst(this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image);
-				_obj_image_section.appendChild(_obj_origin_image);
-				return _obj_image_section;
+				return _obj_origin_image;
 			}
 
 			// 工具 - 上傳檔案
@@ -30054,15 +30058,23 @@
 			key: 'returnUploadSection',
 			value: function returnUploadSection() {
 				var _obj_upload_section = document.createElement('div');
+				_obj_upload_section.className = 'pkg-upload';
+
+				var _obj_upload_section_inner = document.createElement('div');
+				_obj_upload_section_inner.className = 'pkg-upload-inner';
+				_obj_upload_section.appendChild(_obj_upload_section_inner);
+
 				var _obj_upload = document.createElement('input');
+				_obj_upload.className = 'pkg-upload-inner-input';
 				_obj_upload.type = "file";
 				this.uploadAction.call(_obj_upload, this);
 				this.addGlobalConst(this, 'OBJ_UPLOAD', _obj_upload);
-				_obj_upload_section.appendChild(_obj_upload);
+				_obj_upload_section_inner.appendChild(_obj_upload);
 
 				// 原圖預覽圖片
 				var _obj_origin_image_section = this.returnOriginImageSection();
-				_obj_upload_section.appendChild(_obj_origin_image_section);
+				_obj_origin_image_section.className = 'pkg-upload-inner-origin';
+				_obj_upload_section_inner.appendChild(_obj_origin_image_section);
 
 				return _obj_upload_section;
 			}
@@ -30070,16 +30082,19 @@
 			// 預覽圖片
 
 		}, {
-			key: 'returnCanvasSection',
-			value: function returnCanvasSection() {
-				var _obj_canvas_section = document.createElement('div');
-				var _obj_canvas_preview = new Image();
+			key: 'returnPreviewSection',
+			value: function returnPreviewSection() {
+				var _obj_preview_section = document.createElement('div');
+				_obj_preview_section.className = 'pkg-preview';
 
-				this.addGlobalConst(this, 'OBJ_IMAGE_PREVIEW', _obj_canvas_preview);
+				var _obj_preview_image = new Image();
+				_obj_preview_image.className = 'pkg-preview-image';
 
-				_obj_canvas_section.appendChild(_obj_canvas_preview);
+				this.addGlobalConst(this, 'OBJ_IMAGE_PREVIEW', _obj_preview_image);
 
-				return _obj_canvas_section;
+				_obj_preview_section.appendChild(_obj_preview_image);
+
+				return _obj_preview_section;
 			}
 
 			// 新增效果的結果選項集
@@ -30314,9 +30329,9 @@
 					// ** ** ** ** ** ** ** ** **
 
 					// 預覽圖片
-					var _obj_canvas_section = this.returnCanvasSection();
-					_Utils2.default.addClassName(_obj_canvas_section, 'pkg-workspace-tools');
-					_obj_main.appendChild(_obj_canvas_section);
+					var _obj_preview_section = this.returnPreviewSection();
+					_Utils2.default.addClassName(_obj_preview_section, 'pkg-workspace-preview');
+					_obj_main.appendChild(_obj_preview_section);
 
 					// ** ** ** ** ** ** ** ** **
 

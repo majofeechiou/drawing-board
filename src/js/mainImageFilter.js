@@ -113,39 +113,54 @@ export default class MainImageFilter extends GlobalConst {
 
 	// 原圖預覽圖片
 	returnOriginImageSection(){
-		let _obj_image_section = document.createElement('div');
+		// let _obj_image_section = document.createElement('div');
+		// let _obj_origin_image 	= document.createElement('img');
+		// this.addGlobalConst( this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image );
+		// _obj_image_section.appendChild(_obj_origin_image);
+		// return _obj_image_section;
+
 		let _obj_origin_image 	= document.createElement('img');
 		this.addGlobalConst( this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image );
-		_obj_image_section.appendChild(_obj_origin_image);
-		return _obj_image_section;
+		return _obj_origin_image;
 	}
 
 	// 工具 - 上傳檔案
 	returnUploadSection(){
 		let _obj_upload_section 	= document.createElement('div');
+		_obj_upload_section.className = 'pkg-upload';
+
+		let _obj_upload_section_inner 	= document.createElement('div');
+		_obj_upload_section_inner.className = 'pkg-upload-inner';
+		_obj_upload_section.appendChild(_obj_upload_section_inner);
+
 		let _obj_upload 	= document.createElement('input');
+		_obj_upload.className = 'pkg-upload-inner-input';
 		_obj_upload.type	= "file";
 		this.uploadAction.call( _obj_upload, this );
 		this.addGlobalConst( this, 'OBJ_UPLOAD', _obj_upload );
-		_obj_upload_section.appendChild(_obj_upload);
+		_obj_upload_section_inner.appendChild(_obj_upload);
 
 		// 原圖預覽圖片
 		let _obj_origin_image_section = this.returnOriginImageSection();
-		_obj_upload_section.appendChild(_obj_origin_image_section);
+		_obj_origin_image_section.className = 'pkg-upload-inner-origin';
+		_obj_upload_section_inner.appendChild(_obj_origin_image_section);
 
 		return _obj_upload_section;
 	}
 	
 	// 預覽圖片
-	returnCanvasSection(){
-		let _obj_canvas_section = document.createElement('div');
-		let _obj_canvas_preview = new Image();
+	returnPreviewSection(){
+		let _obj_preview_section = document.createElement('div');
+		_obj_preview_section.className = 'pkg-preview';
+
+		let _obj_preview_image = new Image();
+		_obj_preview_image.className = 'pkg-preview-image';
 		
-		this.addGlobalConst( this, 'OBJ_IMAGE_PREVIEW', _obj_canvas_preview );
+		this.addGlobalConst( this, 'OBJ_IMAGE_PREVIEW', _obj_preview_image );
 
-		_obj_canvas_section.appendChild( _obj_canvas_preview );
+		_obj_preview_section.appendChild( _obj_preview_image );
 
-		return _obj_canvas_section;
+		return _obj_preview_section;
 	}
 
 	// 新增效果的結果選項集
@@ -369,9 +384,9 @@ export default class MainImageFilter extends GlobalConst {
 			// ** ** ** ** ** ** ** ** **
 
 			// 預覽圖片
-			let _obj_canvas_section = this.returnCanvasSection();
-			Utils.addClassName(_obj_canvas_section, 'pkg-workspace-tools');
-			_obj_main.appendChild(_obj_canvas_section);
+			let _obj_preview_section = this.returnPreviewSection();
+			Utils.addClassName(_obj_preview_section, 'pkg-workspace-preview');
+			_obj_main.appendChild(_obj_preview_section);
 
 			// ** ** ** ** ** ** ** ** **
 
