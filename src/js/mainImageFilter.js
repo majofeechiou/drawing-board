@@ -28,8 +28,26 @@ export default class MainImageFilter extends GlobalConst {
 		this.emitter = object ;
 	}
 	
-	setOutputImageSetting( json ){
+	setOutputImageSetting( json, callback ){
 		this.output_image_setting = json || {} ;
+		if( callback && (callback instanceof Function === true) ){
+			callback();
+		}
+	}
+
+	// 從外部入時，是怎樣就是怎樣，絕無任何修改
+	setSourceImage( json ){
+		json = json || {};
+		this.source_image = {
+			files: json.files,
+			base64: json.base64
+		};
+		window.source_image = this.source_image;
+	}
+
+	// 從外部入時，是怎樣就是怎樣，絕無任何修改
+	getSourceImage(){
+		return this.source_image || {};
 	}
 
 	getInitOutputImageScale(){
@@ -113,12 +131,6 @@ export default class MainImageFilter extends GlobalConst {
 
 	// 原圖預覽圖片
 	returnOriginImageSection(){
-		// let _obj_image_section = document.createElement('div');
-		// let _obj_origin_image 	= document.createElement('img');
-		// this.addGlobalConst( this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image );
-		// _obj_image_section.appendChild(_obj_origin_image);
-		// return _obj_image_section;
-
 		let _obj_origin_image 	= document.createElement('img');
 		this.addGlobalConst( this, 'OBJ_ORIGIN_IMAGE', _obj_origin_image );
 		return _obj_origin_image;
@@ -426,13 +438,20 @@ export default class MainImageFilter extends GlobalConst {
 			};
 
 			if( _str_size === Settings.OUTPUT_SIZE_SCALE ){
-				_json_setting.range = scope_calss.getObjsSizeRange().value;
+				_json_setting.range = parseInt( scope_calss.getObjsSizeRange().value, 10);
 			}else if( _str_size === Settings.OUTPUT_SIZE_CUSTOM ){
-				_json_setting.width = scope_calss.getObjsSizeCustomWidth().value;
-				_json_setting.height = scope_calss.getObjsSizeCustomHeight().value;
+				_json_setting.width = parseInt( scope_calss.getObjsSizeCustomWidth().value, 10);
+				_json_setting.height = parseInt( scope_calss.getObjsSizeCustomHeight().value, 10);
 				_json_setting.custom = document.querySelectorAll('[name="custom_'+scope_calss.getModuleId()+'"]:checked')[0].value || '' ;
 			}
-			scope_calss.setOutputImageSetting( _json_setting );
+
+			let _json_setting_old = scope_calss.getOutputImageSetting();
+
+			if( JSON.stringify(_json_setting_old)!==JSON.stringify(_json_setting) ){
+				scope_calss.setOutputImageSetting( _json_setting, function(){
+					scope_calss.getEmitter().emit('output.size.resetting');
+				} );
+			}
 			
 		};
 	}
@@ -440,9 +459,14 @@ export default class MainImageFilter extends GlobalConst {
 	uploadAction( scope_calss ){
 		let _obj_self = this;
 		_obj_self.onchange = function( e ){ // 從頭更換圖片
+			console.log( 'onchange ::: ', this.files );
 			let windowURL = window.URL || window.webkitURL;
 			let _str_image_data = windowURL.createObjectURL(this.files[0]);
-			// scope_calss.setImageInitData( _str_image_data );
+
+			scope_calss.setSourceImage({
+				files: this.files,
+				base64: _str_image_data
+			});
 
 			scope_calss.getEmitter().emit('origin.data.changed', {
 				origin_data: _str_image_data,
