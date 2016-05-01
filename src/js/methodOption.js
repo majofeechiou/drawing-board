@@ -46,32 +46,33 @@ export default class MethodOption extends React.Component {
     }
 
     render(){
-
         let _json_method_store = this.getStoreState().method;
         return (
-            <ReactGroup 
-                onChange={this.handleChange}
-                outputFormat="json"
-                name="method_option"
-                selectKey={this.getSelectKey()}
-                inputOption={this.getInputoption()}
-                outputResult={this.getOutputResult()}
-                showKey={this.getShowKey()}
-                between="~"
-                display={_json_method_store.display}
-                padding={_json_method_store.padding}
-                fillet={_json_method_store.fillet}
-                listStyle={_json_method_store.listStyle}
-                listPosition={_json_method_store.listPosition}
-                iconPosition={_json_method_store.iconPosition}
-                iconShow={_json_method_store.iconShow}
-                styleName={_json_method_store.styleName}
-                composition={_json_method_store.composition}
-                offBack={_json_method_store.offBack}
-                styleBorder={_json_method_store.styleBorder}
-                styleIcon={_json_method_store.styleIcon}
-                styleIconBack={_json_method_store.styleIconBack}
-                styleList={_json_method_store.styleList} />
+            <div className={this.props.className}>
+                <ReactGroup 
+                    onChange={this.handleChange}
+                    outputFormat="json"
+                    name="method_option"
+                    selectKey={this.getSelectKey()}
+                    inputOption={this.getInputoption()}
+                    outputResult={this.getOutputResult()}
+                    showKey={this.getShowKey()}
+                    between="~"
+                    display={_json_method_store.display}
+                    padding={_json_method_store.padding}
+                    fillet={_json_method_store.fillet}
+                    listStyle={_json_method_store.listStyle}
+                    listPosition={_json_method_store.listPosition}
+                    iconPosition={_json_method_store.iconPosition}
+                    iconShow={_json_method_store.iconShow}
+                    styleName={_json_method_store.styleName}
+                    composition={_json_method_store.composition}
+                    offBack={_json_method_store.offBack}
+                    styleBorder={_json_method_store.styleBorder}
+                    styleIcon={_json_method_store.styleIcon}
+                    styleIconBack={_json_method_store.styleIconBack}
+                    styleList={_json_method_store.styleList} />
+            </div>
         );
     }
 
@@ -81,12 +82,14 @@ export default class MethodOption extends React.Component {
 MethodOption.propTypes = {
     handleChange: React.PropTypes.func.isRequired,
     outputResult: React.PropTypes.object.isRequired,
-    methodStore: React.PropTypes.object.isRequired
+    methodStore: React.PropTypes.object.isRequired,
+    className: React.PropTypes.string
 },
 MethodOption.defaultProps = {
     handleChange: ()=>{},
     outputResult: {},
-    methodStore: {}
+    methodStore: {},
+    className: ''
 };
 
 // this.arrangeProps( props );

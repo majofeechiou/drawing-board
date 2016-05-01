@@ -6,11 +6,12 @@ import Settings from './Settings';
 // 運算的方式
 // 寬高也是最後輸出的圖片的寬高
 export default class ImageDataComputeMethod extends Tools {
-	constructor( json_tools ){
+	constructor( str_compute_timing, json_tools ){
 		super();
 
 		let _scope = this;
 
+		_scope.setComputeTiming( str_compute_timing );
 		_scope.setEmitter( json_tools.emitter );
 
 		_scope.obj_canvas = document.createElement('canvas');
@@ -19,6 +20,7 @@ export default class ImageDataComputeMethod extends Tools {
 		_scope.obj_image = new Image();
 
 		_scope.obj_image.onload = function(){
+			console.log('** ** ** onload ** ** **');
 
 			if( (typeof this.src === 'string') && this.src!=='' ){
 
@@ -52,6 +54,9 @@ export default class ImageDataComputeMethod extends Tools {
 
 	}
 
+	getComputeTiming(){
+		return this.compute_timing;
+	}
 	getOtherData(){
 		let _scope = this;
 		return _scope.other_data;
@@ -69,6 +74,9 @@ export default class ImageDataComputeMethod extends Tools {
 		return this.compute_height;
 	}
 
+	setComputeTiming( str_compute_timing ){
+		this.compute_timing = str_compute_timing || '' ;
+	}
 	// 圖片運算是用多大寬度運算出來的
 	setComputeWidth( num ){
 		this.compute_width = num || 0 ;
@@ -414,7 +422,10 @@ export default class ImageDataComputeMethod extends Tools {
 			// _json_emit.method = json.method ;
 		}
 
-		_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+		let _str_compute_timing = _scope.getComputeTiming();
+		if( _str_compute_timing===Settings.COMPUTE_TIMING_RESULT ){
+			_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+		}
 	}
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **

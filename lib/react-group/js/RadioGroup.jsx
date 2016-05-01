@@ -207,53 +207,50 @@ export default class RadioGroup extends React.Component {
 			'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) ),
 		});
 		let _str_selectkey = this.getMainSelectKey();
-		return <div>
-			<div className={_str_classname_all}>
-				{this.props.inputOption.map((json_item)=>{
+		return <div className={_str_classname_all}>
+			{this.props.inputOption.map((json_item)=>{
 
-					let _str_classname_outer = ClassNames({
-						'pkg-checked-option': true,
-						'pkg-checked-option_checked': this.judegItemChecked(json_item),
-						'pkg-list-option': (this.props.listPosition===Setting.LIST_POSITION_OUTER),
-						'pkg-checked-icon': (this.props.listPosition!==Setting.LIST_POSITION_OUTER),
-						
-						'pkg-style-item': true,
-						'pkg-style-item_checked': this.judegItemChecked(json_item) ,
-						'pkg-style-icon': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
-						'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
-						'pkg-style-iconback': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
-						'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
-						'pkg-style-border': ( this.props.styleBorder===true ),
-						'pkg-style-border_checked': ( (this.props.styleBorder===true) && this.judegItemChecked(json_item) ),
-						'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) ),
-						'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
-					});
+				let _str_classname_outer = ClassNames({
+					'pkg-checked-option': true,
+					'pkg-checked-option_checked': this.judegItemChecked(json_item),
+					'pkg-list-option': (this.props.listPosition===Setting.LIST_POSITION_OUTER),
+					'pkg-checked-icon': (this.props.listPosition!==Setting.LIST_POSITION_OUTER),
+					
+					'pkg-style-item': true,
+					'pkg-style-item_checked': this.judegItemChecked(json_item) ,
+					'pkg-style-icon': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
+					'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
+					'pkg-style-iconback': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
+					'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
+					'pkg-style-border': ( this.props.styleBorder===true ),
+					'pkg-style-border_checked': ( (this.props.styleBorder===true) && this.judegItemChecked(json_item) ),
+					'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) ),
+					'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
+				});
 
-					let _str_classname_inner_add = ClassNames({
-						'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
-						'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
-						'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
-					});
+				let _str_classname_inner_add = ClassNames({
+					'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
+					'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
+					'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
+				});
 
-					return (
-						<label key={this.props.name+'-'+_str_selectkey+'-'+json_item[_str_selectkey]+Date.now()+'-'+Math.floor(Math.random()*1000)}
-							className={_str_classname_outer}>
-							<span className={_str_classname_inner+' '+_str_classname_inner_add}>
-								<ItemBase value={json_item[_str_selectkey]}
-									checked={this.judegItemChecked(json_item)}
-									onChange={this.handleChange}
-									disabled={this.state.disabled}
-									type={ (this.state.format==='array' || this.state.format==='sarry')? 'checkbox' : 'radio' }
-									name={this.props.name}
-									showKey={this.props.showKey}
-									between={this.props.between}
-									item={json_item} />
-							</span>
-						</label> 
-					);
-				})}
-			</div>
-
+				return (
+					<label key={this.props.name+'-'+_str_selectkey+'-'+json_item[_str_selectkey]+Date.now()+'-'+Math.floor(Math.random()*1000)}
+						className={_str_classname_outer}>
+						<span className={_str_classname_inner+' '+_str_classname_inner_add}>
+							<ItemBase value={json_item[_str_selectkey]}
+								checked={this.judegItemChecked(json_item)}
+								onChange={this.handleChange}
+								disabled={this.state.disabled}
+								type={ (this.state.format==='array' || this.state.format==='sarry')? 'checkbox' : 'radio' }
+								name={this.props.name}
+								showKey={this.props.showKey}
+								between={this.props.between}
+								item={json_item} />
+						</span>
+					</label> 
+				);
+			})}
 		</div>;
 	}
 }

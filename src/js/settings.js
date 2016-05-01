@@ -54,6 +54,11 @@ export default class Settings {
 	static SHAPE_RECT_NAME = '方形';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	static COMPUTE_TIMING_PREVIEW = 'preview';
+	static COMPUTE_TIMING_RESULT = 'result'; // 畫面下方用來作為真的送出結果用的地方
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static getConstNameByEn( str ){

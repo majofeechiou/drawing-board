@@ -59,7 +59,6 @@ export default class MethodControlDot extends React.Component {
         }else{
             this.state = {control:json_next.control};
         }
-        console.log( 'json_next :: ', json_next );
         if( callback ){
             callback();
         }
@@ -67,7 +66,7 @@ export default class MethodControlDot extends React.Component {
 
     submitAction(){
         let _scope = this;
-        GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
+        GloablTools.Emitter().emit( 'method.cotroller.control.asking', {
             from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
             control: _scope.state.control

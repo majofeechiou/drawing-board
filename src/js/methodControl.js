@@ -62,70 +62,72 @@ export default class MethodControl extends React.Component {
                 shape: MethodSettings.getAllShape()[0]
             };
             return (
-                <MethodControlDot
-                    methodStore={this.props.methodStore}
-                    control={_json_control} />
+                <div className={_scope.props.className}>
+                    <MethodControlDot
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_ALPHA ){
             _json_control = {
                 range: 100
             };
             return (
-                <MethodControlAlpha
-                    methodStore={this.props.methodStore}
-                    control={_json_control} />
+                <div className={_scope.props.className}>
+                    <MethodControlAlpha
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_SATURATE ){
             _json_control = {
                 range: 0
             };
             return (
-                <MethodControlSaturate
-                    methodStore={this.props.methodStore}
-                    control={_json_control} />
+                <div className={_scope.props.className}>
+                    <MethodControlSaturate
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_CONTRAST ){
             _json_control = {
                 range: 0
             };
             return (
-                <MethodControlContrast
-                    methodStore={this.props.methodStore}
-                    control={_json_control} />
+                <div className={_scope.props.className}>
+                    <MethodControlContrast
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_INVERT ){
             _json_control = {};
             return (
-                <MethodControlInvert
-                    methodStore={this.props.methodStore}
-                    control={_json_control} />
+                <div className={_scope.props.className}>
+                    <MethodControlInvert
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
             );
         }else{
             return (
-                <div>else</div>
+                <div className={_scope.props.className}>
+                    <div>else</div>
+                </div>
             );
         }
-        // return (
-        //     <div>
-        //         <div>123</div>
-        //         <If cond={ this.props.outputResult.method===Settings.METHOD_SNOW }>
-        //             snow
-        //         </If>
-        //         <ReactCond>
-        //             { this.props.outputResult.method===Settings.METHOD_SNOW } ssss
-        //             { this.props.outputResult.method!==Settings.METHOD_SNOW } not
-        //         </ReactCond>
-        //     </div>
-        // );
     }
 
 };
 
 MethodControl.propTypes = {
     outputResult: React.PropTypes.object.isRequired,
-    methodStore: React.PropTypes.object.isRequired
+    methodStore: React.PropTypes.object.isRequired,
+    className: React.PropTypes.string
 },
 MethodControl.defaultProps = {
     outputResult: {},
-    methodStore: {}
+    methodStore: {},
+    className: ''
 };

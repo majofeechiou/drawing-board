@@ -27,7 +27,7 @@ export default class PictureDraw extends GlobalConst {
 		_scope.mainImageFilter = new MainImageFilter( obj_main, {emitter:emitter} );
 		_scope.stepMethod = new StepMethod({emitter:emitter});
 		_scope.imageDataComputeProcess = new ImageDataComputeProcess({emitter:emitter});
-		_scope.imageDataComputeMethod = new ImageDataComputeMethod({emitter:emitter});
+		_scope.imageDataComputeMethod = new ImageDataComputeMethod(Settings.COMPUTE_TIMING_RESULT, {emitter:emitter});
 		_scope.imageDataOriginal = new ImageDataOriginal({emitter:emitter});
 
 		if( obj_main!==undefined ){
@@ -49,6 +49,7 @@ export default class PictureDraw extends GlobalConst {
 				_obj_result.setAttribute('data-method-id',_json_data.method_id);
 				_obj_result.insertAdjacentHTML('beforeend', Settings.getConstNameByEn(_json_data.method) );
 				let _obj_delete = document.createElement('span');
+				_obj_delete.className = 'pkg-action-method-delete';
 				_obj_delete.innerText = 'X';
 				_obj_result.appendChild(_obj_delete);
 				_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
@@ -178,6 +179,7 @@ export default class PictureDraw extends GlobalConst {
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){
+				console.log('****** step.image.success.loaded ******');
 				let _json = arguments[0],
 					_bln_delete_created = arguments[1],
 					_str_method = _json.method;

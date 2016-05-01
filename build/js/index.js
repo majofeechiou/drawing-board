@@ -459,9 +459,11 @@
 
 		_createClass(Settings, null, [{
 			key: 'getConstNameByEn',
-
+			// 畫面下方用來作為真的送出結果用的地方
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -533,6 +535,8 @@
 	Settings.SHAPE_CIRCLE_NAME = '圓形';
 	Settings.SHAPE_RECT = 'rect';
 	Settings.SHAPE_RECT_NAME = '方形';
+	Settings.COMPUTE_TIMING_PREVIEW = 'preview';
+	Settings.COMPUTE_TIMING_RESULT = 'result';
 	exports.default = Settings;
 	;
 
@@ -13551,7 +13555,7 @@
 					'pkg-style-list': this.props.styleList === true && this.props.listPosition === _Setting2.default.LIST_POSITION_INNER
 				});
 				var _str_selectkey = this.getMainSelectKey();
-				return _react2.default.createElement('div', null, _react2.default.createElement('div', { className: _str_classname_all }, this.props.inputOption.map(function (json_item) {
+				return _react2.default.createElement('div', { className: _str_classname_all }, this.props.inputOption.map(function (json_item) {
 
 					var _str_classname_outer = (0, _classnames2.default)({
 						'pkg-checked-option': true,
@@ -13587,7 +13591,7 @@
 						showKey: _this2.props.showKey,
 						between: _this2.props.between,
 						item: json_item })));
-				})));
+				}));
 			}
 		}]);
 
@@ -28947,17 +28951,17 @@
 
 	(function body() {
 
-	   var methodSection = new _MethodSection2.default(_Utils2.default.createUniqueId());
-	   methodSection.create();
+	    var methodSection = new _MethodSection2.default(_Utils2.default.createUniqueId());
+	    methodSection.create();
 
-	   // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-	   var _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
+	    var _obj_main = document.querySelectorAll('[data-majo="picture-filter"]');
 
-	   var pictureDraw = new _PictureDraw2.default(_obj_main[0], _Utils2.default.createUniqueId());
+	    var pictureDraw = new _PictureDraw2.default(_obj_main[0], _Utils2.default.createUniqueId());
 
-	   new _PictureDraw2.default(_obj_main[1], _Utils2.default.createUniqueId());
-	   new _PictureDraw2.default(_obj_main[2], _Utils2.default.createUniqueId());
+	    //    new PictureDraw( _obj_main[1], Utils.createUniqueId() );
+	    // new PictureDraw( _obj_main[2], Utils.createUniqueId() );
 	})(); // 用input抓原始圖片資料
 	// 用canvas修改圖片資料
 	// 預覽圖（固定某大小做為預覽圖）
@@ -29003,13 +29007,14 @@
 	var ImageDataComputeMethod = function (_Tools) {
 		_inherits(ImageDataComputeMethod, _Tools);
 
-		function ImageDataComputeMethod(json_tools) {
+		function ImageDataComputeMethod(str_compute_timing, json_tools) {
 			_classCallCheck(this, ImageDataComputeMethod);
 
 			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeMethod).call(this));
 
 			var _scope = _this;
 
+			_scope.setComputeTiming(str_compute_timing);
 			_scope.setEmitter(json_tools.emitter);
 
 			_scope.obj_canvas = document.createElement('canvas');
@@ -29018,6 +29023,7 @@
 			_scope.obj_image = new Image();
 
 			_scope.obj_image.onload = function () {
+				console.log('** ** ** onload ** ** **');
 
 				if (typeof this.src === 'string' && this.src !== '') {
 
@@ -29051,6 +29057,11 @@
 		}
 
 		_createClass(ImageDataComputeMethod, [{
+			key: 'getComputeTiming',
+			value: function getComputeTiming() {
+				return this.compute_timing;
+			}
+		}, {
 			key: 'getOtherData',
 			value: function getOtherData() {
 				var _scope = this;
@@ -29076,7 +29087,11 @@
 			value: function getComputeHeight() {
 				return this.compute_height;
 			}
-
+		}, {
+			key: 'setComputeTiming',
+			value: function setComputeTiming(str_compute_timing) {
+				this.compute_timing = str_compute_timing || '';
+			}
 			// 圖片運算是用多大寬度運算出來的
 
 		}, {
@@ -29446,7 +29461,10 @@
 					// _json_emit.method = json.method ;
 				}
 
-				_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+				var _str_compute_timing = _scope.getComputeTiming();
+				if (_str_compute_timing === _Settings2.default.COMPUTE_TIMING_RESULT) {
+					_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+				}
 			}
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -30629,54 +30647,66 @@
 	                    color: '#990000', // #hex
 	                    shape: _MethodSettings2.default.getAllShape()[0]
 	                };
-	                return _react2.default.createElement(_MethodControlDot2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlDot2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_ALPHA) {
 	                _json_control = {
 	                    range: 100
 	                };
-	                return _react2.default.createElement(_MethodControlAlpha2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlAlpha2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_SATURATE) {
 	                _json_control = {
 	                    range: 0
 	                };
-	                return _react2.default.createElement(_MethodControlSaturate2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlSaturate2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_CONTRAST) {
 	                _json_control = {
 	                    range: 0
 	                };
-	                return _react2.default.createElement(_MethodControlContrast2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlContrast2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_INVERT) {
 	                _json_control = {};
-	                return _react2.default.createElement(_MethodControlInvert2.default, {
-	                    methodStore: this.props.methodStore,
-	                    control: _json_control });
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlInvert2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
 	            } else {
 	                return _react2.default.createElement(
 	                    'div',
-	                    null,
-	                    'else'
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        'else'
+	                    )
 	                );
 	            }
-	            // return (
-	            //     <div>
-	            //         <div>123</div>
-	            //         <If cond={ this.props.outputResult.method===Settings.METHOD_SNOW }>
-	            //             snow
-	            //         </If>
-	            //         <ReactCond>
-	            //             { this.props.outputResult.method===Settings.METHOD_SNOW } ssss
-	            //             { this.props.outputResult.method!==Settings.METHOD_SNOW } not
-	            //         </ReactCond>
-	            //     </div>
-	            // );
 	        }
 	    }]);
 
@@ -30688,10 +30718,12 @@
 
 	MethodControl.propTypes = {
 	    outputResult: _react2.default.PropTypes.object.isRequired,
-	    methodStore: _react2.default.PropTypes.object.isRequired
+	    methodStore: _react2.default.PropTypes.object.isRequired,
+	    className: _react2.default.PropTypes.string
 	}, MethodControl.defaultProps = {
 	    outputResult: {},
-	    methodStore: {}
+	    methodStore: {},
+	    className: ''
 	};
 
 /***/ },
@@ -30748,6 +30780,7 @@
 
 	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
 	        _this.submitAction = _this.submitAction.bind(_this);
+
 	        return _this;
 	    }
 
@@ -30774,7 +30807,7 @@
 	        key: 'submitAction',
 	        value: function submitAction() {
 	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
 	                control: _scope.state.control
@@ -30909,7 +30942,7 @@
 	        key: 'submitAction',
 	        value: function submitAction() {
 	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
 	                control: _scope.state.control
@@ -31072,7 +31105,6 @@
 	            } else {
 	                this.state = { control: json_next.control };
 	            }
-	            console.log('json_next :: ', json_next);
 	            if (callback) {
 	                callback();
 	            }
@@ -31081,7 +31113,7 @@
 	        key: 'submitAction',
 	        value: function submitAction() {
 	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
 	                control: _scope.state.control
@@ -31338,7 +31370,7 @@
 	        key: 'submitAction',
 	        value: function submitAction() {
 	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
 	                control: _scope.state.control
@@ -31453,7 +31485,7 @@
 	        value: function submitAction() {
 	            var _scope = this;
 	            var _num_range = _scope.state.control.range;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', {
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
 	                from: _GloablData2.default.getFrom(),
 	                method: _scope.getComponentMethod(),
 	                control: {
@@ -31609,31 +31641,34 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-
 	            var _json_method_store = this.getStoreState().method;
-	            return _react2.default.createElement(_ReactGroup2.default, {
-	                onChange: this.handleChange,
-	                outputFormat: 'json',
-	                name: 'method_option',
-	                selectKey: this.getSelectKey(),
-	                inputOption: this.getInputoption(),
-	                outputResult: this.getOutputResult(),
-	                showKey: this.getShowKey(),
-	                between: '~',
-	                display: _json_method_store.display,
-	                padding: _json_method_store.padding,
-	                fillet: _json_method_store.fillet,
-	                listStyle: _json_method_store.listStyle,
-	                listPosition: _json_method_store.listPosition,
-	                iconPosition: _json_method_store.iconPosition,
-	                iconShow: _json_method_store.iconShow,
-	                styleName: _json_method_store.styleName,
-	                composition: _json_method_store.composition,
-	                offBack: _json_method_store.offBack,
-	                styleBorder: _json_method_store.styleBorder,
-	                styleIcon: _json_method_store.styleIcon,
-	                styleIconBack: _json_method_store.styleIconBack,
-	                styleList: _json_method_store.styleList });
+	            return _react2.default.createElement(
+	                'div',
+	                { className: this.props.className },
+	                _react2.default.createElement(_ReactGroup2.default, {
+	                    onChange: this.handleChange,
+	                    outputFormat: 'json',
+	                    name: 'method_option',
+	                    selectKey: this.getSelectKey(),
+	                    inputOption: this.getInputoption(),
+	                    outputResult: this.getOutputResult(),
+	                    showKey: this.getShowKey(),
+	                    between: '~',
+	                    display: _json_method_store.display,
+	                    padding: _json_method_store.padding,
+	                    fillet: _json_method_store.fillet,
+	                    listStyle: _json_method_store.listStyle,
+	                    listPosition: _json_method_store.listPosition,
+	                    iconPosition: _json_method_store.iconPosition,
+	                    iconShow: _json_method_store.iconShow,
+	                    styleName: _json_method_store.styleName,
+	                    composition: _json_method_store.composition,
+	                    offBack: _json_method_store.offBack,
+	                    styleBorder: _json_method_store.styleBorder,
+	                    styleIcon: _json_method_store.styleIcon,
+	                    styleIconBack: _json_method_store.styleIconBack,
+	                    styleList: _json_method_store.styleList })
+	            );
 	        }
 	    }]);
 
@@ -31646,11 +31681,13 @@
 	MethodOption.propTypes = {
 	    handleChange: _react2.default.PropTypes.func.isRequired,
 	    outputResult: _react2.default.PropTypes.object.isRequired,
-	    methodStore: _react2.default.PropTypes.object.isRequired
+	    methodStore: _react2.default.PropTypes.object.isRequired,
+	    className: _react2.default.PropTypes.string
 	}, MethodOption.defaultProps = {
 	    handleChange: function handleChange() {},
 	    outputResult: {},
-	    methodStore: {}
+	    methodStore: {},
+	    className: ''
 	};
 
 	// this.arrangeProps( props );
@@ -31735,6 +31772,7 @@
 	        _this.arrangeStates(props);
 
 	        _this.handleChange = _this.handleChange.bind(_this);
+	        _this.closeMethod = _this.closeMethod.bind(_this);
 
 	        _this.default();
 
@@ -31779,6 +31817,11 @@
 	            }
 	        }
 	    }, {
+	        key: 'closeMethod',
+	        value: function closeMethod() {
+	            _GloablTools2.default.Emitter().emit('method.setting.close.asked');
+	        }
+	    }, {
 	        key: 'handleChange',
 	        value: function handleChange(_ref) {
 	            var json_return = _objectWithoutProperties(_ref, []);
@@ -31794,14 +31837,27 @@
 	            nextState = nextState || {};
 	            var _json_result = nextState.outputResult || this.getOutputResult();
 	            var _json_method = nextProps.methodStore || this.props.methodStore;
+	            var _str_cn = 'pkg-method-content';
+	            var _str_cn_options = 'pkg-method-content-options pkg-method-wrap';
+	            var _str_cn_close = 'pkg-method-content-close';
+	            var _str_cn_control = 'pkg-method-content-control pkg-method-wrap';
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: _str_cn },
 	                _react2.default.createElement(_MethodOption2.default, {
+	                    className: _str_cn_options,
 	                    handleChange: this.handleChange,
 	                    outputResult: _json_result,
 	                    methodStore: this.props.methodStore }),
+	                _react2.default.createElement(
+	                    'button',
+	                    {
+	                        className: _str_cn_close,
+	                        onClick: this.closeMethod },
+	                    'X'
+	                ),
 	                _react2.default.createElement(_MethodControl2.default, {
+	                    className: _str_cn_control,
 	                    outputResult: _json_result,
 	                    methodStore: this.props.methodStore })
 	            );
@@ -31938,6 +31994,11 @@
 
 	var methodStore = (0, _redux.createStore)(_MethodReducer2.default);
 
+	var OBJ_METHOD_POPUP = document.getElementById("method-popup");
+	var METHOD_POPUP_CLASSNAME = 'pkg-tmp-method';
+	var METHOD_POPUP_OPEN_CLASSNAME = 'pkg-tmp-method_open';
+	var METHOD_POPUP_OPEN_REG = new RegExp(METHOD_POPUP_OPEN_CLASSNAME, 'gim');
+
 	var MethodSection = function (_GlobalConst) {
 	    _inherits(MethodSection, _GlobalConst);
 
@@ -31956,16 +32017,37 @@
 	    _createClass(MethodSection, [{
 	        key: 'default',
 	        value: function _default() {
+	            var _scope = this;
 	            _GloablTools2.default.Emitter().on('method.setting.open.asked', function () {
+	                var _str_cn_base = _scope.getMethodBaseClassName();
+	                OBJ_METHOD_POPUP.className = _str_cn_base + ' ' + METHOD_POPUP_OPEN_CLASSNAME;
 	                _GloablTools2.default.Emitter().emit('method.setting.opening');
 	            });
+
+	            _GloablTools2.default.Emitter().on('method.cotroller.control.asking', function () {
+	                // 新的設定的做法
+	                var _json_emit = arguments[0];
+	                _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', _json_emit);
+	                _GloablTools2.default.Emitter().emit('method.setting.close.asked');
+	            });
+
+	            _GloablTools2.default.Emitter().on('method.setting.close.asked', function () {
+	                // 新的設定的做法
+	                var _json_emit = arguments[0];
+	                OBJ_METHOD_POPUP.className = _scope.getMethodBaseClassName();
+	            });
+	        }
+	    }, {
+	        key: 'getMethodBaseClassName',
+	        value: function getMethodBaseClassName() {
+	            return OBJ_METHOD_POPUP.className.replace(METHOD_POPUP_OPEN_REG, '');
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _scope = this;
 	            _reactDom2.default.render(_react2.default.createElement(_MethodReact2.default, {
-	                methodStore: methodStore }), document.getElementById("method-popup"));
+	                methodStore: methodStore }), OBJ_METHOD_POPUP);
 	        }
 	    }, {
 	        key: 'create',
@@ -32091,7 +32173,7 @@
 			_scope.mainImageFilter = new _MainImageFilter2.default(obj_main, { emitter: emitter });
 			_scope.stepMethod = new _StepMethod2.default({ emitter: emitter });
 			_scope.imageDataComputeProcess = new _ImageDataComputeProcess2.default({ emitter: emitter });
-			_scope.imageDataComputeMethod = new _ImageDataComputeMethod2.default({ emitter: emitter });
+			_scope.imageDataComputeMethod = new _ImageDataComputeMethod2.default(_Settings2.default.COMPUTE_TIMING_RESULT, { emitter: emitter });
 			_scope.imageDataOriginal = new _ImageDataOriginal2.default({ emitter: emitter });
 
 			if (obj_main !== undefined) {
@@ -32113,6 +32195,7 @@
 					_obj_result.setAttribute('data-method-id', _json_data.method_id);
 					_obj_result.insertAdjacentHTML('beforeend', _Settings2.default.getConstNameByEn(_json_data.method));
 					var _obj_delete = document.createElement('span');
+					_obj_delete.className = 'pkg-action-method-delete';
 					_obj_delete.innerText = 'X';
 					_obj_result.appendChild(_obj_delete);
 					_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
@@ -32245,6 +32328,7 @@
 				});
 
 				_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function (e) {
+					console.log('****** step.image.success.loaded ******');
 					var _json = arguments[0],
 					    _bln_delete_created = arguments[1],
 					    _str_method = _json.method;

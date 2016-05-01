@@ -87,7 +87,12 @@ html, body {
 }
 
 .pkg-tmp .pkg-tmp-method {
-    border-bottom: 6px solid #099;
+    display: none;
+    border-bottom: 6px solid #099
+}
+
+.pkg-tmp .pkg-tmp-method.pkg-tmp-method_open {
+    display: block;
 }
 
 .pkg-tmp .pkg-tmp-workspace {
@@ -207,9 +212,52 @@ html, body {
 .pkg-action .pkg-action-method li {
     display: inline-block;
     margin: 0.3em 0.5em;
-    padding: 0.3em 0.5em;
+    padding: 0.15em 0.5em;
     border: 1px solid #f00;
     border-radius: 0.3em;
+}
+
+.pkg-action .pkg-action-method li .pkg-action-method-delete {
+    margin-left: 0.3em;
+    display: inline-block;
+    padding: 0.3em;
+    border-radius: 50%;
+    border: 1px solid #f00;
+}
+
+.pkg-action .pkg-action-method li .pkg-action-method-delete:hover {
+    cursor: pointer;
+}
+
+.pkg-method {
+    z-index: 10;
+    display: block;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: RGBA(0, 0, 0, 0.6);
+    content: '';
+}
+
+.pkg-method .pkg-method-content-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.pkg-method .pkg-method-content {
+    background-color: rgb(243, 243, 243);
+}
+
+.pkg-method .pkg-method-content .pkg-method-content-options {
+    padding-right: 3em;
+    background-color: rgb(222, 222, 222);
+}
+
+.pkg-method .pkg-method-wrap {
+    padding: 10px;
 }
 
 .blk-subtitle {

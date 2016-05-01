@@ -19,6 +19,7 @@ export default class MethodReact extends React.Component {
         this.arrangeStates( props );
 
         this.handleChange = this.handleChange.bind(this);
+        this.closeMethod = this.closeMethod.bind(this);
 
         this.default();
 
@@ -60,6 +61,10 @@ export default class MethodReact extends React.Component {
         }
     }
 
+    closeMethod(){
+        GloablTools.Emitter().emit('method.setting.close.asked');
+    }
+
     handleChange({...json_return}){
         let _json = {...this.state};
         _json.outputResult = json_return.result;
@@ -71,13 +76,22 @@ export default class MethodReact extends React.Component {
         nextState = nextState || {} ;
         let _json_result = nextState.outputResult || this.getOutputResult() ;
         let _json_method = nextProps.methodStore || this.props.methodStore ;
+        let _str_cn = 'pkg-method-content';
+        let _str_cn_options = 'pkg-method-content-options pkg-method-wrap';
+        let _str_cn_close = 'pkg-method-content-close';
+        let _str_cn_control = 'pkg-method-content-control pkg-method-wrap';
         return (
-            <div>
+            <div className={_str_cn}>
                 <MethodOption 
+                    className={_str_cn_options}
                     handleChange={ this.handleChange }
                     outputResult={ _json_result }
                     methodStore={ this.props.methodStore } />
+                <button 
+                    className={_str_cn_close} 
+                    onClick={ this.closeMethod }>X</button>
                 <MethodControl 
+                    className={_str_cn_control}
                     outputResult={ _json_result }
                     methodStore={ this.props.methodStore } />
             </div>

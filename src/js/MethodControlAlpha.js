@@ -16,6 +16,7 @@ export default class MethodControlAlpha extends React.Component {
 
         this.handleChangeRange = this.handleChangeRange.bind(this);
         this.submitAction = this.submitAction.bind(this);
+
     }
 
     getComponentMethod(){
@@ -36,7 +37,7 @@ export default class MethodControlAlpha extends React.Component {
 
     submitAction(){
         let _scope = this;
-        GloablTools.Emitter().emit( 'method.cotroller.control.operating', {
+        GloablTools.Emitter().emit( 'method.cotroller.control.asking', {
             from: GloablData.getFrom(),
             method: _scope.getComponentMethod(),
             control: _scope.state.control
