@@ -29,6 +29,15 @@ export default class MethodControlDot extends React.Component {
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.colorPick = _scope.colorPick.bind(_scope);
 
+        GloablTools.Emitter().on('preview.image.object.data.changing',function() {
+            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+            let _json_new = _scope.arrangeState();
+            _scope.setState( _json_new );
+            // setTimeout(function(){
+            //     _scope.render();
+            // },200);
+        });
+
     }
 
     componentWillReceiveProps(nextProps){
@@ -44,17 +53,24 @@ export default class MethodControlDot extends React.Component {
             {},
             { control: this.props.control }, 
             this.state, 
-            { control: {
-                frequency: this.refs.frequency.value,
-                minSize: this.refs.minSize.value,
-                maxSize: this.refs.maxSize.value,
-                minAlpha: this.refs.minAlpha.value,
-                maxAlpha: this.refs.maxAlpha.value,
+            { control: 
+                {
+                    frequency: this.refs.frequency.value,
+                    minSize: this.refs.minSize.value,
+                    maxSize: this.refs.maxSize.value,
+                    minAlpha: this.refs.minAlpha.value,
+                    maxAlpha: this.refs.maxAlpha.value,
+                }
+            },
+            { imgObj: 
+                {
+                    src: GloablData.getImageObjectSrc()
+                }
             }
-        } );
+        );
     }
 
-    arrangeProps(json_next, callback){
+    arrangeProps(json_next, callback){//+++++++++++++++++++++++++++++++
         if( this.state ){
             this.setState( {control:json_next.control} );
         }else{
@@ -112,9 +128,16 @@ export default class MethodControlDot extends React.Component {
     }
 
     render(){
+        console.log('+++++++render+++++++++++++++++');
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
-       
+        let _json_now_image = GloablData.getNowImageData() ;
+        let _json_style = {
+            float: 'right',
+            width: '40%'
+        };
+        let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
+
         return (
             <div>
                 <ReactGroup 
@@ -140,6 +163,8 @@ export default class MethodControlDot extends React.Component {
                     styleIcon={_json_sub_store.styleIcon}
                     styleIconBack={_json_sub_store.styleIconBack}
                     styleList={_json_sub_store.styleList} />
+
+                <img src={_str_img_src} style={_json_style} />
                 
                 <div style={{marginTop: '15px', marginBottom: '5px'}}>
                     <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
@@ -199,7 +224,9 @@ export default class MethodControlDot extends React.Component {
                         value={this.state.control.maxAlpha}
                         onChange={this.handleChangeRange} /> {this.state.control.maxAlpha} / 100
                 </div>
-                <button onClick={_scope.prevewAction}>預覽</button>
+                <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
+                    <button onClick={_scope.prevewAction}>預覽</button>
+                </If>
                 <button onClick={_scope.submitAction}>確定</button>
             </div>
         );

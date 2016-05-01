@@ -10,23 +10,15 @@ import { createStore } from 'redux'
 import MethodReact from './MethodReact';
 import MethodReducer from './MethodReducer';
 import Extend from 'Extend';
+import GloablData from './GloablData';
+import ImageDataComputeMethod from './ImageDataComputeMethod';
+import Settings from './Settings';
 
 const methodStore = createStore( MethodReducer );
-
 const OBJ_METHOD_POPUP = document.getElementById("method-popup");
 const METHOD_POPUP_CLASSNAME = 'pkg-tmp-method';
 const METHOD_POPUP_OPEN_CLASSNAME = 'pkg-tmp-method_open';
 const METHOD_POPUP_OPEN_REG = new RegExp(METHOD_POPUP_OPEN_CLASSNAME, 'gim');
-
-
-
-
-
-
-import ImageDataComputeMethod from './ImageDataComputeMethod';
-import Settings from './Settings';
-
-
 
 export default class MethodSection extends GlobalConst {
     constructor( str_id ){
@@ -67,7 +59,7 @@ export default class MethodSection extends GlobalConst {
             _json_emit.data = _json_emit.data || {} ;
 
             let _json_other = _json_emit.data || {} ;
-            _scope.setNowImageData( _json_other );
+            GloablData.setNowImageData( _json_other );
             // console.log( '_json_other :::::::: ', _json_other );
             // _scope.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
 
@@ -76,7 +68,7 @@ export default class MethodSection extends GlobalConst {
         GloablTools.Emitter().on('method.cotroller.previewing',function(){
             let _json = arguments[0];
             let _json_other = Extend.deep(_json, {
-                origin_data: _scope.getNowImageData().origin_data
+                origin_data: GloablData.getNowImageData().origin_data
             });
             _scope.imageDataComputeMethod.changeData( _json.method, _json_other.origin_data, _json_other );
         });
@@ -117,6 +109,10 @@ export default class MethodSection extends GlobalConst {
             console.log('** ** ** ** ** ** // ** ** preview.image.success.computed ** ** // ** ** ** ** ** **');
             console.log( 'arguments[0] :: ', arguments[0] );
             let _json = arguments[0];
+            GloablData.setImageObjectSrc( _json.data, function(){
+                GloablTools.Emitter().emit('preview.image.object.data.changing');
+            } );
+
             let _obj_image = new Image();
             _obj_image.src = _json.data;
             document.getElementsByTagName('body')[0].appendChild(_obj_image);
@@ -124,13 +120,13 @@ export default class MethodSection extends GlobalConst {
 
     }
 
-    getNowImageData(){
-        return this.now_image_data || {} ;
-    }
+    // getNowImageData(){
+    //     return this.now_image_data || {} ;
+    // }
 
-    setNowImageData( json ){
-        this.now_image_data = json || {} ;
-    }
+    // setNowImageData( json ){
+    //     this.now_image_data = json || {} ;
+    // }
 
     getMethodBaseClassName(){
         return OBJ_METHOD_POPUP.className.replace( METHOD_POPUP_OPEN_REG, '' );
