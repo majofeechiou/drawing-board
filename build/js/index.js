@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(232);
+	module.exports = __webpack_require__(233);
 
 
 /***/ },
@@ -459,9 +459,17 @@
 
 		_createClass(Settings, null, [{
 			key: 'getConstNameByEn',
-			// 畫面下方用來作為真的送出結果用的地方
+
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+			value: function getConstNameByEn(str) {
+				if (typeof str === 'string' && str !== '') {
+					return Settings['METHOD_' + str + '_NAME'];
+				}
+			} // 畫面下方用來作為真的送出結果用的地方
+
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -476,11 +484,6 @@
 			// static METHOD_SNOW = 'SNOW';
 			// static METHOD_SNOW_NAME = '雪花';
 
-			value: function getConstNameByEn(str) {
-				if (typeof str === 'string' && str !== '') {
-					return Settings['METHOD_' + str + '_NAME'];
-				}
-			}
 		}, {
 			key: 'getInitOutputImageScale',
 			value: function getInitOutputImageScale() {
@@ -537,6 +540,7 @@
 	Settings.SHAPE_RECT_NAME = '方形';
 	Settings.COMPUTE_TIMING_PREVIEW = 'preview';
 	Settings.COMPUTE_TIMING_RESULT = 'result';
+	Settings.IMAGE_DATA_FROM_LAST = 'last';
 	exports.default = Settings;
 	;
 
@@ -546,7 +550,7 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(143);
+	module.exports = __webpack_require__(144);
 
 /***/ },
 /* 8 */
@@ -1945,7 +1949,7 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(228);
+	module.exports = __webpack_require__(229);
 
 /***/ },
 /* 19 */
@@ -1956,7 +1960,7 @@
 	module.exports = function () {
 
 	    var exterior = __webpack_require__(107);
-	    var deep = __webpack_require__(206);
+	    var deep = __webpack_require__(207);
 
 	    return {
 	        exterior: exterior,
@@ -2094,7 +2098,7 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(146);
+	module.exports = __webpack_require__(147);
 
 /***/ },
 /* 22 */
@@ -2262,7 +2266,7 @@
 
 	'use strict';
 
-	var ReactRef = __webpack_require__(176);
+	var ReactRef = __webpack_require__(177);
 	var ReactInstrumentation = __webpack_require__(36);
 
 	/**
@@ -3030,7 +3034,7 @@
 	    value: true
 	});
 
-	var _md = __webpack_require__(216);
+	var _md = __webpack_require__(217);
 
 	var _md2 = _interopRequireDefault(_md);
 
@@ -3153,7 +3157,7 @@
 
 	'use strict';
 
-	var tinycolor = __webpack_require__(231);
+	var tinycolor = __webpack_require__(232);
 
 	if (typeof window != 'undefined') {
 	    window.tinycolor = tinycolor;
@@ -3469,10 +3473,10 @@
 
 	var EventConstants = __webpack_require__(12);
 	var EventPluginRegistry = __webpack_require__(34);
-	var ReactEventEmitterMixin = __webpack_require__(168);
+	var ReactEventEmitterMixin = __webpack_require__(169);
 	var ViewportMetrics = __webpack_require__(92);
 
-	var getVendorPrefixedEventName = __webpack_require__(196);
+	var getVendorPrefixedEventName = __webpack_require__(197);
 	var isEventSupported = __webpack_require__(59);
 
 	/**
@@ -3787,7 +3791,7 @@
 
 	'use strict';
 
-	var ReactDebugTool = __webpack_require__(163);
+	var ReactDebugTool = __webpack_require__(164);
 
 	module.exports = { debugTool: ReactDebugTool };
 
@@ -4044,7 +4048,7 @@
 	'use strict';
 
 	var DOMLazyTree = __webpack_require__(23);
-	var Danger = __webpack_require__(138);
+	var Danger = __webpack_require__(139);
 	var ReactMultiChildUpdateTypes = __webpack_require__(85);
 	var ReactPerf = __webpack_require__(8);
 
@@ -4208,10 +4212,10 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(16);
-	var ReactDOMInstrumentation = __webpack_require__(156);
+	var ReactDOMInstrumentation = __webpack_require__(157);
 	var ReactPerf = __webpack_require__(8);
 
-	var quoteAttributeValueForBrowser = __webpack_require__(198);
+	var quoteAttributeValueForBrowser = __webpack_require__(199);
 	var warning = __webpack_require__(2);
 
 	var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -4990,12 +4994,12 @@
 	var ReactBrowserEventEmitter = __webpack_require__(35);
 	var ReactCurrentOwner = __webpack_require__(17);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMContainerInfo = __webpack_require__(149);
-	var ReactDOMFeatureFlags = __webpack_require__(153);
+	var ReactDOMContainerInfo = __webpack_require__(150);
+	var ReactDOMFeatureFlags = __webpack_require__(154);
 	var ReactElement = __webpack_require__(9);
 	var ReactFeatureFlags = __webpack_require__(83);
 	var ReactInstrumentation = __webpack_require__(36);
-	var ReactMarkupChecksum = __webpack_require__(172);
+	var ReactMarkupChecksum = __webpack_require__(173);
 	var ReactPerf = __webpack_require__(8);
 	var ReactReconciler = __webpack_require__(24);
 	var ReactUpdateQueue = __webpack_require__(90);
@@ -6765,7 +6769,7 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(113);
+	module.exports = __webpack_require__(114);
 
 /***/ },
 /* 66 */
@@ -7116,7 +7120,7 @@
 	var ReactDOM = __webpack_require__(21);
 	var Region = __webpack_require__(18);
 	var assign = __webpack_require__(3);
-	var DragHelper = __webpack_require__(207);
+	var DragHelper = __webpack_require__(208);
 	var toHsv = __webpack_require__(33).toHsv;
 
 	function emptyFn() {}
@@ -8624,7 +8628,7 @@
 	'use strict';
 
 	var DOMChildrenOperations = __webpack_require__(44);
-	var ReactDOMIDOperations = __webpack_require__(154);
+	var ReactDOMIDOperations = __webpack_require__(155);
 	var ReactPerf = __webpack_require__(8);
 
 	/**
@@ -9267,9 +9271,9 @@
 
 	'use strict';
 
-	var ReactDOMSelection = __webpack_require__(158);
+	var ReactDOMSelection = __webpack_require__(159);
 
-	var containsNode = __webpack_require__(118);
+	var containsNode = __webpack_require__(119);
 	var focusNode = __webpack_require__(67);
 	var getActiveElement = __webpack_require__(68);
 
@@ -10529,7 +10533,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactCompositeComponent = __webpack_require__(145);
+	var ReactCompositeComponent = __webpack_require__(146);
 	var ReactEmptyComponent = __webpack_require__(82);
 	var ReactNativeComponent = __webpack_require__(86);
 
@@ -11021,9 +11025,9 @@
 
 	'use strict';
 
-	var base64 = __webpack_require__(114);
-	var ieee754 = __webpack_require__(213);
-	var isArray = __webpack_require__(215);
+	var base64 = __webpack_require__(115);
+	var ieee754 = __webpack_require__(214);
+	var isArray = __webpack_require__(216);
 
 	exports.Buffer = Buffer;
 	exports.SlowBuffer = SlowBuffer;
@@ -12853,9 +12857,9 @@
 
 	'use strict';
 
-	var getPrototype = __webpack_require__(219),
-	    isHostObject = __webpack_require__(220),
-	    isObjectLike = __webpack_require__(221);
+	var getPrototype = __webpack_require__(220),
+	    isHostObject = __webpack_require__(221),
+	    isObjectLike = __webpack_require__(222);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -12957,6 +12961,580 @@
 
 /***/ },
 /* 110 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Tools2 = __webpack_require__(41);
+
+	var _Tools3 = _interopRequireDefault(_Tools2);
+
+	var _hexRgb = __webpack_require__(213);
+
+	var _hexRgb2 = _interopRequireDefault(_hexRgb);
+
+	var _Settings = __webpack_require__(6);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// 運算的方式
+	// 寬高也是最後輸出的圖片的寬高
+
+	var ImageDataComputeMethod = function (_Tools) {
+		_inherits(ImageDataComputeMethod, _Tools);
+
+		function ImageDataComputeMethod(str_compute_timing, json_tools) {
+			_classCallCheck(this, ImageDataComputeMethod);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeMethod).call(this));
+
+			var _scope = _this;
+
+			_scope.setComputeTiming(str_compute_timing);
+			_scope.setEmitter(json_tools.emitter);
+
+			_scope.obj_canvas = document.createElement('canvas');
+			_scope.obj_canvas_2d = _scope.obj_canvas.getContext('2d');
+
+			_scope.obj_image = new Image();
+
+			_scope.obj_image.onload = function () {
+				console.log('** ** ** onload ** ** **');
+
+				if (typeof this.src === 'string' && this.src !== '') {
+
+					var _num_width = this.width;
+					var _num_height = this.height;
+					_scope.obj_canvas.width = _num_width;
+					_scope.obj_canvas.height = _num_height;
+					_scope.obj_canvas_2d.clearRect(0, 0, _num_width, _num_height);
+					_scope.obj_canvas_2d.drawImage(this, 0, 0, _num_width, _num_height);
+
+					_scope.setComputeWidth(_num_width); // 在此先用圖片本身的長寬去做的
+					_scope.setComputeHeight(_num_height); // 在此先用圖片本身的長寬去做的
+
+					var _json_emit = _scope.getOtherData();
+					_json_emit.origin_data = this.src;
+					_json_emit.method = _scope.getPainterMethod();
+
+					_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
+				} else {
+					console.log('***');
+				}
+			};
+
+			_scope.obj_image.error = function () {
+				_scope.getEmitter().emit('step.image.error.loaded', {
+					origin_data: this.src
+				});
+			};
+
+			return _this;
+		}
+
+		_createClass(ImageDataComputeMethod, [{
+			key: 'getComputeTiming',
+			value: function getComputeTiming() {
+				return this.compute_timing;
+			}
+		}, {
+			key: 'getOtherData',
+			value: function getOtherData() {
+				var _scope = this;
+				return _scope.other_data;
+			}
+		}, {
+			key: 'getPainterMethod',
+			value: function getPainterMethod() {
+				var _scope = this;
+				return _scope.painter_method;
+			}
+			// 圖片運算是用多大寬度運算出來的
+
+		}, {
+			key: 'getComputeWidth',
+			value: function getComputeWidth() {
+				return this.compute_width;
+			}
+			// 圖片運算是用多大高度運算出來的
+
+		}, {
+			key: 'getComputeHeight',
+			value: function getComputeHeight() {
+				return this.compute_height;
+			}
+		}, {
+			key: 'setComputeTiming',
+			value: function setComputeTiming(str_compute_timing) {
+				this.compute_timing = str_compute_timing || '';
+			}
+			// 圖片運算是用多大寬度運算出來的
+
+		}, {
+			key: 'setComputeWidth',
+			value: function setComputeWidth(num) {
+				this.compute_width = num || 0;
+			}
+			// 圖片運算是用多大高度運算出來的
+
+		}, {
+			key: 'setComputeHeight',
+			value: function setComputeHeight(num) {
+				this.compute_height = num || 0;
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+			// 在照片中添加纹理
+			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
+
+		}, {
+			key: 'methodDot',
+			value: function methodDot(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight();
+
+				var _bln_old = false;
+				if (json.created && json.created.dot && json.created.dot.length > 0) {
+					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height && json.setting.width === _num_compute_width && json.setting.height === _num_compute_height) {
+						// 輸出的圖片大小是相同的
+						_bln_old = true;
+					} else {
+						_bln_old = false;
+					}
+				}
+
+				json.created.dot = _bln_old === true ? json.created.dot : [];
+
+				var _json_control = json.control,
+				    _num_size_min = _json_control.minSize,
+				    _num_size_max = _json_control.maxSize,
+				    _num_size = void 0,
+				    _num_alpha_min = _json_control.minAlpha,
+				    _num_alpha_max = _json_control.maxAlpha,
+				    _num_alpha = void 0,
+				    _num_total = void 0,
+				    _str_color = void 0,
+				    _str_shape = _json_control.shape.shape;
+
+				var _num_x = void 0,
+				    _num_y = void 0;
+
+				var _ary_dot_origin = JSON.parse(JSON.stringify(json.created.dot));
+
+				if (_bln_old === true) {
+					_num_total = _ary_dot_origin.length;
+				} else {
+					_num_total = Math.floor(_num_compute_width * _num_compute_height / _num_size_max / _num_size_max / 100 * _json_control.frequency);
+					json.created.setting = _extends({}, json.setting);
+				}
+
+				var _ary_rgb = (0, _hexRgb2.default)(_json_control.color);
+
+				for (var i = 0; i < _num_total; i++) {
+					if (_bln_old === true) {
+						_scope.obj_canvas_2d.fillStyle = _ary_dot_origin[i].color;
+
+						_num_x = _ary_dot_origin[i].xPos;
+						_num_y = _ary_dot_origin[i].yPos;
+						_num_size = _ary_dot_origin[i].size;
+					} else {
+						_num_alpha = (parseInt(_num_alpha_min, 10) + Math.floor((_num_alpha_max - _num_alpha_min) * Math.random())) / 100;
+						_str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _num_alpha + ')';
+						_scope.obj_canvas_2d.fillStyle = _str_color;
+
+						_num_x = Math.floor(Math.random() * _num_compute_width);
+						_num_y = Math.floor(Math.random() * _num_compute_height);
+						_num_size = (parseInt(_num_size_min, 10) + Math.floor((_num_size_max - _num_size_min) * Math.random())) / 2;
+
+						json.created.dot.push({
+							xPos: _num_x,
+							yPos: _num_y,
+							size: _num_size,
+							color: _str_color
+						});
+					}
+
+					_scope.obj_canvas_2d.beginPath();
+					if (_str_shape === _Settings2.default.SHAPE_CIRCLE) {
+						_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
+					} else if (_str_shape === _Settings2.default.SHAPE_RECT) {
+						_scope.obj_canvas_2d.rect(_num_x - _num_size / 2, _num_y - _num_size / 2, _num_size, _num_size);
+					}
+
+					_scope.obj_canvas_2d.closePath();
+					_scope.obj_canvas_2d.fill();
+				}
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 透明
+			// https://msdn.microsoft.com/zh-cn/library/gg589493(v=vs.85).aspx
+
+		}, {
+			key: 'methodAlpha',
+			value: function methodAlpha(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+				// Loop through data.
+				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
+
+					// First bytes are red bytes.       
+					// Second bytes are green bytes.
+					// Third bytes are blue bytes.
+					// Fourth bytes are alpha bytes
+					// Test of alpha channel at 50%.
+					// _json_image_data.data[i + 3] = 128;
+					_json_image_data.data[i + 3] = _json_image_data.data[i + 3] * (_num_range / 100);
+				}
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 負片效果
+
+		}, {
+			key: 'methodInvert',
+			value: function methodInvert(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight();
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+				// Loop through data.
+				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
+					_json_image_data.data[i] = 255 - _json_image_data.data[i];
+					_json_image_data.data[i + 1] = 255 - _json_image_data.data[i + 1];
+					_json_image_data.data[i + 2] = 255 - _json_image_data.data[i + 2];
+				}
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 灰階
+			// https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
+
+		}, {
+			key: 'methodGray',
+			value: function methodGray(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight();
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+				var _num_red = void 0,
+				    _num_green = void 0,
+				    _num_blue = void 0,
+				    _num_gray = void 0;
+
+				// Loop through data.
+				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
+
+					// First bytes are red bytes.       
+					// Get red value.
+					_num_red = _json_image_data.data[i];
+
+					// Second bytes are green bytes.
+					// Get green value.
+					_num_green = _json_image_data.data[i + 1];
+
+					// Third bytes are blue bytes.
+					// Get blue value.
+					_num_blue = _json_image_data.data[i + 2];
+
+					// Fourth bytes are alpha bytes
+					// We don't care about alpha here.
+					// Add the three values and divide by three.
+					// Make it an integer.
+					_num_gray = parseInt((_num_red + _num_green + _num_blue) / 3);
+
+					// Assign average to red, green, and blue.
+					_json_image_data.data[i] = _num_gray;
+					_json_image_data.data[i + 1] = _num_gray;
+					_json_image_data.data[i + 2] = _num_gray;
+				}
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 彩度（飽和度）
+			// 拿這個網址來改的https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
+
+		}, {
+			key: 'methodSaturate',
+			value: function methodSaturate(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+				var _num_red = void 0,
+				    _num_green = void 0,
+				    _num_blue = void 0,
+				    _json_rgb = {};
+
+				if (_num_range > 0 || _num_range < 0) {
+					// Loop through data.
+					for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
+
+						_num_red = _json_image_data.data[i];
+						_num_green = _json_image_data.data[i + 1];
+						_num_blue = _json_image_data.data[i + 2];
+
+						_json_rgb = _scope.operateSaturateRGB(_num_range, _num_red, _num_green, _num_blue);
+
+						_json_image_data.data[i] = _json_rgb.red;
+						_json_image_data.data[i + 1] = _json_rgb.green;
+						_json_image_data.data[i + 2] = _json_rgb.blue;
+					}
+				}
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// 對比
+			// 其實有另外這兒的可以參考，但我沒用 http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
+
+		}, {
+			key: 'methodContrast',
+			value: function methodContrast(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+				var _num_red = void 0,
+				    _num_green = void 0,
+				    _num_blue = void 0,
+				    _json_rgb = {};
+
+				if (_num_range > 0 || _num_range < 0) {
+					for (var i = 0; i < _json_image_data.data.length; i += 4) {
+
+						_num_red = _json_image_data.data[i];
+						_num_green = _json_image_data.data[i + 1];
+						_num_blue = _json_image_data.data[i + 2];
+
+						_json_rgb = _scope.operateContrastRGB(_num_range, _num_red, _num_green, _num_blue);
+
+						_json_image_data.data[i] = _json_rgb.red;
+						_json_image_data.data[i + 1] = _json_rgb.green;
+						_json_image_data.data[i + 2] = _json_rgb.blue;
+					}
+				}
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+		}, {
+			key: 'clearCanvas',
+			value: function clearCanvas(callback) {
+
+				this.obj_canvas_2d.clearRect(0, 0, this.getComputeWidth(), this.getComputeHeight()); // ????
+
+				if (callback && callback instanceof Function) {
+					setTimeout(function () {
+						callback();
+					}, 10);
+				}
+			}
+
+			// json_other : 會有 setting, control
+
+		}, {
+			key: 'changeData',
+			value: function changeData(str_painter_method, str_base64, json_other, callback) {
+				var _scope = this;
+				_scope.clearCanvas(function () {
+					_scope.painter_method = str_painter_method;
+					_scope.obj_image.src = str_base64;
+					_scope.other_data = json_other;
+					if (callback && callback instanceof Function) {
+						setTimeout(function () {
+							callback();
+						}, 10);
+					}
+				});
+			}
+
+			// 傳來什麼，就如實地回傳
+
+		}, {
+			key: 'methodOrigin',
+			value: function methodOrigin(json) {
+				var _scope = this;
+				_scope.emitAfterMethod(json);
+			}
+		}, {
+			key: 'methodVars',
+			value: function methodVars(json) {
+				json = json || {};
+				json.setting = json.setting || {};
+				json.control = json.control || {};
+				json.created = json.created || {};
+
+				return json;
+			}
+		}, {
+			key: 'emitAfterMethod',
+			value: function emitAfterMethod(json) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+
+				var _data_url = _scope.obj_canvas.toDataURL();
+
+				var _json_emit = {
+					origin_data: json.origin_data,
+					data: _data_url
+				};
+
+				if (json.method_id !== undefined) {
+					_json_emit.method_id = json.method_id;
+					// _json_emit.method = json.method ;
+				}
+
+				var _str_compute_timing = _scope.getComputeTiming();
+				if (_str_compute_timing === _Settings2.default.COMPUTE_TIMING_RESULT) {
+					_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+				} else if (_str_compute_timing === _Settings2.default.COMPUTE_TIMING_PREVIEW) {
+					json.data = _data_url;
+					_scope.getEmitter().emit('preview.image.success.computed', json);
+				}
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+		}, {
+			key: 'operateSaturateRGB',
+			value: function operateSaturateRGB(num_range, num_red, num_green, num_blue) {
+				var _num_saturate_min = Math.floor((num_red + num_green + num_blue) / 3); // 全灰階
+				var _json_output = {};
+				if (num_range < 0) {
+					_json_output = {
+						red: _num_saturate_min + Math.floor((num_red - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
+						green: _num_saturate_min + Math.floor((num_green - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
+						blue: _num_saturate_min + Math.floor((num_blue - _num_saturate_min) * (1 - Math.abs(num_range / 100)))
+					};
+				} else {
+					_json_output = {
+						red: num_red + Math.floor((num_red - _num_saturate_min) * (num_range / 100)),
+						green: num_green + Math.floor((num_green - _num_saturate_min) * (num_range / 100)),
+						blue: num_blue + Math.floor((num_blue - _num_saturate_min) * (num_range / 100))
+					};
+				}
+
+				_json_output.red = this.checkColorRange(_json_output.red);
+				_json_output.green = this.checkColorRange(_json_output.green);
+				_json_output.blue = this.checkColorRange(_json_output.blue);
+				return _json_output;
+			}
+		}, {
+			key: 'operateContrastRGB',
+			value: function operateContrastRGB(num_range, num_red, num_green, num_blue) {
+				var _num_contrast_base = 128;
+				var _json_output = {};
+
+				var _bln_red_bigger = num_red > _num_contrast_base;
+				var _bln_green_bigger = num_green > _num_contrast_base;
+				var _bln_blue_bigger = num_blue > _num_contrast_base;
+
+				var _num_red_end = num_red > _num_contrast_base ? 255 : 0;
+				var _num_green_end = num_green > _num_contrast_base ? 255 : 0;
+				var _num_blue_end = num_blue > _num_contrast_base ? 255 : 0;
+
+				if (num_range < 0) {
+					// ok
+					_json_output = {
+						red: _num_contrast_base + Math.floor((num_red - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
+						green: _num_contrast_base + Math.floor((num_green - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
+						blue: _num_contrast_base + Math.floor((num_blue - _num_contrast_base) * (1 - Math.abs(num_range / 100)))
+					};
+				} else {
+					_json_output = {
+						red: num_red + Math.floor((_num_red_end - num_red) * (num_range / 100) / 2),
+						green: num_green + Math.floor((_num_green_end - num_green) * (num_range / 100) / 2),
+						blue: num_blue + Math.floor((_num_blue_end - num_blue) * (num_range / 100) / 2)
+					};
+				}
+				_json_output.red = this.checkColorRange(_json_output.red);
+				_json_output.green = this.checkColorRange(_json_output.green);
+				_json_output.blue = this.checkColorRange(_json_output.blue);
+				return _json_output;
+			}
+		}, {
+			key: 'checkColorRange',
+			value: function checkColorRange(num) {
+				return num > 255 ? 255 : num < 0 ? 0 : num;
+			}
+		}]);
+
+		return ImageDataComputeMethod;
+	}(_Tools3.default);
+
+	exports.default = ImageDataComputeMethod;
+
+/***/ },
+/* 111 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {module.exports = __webpack_amd_options__;
@@ -12964,7 +13542,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ },
-/* 111 */
+/* 112 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13123,7 +13701,7 @@
 	exports.default = CheckedUI;
 
 /***/ },
-/* 112 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13266,7 +13844,7 @@
 	};
 
 /***/ },
-/* 113 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13303,11 +13881,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ItemBase = __webpack_require__(112);
+	var _ItemBase = __webpack_require__(113);
 
 	var _ItemBase2 = _interopRequireDefault(_ItemBase);
 
-	var _classnames = __webpack_require__(204);
+	var _classnames = __webpack_require__(205);
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
@@ -13315,7 +13893,7 @@
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
-	var _CheckedUI = __webpack_require__(111);
+	var _CheckedUI = __webpack_require__(112);
 
 	var _CheckedUI2 = _interopRequireDefault(_CheckedUI);
 
@@ -13643,7 +14221,7 @@
 	};
 
 /***/ },
-/* 114 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13767,7 +14345,7 @@
 	})( false ? undefined.base64js = {} : exports);
 
 /***/ },
-/* 115 */
+/* 116 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {/*!
@@ -13921,7 +14499,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(103).Buffer))
 
 /***/ },
-/* 116 */
+/* 117 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -13957,7 +14535,7 @@
 	module.exports = camelize;
 
 /***/ },
-/* 117 */
+/* 118 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13973,7 +14551,7 @@
 
 	'use strict';
 
-	var camelize = __webpack_require__(116);
+	var camelize = __webpack_require__(117);
 
 	var msPattern = /^-ms-/;
 
@@ -14001,7 +14579,7 @@
 	module.exports = camelizeStyleName;
 
 /***/ },
-/* 118 */
+/* 119 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14017,7 +14595,7 @@
 	 * @typechecks
 	 */
 
-	var isTextNode = __webpack_require__(125);
+	var isTextNode = __webpack_require__(126);
 
 	/*eslint-disable no-bitwise */
 
@@ -14049,7 +14627,7 @@
 	module.exports = containsNode;
 
 /***/ },
-/* 119 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14188,7 +14766,7 @@
 	module.exports = createArrayFromMixed;
 
 /***/ },
-/* 120 */
+/* 121 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14208,7 +14786,7 @@
 
 	var ExecutionEnvironment = __webpack_require__(5);
 
-	var createArrayFromMixed = __webpack_require__(119);
+	var createArrayFromMixed = __webpack_require__(120);
 	var getMarkupWrap = __webpack_require__(69);
 	var invariant = __webpack_require__(1);
 
@@ -14276,7 +14854,7 @@
 	module.exports = createNodesFromMarkup;
 
 /***/ },
-/* 121 */
+/* 122 */
 /***/ function(module, exports) {
 
 	/**
@@ -14319,7 +14897,7 @@
 	module.exports = getUnboundedScrollPosition;
 
 /***/ },
-/* 122 */
+/* 123 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -14356,7 +14934,7 @@
 	module.exports = hyphenate;
 
 /***/ },
-/* 123 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14372,7 +14950,7 @@
 
 	'use strict';
 
-	var hyphenate = __webpack_require__(122);
+	var hyphenate = __webpack_require__(123);
 
 	var msPattern = /^ms-/;
 
@@ -14399,7 +14977,7 @@
 	module.exports = hyphenateStyleName;
 
 /***/ },
-/* 124 */
+/* 125 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -14435,7 +15013,7 @@
 	module.exports = isNode;
 
 /***/ },
-/* 125 */
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14451,7 +15029,7 @@
 	 * @typechecks
 	 */
 
-	var isNode = __webpack_require__(124);
+	var isNode = __webpack_require__(125);
 
 	/**
 	 * @param {*} object The object to check.
@@ -14464,7 +15042,7 @@
 	module.exports = isTextNode;
 
 /***/ },
-/* 126 */
+/* 127 */
 /***/ function(module, exports) {
 
 	/**
@@ -14519,7 +15097,7 @@
 	module.exports = mapObject;
 
 /***/ },
-/* 127 */
+/* 128 */
 /***/ function(module, exports) {
 
 	/**
@@ -14555,7 +15133,7 @@
 	module.exports = memoizeStringOnly;
 
 /***/ },
-/* 128 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -14582,7 +15160,7 @@
 	module.exports = performance || {};
 
 /***/ },
-/* 129 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14598,7 +15176,7 @@
 	 * @typechecks
 	 */
 
-	var performance = __webpack_require__(128);
+	var performance = __webpack_require__(129);
 
 	var performanceNow;
 
@@ -14620,7 +15198,7 @@
 	module.exports = performanceNow;
 
 /***/ },
-/* 130 */
+/* 131 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14730,7 +15308,7 @@
 	}, common));
 
 /***/ },
-/* 131 */
+/* 132 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14905,7 +15483,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 132 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14914,8 +15492,8 @@
 	var assign = __webpack_require__(3);
 	var colorUtils = __webpack_require__(33);
 
-	var HueSpectrum = __webpack_require__(130);
-	var SaturationSpectrum = __webpack_require__(131);
+	var HueSpectrum = __webpack_require__(131);
+	var SaturationSpectrum = __webpack_require__(132);
 
 	var toHsv = colorUtils.toHsv;
 
@@ -15057,7 +15635,7 @@
 	module.exports = RESULT;
 
 /***/ },
-/* 133 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15086,7 +15664,7 @@
 	module.exports = AutoFocusUtils;
 
 /***/ },
-/* 134 */
+/* 135 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15113,9 +15691,9 @@
 	var EventConstants = __webpack_require__(12);
 	var EventPropagators = __webpack_require__(27);
 	var ExecutionEnvironment = __webpack_require__(5);
-	var FallbackCompositionState = __webpack_require__(141);
-	var SyntheticCompositionEvent = __webpack_require__(182);
-	var SyntheticInputEvent = __webpack_require__(185);
+	var FallbackCompositionState = __webpack_require__(142);
+	var SyntheticCompositionEvent = __webpack_require__(183);
+	var SyntheticInputEvent = __webpack_require__(186);
 
 	var keyOf = __webpack_require__(15);
 
@@ -15487,7 +16065,7 @@
 	module.exports = BeforeInputEventPlugin;
 
 /***/ },
-/* 135 */
+/* 136 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -15507,10 +16085,10 @@
 	var ExecutionEnvironment = __webpack_require__(5);
 	var ReactPerf = __webpack_require__(8);
 
-	var camelizeStyleName = __webpack_require__(117);
-	var dangerousStyleValue = __webpack_require__(191);
-	var hyphenateStyleName = __webpack_require__(123);
-	var memoizeStringOnly = __webpack_require__(127);
+	var camelizeStyleName = __webpack_require__(118);
+	var dangerousStyleValue = __webpack_require__(192);
+	var hyphenateStyleName = __webpack_require__(124);
+	var memoizeStringOnly = __webpack_require__(128);
 	var warning = __webpack_require__(2);
 
 	var processStyleName = memoizeStringOnly(function (styleName) {
@@ -15697,7 +16275,7 @@
 	module.exports = CSSPropertyOperations;
 
 /***/ },
-/* 136 */
+/* 137 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16027,7 +16605,7 @@
 	module.exports = ChangeEventPlugin;
 
 /***/ },
-/* 137 */
+/* 138 */
 /***/ function(module, exports) {
 
 	/**
@@ -16052,7 +16630,7 @@
 	module.exports = DOMNamespaces;
 
 /***/ },
-/* 138 */
+/* 139 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16071,7 +16649,7 @@
 	var DOMLazyTree = __webpack_require__(23);
 	var ExecutionEnvironment = __webpack_require__(5);
 
-	var createNodesFromMarkup = __webpack_require__(120);
+	var createNodesFromMarkup = __webpack_require__(121);
 	var emptyFunction = __webpack_require__(10);
 	var getMarkupWrap = __webpack_require__(69);
 	var invariant = __webpack_require__(1);
@@ -16201,7 +16779,7 @@
 	module.exports = Danger;
 
 /***/ },
-/* 139 */
+/* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16233,7 +16811,7 @@
 	module.exports = DefaultEventPluginOrder;
 
 /***/ },
-/* 140 */
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16343,7 +16921,7 @@
 	module.exports = EnterLeaveEventPlugin;
 
 /***/ },
-/* 141 */
+/* 142 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16443,7 +17021,7 @@
 	module.exports = FallbackCompositionState;
 
 /***/ },
-/* 142 */
+/* 143 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16657,7 +17235,7 @@
 	module.exports = HTMLDOMPropertyConfig;
 
 /***/ },
-/* 143 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16678,13 +17256,13 @@
 	var ReactChildren = __webpack_require__(75);
 	var ReactComponent = __webpack_require__(77);
 	var ReactClass = __webpack_require__(76);
-	var ReactDOMFactories = __webpack_require__(152);
+	var ReactDOMFactories = __webpack_require__(153);
 	var ReactElement = __webpack_require__(9);
 	var ReactElementValidator = __webpack_require__(81);
 	var ReactPropTypes = __webpack_require__(89);
 	var ReactVersion = __webpack_require__(91);
 
-	var onlyChild = __webpack_require__(197);
+	var onlyChild = __webpack_require__(198);
 	var warning = __webpack_require__(2);
 
 	var createElement = ReactElement.createElement;
@@ -16749,7 +17327,7 @@
 	module.exports = React;
 
 /***/ },
-/* 144 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -16878,7 +17456,7 @@
 	module.exports = ReactChildReconciler;
 
 /***/ },
-/* 145 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17677,7 +18255,7 @@
 	module.exports = ReactCompositeComponent;
 
 /***/ },
-/* 146 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17696,16 +18274,16 @@
 	'use strict';
 
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDefaultInjection = __webpack_require__(165);
+	var ReactDefaultInjection = __webpack_require__(166);
 	var ReactMount = __webpack_require__(51);
 	var ReactPerf = __webpack_require__(8);
 	var ReactReconciler = __webpack_require__(24);
 	var ReactUpdates = __webpack_require__(11);
 	var ReactVersion = __webpack_require__(91);
 
-	var findDOMNode = __webpack_require__(192);
+	var findDOMNode = __webpack_require__(193);
 	var getNativeComponentFromComposite = __webpack_require__(95);
-	var renderSubtreeIntoContainer = __webpack_require__(199);
+	var renderSubtreeIntoContainer = __webpack_require__(200);
 	var warning = __webpack_require__(2);
 
 	ReactDefaultInjection.inject();
@@ -17786,7 +18364,7 @@
 	module.exports = React;
 
 /***/ },
-/* 147 */
+/* 148 */
 /***/ function(module, exports) {
 
 	/**
@@ -17841,7 +18419,7 @@
 	module.exports = ReactDOMButton;
 
 /***/ },
-/* 148 */
+/* 149 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -17869,10 +18447,10 @@
 
 	var _assign = __webpack_require__(3);
 
-	var AutoFocusUtils = __webpack_require__(133);
-	var CSSPropertyOperations = __webpack_require__(135);
+	var AutoFocusUtils = __webpack_require__(134);
+	var CSSPropertyOperations = __webpack_require__(136);
 	var DOMLazyTree = __webpack_require__(23);
-	var DOMNamespaces = __webpack_require__(137);
+	var DOMNamespaces = __webpack_require__(138);
 	var DOMProperty = __webpack_require__(16);
 	var DOMPropertyOperations = __webpack_require__(45);
 	var EventConstants = __webpack_require__(12);
@@ -17880,14 +18458,14 @@
 	var EventPluginRegistry = __webpack_require__(34);
 	var ReactBrowserEventEmitter = __webpack_require__(35);
 	var ReactComponentBrowserEnvironment = __webpack_require__(78);
-	var ReactDOMButton = __webpack_require__(147);
+	var ReactDOMButton = __webpack_require__(148);
 	var ReactDOMComponentFlags = __webpack_require__(79);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMInput = __webpack_require__(155);
-	var ReactDOMOption = __webpack_require__(157);
+	var ReactDOMInput = __webpack_require__(156);
+	var ReactDOMOption = __webpack_require__(158);
 	var ReactDOMSelect = __webpack_require__(80);
-	var ReactDOMTextarea = __webpack_require__(160);
-	var ReactMultiChild = __webpack_require__(173);
+	var ReactDOMTextarea = __webpack_require__(161);
+	var ReactMultiChild = __webpack_require__(174);
 	var ReactPerf = __webpack_require__(8);
 
 	var escapeTextContentForBrowser = __webpack_require__(40);
@@ -18759,7 +19337,7 @@
 	module.exports = ReactDOMComponent;
 
 /***/ },
-/* 149 */
+/* 150 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18796,7 +19374,7 @@
 	module.exports = ReactDOMContainerInfo;
 
 /***/ },
-/* 150 */
+/* 151 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18812,7 +19390,7 @@
 
 	'use strict';
 
-	var ReactDOMUnknownPropertyDevtool = __webpack_require__(162);
+	var ReactDOMUnknownPropertyDevtool = __webpack_require__(163);
 
 	var warning = __webpack_require__(2);
 
@@ -18862,7 +19440,7 @@
 	module.exports = ReactDOMDebugTool;
 
 /***/ },
-/* 151 */
+/* 152 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18927,7 +19505,7 @@
 	module.exports = ReactDOMEmptyComponent;
 
 /***/ },
-/* 152 */
+/* 153 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -18946,7 +19524,7 @@
 	var ReactElement = __webpack_require__(9);
 	var ReactElementValidator = __webpack_require__(81);
 
-	var mapObject = __webpack_require__(126);
+	var mapObject = __webpack_require__(127);
 
 	/**
 	 * Create a factory that creates HTML tag elements.
@@ -19108,7 +19686,7 @@
 	module.exports = ReactDOMFactories;
 
 /***/ },
-/* 153 */
+/* 154 */
 /***/ function(module, exports) {
 
 	/**
@@ -19131,7 +19709,7 @@
 	module.exports = ReactDOMFeatureFlags;
 
 /***/ },
-/* 154 */
+/* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19175,7 +19753,7 @@
 	module.exports = ReactDOMIDOperations;
 
 /***/ },
-/* 155 */
+/* 156 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19383,7 +19961,7 @@
 	module.exports = ReactDOMInput;
 
 /***/ },
-/* 156 */
+/* 157 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19399,12 +19977,12 @@
 
 	'use strict';
 
-	var ReactDOMDebugTool = __webpack_require__(150);
+	var ReactDOMDebugTool = __webpack_require__(151);
 
 	module.exports = { debugTool: ReactDOMDebugTool };
 
 /***/ },
-/* 157 */
+/* 158 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19510,7 +20088,7 @@
 	module.exports = ReactDOMOption;
 
 /***/ },
-/* 158 */
+/* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19528,7 +20106,7 @@
 
 	var ExecutionEnvironment = __webpack_require__(5);
 
-	var getNodeForCharacterOffset = __webpack_require__(195);
+	var getNodeForCharacterOffset = __webpack_require__(196);
 	var getTextContentAccessor = __webpack_require__(96);
 
 	/**
@@ -19727,7 +20305,7 @@
 	module.exports = ReactDOMSelection;
 
 /***/ },
-/* 159 */
+/* 160 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -19901,7 +20479,7 @@
 	module.exports = ReactDOMTextComponent;
 
 /***/ },
-/* 160 */
+/* 161 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20047,7 +20625,7 @@
 	module.exports = ReactDOMTextarea;
 
 /***/ },
-/* 161 */
+/* 162 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20186,7 +20764,7 @@
 	};
 
 /***/ },
-/* 162 */
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20255,7 +20833,7 @@
 	module.exports = ReactDOMUnknownPropertyDevtool;
 
 /***/ },
-/* 163 */
+/* 164 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20271,7 +20849,7 @@
 
 	'use strict';
 
-	var ReactInvalidSetStateWarningDevTool = __webpack_require__(171);
+	var ReactInvalidSetStateWarningDevTool = __webpack_require__(172);
 	var warning = __webpack_require__(2);
 
 	var eventHandlers = [];
@@ -20332,7 +20910,7 @@
 	module.exports = ReactDebugTool;
 
 /***/ },
-/* 164 */
+/* 165 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20405,7 +20983,7 @@
 	module.exports = ReactDefaultBatchingStrategy;
 
 /***/ },
-/* 165 */
+/* 166 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20421,25 +20999,25 @@
 
 	'use strict';
 
-	var BeforeInputEventPlugin = __webpack_require__(134);
-	var ChangeEventPlugin = __webpack_require__(136);
-	var DefaultEventPluginOrder = __webpack_require__(139);
-	var EnterLeaveEventPlugin = __webpack_require__(140);
+	var BeforeInputEventPlugin = __webpack_require__(135);
+	var ChangeEventPlugin = __webpack_require__(137);
+	var DefaultEventPluginOrder = __webpack_require__(140);
+	var EnterLeaveEventPlugin = __webpack_require__(141);
 	var ExecutionEnvironment = __webpack_require__(5);
-	var HTMLDOMPropertyConfig = __webpack_require__(142);
+	var HTMLDOMPropertyConfig = __webpack_require__(143);
 	var ReactComponentBrowserEnvironment = __webpack_require__(78);
-	var ReactDOMComponent = __webpack_require__(148);
+	var ReactDOMComponent = __webpack_require__(149);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDOMEmptyComponent = __webpack_require__(151);
-	var ReactDOMTreeTraversal = __webpack_require__(161);
-	var ReactDOMTextComponent = __webpack_require__(159);
-	var ReactDefaultBatchingStrategy = __webpack_require__(164);
-	var ReactEventListener = __webpack_require__(169);
-	var ReactInjection = __webpack_require__(170);
-	var ReactReconcileTransaction = __webpack_require__(175);
-	var SVGDOMPropertyConfig = __webpack_require__(177);
-	var SelectEventPlugin = __webpack_require__(178);
-	var SimpleEventPlugin = __webpack_require__(179);
+	var ReactDOMEmptyComponent = __webpack_require__(152);
+	var ReactDOMTreeTraversal = __webpack_require__(162);
+	var ReactDOMTextComponent = __webpack_require__(160);
+	var ReactDefaultBatchingStrategy = __webpack_require__(165);
+	var ReactEventListener = __webpack_require__(170);
+	var ReactInjection = __webpack_require__(171);
+	var ReactReconcileTransaction = __webpack_require__(176);
+	var SVGDOMPropertyConfig = __webpack_require__(178);
+	var SelectEventPlugin = __webpack_require__(179);
+	var SimpleEventPlugin = __webpack_require__(180);
 
 	var alreadyInjected = false;
 
@@ -20492,7 +21070,7 @@
 	  if (true) {
 	    var url = ExecutionEnvironment.canUseDOM && window.location.href || '';
 	    if (/[?&]react_perf\b/.test(url)) {
-	      var ReactDefaultPerf = __webpack_require__(166);
+	      var ReactDefaultPerf = __webpack_require__(167);
 	      ReactDefaultPerf.start();
 	    }
 	  }
@@ -20503,7 +21081,7 @@
 	};
 
 /***/ },
-/* 166 */
+/* 167 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -20529,11 +21107,11 @@
 
 	var DOMProperty = __webpack_require__(16);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var ReactDefaultPerfAnalysis = __webpack_require__(167);
+	var ReactDefaultPerfAnalysis = __webpack_require__(168);
 	var ReactMount = __webpack_require__(51);
 	var ReactPerf = __webpack_require__(8);
 
-	var performanceNow = __webpack_require__(129);
+	var performanceNow = __webpack_require__(130);
 	var warning = __webpack_require__(2);
 
 	function roundFloat(val) {
@@ -20832,7 +21410,7 @@
 	module.exports = ReactDefaultPerf;
 
 /***/ },
-/* 167 */
+/* 168 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21046,7 +21624,7 @@
 	module.exports = ReactDefaultPerfAnalysis;
 
 /***/ },
-/* 168 */
+/* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21084,7 +21662,7 @@
 	module.exports = ReactEventEmitterMixin;
 
 /***/ },
-/* 169 */
+/* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21109,7 +21687,7 @@
 	var ReactUpdates = __webpack_require__(11);
 
 	var getEventTarget = __webpack_require__(57);
-	var getUnboundedScrollPosition = __webpack_require__(121);
+	var getUnboundedScrollPosition = __webpack_require__(122);
 
 	/**
 	 * Find the deepest React component completely containing the root of the
@@ -21246,7 +21824,7 @@
 	module.exports = ReactEventListener;
 
 /***/ },
-/* 170 */
+/* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21289,7 +21867,7 @@
 	module.exports = ReactInjection;
 
 /***/ },
-/* 171 */
+/* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21330,7 +21908,7 @@
 	module.exports = ReactInvalidSetStateWarningDevTool;
 
 /***/ },
-/* 172 */
+/* 173 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21346,7 +21924,7 @@
 
 	'use strict';
 
-	var adler32 = __webpack_require__(190);
+	var adler32 = __webpack_require__(191);
 
 	var TAG_END = /\/?>/;
 	var COMMENT_START = /^<\!\-\-/;
@@ -21385,7 +21963,7 @@
 	module.exports = ReactMarkupChecksum;
 
 /***/ },
-/* 173 */
+/* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21406,9 +21984,9 @@
 
 	var ReactCurrentOwner = __webpack_require__(17);
 	var ReactReconciler = __webpack_require__(24);
-	var ReactChildReconciler = __webpack_require__(144);
+	var ReactChildReconciler = __webpack_require__(145);
 
-	var flattenChildren = __webpack_require__(193);
+	var flattenChildren = __webpack_require__(194);
 	var invariant = __webpack_require__(1);
 
 	/**
@@ -21792,7 +22370,7 @@
 	module.exports = ReactMultiChild;
 
 /***/ },
-/* 174 */
+/* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -21889,7 +22467,7 @@
 	module.exports = ReactOwner;
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22056,7 +22634,7 @@
 	module.exports = ReactReconcileTransaction;
 
 /***/ },
-/* 176 */
+/* 177 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22072,7 +22650,7 @@
 
 	'use strict';
 
-	var ReactOwner = __webpack_require__(174);
+	var ReactOwner = __webpack_require__(175);
 
 	var ReactRef = {};
 
@@ -22139,7 +22717,7 @@
 	module.exports = ReactRef;
 
 /***/ },
-/* 177 */
+/* 178 */
 /***/ function(module, exports) {
 
 	/**
@@ -22444,7 +23022,7 @@
 	module.exports = SVGDOMPropertyConfig;
 
 /***/ },
-/* 178 */
+/* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22645,7 +23223,7 @@
 	module.exports = SelectEventPlugin;
 
 /***/ },
-/* 179 */
+/* 180 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -22665,17 +23243,17 @@
 	var EventListener = __webpack_require__(66);
 	var EventPropagators = __webpack_require__(27);
 	var ReactDOMComponentTree = __webpack_require__(4);
-	var SyntheticAnimationEvent = __webpack_require__(180);
-	var SyntheticClipboardEvent = __webpack_require__(181);
+	var SyntheticAnimationEvent = __webpack_require__(181);
+	var SyntheticClipboardEvent = __webpack_require__(182);
 	var SyntheticEvent = __webpack_require__(13);
-	var SyntheticFocusEvent = __webpack_require__(184);
-	var SyntheticKeyboardEvent = __webpack_require__(186);
+	var SyntheticFocusEvent = __webpack_require__(185);
+	var SyntheticKeyboardEvent = __webpack_require__(187);
 	var SyntheticMouseEvent = __webpack_require__(39);
-	var SyntheticDragEvent = __webpack_require__(183);
-	var SyntheticTouchEvent = __webpack_require__(187);
-	var SyntheticTransitionEvent = __webpack_require__(188);
+	var SyntheticDragEvent = __webpack_require__(184);
+	var SyntheticTouchEvent = __webpack_require__(188);
+	var SyntheticTransitionEvent = __webpack_require__(189);
 	var SyntheticUIEvent = __webpack_require__(28);
-	var SyntheticWheelEvent = __webpack_require__(189);
+	var SyntheticWheelEvent = __webpack_require__(190);
 
 	var emptyFunction = __webpack_require__(10);
 	var getEventCharCode = __webpack_require__(55);
@@ -23277,7 +23855,7 @@
 	module.exports = SimpleEventPlugin;
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23321,7 +23899,7 @@
 	module.exports = SyntheticAnimationEvent;
 
 /***/ },
-/* 181 */
+/* 182 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23364,7 +23942,7 @@
 	module.exports = SyntheticClipboardEvent;
 
 /***/ },
-/* 182 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23405,7 +23983,7 @@
 	module.exports = SyntheticCompositionEvent;
 
 /***/ },
-/* 183 */
+/* 184 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23446,7 +24024,7 @@
 	module.exports = SyntheticDragEvent;
 
 /***/ },
-/* 184 */
+/* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23487,7 +24065,7 @@
 	module.exports = SyntheticFocusEvent;
 
 /***/ },
-/* 185 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23529,7 +24107,7 @@
 	module.exports = SyntheticInputEvent;
 
 /***/ },
-/* 186 */
+/* 187 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23548,7 +24126,7 @@
 	var SyntheticUIEvent = __webpack_require__(28);
 
 	var getEventCharCode = __webpack_require__(55);
-	var getEventKey = __webpack_require__(194);
+	var getEventKey = __webpack_require__(195);
 	var getEventModifierState = __webpack_require__(56);
 
 	/**
@@ -23618,7 +24196,7 @@
 	module.exports = SyntheticKeyboardEvent;
 
 /***/ },
-/* 187 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23668,7 +24246,7 @@
 	module.exports = SyntheticTouchEvent;
 
 /***/ },
-/* 188 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23712,7 +24290,7 @@
 	module.exports = SyntheticTransitionEvent;
 
 /***/ },
-/* 189 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23771,7 +24349,7 @@
 	module.exports = SyntheticWheelEvent;
 
 /***/ },
-/* 190 */
+/* 191 */
 /***/ function(module, exports) {
 
 	/**
@@ -23819,7 +24397,7 @@
 	module.exports = adler32;
 
 /***/ },
-/* 191 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23901,7 +24479,7 @@
 	module.exports = dangerousStyleValue;
 
 /***/ },
-/* 192 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -23962,7 +24540,7 @@
 	module.exports = findDOMNode;
 
 /***/ },
-/* 193 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24015,7 +24593,7 @@
 	module.exports = flattenChildren;
 
 /***/ },
-/* 194 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24122,7 +24700,7 @@
 	module.exports = getEventKey;
 
 /***/ },
-/* 195 */
+/* 196 */
 /***/ function(module, exports) {
 
 	/**
@@ -24201,7 +24779,7 @@
 	module.exports = getNodeForCharacterOffset;
 
 /***/ },
-/* 196 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24307,7 +24885,7 @@
 	module.exports = getVendorPrefixedEventName;
 
 /***/ },
-/* 197 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24345,7 +24923,7 @@
 	module.exports = onlyChild;
 
 /***/ },
-/* 198 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24376,7 +24954,7 @@
 	module.exports = quoteAttributeValueForBrowser;
 
 /***/ },
-/* 199 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -24397,7 +24975,7 @@
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ },
-/* 200 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24470,7 +25048,7 @@
 	}
 
 /***/ },
-/* 201 */
+/* 202 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24534,7 +25112,7 @@
 	}
 
 /***/ },
-/* 202 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24668,7 +25246,7 @@
 	}
 
 /***/ },
-/* 203 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24680,15 +25258,15 @@
 
 	var _createStore2 = _interopRequireDefault(_createStore);
 
-	var _combineReducers = __webpack_require__(202);
+	var _combineReducers = __webpack_require__(203);
 
 	var _combineReducers2 = _interopRequireDefault(_combineReducers);
 
-	var _bindActionCreators = __webpack_require__(201);
+	var _bindActionCreators = __webpack_require__(202);
 
 	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
 
-	var _applyMiddleware = __webpack_require__(200);
+	var _applyMiddleware = __webpack_require__(201);
 
 	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
 
@@ -24721,7 +25299,7 @@
 	exports.compose = _compose2["default"];
 
 /***/ },
-/* 204 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
@@ -24767,7 +25345,7 @@
 
 		if (typeof module !== 'undefined' && module.exports) {
 			module.exports = classNames;
-		} else if ("function" === 'function' && _typeof(__webpack_require__(110)) === 'object' && __webpack_require__(110)) {
+		} else if ("function" === 'function' && _typeof(__webpack_require__(111)) === 'object' && __webpack_require__(111)) {
 			// register as 'classnames', consistent with npm package name
 			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
 				return classNames;
@@ -24778,7 +25356,7 @@
 	})();
 
 /***/ },
-/* 205 */
+/* 206 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -24874,23 +25452,23 @@
 	})();
 
 /***/ },
-/* 206 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(115);
-
-/***/ },
 /* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var assign = __webpack_require__(208);
-	var Region = __webpack_require__(226);
-	var hasTouch = __webpack_require__(211);
-	var once = __webpack_require__(209);
+	module.exports = __webpack_require__(116);
+
+/***/ },
+/* 208 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var assign = __webpack_require__(209);
+	var Region = __webpack_require__(227);
+	var hasTouch = __webpack_require__(212);
+	var once = __webpack_require__(210);
 
 	var Helper = function Helper(config) {
 	    this.config = config;
@@ -25079,7 +25657,7 @@
 	};
 
 /***/ },
-/* 208 */
+/* 209 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25110,7 +25688,7 @@
 	};
 
 /***/ },
-/* 209 */
+/* 210 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25133,7 +25711,7 @@
 	};
 
 /***/ },
-/* 210 */
+/* 211 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25407,7 +25985,7 @@
 	}
 
 /***/ },
-/* 211 */
+/* 212 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
@@ -25416,7 +25994,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 212 */
+/* 213 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25438,7 +26016,7 @@
 	};
 
 /***/ },
-/* 213 */
+/* 214 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -25529,7 +26107,7 @@
 	};
 
 /***/ },
-/* 214 */
+/* 215 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25549,7 +26127,7 @@
 	};
 
 /***/ },
-/* 215 */
+/* 216 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25561,15 +26139,15 @@
 	};
 
 /***/ },
-/* 216 */
+/* 217 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	(function () {
-	  var crypt = __webpack_require__(205),
+	  var crypt = __webpack_require__(206),
 	      utf8 = __webpack_require__(104).utf8,
-	      isBuffer = __webpack_require__(214),
+	      isBuffer = __webpack_require__(215),
 	      bin = __webpack_require__(104).bin,
 
 
@@ -25718,7 +26296,7 @@
 	})();
 
 /***/ },
-/* 217 */
+/* 218 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25748,19 +26326,19 @@
 	}();
 
 /***/ },
-/* 218 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var getInstantiatorFunction = __webpack_require__(217);
+	var getInstantiatorFunction = __webpack_require__(218);
 
 	module.exports = function (fn, args) {
 		return getInstantiatorFunction(args.length)(fn, args);
 	};
 
 /***/ },
-/* 219 */
+/* 220 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -25782,7 +26360,7 @@
 	module.exports = getPrototype;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25809,7 +26387,7 @@
 	module.exports = isHostObject;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -25847,7 +26425,7 @@
 	module.exports = isObjectLike;
 
 /***/ },
-/* 222 */
+/* 223 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25889,7 +26467,7 @@
 	};
 
 /***/ },
-/* 223 */
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26003,7 +26581,7 @@
 	};
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26176,12 +26754,12 @@
 	module.exports = ALIGN_TO_NORMALIZED;
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var ALIGN_TO_NORMALIZED = __webpack_require__(224);
+	var ALIGN_TO_NORMALIZED = __webpack_require__(225);
 
 	var Region = __webpack_require__(18);
 
@@ -26256,17 +26834,17 @@
 	module.exports = COMPUTE_ALIGN_REGION;
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var Region = __webpack_require__(18);
 
+	__webpack_require__(224);
 	__webpack_require__(223);
-	__webpack_require__(222);
 
-	var COMPUTE_ALIGN_REGION = __webpack_require__(225);
+	var COMPUTE_ALIGN_REGION = __webpack_require__(226);
 
 	/**
 	 * region-align module exposes methods for aligning {@link Element} and {@link Region} instances
@@ -26440,7 +27018,7 @@
 	module.exports = Region;
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -26471,18 +27049,18 @@
 	};
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var hasOwn = __webpack_require__(106);
-	var newify = __webpack_require__(218);
+	var newify = __webpack_require__(219);
 
-	var assign = __webpack_require__(227);
-	var EventEmitter = __webpack_require__(210).EventEmitter;
+	var assign = __webpack_require__(228);
+	var EventEmitter = __webpack_require__(211).EventEmitter;
 
-	var inherits = __webpack_require__(229);
+	var inherits = __webpack_require__(230);
 	var VALIDATE = __webpack_require__(109);
 
 	var objectToString = Object.prototype.toString;
@@ -27509,12 +28087,12 @@
 	    }
 	});
 
-	__webpack_require__(230)(REGION);
+	__webpack_require__(231)(REGION);
 
 	module.exports = REGION;
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -27532,7 +28110,7 @@
 	};
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27749,7 +28327,7 @@
 	};
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
@@ -28915,7 +29493,7 @@
 	})();
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28926,11 +29504,11 @@
 	__webpack_require__(250);
 	__webpack_require__(251);
 
-	__webpack_require__(233);
+	__webpack_require__(234);
 	__webpack_require__(253);
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28966,577 +29544,6 @@
 	// 用canvas修改圖片資料
 	// 預覽圖（固定某大小做為預覽圖）
 	// 送給php產生圖檔，以進一步存下新的圖檔
-
-/***/ },
-/* 234 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Tools2 = __webpack_require__(41);
-
-	var _Tools3 = _interopRequireDefault(_Tools2);
-
-	var _hexRgb = __webpack_require__(212);
-
-	var _hexRgb2 = _interopRequireDefault(_hexRgb);
-
-	var _Settings = __webpack_require__(6);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// 運算的方式
-	// 寬高也是最後輸出的圖片的寬高
-
-	var ImageDataComputeMethod = function (_Tools) {
-		_inherits(ImageDataComputeMethod, _Tools);
-
-		function ImageDataComputeMethod(str_compute_timing, json_tools) {
-			_classCallCheck(this, ImageDataComputeMethod);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ImageDataComputeMethod).call(this));
-
-			var _scope = _this;
-
-			_scope.setComputeTiming(str_compute_timing);
-			_scope.setEmitter(json_tools.emitter);
-
-			_scope.obj_canvas = document.createElement('canvas');
-			_scope.obj_canvas_2d = _scope.obj_canvas.getContext('2d');
-
-			_scope.obj_image = new Image();
-
-			_scope.obj_image.onload = function () {
-				console.log('** ** ** onload ** ** **');
-
-				if (typeof this.src === 'string' && this.src !== '') {
-
-					var _num_width = this.width;
-					var _num_height = this.height;
-					_scope.obj_canvas.width = _num_width;
-					_scope.obj_canvas.height = _num_height;
-					_scope.obj_canvas_2d.clearRect(0, 0, _num_width, _num_height);
-					_scope.obj_canvas_2d.drawImage(this, 0, 0, _num_width, _num_height);
-
-					_scope.setComputeWidth(_num_width); // 在此先用圖片本身的長寬去做的
-					_scope.setComputeHeight(_num_height); // 在此先用圖片本身的長寬去做的
-
-					var _json_emit = _scope.getOtherData();
-					_json_emit.origin_data = this.src;
-					_json_emit.method = _scope.getPainterMethod();
-
-					_scope.getEmitter().emit('step.image.success.loaded', _json_emit);
-				} else {
-					console.log('***');
-				}
-			};
-
-			_scope.obj_image.error = function () {
-				_scope.getEmitter().emit('step.image.error.loaded', {
-					origin_data: this.src
-				});
-			};
-
-			return _this;
-		}
-
-		_createClass(ImageDataComputeMethod, [{
-			key: 'getComputeTiming',
-			value: function getComputeTiming() {
-				return this.compute_timing;
-			}
-		}, {
-			key: 'getOtherData',
-			value: function getOtherData() {
-				var _scope = this;
-				return _scope.other_data;
-			}
-		}, {
-			key: 'getPainterMethod',
-			value: function getPainterMethod() {
-				var _scope = this;
-				return _scope.painter_method;
-			}
-			// 圖片運算是用多大寬度運算出來的
-
-		}, {
-			key: 'getComputeWidth',
-			value: function getComputeWidth() {
-				return this.compute_width;
-			}
-			// 圖片運算是用多大高度運算出來的
-
-		}, {
-			key: 'getComputeHeight',
-			value: function getComputeHeight() {
-				return this.compute_height;
-			}
-		}, {
-			key: 'setComputeTiming',
-			value: function setComputeTiming(str_compute_timing) {
-				this.compute_timing = str_compute_timing || '';
-			}
-			// 圖片運算是用多大寬度運算出來的
-
-		}, {
-			key: 'setComputeWidth',
-			value: function setComputeWidth(num) {
-				this.compute_width = num || 0;
-			}
-			// 圖片運算是用多大高度運算出來的
-
-		}, {
-			key: 'setComputeHeight',
-			value: function setComputeHeight(num) {
-				this.compute_height = num || 0;
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-			// 在照片中添加纹理
-			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
-
-		}, {
-			key: 'methodDot',
-			value: function methodDot(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_compute_width = _scope.getComputeWidth(),
-				    _num_compute_height = _scope.getComputeHeight();
-
-				var _bln_old = false;
-				if (json.created && json.created.dot && json.created.dot.length > 0) {
-					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height && json.setting.width === _num_compute_width && json.setting.height === _num_compute_height) {
-						// 輸出的圖片大小是相同的
-						_bln_old = true;
-					} else {
-						_bln_old = false;
-					}
-				}
-
-				json.created.dot = _bln_old === true ? json.created.dot : [];
-
-				var _json_control = json.control,
-				    _num_size_min = _json_control.minSize,
-				    _num_size_max = _json_control.maxSize,
-				    _num_size = void 0,
-				    _num_alpha_min = _json_control.minAlpha,
-				    _num_alpha_max = _json_control.maxAlpha,
-				    _num_alpha = void 0,
-				    _num_total = void 0,
-				    _str_color = void 0,
-				    _str_shape = _json_control.shape.shape;
-
-				var _num_x = void 0,
-				    _num_y = void 0;
-
-				var _ary_dot_origin = JSON.parse(JSON.stringify(json.created.dot));
-
-				if (_bln_old === true) {
-					_num_total = _ary_dot_origin.length;
-				} else {
-					_num_total = Math.floor(_num_compute_width * _num_compute_height / _num_size_max / _num_size_max / 100 * _json_control.frequency);
-					json.created.setting = _extends({}, json.setting);
-				}
-
-				var _ary_rgb = (0, _hexRgb2.default)(_json_control.color);
-
-				for (var i = 0; i < _num_total; i++) {
-					if (_bln_old === true) {
-						_scope.obj_canvas_2d.fillStyle = _ary_dot_origin[i].color;
-
-						_num_x = _ary_dot_origin[i].xPos;
-						_num_y = _ary_dot_origin[i].yPos;
-						_num_size = _ary_dot_origin[i].size;
-					} else {
-						_num_alpha = (parseInt(_num_alpha_min, 10) + Math.floor((_num_alpha_max - _num_alpha_min) * Math.random())) / 100;
-						_str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _num_alpha + ')';
-						_scope.obj_canvas_2d.fillStyle = _str_color;
-
-						_num_x = Math.floor(Math.random() * _num_compute_width);
-						_num_y = Math.floor(Math.random() * _num_compute_height);
-						_num_size = (parseInt(_num_size_min, 10) + Math.floor((_num_size_max - _num_size_min) * Math.random())) / 2;
-
-						json.created.dot.push({
-							xPos: _num_x,
-							yPos: _num_y,
-							size: _num_size,
-							color: _str_color
-						});
-					}
-
-					_scope.obj_canvas_2d.beginPath();
-					if (_str_shape === _Settings2.default.SHAPE_CIRCLE) {
-						_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
-					} else if (_str_shape === _Settings2.default.SHAPE_RECT) {
-						_scope.obj_canvas_2d.rect(_num_x - _num_size / 2, _num_y - _num_size / 2, _num_size, _num_size);
-					}
-
-					_scope.obj_canvas_2d.closePath();
-					_scope.obj_canvas_2d.fill();
-				}
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 透明
-			// https://msdn.microsoft.com/zh-cn/library/gg589493(v=vs.85).aspx
-
-		}, {
-			key: 'methodAlpha',
-			value: function methodAlpha(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_compute_width = _scope.getComputeWidth(),
-				    _num_compute_height = _scope.getComputeHeight(),
-				    _num_range = json.control.range;
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
-
-				// Loop through data.
-				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
-
-					// First bytes are red bytes.       
-					// Second bytes are green bytes.
-					// Third bytes are blue bytes.
-					// Fourth bytes are alpha bytes
-					// Test of alpha channel at 50%.
-					// _json_image_data.data[i + 3] = 128;
-					_json_image_data.data[i + 3] = _json_image_data.data[i + 3] * (_num_range / 100);
-				}
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 負片效果
-
-		}, {
-			key: 'methodInvert',
-			value: function methodInvert(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_compute_width = _scope.getComputeWidth(),
-				    _num_compute_height = _scope.getComputeHeight();
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
-
-				// Loop through data.
-				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
-					_json_image_data.data[i] = 255 - _json_image_data.data[i];
-					_json_image_data.data[i + 1] = 255 - _json_image_data.data[i + 1];
-					_json_image_data.data[i + 2] = 255 - _json_image_data.data[i + 2];
-				}
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 灰階
-			// https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
-
-		}, {
-			key: 'methodGray',
-			value: function methodGray(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_compute_width = _scope.getComputeWidth(),
-				    _num_compute_height = _scope.getComputeHeight();
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
-
-				var _num_red = void 0,
-				    _num_green = void 0,
-				    _num_blue = void 0,
-				    _num_gray = void 0;
-
-				// Loop through data.
-				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
-
-					// First bytes are red bytes.       
-					// Get red value.
-					_num_red = _json_image_data.data[i];
-
-					// Second bytes are green bytes.
-					// Get green value.
-					_num_green = _json_image_data.data[i + 1];
-
-					// Third bytes are blue bytes.
-					// Get blue value.
-					_num_blue = _json_image_data.data[i + 2];
-
-					// Fourth bytes are alpha bytes
-					// We don't care about alpha here.
-					// Add the three values and divide by three.
-					// Make it an integer.
-					_num_gray = parseInt((_num_red + _num_green + _num_blue) / 3);
-
-					// Assign average to red, green, and blue.
-					_json_image_data.data[i] = _num_gray;
-					_json_image_data.data[i + 1] = _num_gray;
-					_json_image_data.data[i + 2] = _num_gray;
-				}
-
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 彩度（飽和度）
-			// 拿這個網址來改的https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
-
-		}, {
-			key: 'methodSaturate',
-			value: function methodSaturate(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_compute_width = _scope.getComputeWidth(),
-				    _num_compute_height = _scope.getComputeHeight(),
-				    _num_range = json.control.range;
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
-
-				var _num_red = void 0,
-				    _num_green = void 0,
-				    _num_blue = void 0,
-				    _json_rgb = {};
-
-				if (_num_range > 0 || _num_range < 0) {
-					// Loop through data.
-					for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
-
-						_num_red = _json_image_data.data[i];
-						_num_green = _json_image_data.data[i + 1];
-						_num_blue = _json_image_data.data[i + 2];
-
-						_json_rgb = _scope.operateSaturateRGB(_num_range, _num_red, _num_green, _num_blue);
-
-						_json_image_data.data[i] = _json_rgb.red;
-						_json_image_data.data[i + 1] = _json_rgb.green;
-						_json_image_data.data[i + 2] = _json_rgb.blue;
-					}
-				}
-
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// 對比
-			// 其實有另外這兒的可以參考，但我沒用 http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
-
-		}, {
-			key: 'methodContrast',
-			value: function methodContrast(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _num_compute_width = _scope.getComputeWidth(),
-				    _num_compute_height = _scope.getComputeHeight(),
-				    _num_range = json.control.range;
-
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
-
-				var _num_red = void 0,
-				    _num_green = void 0,
-				    _num_blue = void 0,
-				    _json_rgb = {};
-
-				if (_num_range > 0 || _num_range < 0) {
-					for (var i = 0; i < _json_image_data.data.length; i += 4) {
-
-						_num_red = _json_image_data.data[i];
-						_num_green = _json_image_data.data[i + 1];
-						_num_blue = _json_image_data.data[i + 2];
-
-						_json_rgb = _scope.operateContrastRGB(_num_range, _num_red, _num_green, _num_blue);
-
-						_json_image_data.data[i] = _json_rgb.red;
-						_json_image_data.data[i + 1] = _json_rgb.green;
-						_json_image_data.data[i + 2] = _json_rgb.blue;
-					}
-				}
-
-				_scope.obj_canvas_2d.putImageData(_json_image_data, 0, 0);
-
-				_scope.emitAfterMethod(json);
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-		}, {
-			key: 'clearCanvas',
-			value: function clearCanvas(callback) {
-
-				this.obj_canvas_2d.clearRect(0, 0, this.getComputeWidth(), this.getComputeHeight()); // ????
-
-				if (callback && callback instanceof Function) {
-					setTimeout(function () {
-						callback();
-					}, 10);
-				}
-			}
-
-			// json_other : 會有 setting, control
-
-		}, {
-			key: 'changeData',
-			value: function changeData(str_painter_method, str_base64, json_other, callback) {
-				var _scope = this;
-				_scope.clearCanvas(function () {
-					_scope.painter_method = str_painter_method;
-					_scope.obj_image.src = str_base64;
-					_scope.other_data = json_other;
-					if (callback && callback instanceof Function) {
-						setTimeout(function () {
-							callback();
-						}, 10);
-					}
-				});
-			}
-
-			// 傳來什麼，就如實地回傳
-
-		}, {
-			key: 'methodOrigin',
-			value: function methodOrigin(json) {
-				var _scope = this;
-				_scope.emitAfterMethod(json);
-			}
-		}, {
-			key: 'methodVars',
-			value: function methodVars(json) {
-				json = json || {};
-				json.setting = json.setting || {};
-				json.control = json.control || {};
-				json.created = json.created || {};
-
-				return json;
-			}
-		}, {
-			key: 'emitAfterMethod',
-			value: function emitAfterMethod(json) {
-				var _scope = this;
-
-				json = _scope.methodVars(json);
-
-				var _data_url = _scope.obj_canvas.toDataURL();
-
-				var _json_emit = {
-					origin_data: json.origin_data,
-					data: _data_url
-				};
-
-				if (json.method_id !== undefined) {
-					_json_emit.method_id = json.method_id;
-					// _json_emit.method = json.method ;
-				}
-
-				var _str_compute_timing = _scope.getComputeTiming();
-				if (_str_compute_timing === _Settings2.default.COMPUTE_TIMING_RESULT) {
-					_scope.getEmitter().emit('step.image.success.computed', _json_emit);
-				}
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
-		}, {
-			key: 'operateSaturateRGB',
-			value: function operateSaturateRGB(num_range, num_red, num_green, num_blue) {
-				var _num_saturate_min = Math.floor((num_red + num_green + num_blue) / 3); // 全灰階
-				var _json_output = {};
-				if (num_range < 0) {
-					_json_output = {
-						red: _num_saturate_min + Math.floor((num_red - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
-						green: _num_saturate_min + Math.floor((num_green - _num_saturate_min) * (1 - Math.abs(num_range / 100))),
-						blue: _num_saturate_min + Math.floor((num_blue - _num_saturate_min) * (1 - Math.abs(num_range / 100)))
-					};
-				} else {
-					_json_output = {
-						red: num_red + Math.floor((num_red - _num_saturate_min) * (num_range / 100)),
-						green: num_green + Math.floor((num_green - _num_saturate_min) * (num_range / 100)),
-						blue: num_blue + Math.floor((num_blue - _num_saturate_min) * (num_range / 100))
-					};
-				}
-
-				_json_output.red = this.checkColorRange(_json_output.red);
-				_json_output.green = this.checkColorRange(_json_output.green);
-				_json_output.blue = this.checkColorRange(_json_output.blue);
-				return _json_output;
-			}
-		}, {
-			key: 'operateContrastRGB',
-			value: function operateContrastRGB(num_range, num_red, num_green, num_blue) {
-				var _num_contrast_base = 128;
-				var _json_output = {};
-
-				var _bln_red_bigger = num_red > _num_contrast_base;
-				var _bln_green_bigger = num_green > _num_contrast_base;
-				var _bln_blue_bigger = num_blue > _num_contrast_base;
-
-				var _num_red_end = num_red > _num_contrast_base ? 255 : 0;
-				var _num_green_end = num_green > _num_contrast_base ? 255 : 0;
-				var _num_blue_end = num_blue > _num_contrast_base ? 255 : 0;
-
-				if (num_range < 0) {
-					// ok
-					_json_output = {
-						red: _num_contrast_base + Math.floor((num_red - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
-						green: _num_contrast_base + Math.floor((num_green - _num_contrast_base) * (1 - Math.abs(num_range / 100))),
-						blue: _num_contrast_base + Math.floor((num_blue - _num_contrast_base) * (1 - Math.abs(num_range / 100)))
-					};
-				} else {
-					_json_output = {
-						red: num_red + Math.floor((_num_red_end - num_red) * (num_range / 100) / 2),
-						green: num_green + Math.floor((_num_green_end - num_green) * (num_range / 100) / 2),
-						blue: num_blue + Math.floor((_num_blue_end - num_blue) * (num_range / 100) / 2)
-					};
-				}
-				_json_output.red = this.checkColorRange(_json_output.red);
-				_json_output.green = this.checkColorRange(_json_output.green);
-				_json_output.blue = this.checkColorRange(_json_output.blue);
-				return _json_output;
-			}
-		}, {
-			key: 'checkColorRange',
-			value: function checkColorRange(num) {
-				return num > 255 ? 255 : num < 0 ? 0 : num;
-			}
-		}]);
-
-		return ImageDataComputeMethod;
-	}(_Tools3.default);
-
-	exports.default = ImageDataComputeMethod;
 
 /***/ },
 /* 235 */
@@ -30147,14 +30154,14 @@
 				_obj_add_button.innerText = '新增效果';
 				this.methodAddBtnActive.call(_obj_add_button, this);
 				_obj_section.appendChild(_obj_add_button);
-				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button);
+				// this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button );
 
 				// 下載按鈕
 				var _obj_download_button = document.createElement('button');
 				_obj_download_button.innerText = '下載圖片';
 				this.downloadBtnActive.call(_obj_download_button, this);
 				_obj_section.appendChild(_obj_download_button);
-				this.addGlobalConst(this, 'OBJ_METHOD_ADD_BUTTON', _obj_download_button);
+				// this.addGlobalConst( this, 'OBJ_METHOD_DOWNLOAD_BUTTON', _obj_download_button );
 
 				return _obj_section;
 			}
@@ -30458,7 +30465,7 @@
 			value: function methodAddBtnActive(scope_calss) {
 				var _obj_self = this;
 				_obj_self.onclick = function (e) {
-					scope_calss.getEmitter().emit('method.setting.open.asking');
+					scope_calss.getEmitter().emit('method.setting.open.asking', _Settings2.default.IMAGE_DATA_FROM_LAST);
 				};
 			}
 
@@ -31031,7 +31038,7 @@
 
 	var _GloablData2 = _interopRequireDefault(_GloablData);
 
-	var _reactColorPicker = __webpack_require__(132);
+	var _reactColorPicker = __webpack_require__(133);
 
 	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
 
@@ -31069,6 +31076,7 @@
 
 	        _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
 	        _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
+	        _scope.prevewAction = _scope.prevewAction.bind(_scope);
 	        _scope.submitAction = _scope.submitAction.bind(_scope);
 	        _scope.colorPick = _scope.colorPick.bind(_scope);
 
@@ -31108,6 +31116,16 @@
 	            if (callback) {
 	                callback();
 	            }
+	        }
+	    }, {
+	        key: 'prevewAction',
+	        value: function prevewAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.previewing', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
 	        }
 	    }, {
 	        key: 'submitAction',
@@ -31269,6 +31287,11 @@
 	                    ' ',
 	                    this.state.control.maxAlpha,
 	                    ' / 100'
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: _scope.prevewAction },
+	                    '預覽'
 	                ),
 	                _react2.default.createElement(
 	                    'button',
@@ -31974,7 +31997,7 @@
 
 	var _GloablTools2 = _interopRequireDefault(_GloablTools);
 
-	var _redux = __webpack_require__(203);
+	var _redux = __webpack_require__(204);
 
 	var _MethodReact = __webpack_require__(245);
 
@@ -31983,6 +32006,18 @@
 	var _MethodReducer = __webpack_require__(246);
 
 	var _MethodReducer2 = _interopRequireDefault(_MethodReducer);
+
+	var _Extend = __webpack_require__(19);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _ImageDataComputeMethod = __webpack_require__(110);
+
+	var _ImageDataComputeMethod2 = _interopRequireDefault(_ImageDataComputeMethod);
+
+	var _Settings = __webpack_require__(6);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32009,6 +32044,8 @@
 
 	        _this.addGlobalConst(_this, 'globalId', str_id);
 
+	        _this.imageDataComputeMethod = new _ImageDataComputeMethod2.default(_Settings2.default.COMPUTE_TIMING_PREVIEW, { emitter: _GloablTools2.default.Emitter() });
+
 	        _this.default();
 
 	        return _this;
@@ -32019,6 +32056,9 @@
 	        value: function _default() {
 	            var _scope = this;
 	            _GloablTools2.default.Emitter().on('method.setting.open.asked', function () {
+	                var _json_emit = arguments[0];
+	                _GloablTools2.default.Emitter().emit('step.image.new.loading', _json_emit);
+
 	                var _str_cn_base = _scope.getMethodBaseClassName();
 	                OBJ_METHOD_POPUP.className = _str_cn_base + ' ' + METHOD_POPUP_OPEN_CLASSNAME;
 	                _GloablTools2.default.Emitter().emit('method.setting.opening');
@@ -32036,12 +32076,83 @@
 	                var _json_emit = arguments[0];
 	                OBJ_METHOD_POPUP.className = _scope.getMethodBaseClassName();
 	            });
+
+	            _GloablTools2.default.Emitter().on('step.image.new.loading', function () {
+	                var _json_emit = arguments[0];
+	                _json_emit.data = _json_emit.data || {};
+
+	                var _json_other = _json_emit.data || {};
+	                _scope.setNowImageData(_json_other);
+	                // console.log( '_json_other :::::::: ', _json_other );
+	                // _scope.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
+	            });
+
+	            _GloablTools2.default.Emitter().on('method.cotroller.previewing', function () {
+	                var _json = arguments[0];
+	                var _json_other = _Extend2.default.deep(_json, {
+	                    origin_data: _scope.getNowImageData().origin_data
+	                });
+	                _scope.imageDataComputeMethod.changeData(_json.method, _json_other.origin_data, _json_other);
+	            });
+
+	            _GloablTools2.default.Emitter().on('step.image.success.loaded', function () {
+	                // 成功放進照片了
+
+	                var _json = arguments[0],
+	                    _bln_delete_created = arguments[1],
+	                    _str_method = _json.method;
+
+	                if (_bln_delete_created === true) {
+	                    _json.created = _json.created || {};
+	                }
+
+	                if (_str_method === _Settings2.default.METHOD_DOT) {
+	                    _scope.imageDataComputeMethod.methodDot(_json);
+	                } else if (_str_method === _Settings2.default.METHOD_ALPHA) {
+	                    _scope.imageDataComputeMethod.methodAlpha(_json);
+	                } else if (_str_method === _Settings2.default.METHOD_SATURATE) {
+	                    _scope.imageDataComputeMethod.methodSaturate(_json);
+	                } else if (_str_method === _Settings2.default.METHOD_CONTRAST) {
+	                    _scope.imageDataComputeMethod.methodContrast(_json);
+	                } else if (_str_method === _Settings2.default.METHOD_INVERT) {
+	                    _scope.imageDataComputeMethod.methodInvert(_json);
+	                } else {
+	                    _scope.imageDataComputeMethod.methodOrigin(_json);
+	                }
+	            });
+
+	            _GloablTools2.default.Emitter().on('preview.image.success.computed', function () {
+	                console.log('** ** ** ** ** ** // ** ** preview.image.success.computed ** ** // ** ** ** ** ** **');
+	                console.log('arguments[0] :: ', arguments[0]);
+	                var _json = arguments[0];
+	                var _obj_image = new Image();
+	                _obj_image.src = _json.data;
+	                document.getElementsByTagName('body')[0].appendChild(_obj_image);
+	            });
+	        }
+	    }, {
+	        key: 'getNowImageData',
+	        value: function getNowImageData() {
+	            return this.now_image_data || {};
+	        }
+	    }, {
+	        key: 'setNowImageData',
+	        value: function setNowImageData(json) {
+	            this.now_image_data = json || {};
 	        }
 	    }, {
 	        key: 'getMethodBaseClassName',
 	        value: function getMethodBaseClassName() {
 	            return OBJ_METHOD_POPUP.className.replace(METHOD_POPUP_OPEN_REG, '');
 	        }
+
+	        // nowImage(){
+	        //     let _json_other = {
+	        //         origin_data: window.step_image[0].data
+	        //     };
+	        //     this.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
+	        // }
+
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -32111,7 +32222,7 @@
 
 	var _MainImageFilter2 = _interopRequireDefault(_MainImageFilter);
 
-	var _ImageDataComputeMethod = __webpack_require__(234);
+	var _ImageDataComputeMethod = __webpack_require__(110);
 
 	var _ImageDataComputeMethod2 = _interopRequireDefault(_ImageDataComputeMethod);
 
@@ -32352,6 +32463,12 @@
 					}
 				});
 
+				// _scope.getGlobalConst(_scope).emitter.on('preview.image.success.computed', function(e){
+				// 	console.log('preview.image.success.computed');
+				// 	let _json = arguments[0];
+				// 	console.log( '_json :: ', _json );
+				// });
+
 				_scope.getGlobalConst(_scope).emitter.on('step.image.error.loaded', function (e) {
 					'錯誤!!';
 				});
@@ -32396,9 +32513,20 @@
 				});
 
 				_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function (e) {
+					var _str_from_data = arguments[0];
+					var _json_emit = {};
 					var _str_from = _scope.getGlobalConst(_scope).ComponentId;
 					_GloablData2.default.setFrom(_str_from);
-					_GloablTools2.default.Emitter().emit('method.setting.open.asked');
+
+					if (_str_from_data === _Settings2.default.IMAGE_DATA_FROM_LAST) {
+						var _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
+						if (_sary_step_image.length > 0) {
+							_json_emit.data = _sary_step_image[_sary_step_image.length - 1];
+						} else {
+							_json_emit.data = {};
+						}
+					}
+					_GloablTools2.default.Emitter().emit('method.setting.open.asked', _json_emit);
 				});
 			}
 

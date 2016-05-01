@@ -209,6 +209,12 @@ export default class PictureDraw extends GlobalConst {
 
 			});
 
+			// _scope.getGlobalConst(_scope).emitter.on('preview.image.success.computed', function(e){
+			// 	console.log('preview.image.success.computed');
+			// 	let _json = arguments[0];
+			// 	console.log( '_json :: ', _json );
+			// });
+
 			_scope.getGlobalConst(_scope).emitter.on('step.image.error.loaded', function(e){
 				( '錯誤!!' );
 			});
@@ -254,9 +260,20 @@ export default class PictureDraw extends GlobalConst {
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function(e){
+				let _str_from_data = arguments[0];
+				let _json_emit = {};
 				let _str_from = _scope.getGlobalConst(_scope).ComponentId ;
 				GloablData.setFrom( _str_from );
-				GloablTools.Emitter().emit('method.setting.open.asked');
+
+				if( _str_from_data===Settings.IMAGE_DATA_FROM_LAST ){
+					let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
+					if( _sary_step_image.length>0 ){
+						_json_emit.data = _sary_step_image[(_sary_step_image.length-1)];
+					}else{
+						_json_emit.data = {}
+					}
+				}
+				GloablTools.Emitter().emit('method.setting.open.asked',_json_emit);
 			});
 
 		}

@@ -25,6 +25,7 @@ export default class MethodControlDot extends React.Component {
 
         _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
         _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
+        _scope.prevewAction = _scope.prevewAction.bind(_scope);
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.colorPick = _scope.colorPick.bind(_scope);
 
@@ -62,6 +63,15 @@ export default class MethodControlDot extends React.Component {
         if( callback ){
             callback();
         }
+    }
+
+    prevewAction(){
+        let _scope = this;
+        GloablTools.Emitter().emit( 'method.cotroller.previewing', {
+            from: GloablData.getFrom(),
+            method: _scope.getComponentMethod(),
+            control: _scope.state.control
+        } );
     }
 
     submitAction(){
@@ -189,6 +199,7 @@ export default class MethodControlDot extends React.Component {
                         value={this.state.control.maxAlpha}
                         onChange={this.handleChangeRange} /> {this.state.control.maxAlpha} / 100
                 </div>
+                <button onClick={_scope.prevewAction}>預覽</button>
                 <button onClick={_scope.submitAction}>確定</button>
             </div>
         );

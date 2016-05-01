@@ -59,6 +59,10 @@ export default class Settings {
 	static COMPUTE_TIMING_RESULT = 'result'; // 畫面下方用來作為真的送出結果用的地方
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	static IMAGE_DATA_FROM_LAST = 'last';
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static getConstNameByEn( str ){

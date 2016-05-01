@@ -184,14 +184,14 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_add_button.innerText = '新增效果';
 		this.methodAddBtnActive.call( _obj_add_button, this );
 		_obj_section.appendChild(_obj_add_button);
-		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button );
+		// this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button );
 
 		// 下載按鈕
 		let _obj_download_button = document.createElement('button');
 		_obj_download_button.innerText = '下載圖片';
 		this.downloadBtnActive.call( _obj_download_button, this );
 		_obj_section.appendChild(_obj_download_button);
-		this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_download_button );
+		// this.addGlobalConst( this, 'OBJ_METHOD_DOWNLOAD_BUTTON', _obj_download_button );
 
 		return _obj_section;
 	}
@@ -483,7 +483,7 @@ export default class MainImageFilter extends GlobalConst {
 	methodAddBtnActive( scope_calss ){
 		let _obj_self = this;
 		_obj_self.onclick = function( e ){
-			scope_calss.getEmitter().emit('method.setting.open.asking');
+			scope_calss.getEmitter().emit('method.setting.open.asking',Settings.IMAGE_DATA_FROM_LAST);
 		}
 	}
 

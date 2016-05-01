@@ -16,7 +16,7 @@ export default class MethodControlAlpha extends React.Component {
 
         this.handleChangeRange = this.handleChangeRange.bind(this);
         this.submitAction = this.submitAction.bind(this);
-
+        
     }
 
     getComponentMethod(){

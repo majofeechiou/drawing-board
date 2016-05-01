@@ -425,6 +425,9 @@ export default class ImageDataComputeMethod extends Tools {
 		let _str_compute_timing = _scope.getComputeTiming();
 		if( _str_compute_timing===Settings.COMPUTE_TIMING_RESULT ){
 			_scope.getEmitter().emit('step.image.success.computed', _json_emit);
+		}else if( _str_compute_timing===Settings.COMPUTE_TIMING_PREVIEW ){
+			json.data = _data_url;
+			_scope.getEmitter().emit('preview.image.success.computed', json);
 		}
 	}
 
