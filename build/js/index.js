@@ -30426,6 +30426,10 @@
 						origin_data: _str_image_data,
 						setting: scope_calss.getOutputImageSetting()
 					});
+
+					scope_calss.getEmitter().emit('origin.image.showing', {
+						origin_data: _str_image_data
+					});
 				};
 			}
 
@@ -32219,6 +32223,11 @@
 					console.log('----- origin.data.changed -----');
 					var _json_data = arguments[0];
 					_scope.imageDataOriginal.getObjImage().src = _json_data.origin_data;
+				});
+
+				_scope.getGlobalConst(_scope).emitter.on('origin.image.showing', function (e) {
+					console.log('----- origin.image.showing -----');
+					var _json_data = arguments[0];
 					_scope.mainImageFilter.getObjOriginImage().src = _json_data.origin_data;
 				});
 

@@ -472,6 +472,10 @@ export default class MainImageFilter extends GlobalConst {
 				setting: scope_calss.getOutputImageSetting()
 			});
 
+			scope_calss.getEmitter().emit('origin.image.showing', {
+				origin_data: _str_image_data
+			});
+
 		}
 	}
 
