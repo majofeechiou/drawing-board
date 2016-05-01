@@ -4,6 +4,7 @@ import HexRgb from 'hex-rgb';
 import Settings from './Settings';
 
 // 運算的方式
+// 寬高也是最後輸出的圖片的寬高
 export default class ImageDataComputeMethod extends Tools {
 	constructor( json_tools ){
 		super();
@@ -87,9 +88,12 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json = _scope.methodVars( json );
 
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight();
+
 		let _bln_old = false ;
 		if( json.created && json.created.dot && json.created.dot.length>0 ){
-			if( json.created.setting && json.setting.width===json.created.setting.width && json.setting.height===json.created.setting.height ){ // 輸出的圖片大小是相同的
+			if( json.created.setting && json.setting.width===json.created.setting.width && json.setting.height===json.created.setting.height && json.setting.width===_num_compute_width && json.setting.height===_num_compute_height ){ // 輸出的圖片大小是相同的
 				_bln_old = true ;
 			}else{
 				_bln_old = false ;
@@ -98,9 +102,7 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json.created.dot = ( _bln_old===true )? json.created.dot : [] ;
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight(),
-			_json_control = json.control,
+		let _json_control = json.control,
 			_num_size_min = _json_control.minSize,
 			_num_size_max = _json_control.maxSize,
 			_num_size,
@@ -119,7 +121,7 @@ export default class ImageDataComputeMethod extends Tools {
 		if( _bln_old===true ){
 			_num_total = _ary_dot_origin.length;
 		}else{
-			_num_total = Math.floor(_num_width*_num_height/_num_size_max/_num_size_max/100*_json_control.frequency);
+			_num_total = Math.floor(_num_compute_width*_num_compute_height/_num_size_max/_num_size_max/100*_json_control.frequency);
 			json.created.setting = { ...json.setting };
 		}
 
@@ -138,8 +140,8 @@ export default class ImageDataComputeMethod extends Tools {
 				_str_color = 'rgba('+_ary_rgb.join(', ')+', '+_num_alpha+')';
 				_scope.obj_canvas_2d.fillStyle = _str_color;
 
-				_num_x = Math.floor(Math.random() * _num_width) ;
-				_num_y = Math.floor(Math.random() * _num_height) ;
+				_num_x = Math.floor(Math.random() * _num_compute_width) ;
+				_num_y = Math.floor(Math.random() * _num_compute_height) ;
 				_num_size = ( parseInt(_num_size_min, 10) + Math.floor( ( _num_size_max-_num_size_min )*Math.random() ) )/2 ;
 				
 				(json.created.dot).push({
@@ -174,14 +176,14 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json = _scope.methodVars( json );
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight(),
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight(),
 			_num_range = json.control.range;
 
-        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
         // Loop through data.
-        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
+        for (let i = 0; i < (_num_compute_width*_num_compute_height*4); i += 4) {
 
           // First bytes are red bytes.        
           // Second bytes are green bytes.
@@ -203,13 +205,13 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json = _scope.methodVars( json );
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight();
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight();
 
-        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
         // Loop through data.
-        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
+        for (let i = 0; i < (_num_compute_width*_num_compute_height*4); i += 4) {
           _json_image_data.data[i] = 255-_json_image_data.data[i];
           _json_image_data.data[(i+1)] = 255-_json_image_data.data[(i+1)];
           _json_image_data.data[(i+2)] = 255-_json_image_data.data[(i+2)];
@@ -227,10 +229,10 @@ export default class ImageDataComputeMethod extends Tools {
 		
 		json = _scope.methodVars( json );
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight();
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight();
 
-        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 		let _num_red,
 			_num_green,
@@ -238,7 +240,7 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_gray;
 
         // Loop through data.
-        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
+        for (let i = 0; i < (_num_compute_width*_num_compute_height*4); i += 4) {
 
 			// First bytes are red bytes.        
 			// Get red value.
@@ -278,11 +280,11 @@ export default class ImageDataComputeMethod extends Tools {
 		
 		json = _scope.methodVars( json );
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight(),
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight(),
 			_num_range = json.control.range;
 
-        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 		let _num_red,
 			_num_green,
@@ -291,7 +293,7 @@ export default class ImageDataComputeMethod extends Tools {
 
 		if( _num_range>0 || _num_range<0 ){
 	        // Loop through data.
-	        for (let i = 0; i < (_num_width*_num_height*4); i += 4) {
+	        for (let i = 0; i < (_num_compute_width*_num_compute_height*4); i += 4) {
 
 				_num_red = _json_image_data.data[i];
 				_num_green = _json_image_data.data[i + 1];
@@ -319,11 +321,11 @@ export default class ImageDataComputeMethod extends Tools {
 		
 		json = _scope.methodVars( json );
 
-		let _num_width = _scope.getComputeWidth(),
-			_num_height = _scope.getComputeHeight(),
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight(),
 			_num_range = json.control.range;
 
-        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
         let _num_red,
         	_num_green,

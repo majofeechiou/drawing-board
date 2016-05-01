@@ -47,7 +47,7 @@ export default class ImageDataOriginal extends Tools {
 
     objOnloadAction(){
         let _scope = this;
-        _scope.obj_image.onload = function(){
+        _scope.getObjImage().onload = function(){
 
             _scope.setOriginImageSize( this.width, this.height );
 

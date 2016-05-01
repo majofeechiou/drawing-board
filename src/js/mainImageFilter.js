@@ -459,7 +459,6 @@ export default class MainImageFilter extends GlobalConst {
 	uploadAction( scope_calss ){
 		let _obj_self = this;
 		_obj_self.onchange = function( e ){ // 從頭更換圖片
-			console.log( 'onchange ::: ', this.files );
 			let windowURL = window.URL || window.webkitURL;
 			let _str_image_data = windowURL.createObjectURL(this.files[0]);
 

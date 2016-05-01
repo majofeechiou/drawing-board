@@ -161,7 +161,7 @@ export default class PictureDraw extends GlobalConst {
 			_scope.getGlobalConst(_scope).emitter.on('output.size.resetting', function(){
 				console.log( '----- output.size.resetting -----' );
 				let _str_image_data = _scope.mainImageFilter.getSourceImage().base64;
-				
+
 				if( typeof _str_image_data === 'string' && _str_image_data.length>0 ){
 					let _json_emit = {
 						origin_data: _str_image_data,
@@ -170,7 +170,6 @@ export default class PictureDraw extends GlobalConst {
 					_scope.getGlobalConst(_scope).emitter.emit('origin.data.changed', _json_emit); // 導至圖片重讀
 				}
 
-				// _scope.mainImageFilter.getObjUpload().src = _str_image_data;
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){

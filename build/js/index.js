@@ -28998,6 +28998,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// 運算的方式
+	// 寬高也是最後輸出的圖片的寬高
 
 	var ImageDataComputeMethod = function (_Tools) {
 		_inherits(ImageDataComputeMethod, _Tools);
@@ -29104,9 +29105,12 @@
 
 				json = _scope.methodVars(json);
 
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight();
+
 				var _bln_old = false;
 				if (json.created && json.created.dot && json.created.dot.length > 0) {
-					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height) {
+					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height && json.setting.width === _num_compute_width && json.setting.height === _num_compute_height) {
 						// 輸出的圖片大小是相同的
 						_bln_old = true;
 					} else {
@@ -29116,9 +29120,7 @@
 
 				json.created.dot = _bln_old === true ? json.created.dot : [];
 
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
-				    _json_control = json.control,
+				var _json_control = json.control,
 				    _num_size_min = _json_control.minSize,
 				    _num_size_max = _json_control.maxSize,
 				    _num_size = void 0,
@@ -29137,7 +29139,7 @@
 				if (_bln_old === true) {
 					_num_total = _ary_dot_origin.length;
 				} else {
-					_num_total = Math.floor(_num_width * _num_height / _num_size_max / _num_size_max / 100 * _json_control.frequency);
+					_num_total = Math.floor(_num_compute_width * _num_compute_height / _num_size_max / _num_size_max / 100 * _json_control.frequency);
 					json.created.setting = _extends({}, json.setting);
 				}
 
@@ -29155,8 +29157,8 @@
 						_str_color = 'rgba(' + _ary_rgb.join(', ') + ', ' + _num_alpha + ')';
 						_scope.obj_canvas_2d.fillStyle = _str_color;
 
-						_num_x = Math.floor(Math.random() * _num_width);
-						_num_y = Math.floor(Math.random() * _num_height);
+						_num_x = Math.floor(Math.random() * _num_compute_width);
+						_num_y = Math.floor(Math.random() * _num_compute_height);
 						_num_size = (parseInt(_num_size_min, 10) + Math.floor((_num_size_max - _num_size_min) * Math.random())) / 2;
 
 						json.created.dot.push({
@@ -29191,14 +29193,14 @@
 
 				json = _scope.methodVars(json);
 
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
 				    _num_range = json.control.range;
 
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 				// Loop through data.
-				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
 
 					// First bytes are red bytes.       
 					// Second bytes are green bytes.
@@ -29222,13 +29224,13 @@
 
 				json = _scope.methodVars(json);
 
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight();
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight();
 
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 				// Loop through data.
-				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
 					_json_image_data.data[i] = 255 - _json_image_data.data[i];
 					_json_image_data.data[i + 1] = 255 - _json_image_data.data[i + 1];
 					_json_image_data.data[i + 2] = 255 - _json_image_data.data[i + 2];
@@ -29248,10 +29250,10 @@
 
 				json = _scope.methodVars(json);
 
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight();
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight();
 
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 				var _num_red = void 0,
 				    _num_green = void 0,
@@ -29259,7 +29261,7 @@
 				    _num_gray = void 0;
 
 				// Loop through data.
-				for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+				for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
 
 					// First bytes are red bytes.       
 					// Get red value.
@@ -29300,11 +29302,11 @@
 
 				json = _scope.methodVars(json);
 
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
 				    _num_range = json.control.range;
 
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 				var _num_red = void 0,
 				    _num_green = void 0,
@@ -29313,7 +29315,7 @@
 
 				if (_num_range > 0 || _num_range < 0) {
 					// Loop through data.
-					for (var i = 0; i < _num_width * _num_height * 4; i += 4) {
+					for (var i = 0; i < _num_compute_width * _num_compute_height * 4; i += 4) {
 
 						_num_red = _json_image_data.data[i];
 						_num_green = _json_image_data.data[i + 1];
@@ -29342,11 +29344,11 @@
 
 				json = _scope.methodVars(json);
 
-				var _num_width = _scope.getComputeWidth(),
-				    _num_height = _scope.getComputeHeight(),
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
 				    _num_range = json.control.range;
 
-				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_width, _num_height);
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
 
 				var _num_red = void 0,
 				    _num_green = void 0,
@@ -29702,7 +29704,7 @@
 	        key: 'objOnloadAction',
 	        value: function objOnloadAction() {
 	            var _scope = this;
-	            _scope.obj_image.onload = function () {
+	            _scope.getObjImage().onload = function () {
 
 	                _scope.setOriginImageSize(this.width, this.height);
 
@@ -30412,7 +30414,6 @@
 				var _obj_self = this;
 				_obj_self.onchange = function (e) {
 					// 從頭更換圖片
-					console.log('onchange ::: ', this.files);
 					var windowURL = window.URL || window.webkitURL;
 					var _str_image_data = windowURL.createObjectURL(this.files[0]);
 
@@ -32232,8 +32233,6 @@
 						};
 						_scope.getGlobalConst(_scope).emitter.emit('origin.data.changed', _json_emit); // 導至圖片重讀
 					}
-
-					// _scope.mainImageFilter.getObjUpload().src = _str_image_data;
 				});
 
 				_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function (e) {
