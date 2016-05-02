@@ -129,7 +129,8 @@ export default class ImageDataComputeMethod extends Tools {
 		if( _bln_old===true ){
 			_num_total = _ary_dot_origin.length;
 		}else{
-			_num_total = Math.floor(_num_compute_width*_num_compute_height/_num_size_max/_num_size_max/100*_json_control.frequency);
+			let _num_size_avg = Math.round(( parseInt(_num_size_min,10)+parseInt(_num_size_max,10) )/2) ;
+			_num_total = Math.floor(_num_compute_width*_num_compute_height/Math.pow(_num_size_avg,2)/100*_json_control.frequency);
 			json.created.setting = { ...json.setting };
 		}
 
