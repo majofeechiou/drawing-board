@@ -113,6 +113,7 @@ export default class PictureDraw extends GlobalConst {
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** 
 			GloablTools.Emitter().on( 'method.cotroller.control.operating', function(){  // 新的設定的做法
 				let _json = arguments[0];
+				// // // // // let _json_size_setting = arguments[1];
 				if( _json.from===_scope.getGlobalConst(_scope).ComponentId ){
 					_json.from =null;
 					delete _json.from;
@@ -149,7 +150,6 @@ export default class PictureDraw extends GlobalConst {
 				console.log( '----- init.data.size.asking -----' );
 				let _json_data = arguments[0];
 				// _json_data.setting = _scope.getEmitSetting();
-				console.log('%%%%% %%%%% %%%%% _json_data ', _json_data);
 				_scope.imageDataOriginal.operateImageSize( _json_data, _scope.getEmitSetting() );
 			});
 
@@ -180,7 +180,6 @@ export default class PictureDraw extends GlobalConst {
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){
-				console.log('****** step.image.success.loaded ******');
 				let _json = arguments[0],
 					_bln_delete_created = arguments[1],
 					_str_method = _json.method;
@@ -274,7 +273,7 @@ export default class PictureDraw extends GlobalConst {
 						_json_emit.data = {}
 					}
 				}
-				GloablTools.Emitter().emit('method.setting.open.asked',_json_emit);
+				GloablTools.Emitter().emit('method.setting.open.asked',_json_emit, _scope.getEmitSetting());
 			});
 
 		}

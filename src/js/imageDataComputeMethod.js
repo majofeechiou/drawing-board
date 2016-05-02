@@ -2,6 +2,7 @@
 import Tools from './Tools';
 import HexRgb from 'hex-rgb';
 import Settings from './Settings';
+import Extend from 'Extend';
 
 // 運算的方式
 // 寬高也是最後輸出的圖片的寬高
@@ -95,12 +96,15 @@ export default class ImageDataComputeMethod extends Tools {
 		let _scope = this;
 
 		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight();
 
 		console.log( '_num_compute_width :: ', _num_compute_width );
 		console.log( '_num_compute_height :: ', _num_compute_height );
+		console.log( 'json.created :: ', json.created );
+		console.log( 'json_setting :: ', json_setting );
 
 		let _bln_old = false ;
 		if( json.created && json.created.dot && json.created.dot.length>0 ){
@@ -277,10 +281,11 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// 透明
 	// https://msdn.microsoft.com/zh-cn/library/gg589493(v=vs.85).aspx
-	methodAlpha( json ){
+	methodAlpha( json, json_setting ){
 		let _scope = this;
 
 		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight(),
@@ -306,10 +311,11 @@ export default class ImageDataComputeMethod extends Tools {
 	}
 
 	// 負片效果
-	methodInvert( json ){
+	methodInvert( json, json_setting ){
 		let _scope = this;
 
 		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight();
@@ -330,10 +336,11 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// 灰階
 	// https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
-	methodGray( json ){
+	methodGray( json, json_setting ){
 		let _scope = this;
 		
 		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight();
@@ -381,10 +388,11 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// 彩度（飽和度）
 	// 拿這個網址來改的https://msdn.microsoft.com/zh-cn/library/gg589527(v=vs.85).aspx
-	methodSaturate( json ){
+	methodSaturate( json, json_setting ){
 		let _scope = this;
 		
 		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight(),
@@ -422,10 +430,11 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// 對比
 	// 其實有另外這兒的可以參考，但我沒用 http://stackoverflow.com/questions/10521978/html5-canvas-image-contrast
-	methodContrast( json ){
+	methodContrast( json, json_setting ){
 		let _scope = this;
 		
 		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight(),
@@ -496,7 +505,7 @@ export default class ImageDataComputeMethod extends Tools {
 
 	methodVars( json ){
 		json = json || {};
-		json.setting = json.setting || {} ;
+		// json.setting = json.setting || {} ;
 		json.control = json.control || {} ;
 		json.created = json.created || {} ;
 
@@ -524,8 +533,8 @@ export default class ImageDataComputeMethod extends Tools {
 		if( _str_compute_timing===Settings.COMPUTE_TIMING_RESULT ){
 			_scope.getEmitter().emit('step.image.success.computed', _json_emit);
 		}else if( _str_compute_timing===Settings.COMPUTE_TIMING_PREVIEW ){
-			json.data = _data_url;
-			_scope.getEmitter().emit('preview.image.success.computed', json);
+			let _json_preview = Extend.deep(json,{data:_data_url});
+			_scope.getEmitter().emit('preview.image.success.computed', _json_preview);
 		}
 	}
 

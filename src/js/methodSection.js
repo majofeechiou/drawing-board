@@ -36,39 +36,38 @@ export default class MethodSection extends GlobalConst {
         let _scope = this;
         GloablTools.Emitter().on('method.setting.open.asked', function(){
             let _json_emit = arguments[0];
+            let _json_setting = arguments[0];
             GloablTools.Emitter().emit('step.image.new.loading', _json_emit);
 
             let _str_cn_base = _scope.getMethodBaseClassName();
             OBJ_METHOD_POPUP.className = _str_cn_base+' '+METHOD_POPUP_OPEN_CLASSNAME;
             GloablTools.Emitter().emit('method.setting.opening');
+
+            GloablData.setSizeSetting( _json_setting );
         });
 
         GloablTools.Emitter().on( 'method.cotroller.control.asking', function(){  // 新的設定的做法
-            let _json_emit = {...arguments[0]} ;
+            let _json_emit = arguments[0] ;
+
+            let _json_img_setting = GloablData.getPreviewImageSetting();
 
             console.log('** ** ** ** method.cotroller.control.asking ** ** ** **');
-            // console.log('>>>>>>> _json_emit :: ', _json_emit);
-            // console.log('GloablData.getPreviewImageInfo() :: ', GloablData.getPreviewImageInfo());
-            // console.log('GloablData.getPreviewImageSetting() :: ', GloablData.getPreviewImageSetting());
-
-            let _json_setting = GloablData.getPreviewImageSetting();
-
-            console.log( 'method :: ', _json_setting.method===_json_emit.method, _json_setting.method, _json_emit.method );
-            console.log( 'control :: ', JSON.stringify(_json_setting.control)===JSON.stringify(_json_emit.control), _json_setting.control, _json_emit.control );
-            console.log( 'from :: ', _json_setting.from===_json_emit.from, _json_setting.from, _json_emit.from );
-            console.log( 'setting :: ', JSON.stringify(_json_setting.setting)===JSON.stringify(_json_emit.setting), _json_setting.setting, _json_emit.setting );
+            
+            console.log( 'method :: ', _json_img_setting.method===_json_emit.method, _json_img_setting.method, _json_emit.method );
+            console.log( 'control :: ', JSON.stringify(_json_img_setting.control)===JSON.stringify(_json_emit.control), _json_img_setting.control, _json_emit.control );
+            console.log( 'from :: ', _json_img_setting.from===_json_emit.from, _json_img_setting.from, _json_emit.from );
 
             if(
-                (_json_setting.method===_json_emit.method) && (typeof _json_setting.method === 'string') && (_json_setting.method!=='') &&
-                (JSON.stringify(_json_setting.control)===JSON.stringify(_json_emit.control)) &&
-                (_json_setting.from===_json_emit.from) && (typeof _json_setting.from === 'string') && (_json_setting.from!=='')
+                (_json_img_setting.method===_json_emit.method) && (typeof _json_img_setting.method === 'string') && (_json_img_setting.method!=='') &&
+                (JSON.stringify(_json_img_setting.control)===JSON.stringify(_json_emit.control)) &&
+                (_json_img_setting.from===_json_emit.from) && (typeof _json_img_setting.from === 'string') && (_json_img_setting.from!=='')
             ){
-                _json_emit.created = _json_setting.created
+                _json_emit.created = _json_img_setting.created ;
             }
 
             setTimeout(function(){
-                console.log('_json_emit ** ', _json_emit);
-                GloablTools.Emitter().emit('method.cotroller.control.operating', _json_emit); // 一會看要怎麼改
+                console.log('_json_emit ** ** ', {..._json_emit});
+                GloablTools.Emitter().emit('method.cotroller.control.operating', _json_emit, GloablData.getSizeSetting()); // 一會看要怎麼改
                 GloablTools.Emitter().emit('method.setting.close.asked');
             },200);
         });
@@ -91,6 +90,7 @@ export default class MethodSection extends GlobalConst {
 
         GloablTools.Emitter().on('method.cotroller.previewing',function(){
             let _json = arguments[0];
+            console.log( 'method.cotroller.previewing =========================== ', JSON.stringify(_json) );
             // let _json_other = Extend.deep(_json, {
             //     origin_data: GloablData.getNowImageData().origin_data
             // });
@@ -116,37 +116,35 @@ export default class MethodSection extends GlobalConst {
             }
 
             if( _str_method===Settings.METHOD_DOT ){
-                _scope.imageDataComputeMethod.methodDot( _json );
+                _scope.imageDataComputeMethod.methodDot( _json, GloablData.getSizeSetting() );
 
             }else if( _str_method===Settings.METHOD_ALPHA ){
-                _scope.imageDataComputeMethod.methodAlpha( _json );
+                _scope.imageDataComputeMethod.methodAlpha( _json, GloablData.getSizeSetting() );
 
             }else if( _str_method===Settings.METHOD_SATURATE ){
-                _scope.imageDataComputeMethod.methodSaturate( _json );
+                _scope.imageDataComputeMethod.methodSaturate( _json, GloablData.getSizeSetting() );
 
             }else if( _str_method===Settings.METHOD_CONTRAST ){
-                _scope.imageDataComputeMethod.methodContrast( _json );
+                _scope.imageDataComputeMethod.methodContrast( _json, GloablData.getSizeSetting() );
 
             }else if( _str_method===Settings.METHOD_INVERT ){
-                _scope.imageDataComputeMethod.methodInvert( _json );
+                _scope.imageDataComputeMethod.methodInvert( _json, GloablData.getSizeSetting() );
 
             }else{
-                _scope.imageDataComputeMethod.methodOrigin( _json );
+                _scope.imageDataComputeMethod.methodOrigin( _json, GloablData.getSizeSetting() );
             }
 
         });
 
         GloablTools.Emitter().on('preview.image.success.computed',function(){
-            console.log('** ** ** ** ** ** // ** ** preview.image.success.computed ** ** // ** ** ** ** ** **');
-            console.log( 'arguments[0] :: ', arguments[0] );
             let _json = arguments[0];
+
             GloablData.setPreviewImageInfo( _json, function(){
-                GloablTools.Emitter().emit('preview.image.object.data.changing');
+                setTimeout( function(){
+                    GloablTools.Emitter().emit('preview.image.object.data.changing');
+                },500 );
             } );
 
-            // let _obj_image = new Image();
-            // _obj_image.src = _json.data;
-            // document.getElementsByTagName('body')[0].appendChild(_obj_image);
         });
 
     }
