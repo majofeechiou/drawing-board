@@ -27,8 +27,8 @@ export default class MethodControlDot extends React.Component {
         _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
         _scope.prevewAction = _scope.prevewAction.bind(_scope);
         _scope.submitAction = _scope.submitAction.bind(_scope);
-        _scope.colorPick = _scope.colorPick.bind(_scope);
         _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
+        _scope.colorPick = _scope.colorPick.bind(_scope);
 
     }
 
