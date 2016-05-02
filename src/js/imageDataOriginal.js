@@ -79,7 +79,7 @@ export default class ImageDataOriginal extends Tools {
         return this.origin_image_size;
     }
 
-    operateImageSize( json_data ){
+    operateImageSize( json_data, json_setting ){
         let _scope = this ;
 
         _scope.getObjCanvas2d().clearRect( 0, 0, _scope.getObjCanvas().width, _scope.getObjCanvas().height );
@@ -87,7 +87,8 @@ export default class ImageDataOriginal extends Tools {
         let _str_output = '';
 
         // **************** 圖片
-        let _json_setting = json_data.setting,
+        // let _json_setting = json_data.setting,
+        let _json_setting = json_setting,
             _str_size = _json_setting.size;
 
         if( _str_size===Settings.OUTPUT_SIZE_SCALE ){

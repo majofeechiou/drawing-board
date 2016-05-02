@@ -116,7 +116,7 @@ export default class PictureDraw extends GlobalConst {
 				if( _json.from===_scope.getGlobalConst(_scope).ComponentId ){
 					_json.from =null;
 					delete _json.from;
-					_json.setting = _scope.getEmitSetting();
+					// _json.setting = _scope.getEmitSetting();
 					_scope.stepMethod.pushStepMethod( _json );
 				}
 			});
@@ -148,9 +148,9 @@ export default class PictureDraw extends GlobalConst {
 			_scope.getGlobalConst(_scope).emitter.on('init.data.size.asking', function(e){
 				console.log( '----- init.data.size.asking -----' );
 				let _json_data = arguments[0];
-				_json_data.setting = _scope.getEmitSetting();
+				// _json_data.setting = _scope.getEmitSetting();
 				console.log('%%%%% %%%%% %%%%% _json_data ', _json_data);
-				_scope.imageDataOriginal.operateImageSize( _json_data );
+				_scope.imageDataOriginal.operateImageSize( _json_data, _scope.getEmitSetting() );
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('origin.data.changed', function(e){

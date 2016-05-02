@@ -13168,7 +13168,7 @@
 
 		}, {
 			key: 'methodDot',
-			value: function methodDot(json) {
+			value: function methodDot(json, json_setting) {
 				var _scope = this;
 
 				json = _scope.methodVars(json);
@@ -13186,32 +13186,46 @@
 						if (json.created.setting.compute_width === _num_compute_width && json.created.setting.compute_height === _num_compute_height) {
 							console.log('AAAAAAAAAAAAAAAAAA');
 							_bln_old = true;
-						} /*else{
-	       	if( 
-	       	json.setting.size===Settings.OUTPUT_SIZE_SCALE && 
-	       	json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
-	       ){
-	       	if(
-	       		json.created.setting.origin_width===json.setting.origin_width &&
-	       		json.created.setting.origin_height===json.setting.origin_height &&
-	       		json.created.setting.range===json.setting.range
-	       	){
-	       		console.log('BBBBBBBBBBBBBBBBBB');
-	       		_bln_old = true ;
-	       	}
-	       	}else if( 
-	       	json.setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
-	       	json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
-	       ){
-	       	if(
-	       		json.created.setting.width===json.setting.width &&
-	       		json.created.setting.height===json.setting.height
-	       	){
-	       		console.log('CCCCCCCCCCCCCCCCCC');
-	       		_bln_old = true ;
-	       	}
-	       	}
-	       }*/
+						} else {
+
+							if (json_setting.size === _Settings2.default.OUTPUT_SIZE_SCALE && json.created.setting.size === _Settings2.default.OUTPUT_SIZE_SCALE) {
+								if (json.created.setting.origin_width === json_setting.origin_width && json.created.setting.origin_height === json_setting.origin_height && json.created.setting.range === json_setting.range) {
+									console.log('BBBBBBBBBBBBBBBBBB');
+									_bln_old = true;
+								}
+							} else if (json_setting.size === _Settings2.default.OUTPUT_SIZE_CUSTOM && json.created.setting.size === _Settings2.default.OUTPUT_SIZE_CUSTOM) {
+								if (json.created.setting.width === json_setting.width && json.created.setting.height === json_setting.height) {
+									console.log('CCCCCCCCCCCCCCCCCC');
+									_bln_old = true;
+								}
+							}
+						}
+						/*else{
+	     		if( 
+	     		json.setting.size===Settings.OUTPUT_SIZE_SCALE && 
+	     		json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
+	     	){
+	     		if(
+	     			json.created.setting.origin_width===json.setting.origin_width &&
+	     			json.created.setting.origin_height===json.setting.origin_height &&
+	     			json.created.setting.range===json.setting.range
+	     		){
+	     			console.log('BBBBBBBBBBBBBBBBBB');
+	     			_bln_old = true ;
+	     		}
+	     		}else if( 
+	     		json.setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
+	     		json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
+	     	){
+	     		if(
+	     			json.created.setting.width===json.setting.width &&
+	     			json.created.setting.height===json.setting.height
+	     		){
+	     			console.log('CCCCCCCCCCCCCCCCCC');
+	     			_bln_old = true ;
+	     		}
+	     		}
+	     	}*/
 					}
 
 					// if( json.created.setting &&
@@ -13267,7 +13281,7 @@
 					var _num_size_avg = Math.round((parseInt(_num_size_min, 10) + parseInt(_num_size_max, 10)) / 2);
 					// _num_total = Math.floor( _num_compute_width*_num_compute_height/(_num_size_avg*2)/100 * _json_control.frequency * (Math.pow((_num_size_max+_num_size_avg)/2,2)/Math.pow((_num_size_min+_num_size_avg)/2,2)) / Math.floor((_num_size_avg+_num_size_max)/2) );
 					_num_total = Math.floor(_num_compute_width * _num_compute_height / (_num_size_avg * 2 + Math.round(Math.sqrt(_num_size_max)) + Math.round(Math.sqrt(_num_size_min))) / 400 * _json_control.frequency);
-					json.created.setting = _extends({}, json.setting);
+					json.created.setting = _extends({}, json_setting);
 				}
 
 				var _ary_rgb = (0, _hexRgb2.default)(_json_control.color);
@@ -29883,7 +29897,7 @@
 	        }
 	    }, {
 	        key: 'operateImageSize',
-	        value: function operateImageSize(json_data) {
+	        value: function operateImageSize(json_data, json_setting) {
 	            var _scope = this;
 
 	            _scope.getObjCanvas2d().clearRect(0, 0, _scope.getObjCanvas().width, _scope.getObjCanvas().height);
@@ -29891,7 +29905,8 @@
 	            var _str_output = '';
 
 	            // **************** 圖片
-	            var _json_setting = json_data.setting,
+	            // let _json_setting = json_data.setting,
+	            var _json_setting = json_setting,
 	                _str_size = _json_setting.size;
 
 	            if (_str_size === _Settings2.default.OUTPUT_SIZE_SCALE) {
@@ -32858,7 +32873,7 @@
 					if (_json.from === _scope.getGlobalConst(_scope).ComponentId) {
 						_json.from = null;
 						delete _json.from;
-						_json.setting = _scope.getEmitSetting();
+						// _json.setting = _scope.getEmitSetting();
 						_scope.stepMethod.pushStepMethod(_json);
 					}
 				});
@@ -32895,9 +32910,9 @@
 				_scope.getGlobalConst(_scope).emitter.on('init.data.size.asking', function (e) {
 					console.log('----- init.data.size.asking -----');
 					var _json_data = arguments[0];
-					_json_data.setting = _scope.getEmitSetting();
+					// _json_data.setting = _scope.getEmitSetting();
 					console.log('%%%%% %%%%% %%%%% _json_data ', _json_data);
-					_scope.imageDataOriginal.operateImageSize(_json_data);
+					_scope.imageDataOriginal.operateImageSize(_json_data, _scope.getEmitSetting());
 				});
 
 				_scope.getGlobalConst(_scope).emitter.on('origin.data.changed', function (e) {
