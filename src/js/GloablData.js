@@ -21,18 +21,35 @@ export default class GloablData {
         this.now_image_data = json || {} ;
     }
 
-    static getImageObject(){
-        return IMAGE_OBJECT ;
+    static setPreviewImageInfo( json, callback ){
+        this.preview_image_info = json || {} ;
+        if( callback && (callback instanceof Function === true) ){
+            callback();
+        }
+    }
+
+    static getPreviewImageInfo(){
+        return this.preview_image_info || {} ;
     }
 
     static setImageObjectSrc( str_src, callback ){
-        IMAGE_OBJECT.src = str_src || '' ;
+        this.getPreviewImageInfo().data = str_src || '' ;
         if( callback && (callback instanceof Function === true) ){
             callback();
         }
     }
 
     static getImageObjectSrc(){
-        return IMAGE_OBJECT.src || '' ;
+        return this.preview_image_info.data || '' ;
+    }
+
+
+
+
+
+
+
+    static getImageObject(){
+        return IMAGE_OBJECT ;
     }
 };

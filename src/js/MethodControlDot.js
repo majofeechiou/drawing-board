@@ -28,14 +28,18 @@ export default class MethodControlDot extends React.Component {
         _scope.prevewAction = _scope.prevewAction.bind(_scope);
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.colorPick = _scope.colorPick.bind(_scope);
+        _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
 
-        GloablTools.Emitter().on('preview.image.object.data.changing',function() {
-            let _json_new = _scope.arrangeState();
-            _json_new.imgObj.src = GloablData.getImageObjectSrc();
-            console.log( 'preview.image.object.data.changing    _json_new :: ', _json_new );
-            _scope.setState( _json_new );
-        });
+    }
 
+    componentWillMount(){
+        let _scope = this;
+        GloablTools.Emitter().on('preview.image.object.data.changing', _scope.listenPreviewImageChange );
+    }
+
+    componentWillUnmount(){
+        let _scope = this;
+        GloablTools.Emitter().off('preview.image.object.data.changing', _scope.listenPreviewImageChange );
     }
 
     componentWillReceiveProps(nextProps){
@@ -46,8 +50,15 @@ export default class MethodControlDot extends React.Component {
         return Settings.METHOD_DOT;
     }
 
-    arrangeState(){
-        return Extend.deep( 
+    listenPreviewImageChange(){
+        let _scope = this;
+        let _json_new = _scope.arrangeState({imgObj:{src:GloablData.getImageObjectSrc()}});
+        _scope.setState( _json_new );
+    }
+
+    arrangeState( json ){
+        json = json || {} ;
+        let _json_output = Extend.deep( 
             {},
             { control: this.props.control }, 
             this.state, 
@@ -66,6 +77,7 @@ export default class MethodControlDot extends React.Component {
                 }
             }
         );
+        return Extend.deep( _json_output, json );
     }
 
     getNowImageDataBase64(){
@@ -119,8 +131,10 @@ export default class MethodControlDot extends React.Component {
 
     handleChangeShape( bln_change, json_return ) {
         let _scope = this ;
-        let _json_new = _scope.arrangeState();
-        _scope.setState( _json_new );
+        if( bln_change===true ){
+            let _json_new = _scope.arrangeState( {control: {shape: json_return.result}} );
+            _scope.setState( _json_new );
+        }
 
     }
 
@@ -141,7 +155,6 @@ export default class MethodControlDot extends React.Component {
     }
 
     render(){
-        console.log('+++++++render+++++++++++++++++');
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
         let _json_now_image = GloablData.getNowImageData() ;
@@ -177,7 +190,6 @@ export default class MethodControlDot extends React.Component {
                     styleIconBack={_json_sub_store.styleIconBack}
                     styleList={_json_sub_store.styleList} />
 
-                --- {_str_img_src.length} ---
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
                     <img src={_str_img_src} style={_json_style} />
                 </If>

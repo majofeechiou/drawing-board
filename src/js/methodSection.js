@@ -52,7 +52,6 @@ export default class MethodSection extends GlobalConst {
         GloablTools.Emitter().on( 'method.setting.close.asked', function(){  // 新的設定的做法
             let _json_emit = arguments[0] ;
             OBJ_METHOD_POPUP.className = _scope.getMethodBaseClassName();
-            GloablData.setImageObjectSrc( GloablData.getNowImageData().data );
         });
 
         GloablTools.Emitter().on('step.image.new.loading',function(){
@@ -61,9 +60,8 @@ export default class MethodSection extends GlobalConst {
 
             let _json_other = _json_emit.data || {} ;
             GloablData.setNowImageData( _json_other );
-            GloablData.setImageObjectSrc( _json_emit.data );
-            // console.log( '_json_other :::::::: ', _json_other );
-            // _scope.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
+            console.log( 'new.loading---', _json_emit );
+            GloablData.setPreviewImageInfo( _json_emit.data );
 
         });
 
@@ -111,10 +109,8 @@ export default class MethodSection extends GlobalConst {
             console.log('** ** ** ** ** ** // ** ** preview.image.success.computed ** ** // ** ** ** ** ** **');
             console.log( 'arguments[0] :: ', arguments[0] );
             let _json = arguments[0];
-            GloablData.setImageObjectSrc( _json.data, function(){
-                setTimeout(function(){
-                    GloablTools.Emitter().emit('preview.image.object.data.changing');
-                },100);
+            GloablData.setPreviewImageInfo( _json, function(){
+                GloablTools.Emitter().emit('preview.image.object.data.changing');
             } );
 
             // let _obj_image = new Image();
@@ -124,24 +120,9 @@ export default class MethodSection extends GlobalConst {
 
     }
 
-    // getNowImageData(){
-    //     return this.now_image_data || {} ;
-    // }
-
-    // setNowImageData( json ){
-    //     this.now_image_data = json || {} ;
-    // }
-
     getMethodBaseClassName(){
         return OBJ_METHOD_POPUP.className.replace( METHOD_POPUP_OPEN_REG, '' );
     }
-
-    // nowImage(){
-    //     let _json_other = {
-    //         origin_data: window.step_image[0].data
-    //     };
-    //     this.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
-    // }
 
     render(){
         let _scope = this;
