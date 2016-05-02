@@ -91,7 +91,7 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// 在照片中添加纹理
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
-	methodDot( json ){
+	methodDot( json, json_setting ){
 		let _scope = this;
 
 		json = _scope.methodVars( json );
@@ -99,17 +99,110 @@ export default class ImageDataComputeMethod extends Tools {
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight();
 
+		console.log( '_num_compute_width :: ', _num_compute_width );
+		console.log( '_num_compute_height :: ', _num_compute_height );
+
 		let _bln_old = false ;
 		if( json.created && json.created.dot && json.created.dot.length>0 ){
-			if( json.created.setting && json.setting.width===json.created.setting.width && json.setting.height===json.created.setting.height && json.setting.width===_num_compute_width && json.setting.height===_num_compute_height ){ // 輸出的圖片大小是相同的
-				_bln_old = true ;
-			}else{
-				_bln_old = false ;
+			if( json.created && json.created.setting ){
+
+				if(
+					json.created.setting.compute_width===_num_compute_width &&
+					json.created.setting.compute_height===_num_compute_height
+				){
+					console.log('AAAAAAAAAAAAAAAAAA');
+					_bln_old = true ;
+				}else{
+
+					if( 
+						json_setting.size===Settings.OUTPUT_SIZE_SCALE && 
+						json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
+					){
+						if(
+							json.created.setting.origin_width===json_setting.origin_width &&
+							json.created.setting.origin_height===json_setting.origin_height &&
+							json.created.setting.range===json_setting.range
+						){
+							console.log('BBBBBBBBBBBBBBBBBB');
+							_bln_old = true ;
+						}
+
+					}else if( 
+						json_setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
+						json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
+					){
+						if(
+							json.created.setting.width===json_setting.width &&
+							json.created.setting.height===json_setting.height
+						){
+							console.log('CCCCCCCCCCCCCCCCCC');
+							_bln_old = true ;
+						}
+
+					}
+
+				}
+				/*else{
+
+					if( 
+						json.setting.size===Settings.OUTPUT_SIZE_SCALE && 
+						json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
+					){
+						if(
+							json.created.setting.origin_width===json.setting.origin_width &&
+							json.created.setting.origin_height===json.setting.origin_height &&
+							json.created.setting.range===json.setting.range
+						){
+							console.log('BBBBBBBBBBBBBBBBBB');
+							_bln_old = true ;
+						}
+
+					}else if( 
+						json.setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
+						json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
+					){
+						if(
+							json.created.setting.width===json.setting.width &&
+							json.created.setting.height===json.setting.height
+						){
+							console.log('CCCCCCCCCCCCCCCCCC');
+							_bln_old = true ;
+						}
+
+					}
+
+				}*/
+
 			}
+			
+			// if( json.created.setting && 
+			// 	json.setting.width===json.created.setting.width && 
+			// 	json.setting.height===json.created.setting.height && 
+			// 	json.setting.width===_num_compute_width && 
+			// 	json.setting.height===_num_compute_height ){ // 輸出的圖片大小是相同的
+			// 	_bln_old = true ;
+			// }else{
+			// 	_bln_old = false ;
+			// }
 		}
 
 		console.log( 'json ::::::::: ', json );
 		console.log( '_bln_old ::::::::: ', _bln_old );
+
+		/*
+			origin_height: 818
+			origin_width: 1279
+			range: 100
+			size: "scale"
+		*/
+		/*
+			custom: "cover"
+			height: 300
+			origin_height: 333
+			origin_width: 500
+			size: "custom"
+			width: 500
+		*/
 
 		json.created.dot = ( _bln_old===true )? json.created.dot : [] ;
 
@@ -135,7 +228,7 @@ export default class ImageDataComputeMethod extends Tools {
 			let _num_size_avg = Math.round(( parseInt(_num_size_min,10)+parseInt(_num_size_max,10) )/2) ;
 			// _num_total = Math.floor( _num_compute_width*_num_compute_height/(_num_size_avg*2)/100 * _json_control.frequency * (Math.pow((_num_size_max+_num_size_avg)/2,2)/Math.pow((_num_size_min+_num_size_avg)/2,2)) / Math.floor((_num_size_avg+_num_size_max)/2) );
 			_num_total = Math.floor( _num_compute_width*_num_compute_height/(_num_size_avg*2+Math.round(Math.sqrt(_num_size_max))+Math.round(Math.sqrt(_num_size_min)))/400 * _json_control.frequency );
-			json.created.setting = { ...json.setting };
+			json.created.setting = { ...json_setting };
 		}
 
 		let _ary_rgb = (HexRgb(_json_control.color));

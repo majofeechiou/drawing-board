@@ -13176,18 +13176,72 @@
 				var _num_compute_width = _scope.getComputeWidth(),
 				    _num_compute_height = _scope.getComputeHeight();
 
+				console.log('_num_compute_width :: ', _num_compute_width);
+				console.log('_num_compute_height :: ', _num_compute_height);
+
 				var _bln_old = false;
 				if (json.created && json.created.dot && json.created.dot.length > 0) {
-					if (json.created.setting && json.setting.width === json.created.setting.width && json.setting.height === json.created.setting.height && json.setting.width === _num_compute_width && json.setting.height === _num_compute_height) {
-						// 輸出的圖片大小是相同的
-						_bln_old = true;
-					} else {
-						_bln_old = false;
+					if (json.created && json.created.setting) {
+
+						if (json.created.setting.compute_width === _num_compute_width && json.created.setting.compute_height === _num_compute_height) {
+							console.log('AAAAAAAAAAAAAAAAAA');
+							_bln_old = true;
+						} /*else{
+	       	if( 
+	       	json.setting.size===Settings.OUTPUT_SIZE_SCALE && 
+	       	json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
+	       ){
+	       	if(
+	       		json.created.setting.origin_width===json.setting.origin_width &&
+	       		json.created.setting.origin_height===json.setting.origin_height &&
+	       		json.created.setting.range===json.setting.range
+	       	){
+	       		console.log('BBBBBBBBBBBBBBBBBB');
+	       		_bln_old = true ;
+	       	}
+	       	}else if( 
+	       	json.setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
+	       	json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
+	       ){
+	       	if(
+	       		json.created.setting.width===json.setting.width &&
+	       		json.created.setting.height===json.setting.height
+	       	){
+	       		console.log('CCCCCCCCCCCCCCCCCC');
+	       		_bln_old = true ;
+	       	}
+	       	}
+	       }*/
 					}
+
+					// if( json.created.setting &&
+					// 	json.setting.width===json.created.setting.width &&
+					// 	json.setting.height===json.created.setting.height &&
+					// 	json.setting.width===_num_compute_width &&
+					// 	json.setting.height===_num_compute_height ){ // 輸出的圖片大小是相同的
+					// 	_bln_old = true ;
+					// }else{
+					// 	_bln_old = false ;
+					// }
 				}
 
 				console.log('json ::::::::: ', json);
 				console.log('_bln_old ::::::::: ', _bln_old);
+
+				/*
+	   	origin_height: 818
+	   	origin_width: 1279
+	   	range: 100
+	   	size: "scale"
+	   */
+				/*
+	   	custom: "cover"
+	   	height: 300
+	   	origin_height: 333
+	   	origin_width: 500
+	   	size: "custom"
+	   	width: 500
+	   */
 
 				json.created.dot = _bln_old === true ? json.created.dot : [];
 
@@ -32752,8 +32806,8 @@
 
 					if (_sary_step_data instanceof Array === true && _sary_step_data.length > 0) {
 
-						var _num_width = _scope.imageDataComputeMethod.getComputeWidth();
-						var _num_height = _scope.imageDataComputeMethod.getComputeHeight();
+						// let _num_width = _scope.imageDataComputeMethod.getComputeWidth();
+						// let _num_height = _scope.imageDataComputeMethod.getComputeHeight();
 
 						_json_data.origin_data = _sary_step_data[_sary_step_data.length - 1].data; // 目前得到的最後一次運算結果
 
@@ -32842,6 +32896,7 @@
 					console.log('----- init.data.size.asking -----');
 					var _json_data = arguments[0];
 					_json_data.setting = _scope.getEmitSetting();
+					console.log('%%%%% %%%%% %%%%% _json_data ', _json_data);
 					_scope.imageDataOriginal.operateImageSize(_json_data);
 				});
 
@@ -32881,17 +32936,17 @@
 					}
 
 					if (_str_method === _Settings2.default.METHOD_DOT) {
-						_scope.imageDataComputeMethod.methodDot(_json);
+						_scope.imageDataComputeMethod.methodDot(_json, _scope.getEmitSetting());
 					} else if (_str_method === _Settings2.default.METHOD_ALPHA) {
-						_scope.imageDataComputeMethod.methodAlpha(_json);
+						_scope.imageDataComputeMethod.methodAlpha(_json, _scope.getEmitSetting());
 					} else if (_str_method === _Settings2.default.METHOD_SATURATE) {
-						_scope.imageDataComputeMethod.methodSaturate(_json);
+						_scope.imageDataComputeMethod.methodSaturate(_json, _scope.getEmitSetting());
 					} else if (_str_method === _Settings2.default.METHOD_CONTRAST) {
-						_scope.imageDataComputeMethod.methodContrast(_json);
+						_scope.imageDataComputeMethod.methodContrast(_json, _scope.getEmitSetting());
 					} else if (_str_method === _Settings2.default.METHOD_INVERT) {
-						_scope.imageDataComputeMethod.methodInvert(_json);
+						_scope.imageDataComputeMethod.methodInvert(_json, _scope.getEmitSetting());
 					} else {
-						_scope.imageDataComputeMethod.methodOrigin(_json);
+						_scope.imageDataComputeMethod.methodOrigin(_json, _scope.getEmitSetting());
 					}
 				});
 
@@ -32972,7 +33027,14 @@
 			value: function getEmitSetting(json_setting) {
 				var _scope = this;
 				json_setting = json_setting || {};
-				return _Extend2.default.deep(json_setting, _scope.mainImageFilter.getOutputImageSetting(), _scope.imageDataOriginal.getOriginImageSize());
+
+				var _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth();
+				var _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight();
+
+				return _Extend2.default.deep(json_setting, _scope.mainImageFilter.getOutputImageSetting(), _scope.imageDataOriginal.getOriginImageSize(), {
+					compute_width: _num_compute_width,
+					compute_height: _num_compute_height
+				});
 			}
 		}]);
 

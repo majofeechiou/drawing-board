@@ -63,8 +63,8 @@ export default class PictureDraw extends GlobalConst {
 
 				if( (_sary_step_data instanceof Array === true) && _sary_step_data.length>0 ){
 
-					let _num_width = _scope.imageDataComputeMethod.getComputeWidth();
-					let _num_height = _scope.imageDataComputeMethod.getComputeHeight();
+					// let _num_width = _scope.imageDataComputeMethod.getComputeWidth();
+					// let _num_height = _scope.imageDataComputeMethod.getComputeHeight();
 
 					_json_data.origin_data = _sary_step_data[(_sary_step_data.length-1)].data; // 目前得到的最後一次運算結果
 
@@ -149,6 +149,7 @@ export default class PictureDraw extends GlobalConst {
 				console.log( '----- init.data.size.asking -----' );
 				let _json_data = arguments[0];
 				_json_data.setting = _scope.getEmitSetting();
+				console.log('%%%%% %%%%% %%%%% _json_data ', _json_data);
 				_scope.imageDataOriginal.operateImageSize( _json_data );
 			});
 
@@ -189,22 +190,22 @@ export default class PictureDraw extends GlobalConst {
 				}
 
 				if( _str_method===Settings.METHOD_DOT ){
-					_scope.imageDataComputeMethod.methodDot( _json );
+					_scope.imageDataComputeMethod.methodDot( _json, _scope.getEmitSetting() );
 
 				}else if( _str_method===Settings.METHOD_ALPHA ){
-					_scope.imageDataComputeMethod.methodAlpha( _json );
+					_scope.imageDataComputeMethod.methodAlpha( _json, _scope.getEmitSetting() );
 
 				}else if( _str_method===Settings.METHOD_SATURATE ){
-					_scope.imageDataComputeMethod.methodSaturate( _json );
+					_scope.imageDataComputeMethod.methodSaturate( _json, _scope.getEmitSetting() );
 
 				}else if( _str_method===Settings.METHOD_CONTRAST ){
-					_scope.imageDataComputeMethod.methodContrast( _json );
+					_scope.imageDataComputeMethod.methodContrast( _json, _scope.getEmitSetting() );
 
 				}else if( _str_method===Settings.METHOD_INVERT ){
-					_scope.imageDataComputeMethod.methodInvert( _json );
+					_scope.imageDataComputeMethod.methodInvert( _json, _scope.getEmitSetting() );
 
 				}else{
-					_scope.imageDataComputeMethod.methodOrigin( _json );
+					_scope.imageDataComputeMethod.methodOrigin( _json, _scope.getEmitSetting() );
 				}
 
 			});
@@ -285,10 +286,18 @@ export default class PictureDraw extends GlobalConst {
 	getEmitSetting( json_setting ){
 		let _scope = this ;
 		json_setting = json_setting || {};
+
+		let _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth();
+		let _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight();
+
 		return Extend.deep(
 			json_setting,
 			_scope.mainImageFilter.getOutputImageSetting(),
-			_scope.imageDataOriginal.getOriginImageSize() 
+			_scope.imageDataOriginal.getOriginImageSize(), 
+			{
+				compute_width: _num_compute_width,
+				compute_height: _num_compute_height
+			}
 		);
 	}
 
