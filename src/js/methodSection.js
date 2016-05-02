@@ -52,6 +52,7 @@ export default class MethodSection extends GlobalConst {
         GloablTools.Emitter().on( 'method.setting.close.asked', function(){  // 新的設定的做法
             let _json_emit = arguments[0] ;
             OBJ_METHOD_POPUP.className = _scope.getMethodBaseClassName();
+            GloablData.setImageObjectSrc( GloablData.getNowImageData().data );
         });
 
         GloablTools.Emitter().on('step.image.new.loading',function(){
@@ -60,6 +61,7 @@ export default class MethodSection extends GlobalConst {
 
             let _json_other = _json_emit.data || {} ;
             GloablData.setNowImageData( _json_other );
+            GloablData.setImageObjectSrc( _json_emit.data );
             // console.log( '_json_other :::::::: ', _json_other );
             // _scope.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
 
@@ -110,12 +112,14 @@ export default class MethodSection extends GlobalConst {
             console.log( 'arguments[0] :: ', arguments[0] );
             let _json = arguments[0];
             GloablData.setImageObjectSrc( _json.data, function(){
-                GloablTools.Emitter().emit('preview.image.object.data.changing');
+                setTimeout(function(){
+                    GloablTools.Emitter().emit('preview.image.object.data.changing');
+                },100);
             } );
 
-            let _obj_image = new Image();
-            _obj_image.src = _json.data;
-            document.getElementsByTagName('body')[0].appendChild(_obj_image);
+            // let _obj_image = new Image();
+            // _obj_image.src = _json.data;
+            // document.getElementsByTagName('body')[0].appendChild(_obj_image);
         });
 
     }

@@ -30,12 +30,10 @@ export default class MethodControlDot extends React.Component {
         _scope.colorPick = _scope.colorPick.bind(_scope);
 
         GloablTools.Emitter().on('preview.image.object.data.changing',function() {
-            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
             let _json_new = _scope.arrangeState();
+            _json_new.imgObj.src = GloablData.getImageObjectSrc();
+            console.log( 'preview.image.object.data.changing    _json_new :: ', _json_new );
             _scope.setState( _json_new );
-            // setTimeout(function(){
-            //     _scope.render();
-            // },200);
         });
 
     }
@@ -55,26 +53,40 @@ export default class MethodControlDot extends React.Component {
             this.state, 
             { control: 
                 {
-                    frequency: this.refs.frequency.value,
-                    minSize: this.refs.minSize.value,
-                    maxSize: this.refs.maxSize.value,
-                    minAlpha: this.refs.minAlpha.value,
-                    maxAlpha: this.refs.maxAlpha.value,
+                    frequency: (this.refs && this.refs.frequency)? this.refs.frequency.value : this.props.control.frequency ,
+                    minSize: (this.refs && this.refs.minSize )? this.refs.minSize.value : this.props.control.minSize ,
+                    maxSize: (this.refs && this.refs.maxSize )? this.refs.maxSize.value : this.props.control.maxSize ,
+                    minAlpha: (this.refs && this.refs.minAlpha )? this.refs.minAlpha.value : this.props.control.minAlpha ,
+                    maxAlpha: (this.refs && this.refs.maxAlpha )? this.refs.maxAlpha.value : this.props.control.minAlpha ,
                 }
             },
             { imgObj: 
                 {
-                    src: GloablData.getImageObjectSrc()
+                    src: ( this.state && this.state.imgObj )? this.state.imgObj.src : GloablData.getImageObjectSrc()
                 }
             }
         );
     }
 
-    arrangeProps(json_next, callback){//+++++++++++++++++++++++++++++++
+    getNowImageDataBase64(){
+        let _data_now = GloablData.getNowImageData() ;
+        return _data_now.data;
+    }
+
+    arrangeProps(json_next, callback){
+        let _str_base64 = this.getNowImageDataBase64() ;
         if( this.state ){
-            this.setState( {control:json_next.control} );
+            this.setState( {
+                control: json_next.control,
+                imgObj: this.state.imgObj
+            } );
         }else{
-            this.state = {control:json_next.control};
+            this.state = {
+                control:json_next.control,
+                imgObj: {
+                    src: _str_base64 || GloablData.getImageObjectSrc()
+                }
+            };
         }
         if( callback ){
             callback();
@@ -102,6 +114,7 @@ export default class MethodControlDot extends React.Component {
     handleChangeRange() {
         let _json_new = this.arrangeState();
         this.setState( _json_new );
+        this.render();
     }
 
     handleChangeShape( bln_change, json_return ) {
@@ -164,8 +177,11 @@ export default class MethodControlDot extends React.Component {
                     styleIconBack={_json_sub_store.styleIconBack}
                     styleList={_json_sub_store.styleList} />
 
-                <img src={_str_img_src} style={_json_style} />
-                
+                --- {_str_img_src.length} ---
+                <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
+                    <img src={_str_img_src} style={_json_style} />
+                </If>
+
                 <div style={{marginTop: '15px', marginBottom: '5px'}}>
                     <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
                         {this.state.control.color}

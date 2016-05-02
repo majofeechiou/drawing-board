@@ -30634,11 +30634,11 @@
 	    function MethodControl(props) {
 	        _classCallCheck(this, MethodControl);
 
-	        // this.setComponentId( Utils.createUniqueId() );
+	        // this.arrangeProps( props );
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControl).call(this, props));
 
-	        _this.arrangeProps(props);
+	        _this.arrangeProps();
 
 	        return _this;
 	    }
@@ -30649,22 +30649,20 @@
 	            this.arrangeProps(nextProps);
 	        }
 
-	        // getComponentId(){
-	        //     return this.component_id;
-	        // }
-
-	        // setComponentId( data ){
-	        //     this.component_id = data;
+	        // arrangeProps(json_next){
+	        //     if( this.state ){
+	        //         this.setState( {methodStore:json_next.methodStore.getState()} );
+	        //     }else{
+	        //         this.state = {methodStore:json_next.methodStore.getState()};
+	        //     }
 	        // }
 
 	    }, {
 	        key: 'arrangeProps',
-	        value: function arrangeProps(json_next) {
+	        value: function arrangeProps() {
 	            if (this.state) {
-	                // this.setState( {methodStore:json_next.methodStore.getState()} );
 	                this.setState({});
 	            } else {
-	                // this.state = {methodStore:json_next.methodStore.getState()};
 	                this.state = {};
 	            }
 	        }
@@ -31111,12 +31109,10 @@
 	        _scope.colorPick = _scope.colorPick.bind(_scope);
 
 	        _GloablTools2.default.Emitter().on('preview.image.object.data.changing', function () {
-	            console.log('%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
 	            var _json_new = _scope.arrangeState();
+	            _json_new.imgObj.src = _GloablData2.default.getImageObjectSrc();
+	            console.log('preview.image.object.data.changing    _json_new :: ', _json_new);
 	            _scope.setState(_json_new);
-	            // setTimeout(function(){
-	            //     _scope.render();
-	            // },200);
 	        });
 
 	        return _this;
@@ -31136,24 +31132,39 @@
 	        key: 'arrangeState',
 	        value: function arrangeState() {
 	            return _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
-	                    frequency: this.refs.frequency.value,
-	                    minSize: this.refs.minSize.value,
-	                    maxSize: this.refs.maxSize.value,
-	                    minAlpha: this.refs.minAlpha.value,
-	                    maxAlpha: this.refs.maxAlpha.value
+	                    frequency: this.refs && this.refs.frequency ? this.refs.frequency.value : this.props.control.frequency,
+	                    minSize: this.refs && this.refs.minSize ? this.refs.minSize.value : this.props.control.minSize,
+	                    maxSize: this.refs && this.refs.maxSize ? this.refs.maxSize.value : this.props.control.maxSize,
+	                    minAlpha: this.refs && this.refs.minAlpha ? this.refs.minAlpha.value : this.props.control.minAlpha,
+	                    maxAlpha: this.refs && this.refs.maxAlpha ? this.refs.maxAlpha.value : this.props.control.minAlpha
 	                }
 	            }, { imgObj: {
-	                    src: _GloablData2.default.getImageObjectSrc()
+	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
 	                }
 	            });
 	        }
 	    }, {
+	        key: 'getNowImageDataBase64',
+	        value: function getNowImageDataBase64() {
+	            var _data_now = _GloablData2.default.getNowImageData();
+	            return _data_now.data;
+	        }
+	    }, {
 	        key: 'arrangeProps',
 	        value: function arrangeProps(json_next, callback) {
+	            var _str_base64 = this.getNowImageDataBase64();
 	            if (this.state) {
-	                this.setState({ control: json_next.control });
+	                this.setState({
+	                    control: json_next.control,
+	                    imgObj: this.state.imgObj
+	                });
 	            } else {
-	                this.state = { control: json_next.control };
+	                this.state = {
+	                    control: json_next.control,
+	                    imgObj: {
+	                        src: _str_base64 || _GloablData2.default.getImageObjectSrc()
+	                    }
+	                };
 	            }
 	            if (callback) {
 	                callback();
@@ -31184,6 +31195,7 @@
 	        value: function handleChangeRange() {
 	            var _json_new = this.arrangeState();
 	            this.setState(_json_new);
+	            this.render();
 	        }
 	    }, {
 	        key: 'handleChangeShape',
@@ -31253,7 +31265,10 @@
 	                    styleIcon: _json_sub_store.styleIcon,
 	                    styleIconBack: _json_sub_store.styleIconBack,
 	                    styleList: _json_sub_store.styleList }),
-	                _react2.default.createElement('img', { src: _str_img_src, style: _json_style }),
+	                '--- ',
+	                _str_img_src.length,
+	                ' ---',
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement('img', { src: _str_img_src, style: _json_style }) : null,
 	                _react2.default.createElement(
 	                    'div',
 	                    { style: { marginTop: '15px', marginBottom: '5px' } },
@@ -32128,6 +32143,7 @@
 	                // 新的設定的做法
 	                var _json_emit = arguments[0];
 	                OBJ_METHOD_POPUP.className = _scope.getMethodBaseClassName();
+	                _GloablData2.default.setImageObjectSrc(_GloablData2.default.getNowImageData().data);
 	            });
 
 	            _GloablTools2.default.Emitter().on('step.image.new.loading', function () {
@@ -32136,6 +32152,7 @@
 
 	                var _json_other = _json_emit.data || {};
 	                _GloablData2.default.setNowImageData(_json_other);
+	                _GloablData2.default.setImageObjectSrc(_json_emit.data);
 	                // console.log( '_json_other :::::::: ', _json_other );
 	                // _scope.imageDataComputeMethod.changeData( '', _json_other.origin_data, _json_other );
 	            });
@@ -32179,12 +32196,14 @@
 	                console.log('arguments[0] :: ', arguments[0]);
 	                var _json = arguments[0];
 	                _GloablData2.default.setImageObjectSrc(_json.data, function () {
-	                    _GloablTools2.default.Emitter().emit('preview.image.object.data.changing');
+	                    setTimeout(function () {
+	                        _GloablTools2.default.Emitter().emit('preview.image.object.data.changing');
+	                    }, 100);
 	                });
 
-	                var _obj_image = new Image();
-	                _obj_image.src = _json.data;
-	                document.getElementsByTagName('body')[0].appendChild(_obj_image);
+	                // let _obj_image = new Image();
+	                // _obj_image.src = _json.data;
+	                // document.getElementsByTagName('body')[0].appendChild(_obj_image);
 	            });
 	        }
 

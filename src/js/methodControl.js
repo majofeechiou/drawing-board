@@ -19,9 +19,8 @@ export default class MethodControl extends React.Component {
     constructor(props) {
         super(props);
 
-        // this.setComponentId( Utils.createUniqueId() );
-
-        this.arrangeProps( props );
+        // this.arrangeProps( props );
+        this.arrangeProps();
 
     }
 
@@ -29,20 +28,17 @@ export default class MethodControl extends React.Component {
         this.arrangeProps(nextProps);
     }
 
-    // getComponentId(){
-    //     return this.component_id;
+    // arrangeProps(json_next){
+    //     if( this.state ){
+    //         this.setState( {methodStore:json_next.methodStore.getState()} );
+    //     }else{
+    //         this.state = {methodStore:json_next.methodStore.getState()};
+    //     }
     // }
-
-    // setComponentId( data ){
-    //     this.component_id = data;
-    // }
-
-    arrangeProps(json_next){
+    arrangeProps(){
         if( this.state ){
-            // this.setState( {methodStore:json_next.methodStore.getState()} );
             this.setState( {} );
         }else{
-            // this.state = {methodStore:json_next.methodStore.getState()};
             this.state = {};
         }
     }
