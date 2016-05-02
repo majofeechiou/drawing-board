@@ -64,11 +64,11 @@ export default class MethodControlDot extends React.Component {
             this.state, 
             { control: 
                 {
-                    frequency: (this.refs && this.refs.frequency)? this.refs.frequency.value : this.props.control.frequency ,
-                    minSize: (this.refs && this.refs.minSize )? this.refs.minSize.value : this.props.control.minSize ,
-                    maxSize: (this.refs && this.refs.maxSize )? this.refs.maxSize.value : this.props.control.maxSize ,
-                    minAlpha: (this.refs && this.refs.minAlpha )? this.refs.minAlpha.value : this.props.control.minAlpha ,
-                    maxAlpha: (this.refs && this.refs.maxAlpha )? this.refs.maxAlpha.value : this.props.control.minAlpha ,
+                    frequency: (this.refs && this.refs.frequency)? Number(this.refs.frequency.value) : Number(this.props.control.frequency) ,
+                    minSize: (this.refs && this.refs.minSize )? Number(this.refs.minSize.value) : Number(this.props.control.minSize) ,
+                    maxSize: (this.refs && this.refs.maxSize )? Number(this.refs.maxSize.value) : Number(this.props.control.maxSize) ,
+                    minAlpha: (this.refs && this.refs.minAlpha )? Number(this.refs.minAlpha.value) : Number(this.props.control.minAlpha) ,
+                    maxAlpha: (this.refs && this.refs.maxAlpha )? Number(this.refs.maxAlpha.value) : Number(this.props.control.minAlpha) ,
                 }
             },
             { imgObj: 

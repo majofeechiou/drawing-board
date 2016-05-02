@@ -108,6 +108,9 @@ export default class ImageDataComputeMethod extends Tools {
 			}
 		}
 
+		console.log( 'json ::::::::: ', json );
+		console.log( '_bln_old ::::::::: ', _bln_old );
+
 		json.created.dot = ( _bln_old===true )? json.created.dot : [] ;
 
 		let _json_control = json.control,

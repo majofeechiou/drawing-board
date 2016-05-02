@@ -44,9 +44,33 @@ export default class MethodSection extends GlobalConst {
         });
 
         GloablTools.Emitter().on( 'method.cotroller.control.asking', function(){  // 新的設定的做法
-            let _json_emit = arguments[0] ;
-            GloablTools.Emitter().emit('method.cotroller.control.operating', _json_emit);
-            GloablTools.Emitter().emit('method.setting.close.asked');
+            let _json_emit = {...arguments[0]} ;
+
+            console.log('** ** ** ** method.cotroller.control.asking ** ** ** **');
+            // console.log('>>>>>>> _json_emit :: ', _json_emit);
+            // console.log('GloablData.getPreviewImageInfo() :: ', GloablData.getPreviewImageInfo());
+            // console.log('GloablData.getPreviewImageSetting() :: ', GloablData.getPreviewImageSetting());
+
+            let _json_setting = GloablData.getPreviewImageSetting();
+
+            console.log( 'method :: ', _json_setting.method===_json_emit.method, _json_setting.method, _json_emit.method );
+            console.log( 'control :: ', JSON.stringify(_json_setting.control)===JSON.stringify(_json_emit.control), _json_setting.control, _json_emit.control );
+            console.log( 'from :: ', _json_setting.from===_json_emit.from, _json_setting.from, _json_emit.from );
+            console.log( 'setting :: ', JSON.stringify(_json_setting.setting)===JSON.stringify(_json_emit.setting), _json_setting.setting, _json_emit.setting );
+
+            if(
+                (_json_setting.method===_json_emit.method) && (typeof _json_setting.method === 'string') && (_json_setting.method!=='') &&
+                (JSON.stringify(_json_setting.control)===JSON.stringify(_json_emit.control)) &&
+                (_json_setting.from===_json_emit.from) && (typeof _json_setting.from === 'string') && (_json_setting.from!=='')
+            ){
+                _json_emit.created = _json_setting.created
+            }
+
+            setTimeout(function(){
+                console.log('_json_emit ** ', _json_emit);
+                GloablTools.Emitter().emit('method.cotroller.control.operating', _json_emit); // 一會看要怎麼改
+                GloablTools.Emitter().emit('method.setting.close.asked');
+            },200);
         });
 
         GloablTools.Emitter().on( 'method.setting.close.asked', function(){  // 新的設定的做法
@@ -70,14 +94,14 @@ export default class MethodSection extends GlobalConst {
             // let _json_other = Extend.deep(_json, {
             //     origin_data: GloablData.getNowImageData().origin_data
             // });
-            console.log('GloablData.getNowImageData() :: ', GloablData.getNowImageData());
-            console.log('_json :: ', _json);
-            let _json_other = Extend.deep(_json, {
-                data: GloablData.getNowImageData().data,
-                origin_data: GloablData.getNowImageData().origin_data,
-                method_id: GloablData.getNowImageData().method_id
-            });
-            _scope.imageDataComputeMethod.changeData( _json.method, _json_other.data, _json_other );
+            GloablData.setPreviewImageSetting( _json, function(){ // 先存下為了預覽而下的設定
+                let _json_other = Extend.deep(_json, {
+                    data: GloablData.getNowImageData().data,
+                    origin_data: GloablData.getNowImageData().origin_data,
+                    method_id: GloablData.getNowImageData().method_id
+                });
+                _scope.imageDataComputeMethod.changeData( _json.method, _json_other.data, _json_other ); // 再實際去產生預覽圖
+            } );
         });
 
         GloablTools.Emitter().on('step.image.success.loaded',function(){

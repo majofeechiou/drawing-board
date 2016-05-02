@@ -2008,11 +2008,32 @@
 	            return this.now_image_data || {};
 	        }
 	    }, {
+	        key: 'getPreviewImageInfo',
+	        value: function getPreviewImageInfo() {
+	            return this.preview_image_info || {};
+	        }
+	    }, {
+	        key: 'getImageObjectSrc',
+	        value: function getImageObjectSrc() {
+	            return this.preview_image_info ? this.preview_image_info.data || '' : '';
+	        }
+
+	        // 為了預覽所做的設定
+
+	    }, {
+	        key: 'getPreviewImageSetting',
+	        value: function getPreviewImageSetting() {
+	            return this.preview_image_setting || {};
+	        }
+	    }, {
 	        key: 'setNowImageData',
 	        value: function setNowImageData(json) {
 	            this.now_image_data = json || {};
 	            window.now_image_data = this.now_image_data;
 	        }
+
+	        // 預覽產生出來的結果
+
 	    }, {
 	        key: 'setPreviewImageInfo',
 	        value: function setPreviewImageInfo(json, callback) {
@@ -2022,23 +2043,22 @@
 	                callback();
 	            }
 	        }
-	    }, {
-	        key: 'getPreviewImageInfo',
-	        value: function getPreviewImageInfo() {
-	            return this.preview_image_info || {};
-	        }
 
-	        // static setImageObjectSrc( str_src, callback ){
-	        //     this.preview_image_info.data = str_src || '' ;
-	        //     if( callback && (callback instanceof Function === true) ){
-	        //         callback();
-	        //     }
-	        // }
+	        // 為了預覽所做的設定
 
 	    }, {
-	        key: 'getImageObjectSrc',
-	        value: function getImageObjectSrc() {
-	            return this.preview_image_info ? this.preview_image_info.data || '' : '';
+	        key: 'setPreviewImageSetting',
+	        value: function setPreviewImageSetting(json, callback) {
+	            json = json || {};
+	            this.preview_image_setting = {
+	                control: json.control,
+	                created: json.created,
+	                method: json.method,
+	                from: json.from
+	            };
+	            if (callback && callback instanceof Function === true) {
+	                callback();
+	            }
 	        }
 	    }]);
 
@@ -13165,6 +13185,9 @@
 						_bln_old = false;
 					}
 				}
+
+				console.log('json ::::::::: ', json);
+				console.log('_bln_old ::::::::: ', _bln_old);
 
 				json.created.dot = _bln_old === true ? json.created.dot : [];
 
@@ -31309,11 +31332,11 @@
 	        value: function arrangeState(json) {
 	            json = json || {};
 	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
-	                    frequency: this.refs && this.refs.frequency ? this.refs.frequency.value : this.props.control.frequency,
-	                    minSize: this.refs && this.refs.minSize ? this.refs.minSize.value : this.props.control.minSize,
-	                    maxSize: this.refs && this.refs.maxSize ? this.refs.maxSize.value : this.props.control.maxSize,
-	                    minAlpha: this.refs && this.refs.minAlpha ? this.refs.minAlpha.value : this.props.control.minAlpha,
-	                    maxAlpha: this.refs && this.refs.maxAlpha ? this.refs.maxAlpha.value : this.props.control.minAlpha
+	                    frequency: this.refs && this.refs.frequency ? Number(this.refs.frequency.value) : Number(this.props.control.frequency),
+	                    minSize: this.refs && this.refs.minSize ? Number(this.refs.minSize.value) : Number(this.props.control.minSize),
+	                    maxSize: this.refs && this.refs.maxSize ? Number(this.refs.maxSize.value) : Number(this.props.control.maxSize),
+	                    minAlpha: this.refs && this.refs.minAlpha ? Number(this.refs.minAlpha.value) : Number(this.props.control.minAlpha),
+	                    maxAlpha: this.refs && this.refs.maxAlpha ? Number(this.refs.maxAlpha.value) : Number(this.props.control.minAlpha)
 	                }
 	            }, { imgObj: {
 	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
@@ -32369,6 +32392,8 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(7);
@@ -32459,9 +32484,29 @@
 
 	            _GloablTools2.default.Emitter().on('method.cotroller.control.asking', function () {
 	                // 新的設定的做法
-	                var _json_emit = arguments[0];
-	                _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', _json_emit);
-	                _GloablTools2.default.Emitter().emit('method.setting.close.asked');
+	                var _json_emit = _extends({}, arguments[0]);
+
+	                console.log('** ** ** ** method.cotroller.control.asking ** ** ** **');
+	                // console.log('>>>>>>> _json_emit :: ', _json_emit);
+	                // console.log('GloablData.getPreviewImageInfo() :: ', GloablData.getPreviewImageInfo());
+	                // console.log('GloablData.getPreviewImageSetting() :: ', GloablData.getPreviewImageSetting());
+
+	                var _json_setting = _GloablData2.default.getPreviewImageSetting();
+
+	                console.log('method :: ', _json_setting.method === _json_emit.method, _json_setting.method, _json_emit.method);
+	                console.log('control :: ', JSON.stringify(_json_setting.control) === JSON.stringify(_json_emit.control), _json_setting.control, _json_emit.control);
+	                console.log('from :: ', _json_setting.from === _json_emit.from, _json_setting.from, _json_emit.from);
+	                console.log('setting :: ', JSON.stringify(_json_setting.setting) === JSON.stringify(_json_emit.setting), _json_setting.setting, _json_emit.setting);
+
+	                if (_json_setting.method === _json_emit.method && typeof _json_setting.method === 'string' && _json_setting.method !== '' && JSON.stringify(_json_setting.control) === JSON.stringify(_json_emit.control) && _json_setting.from === _json_emit.from && typeof _json_setting.from === 'string' && _json_setting.from !== '') {
+	                    _json_emit.created = _json_setting.created;
+	                }
+
+	                setTimeout(function () {
+	                    console.log('_json_emit ** ', _json_emit);
+	                    _GloablTools2.default.Emitter().emit('method.cotroller.control.operating', _json_emit); // 一會看要怎麼改
+	                    _GloablTools2.default.Emitter().emit('method.setting.close.asked');
+	                }, 200);
 	            });
 
 	            _GloablTools2.default.Emitter().on('method.setting.close.asked', function () {
@@ -32485,14 +32530,15 @@
 	                // let _json_other = Extend.deep(_json, {
 	                //     origin_data: GloablData.getNowImageData().origin_data
 	                // });
-	                console.log('GloablData.getNowImageData() :: ', _GloablData2.default.getNowImageData());
-	                console.log('_json :: ', _json);
-	                var _json_other = _Extend2.default.deep(_json, {
-	                    data: _GloablData2.default.getNowImageData().data,
-	                    origin_data: _GloablData2.default.getNowImageData().origin_data,
-	                    method_id: _GloablData2.default.getNowImageData().method_id
+	                _GloablData2.default.setPreviewImageSetting(_json, function () {
+	                    // 先存下為了預覽而下的設定
+	                    var _json_other = _Extend2.default.deep(_json, {
+	                        data: _GloablData2.default.getNowImageData().data,
+	                        origin_data: _GloablData2.default.getNowImageData().origin_data,
+	                        method_id: _GloablData2.default.getNowImageData().method_id
+	                    });
+	                    _scope.imageDataComputeMethod.changeData(_json.method, _json_other.data, _json_other); // 再實際去產生預覽圖
 	                });
-	                _scope.imageDataComputeMethod.changeData(_json.method, _json_other.data, _json_other);
 	            });
 
 	            _GloablTools2.default.Emitter().on('step.image.success.loaded', function () {
