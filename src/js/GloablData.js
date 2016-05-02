@@ -42,7 +42,7 @@ export default class GloablData {
                         // }
 
     static getImageObjectSrc(){
-        return this.preview_image_info.data || '' ;
+        return (this.preview_image_info)? (this.preview_image_info.data || '') : '' ;
     }
 
 
