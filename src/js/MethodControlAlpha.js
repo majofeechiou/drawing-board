@@ -111,7 +111,7 @@ export default class MethodControlAlpha extends React.Component {
     handleChangeRange(e) {
         let _json_new = Extend.deep( this.state, {
             control: {
-                range: e.target.value
+                range: this.refs.range.value
             }
         } );
         this.setState( _json_new );

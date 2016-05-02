@@ -462,6 +462,8 @@ export default class MainImageFilter extends GlobalConst {
 			let windowURL = window.URL || window.webkitURL;
 			let _str_image_data = windowURL.createObjectURL(this.files[0]);
 
+			console.log( '** ** ** ** ** ** _str_image_data.length ** ', _str_image_data.length );
+
 			scope_calss.setSourceImage({
 				files: this.files,
 				base64: _str_image_data

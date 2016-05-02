@@ -67,6 +67,11 @@ export default class MethodSection extends GlobalConst {
 
         GloablTools.Emitter().on('method.cotroller.previewing',function(){
             let _json = arguments[0];
+            // let _json_other = Extend.deep(_json, {
+            //     origin_data: GloablData.getNowImageData().origin_data
+            // });
+            console.log('GloablData.getNowImageData() :: ', GloablData.getNowImageData());
+            console.log('_json :: ', _json);
             let _json_other = Extend.deep(_json, {
                 data: GloablData.getNowImageData().data,
                 origin_data: GloablData.getNowImageData().origin_data,
