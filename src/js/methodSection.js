@@ -35,7 +35,6 @@ export default class MethodSection extends GlobalConst {
     default(){
         let _scope = this;
         GloablTools.Emitter().on('method.setting.open.asked', function(){
-            console.log( 'arguments ===> ', {...arguments} );
             let _json_emit = arguments[0];
             let _json_setting = arguments[1];
             GloablTools.Emitter().emit('step.image.new.loading', _json_emit);

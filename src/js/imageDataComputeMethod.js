@@ -93,7 +93,6 @@ export default class ImageDataComputeMethod extends Tools {
 	// 在照片中添加纹理
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
 	methodDot( json, json_setting ){
-		console.log('>>>>>>>{ ...json_setting }', { ...json_setting });
 		let _scope = this;
 
 		json = _scope.methodVars( json );
@@ -102,12 +101,12 @@ export default class ImageDataComputeMethod extends Tools {
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight();
 
-		console.log( '. . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . .' );
-		console.log( '_num_compute_width :: ', _num_compute_width );
-		console.log( '_num_compute_height :: ', _num_compute_height );
-		console.log( 'json.created :: ', {...json.created} );
-		console.log( 'json_setting :: ', {...json_setting} );
-		console.log( '. . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . .' );
+		// console.log( '. . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . .' );
+		// console.log( '_num_compute_width :: ', _num_compute_width );
+		// console.log( '_num_compute_height :: ', _num_compute_height );
+		// console.log( 'json.created :: ', {...json.created} );
+		// console.log( 'json_setting :: ', {...json_setting} );
+		// console.log( '. . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . . * . .' );
 
 		let _bln_old = false ;
 		if( json.created && json.created.dot && json.created.dot.length>0 ){
@@ -117,24 +116,17 @@ export default class ImageDataComputeMethod extends Tools {
 					json.created.setting.compute_width===_num_compute_width &&
 					json.created.setting.compute_height===_num_compute_height
 				){
-					console.log('AAAAAAAAAAAAAAAAAA');
 					_bln_old = true ;
 				}else{
-					console.log(123);
-					console.log( json_setting.size===Settings.OUTPUT_SIZE_SCALE, json_setting.size, '===', Settings.OUTPUT_SIZE_SCALE );
-					console.log( json.created.setting.size===Settings.OUTPUT_SIZE_SCALE, json.created.setting.size, '===', Settings.OUTPUT_SIZE_SCALE );
-					console.log( 'json.created.setting ::: ', {...json.created.setting} );
 					if( 
 						json_setting.size===Settings.OUTPUT_SIZE_SCALE && 
 						json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
 					){
-						console.log(456);
 						if(
 							json.created.setting.origin_width===json_setting.origin_width &&
 							json.created.setting.origin_height===json_setting.origin_height &&
 							json.created.setting.range===json_setting.range
 						){
-							console.log('BBBBBBBBBBBBBBBBBB');
 							_bln_old = true ;
 						}
 
@@ -142,64 +134,18 @@ export default class ImageDataComputeMethod extends Tools {
 						json_setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
 						json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
 					){
-						console.log(789);
 						if(
 							json.created.setting.width===json_setting.width &&
 							json.created.setting.height===json_setting.height
 						){
-							console.log('CCCCCCCCCCCCCCCCCC');
 							_bln_old = true ;
 						}
 
 					}
 
 				}
-				/*else{
 
-					if( 
-						json.setting.size===Settings.OUTPUT_SIZE_SCALE && 
-						json.created.setting.size===Settings.OUTPUT_SIZE_SCALE
-					){
-						if(
-							json.created.setting.origin_width===json.setting.origin_width &&
-							json.created.setting.origin_height===json.setting.origin_height &&
-							json.created.setting.range===json.setting.range
-						){
-							console.log('BBBBBBBBBBBBBBBBBB');
-							_bln_old = true ;
-						}
-
-					}else if( 
-						json.setting.size===Settings.OUTPUT_SIZE_CUSTOM &&
-						json.created.setting.size===Settings.OUTPUT_SIZE_CUSTOM 
-					){
-						if(
-							json.created.setting.width===json.setting.width &&
-							json.created.setting.height===json.setting.height
-						){
-							console.log('CCCCCCCCCCCCCCCCCC');
-							_bln_old = true ;
-						}
-
-					}
-
-				}*/
-
-			}else{
-				console.log(987);
 			}
-			
-			// if( json.created.setting && 
-			// 	json.setting.width===json.created.setting.width && 
-			// 	json.setting.height===json.created.setting.height && 
-			// 	json.setting.width===_num_compute_width && 
-			// 	json.setting.height===_num_compute_height ){ // 輸出的圖片大小是相同的
-			// 	_bln_old = true ;
-			// }else{
-			// 	_bln_old = false ;
-			// }
-		}else{
-			console.log(654);
 		}
 
 		/*

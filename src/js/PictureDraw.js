@@ -213,12 +213,6 @@ export default class PictureDraw extends GlobalConst {
 
 			});
 
-			// _scope.getGlobalConst(_scope).emitter.on('preview.image.success.computed', function(e){
-			// 	console.log('preview.image.success.computed');
-			// 	let _json = arguments[0];
-			// 	console.log( '_json :: ', _json );
-			// });
-
 			_scope.getGlobalConst(_scope).emitter.on('step.image.error.loaded', function(e){
 				( '錯誤!!' );
 			});
@@ -292,11 +286,11 @@ export default class PictureDraw extends GlobalConst {
 		let _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth(); // 這裡用的是用canvas運算時的大小
 		let _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight(); // 這裡用的是用canvas運算時的大小
 
-		console.log( '- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -' );
-		console.log( '_num_compute_width :: ', _num_compute_width );
-		console.log( '_num_compute_height :: ', _num_compute_height );
-		console.log( '_scope.imageDataOriginal.getOriginImageSize() :: ', _scope.imageDataOriginal.getOriginImageSize() );
-		console.log( '- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -' );
+		// console.log( '- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -' );
+		// console.log( '_num_compute_width :: ', _num_compute_width );
+		// console.log( '_num_compute_height :: ', _num_compute_height );
+		// console.log( '_scope.imageDataOriginal.getOriginImageSize() :: ', _scope.imageDataOriginal.getOriginImageSize() );
+		// console.log( '- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -' );
 
 		return Extend.deep(
 			_scope.mainImageFilter.getOutputImageSetting(),
