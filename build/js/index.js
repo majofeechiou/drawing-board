@@ -2044,6 +2044,15 @@
 	        }
 
 	        // 為了預覽所做的設定
+	        /* this.preview_image_setting 範例
+	            control
+	            created
+	            data
+	            from
+	            method
+	            method_id
+	            origin_data
+	        */
 
 	    }, {
 	        key: 'setPreviewImageSetting',
@@ -2058,22 +2067,7 @@
 	            _json_save.method_id = null;
 	            delete _json_save.method_id;
 
-	            // this.preview_image_setting = {
-	            //     control: json.control,
-	            //     created: json.created,
-	            //     method: json.method,
-	            //     from: json.from
-	            // } ;
-
 	            this.preview_image_setting = _json_save;
-
-	            // ontrol
-	            // created
-	            // data
-	            // from
-	            // method
-	            // method_id
-	            // origin_data
 
 	            if (callback && callback instanceof Function === true) {
 	                callback();
@@ -2092,6 +2086,9 @@
 	        value: function setSizeSetting(json) {
 	            this.size_setting = json || {};
 	        }
+
+	        // ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
 	    }]);
 
 	    return GloablData;
@@ -30124,6 +30121,10 @@
 			value: function setEmitter(object) {
 				this.emitter = object;
 			}
+
+			// 這些是設定圖片大小時會用到的設定
+			// 也就是 Setting中的getInitOutputImageScale和getInitOutputImageCustom這樣的東西
+
 		}, {
 			key: 'setOutputImageSetting',
 			value: function setOutputImageSetting(json, callback) {
@@ -30636,10 +30637,10 @@
 					});
 
 					scope_calss.getEmitter().emit('origin.data.changed', {
-						origin_data: _str_image_data,
-						setting: scope_calss.getOutputImageSetting()
+						origin_data: _str_image_data
 					});
 
+					// setting: scope_calss.getOutputImageSetting() // 發現on('origin.data.changed')時用不到
 					scope_calss.getEmitter().emit('origin.image.showing', {
 						origin_data: _str_image_data
 					});
@@ -32982,9 +32983,9 @@
 
 					if (typeof _str_image_data === 'string' && _str_image_data.length > 0) {
 						var _json_emit = {
-							origin_data: _str_image_data,
-							setting: _scope.mainImageFilter.getOutputImageSetting()
+							origin_data: _str_image_data
 						};
+						// setting: _scope.mainImageFilter.getOutputImageSetting() // 發現on('origin.data.changed')時用不到
 						_scope.getGlobalConst(_scope).emitter.emit('origin.data.changed', _json_emit); // 導至圖片重讀
 					}
 				});
@@ -33090,14 +33091,20 @@
 
 		_createClass(PictureDraw, [{
 			key: 'getEmitSetting',
-			value: function getEmitSetting(json_setting) {
+			value: function getEmitSetting() {
 				var _scope = this;
-				json_setting = json_setting || {};
 
-				var _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth();
-				var _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight();
+				var _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth(); // 這裡用的是用canvas運算時的大小
+				var _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight(); // 這裡用的是用canvas運算時的大小
 
-				return _Extend2.default.deep(json_setting, _scope.mainImageFilter.getOutputImageSetting(), _scope.imageDataOriginal.getOriginImageSize(), {
+				console.log('- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -');
+				console.log('_num_compute_width :: ', _num_compute_width);
+				console.log('_num_compute_height :: ', _num_compute_height);
+				console.log('_scope.imageDataOriginal.getOriginImageSize() :: ', _scope.imageDataOriginal.getOriginImageSize());
+				console.log('- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -');
+
+				return _Extend2.default.deep(_scope.mainImageFilter.getOutputImageSetting(), _scope.imageDataOriginal.getOriginImageSize(), // 這裡抓到的，是外部原圖的大小
+				{
 					compute_width: _num_compute_width,
 					compute_height: _num_compute_height
 				});

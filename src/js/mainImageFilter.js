@@ -28,6 +28,8 @@ export default class MainImageFilter extends GlobalConst {
 		this.emitter = object ;
 	}
 	
+	// 這些是設定圖片大小時會用到的設定
+	// 也就是 Setting中的getInitOutputImageScale和getInitOutputImageCustom這樣的東西
 	setOutputImageSetting( json, callback ){
 		this.output_image_setting = json || {} ;
 		if( callback && (callback instanceof Function === true) ){
@@ -469,7 +471,7 @@ export default class MainImageFilter extends GlobalConst {
 
 			scope_calss.getEmitter().emit('origin.data.changed', {
 				origin_data: _str_image_data,
-				setting: scope_calss.getOutputImageSetting()
+				// setting: scope_calss.getOutputImageSetting() // 發現on('origin.data.changed')時用不到
 			});
 
 			scope_calss.getEmitter().emit('origin.image.showing', {

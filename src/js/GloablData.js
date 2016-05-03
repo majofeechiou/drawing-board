@@ -44,6 +44,15 @@ export default class GloablData {
     }
 
     // 為了預覽所做的設定
+    /* this.preview_image_setting 範例
+        control
+        created
+        data
+        from
+        method
+        method_id
+        origin_data
+    */
     static setPreviewImageSetting( json, callback ){
         json = json || {} ;
         let _json_save = json;
@@ -55,23 +64,7 @@ export default class GloablData {
         _json_save.method_id = null;
         delete _json_save.method_id ;
 
-        // this.preview_image_setting = {
-        //     control: json.control,
-        //     created: json.created,
-        //     method: json.method,
-        //     from: json.from
-        // } ;
-
         this.preview_image_setting = _json_save ;
-
-
-        // ontrol
-        // created
-        // data
-        // from
-        // method
-        // method_id
-        // origin_data
 
         if( callback && (callback instanceof Function === true) ){
             callback();
@@ -87,5 +80,8 @@ export default class GloablData {
     static setSizeSetting( json ){
         this.size_setting = json || {} ;
     }
+
+    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
 
 };

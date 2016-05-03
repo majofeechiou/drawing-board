@@ -173,7 +173,7 @@ export default class PictureDraw extends GlobalConst {
 				if( typeof _str_image_data === 'string' && _str_image_data.length>0 ){
 					let _json_emit = {
 						origin_data: _str_image_data,
-						setting: _scope.mainImageFilter.getOutputImageSetting()
+						// setting: _scope.mainImageFilter.getOutputImageSetting() // 發現on('origin.data.changed')時用不到
 					};
 					_scope.getGlobalConst(_scope).emitter.emit('origin.data.changed', _json_emit); // 導至圖片重讀
 				}
@@ -286,17 +286,21 @@ export default class PictureDraw extends GlobalConst {
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-	getEmitSetting( json_setting ){
+	getEmitSetting(){
 		let _scope = this ;
-		json_setting = json_setting || {};
 
-		let _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth();
-		let _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight();
+		let _num_compute_width = _scope.imageDataComputeMethod.getComputeWidth(); // 這裡用的是用canvas運算時的大小
+		let _num_compute_height = _scope.imageDataComputeMethod.getComputeHeight(); // 這裡用的是用canvas運算時的大小
+
+		console.log( '- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -' );
+		console.log( '_num_compute_width :: ', _num_compute_width );
+		console.log( '_num_compute_height :: ', _num_compute_height );
+		console.log( '_scope.imageDataOriginal.getOriginImageSize() :: ', _scope.imageDataOriginal.getOriginImageSize() );
+		console.log( '- .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. - .. -' );
 
 		return Extend.deep(
-			json_setting,
 			_scope.mainImageFilter.getOutputImageSetting(),
-			_scope.imageDataOriginal.getOriginImageSize(), 
+			_scope.imageDataOriginal.getOriginImageSize(), // 這裡抓到的，是外部原圖的大小 
 			{
 				compute_width: _num_compute_width,
 				compute_height: _num_compute_height
