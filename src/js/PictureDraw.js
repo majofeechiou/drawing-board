@@ -117,7 +117,8 @@ export default class PictureDraw extends GlobalConst {
 				if( _json.from===_scope.getGlobalConst(_scope).ComponentId ){
 					_json.from =null;
 					delete _json.from;
-					// _json.setting = _scope.getEmitSetting();
+
+					// _json.setting = _scope.getEmitSetting(); // 別加了 ?!
 					_scope.stepMethod.pushStepMethod( _json );
 				}
 			});
@@ -180,6 +181,9 @@ export default class PictureDraw extends GlobalConst {
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){
+				console.log( '----- step.image.success.loaded -----' );
+				console.log( 'arguments :: ', {...arguments} );
+
 				let _json = arguments[0],
 					_bln_delete_created = arguments[1],
 					_str_method = _json.method;

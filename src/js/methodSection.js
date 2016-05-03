@@ -35,8 +35,9 @@ export default class MethodSection extends GlobalConst {
     default(){
         let _scope = this;
         GloablTools.Emitter().on('method.setting.open.asked', function(){
+            console.log( 'arguments ===> ', {...arguments} );
             let _json_emit = arguments[0];
-            let _json_setting = arguments[0];
+            let _json_setting = arguments[1];
             GloablTools.Emitter().emit('step.image.new.loading', _json_emit);
 
             let _str_cn_base = _scope.getMethodBaseClassName();
@@ -66,7 +67,6 @@ export default class MethodSection extends GlobalConst {
             }
 
             setTimeout(function(){
-                console.log('_json_emit ** ** ', {..._json_emit});
                 GloablTools.Emitter().emit('method.cotroller.control.operating', _json_emit, GloablData.getSizeSetting()); // 一會看要怎麼改
                 GloablTools.Emitter().emit('method.setting.close.asked');
             },200);
@@ -83,14 +83,12 @@ export default class MethodSection extends GlobalConst {
 
             let _json_other = _json_emit.data || {} ;
             GloablData.setNowImageData( _json_other );
-            console.log( 'new.loading---', _json_emit );
             GloablData.setPreviewImageInfo( _json_emit.data );
 
         });
 
         GloablTools.Emitter().on('method.cotroller.previewing',function(){
             let _json = arguments[0];
-            console.log( 'method.cotroller.previewing =========================== ', JSON.stringify(_json) );
             // let _json_other = Extend.deep(_json, {
             //     origin_data: GloablData.getNowImageData().origin_data
             // });
