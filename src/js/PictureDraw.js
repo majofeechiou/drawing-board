@@ -166,6 +166,17 @@ export default class PictureDraw extends GlobalConst {
 				_scope.mainImageFilter.getObjOriginImage().src = _json_data.origin_data;
 			});
 
+			_scope.getGlobalConst(_scope).emitter.on('output.size.submiting', function(){
+				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
+				console.log('_sary_step_image :: ', _sary_step_image);
+
+				if( _sary_step_image.length>0 ){
+					_scope.mainImageFilter.setToolsSectionClassName( _scope.mainImageFilter.getGlobalConst(_scope.mainImageFilter).WORKSPACE_TOOLS_ON_ACTION );
+				}else{
+					_scope.mainImageFilter.setToolsSectionClassName( _scope.mainImageFilter.getGlobalConst(_scope.mainImageFilter).WORKSPACE_TOOLS_ON_UPLOAD );
+				}
+			});
+
 			_scope.getGlobalConst(_scope).emitter.on('output.size.resetting', function(){
 				console.log( '----- output.size.resetting -----' );
 				let _str_image_data = _scope.mainImageFilter.getSourceImage().base64;
@@ -176,13 +187,13 @@ export default class PictureDraw extends GlobalConst {
 						// setting: _scope.mainImageFilter.getOutputImageSetting() // 發現on('origin.data.changed')時用不到
 					};
 					_scope.getGlobalConst(_scope).emitter.emit('origin.data.changed', _json_emit); // 導至圖片重讀
+
 				}
 
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('step.image.success.loaded', function(e){
 				console.log( '----- step.image.success.loaded -----' );
-				console.log( 'arguments :: ', {...arguments} );
 
 				let _json = arguments[0],
 					_bln_delete_created = arguments[1],

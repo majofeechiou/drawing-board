@@ -16,6 +16,15 @@ export default class MainImageFilter extends GlobalConst {
 		this.setOutputImageSetting( this.getInitOutputImageScale() );
 		// this.setOutputImageSetting( this.getInitOutputImageCustom() );
 
+		this.addGlobalConst( this, 'CLASSNAME_WORKSPACE_TOOLS', 'pkg-workspace-tools' );
+		this.addGlobalConst( this, 'CLASSNAME_WORKSPACE_TOOLS_SIZE', 'pkg-workspace-tools_size' );
+		this.addGlobalConst( this, 'CLASSNAME_WORKSPACE_TOOLS_UPLOAD', 'pkg-workspace-tools_upload' );
+		this.addGlobalConst( this, 'CLASSNAME_WORKSPACE_TOOLS_ACTION', 'pkg-workspace-tools_action' );
+
+		this.addGlobalConst( this, 'WORKSPACE_TOOLS_ON_SIZE', 'size' );
+		this.addGlobalConst( this, 'WORKSPACE_TOOLS_ON_UPLOAD', 'upload' );
+		this.addGlobalConst( this, 'WORKSPACE_TOOLS_ON_ACTION', 'action' );
+
 		this.defaultAction( obj );
 
 	}
@@ -86,6 +95,11 @@ export default class MainImageFilter extends GlobalConst {
 		return this.getGlobalConst(this).OBJ_METHOD_RESULT;
 	}
 
+	// 得到上傳圖片的按鈕
+	getObjToolsSection(){
+		return this.getGlobalConst(this).OBJ_TOOLS_SECTION;
+	}
+
 	// 原圖預覽圖片
 	getObjOriginImage(){
 		return this.getGlobalConst(this).OBJ_ORIGIN_IMAGE;
@@ -129,6 +143,32 @@ export default class MainImageFilter extends GlobalConst {
 	// 自訂高度
 	getObjsSizeCustomHeight(){
 		return this.getGlobalConst(this).OBJ_SIZE_CUSTOM_HEIGHT;
+	}
+
+	// 返回圖片的size設定
+	getObjBackSubmit(){
+		return this.getGlobalConst(this).OBJ_BACK_SUBMIT;
+	}
+
+	setToolsSectionClassName( str_on ){
+		let _scope = this;
+
+		let _str_reg_size = new RegExp( _scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS_SIZE, 'gim' );
+		let _str_reg_upload = new RegExp( _scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS_UPLOAD, 'gim' );
+		let _str_reg_action = new RegExp( _scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS_ACTION, 'gim' );
+
+		switch( str_on ){
+			case _scope.getGlobalConst(_scope).WORKSPACE_TOOLS_ON_SIZE:
+				_scope.getObjToolsSection().className = _scope.getObjToolsSection().className.replace( _str_reg_upload, '' ).replace( _str_reg_action, '' )+' '+_scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS_SIZE;
+				break;
+			case _scope.getGlobalConst(_scope).WORKSPACE_TOOLS_ON_UPLOAD:
+				_scope.getObjToolsSection().className = _scope.getObjToolsSection().className.replace( _str_reg_size, '' ).replace( _str_reg_action, '' )+' '+_scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS_UPLOAD;
+				break;
+			case _scope.getGlobalConst(_scope).WORKSPACE_TOOLS_ON_ACTION:
+				_scope.getObjToolsSection().className = _scope.getObjToolsSection().className.replace( _str_reg_size, '' ).replace( _str_reg_upload, '' )+' '+_scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS_ACTION;
+				break;
+		}
+		
 	}
 
 	// 原圖預覽圖片
@@ -183,6 +223,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 新增按鈕
 		let _obj_add_button = document.createElement('button');
+		_obj_add_button.className = 'pkg-action-tools-button';
 		_obj_add_button.innerText = '新增效果';
 		this.methodAddBtnActive.call( _obj_add_button, this );
 		_obj_section.appendChild(_obj_add_button);
@@ -190,6 +231,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 下載按鈕
 		let _obj_download_button = document.createElement('button');
+		_obj_download_button.className = 'pkg-action-tools-button';
 		_obj_download_button.innerText = '下載圖片';
 		this.downloadBtnActive.call( _obj_download_button, this );
 		_obj_section.appendChild(_obj_download_button);
@@ -364,8 +406,9 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_size_custom_setting2.appendChild( _obj_label_custom_clip );
 		_obj_custom_section.appendChild( _obj_size_custom_setting2 );
 
-		// 圖片尺寸 - 自訂尺寸 - radio
+		// 圖片尺寸 - 自訂尺寸 - button
 		let _obj_size_submit = document.createElement('button');
+		_obj_size_submit.className = 'pkg-size-confirm';
 		_obj_size_submit.innerText = '確定';
 		this.addGlobalConst( this, 'OBJ_SIZE_SUBMIT', _obj_size_submit );
 
@@ -377,12 +420,27 @@ export default class MainImageFilter extends GlobalConst {
 
 	}
 
+	// 工具 - 返回輸出圖片尺寸
+	returnBackSection(){
+		let _obj_back_section = document.createElement('div');
+		_obj_back_section.className = 'pkg-back';
+
+		// 圖片尺寸 - 返回自訂尺寸 - button
+		let _obj_back_submit = document.createElement('button');
+		_obj_back_submit.className = 'pkg-back-confirm';
+		_obj_back_submit.innerText = '返回尺寸設定';
+		this.addGlobalConst( this, 'OBJ_BACK_SUBMIT', _obj_back_submit );
+		_obj_back_section.appendChild( _obj_back_submit );
+
+		return _obj_back_section;
+	}
+
 	// 用dom去產生頁面上的排版
 	makeTempate(){
 
 		let _scope = this;
 
-		let _obj_main = this.getMainSection();
+		let _obj_main = _scope.getMainSection();
 
 		if( _obj_main!==undefined ){
 
@@ -392,21 +450,28 @@ export default class MainImageFilter extends GlobalConst {
 
 			// 工具
 			let _obj_tools_section = document.createElement('div');
-			Utils.addClassName(_obj_tools_section, 'pkg-workspace-tools');
+			_scope.addGlobalConst( _scope, 'OBJ_TOOLS_SECTION', _obj_tools_section );
+			_obj_tools_section.className = _scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS ;
+			_scope.setToolsSectionClassName( _scope.getGlobalConst(_scope).WORKSPACE_TOOLS_ON_SIZE );
 
 			// 工具 - 輸出圖片尺寸
-			let _obj_size_section = this.returnSizeSection();
-			Utils.addClassName(_obj_size_section, 'pkg-workspace-tools-size');
+			let _obj_size_section = _scope.returnSizeSection();
+			Utils.addClassName(_obj_size_section, 'pkg-workspace-tools-item pkg-workspace-tools-item_size');
 			_obj_tools_section.appendChild(_obj_size_section);
 
+			// 工具 - 返回輸出圖片尺寸
+			let _obj_back_section = _scope.returnBackSection();
+			Utils.addClassName(_obj_back_section, 'pkg-workspace-tools-item pkg-workspace-tools-item_back');
+			_obj_tools_section.appendChild(_obj_back_section);
+
 			// 工具 - 上傳檔案
-			let _obj_upload_section = this.returnUploadSection();
-			Utils.addClassName(_obj_upload_section, 'pkg-workspace-tools-upload');
+			let _obj_upload_section = _scope.returnUploadSection();
+			Utils.addClassName(_obj_upload_section, 'pkg-workspace-tools-item pkg-workspace-tools-item_upload');
 			_obj_tools_section.appendChild(_obj_upload_section);
 
 			// 工具 - 新增效果 、 下載圖片
-			let _obj_action_section = this.returnActionSection();
-			Utils.addClassName(_obj_action_section, 'pkg-workspace-tools-action');
+			let _obj_action_section = _scope.returnActionSection();
+			Utils.addClassName(_obj_action_section, 'pkg-workspace-tools-item pkg-workspace-tools-item_action');
 			_obj_tools_section.appendChild(_obj_action_section);
 
 			_obj_main.appendChild(_obj_tools_section);
@@ -414,18 +479,26 @@ export default class MainImageFilter extends GlobalConst {
 			// ** ** ** ** ** ** ** ** **
 
 			// 預覽圖片
-			let _obj_preview_section = this.returnPreviewSection();
+			let _obj_preview_section = _scope.returnPreviewSection();
 			Utils.addClassName(_obj_preview_section, 'pkg-workspace-preview');
 			_obj_main.appendChild(_obj_preview_section);
 
 			// ** ** ** ** ** ** ** ** **
 
 			_scope.judgeOutputImageSetting.call( _scope.getObjsSizeSubmit(), _scope );
+			_scope.backSizeShow.call( _scope.getObjBackSubmit(), _scope );
 			_scope.listenRangeChange.call( _scope.getObjsSizeRange(), _scope );
 			_scope.getRangeShowText();
 
 		}
 
+	}
+
+	backSizeShow( scope_calss ){
+		let _obj_self = this;
+		_obj_self.onclick = function( e ){
+			scope_calss.setToolsSectionClassName( scope_calss.getGlobalConst(scope_calss).WORKSPACE_TOOLS_ON_SIZE );
+		};
 	}
 
 	judgeOutputImageSetting( scope_calss ){
@@ -454,6 +527,8 @@ export default class MainImageFilter extends GlobalConst {
 					scope_calss.getEmitter().emit('output.size.resetting');
 				} );
 			}
+
+			scope_calss.getEmitter().emit('output.size.submiting');
 			
 		};
 	}
@@ -477,6 +552,8 @@ export default class MainImageFilter extends GlobalConst {
 			scope_calss.getEmitter().emit('origin.image.showing', {
 				origin_data: _str_image_data
 			});
+
+			scope_calss.setToolsSectionClassName( scope_calss.getGlobalConst(scope_calss).WORKSPACE_TOOLS_ON_ACTION );
 
 		}
 	}
