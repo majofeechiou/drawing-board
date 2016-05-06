@@ -270,18 +270,6 @@ body *  {
     cursor: pointer;
 }
 
-.pkg-preview {
-    margin-top: 25px;
-    padding: 10px;
-}
-
-.pkg-preview .pkg-preview-image {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-}
-
 .pkg-action {
     display: -webkit-box;
     display: flex;
@@ -377,6 +365,61 @@ body *  {
 
 .pkg-method .pkg-method-wrap {
     padding: 10px;
+}
+
+.pkg-control {
+    position: relative;
+}
+
+.pkg-control .pkg-control-center {
+    display: block;
+    width: 100%;
+}
+
+.pkg-control .pkg-control-left {
+    float: left;
+    width: 43%;
+}
+
+.pkg-control .pkg-control-right {
+    position: relative;
+    float: right;
+    width: 55%;
+}
+
+.pkg-control .pkg-control-bottom {
+    clear: both;
+}
+
+.pkg-control:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.pkg-conpreview {
+    position: relative;
+}
+
+.pkg-conpreview .pkg-conpreview-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.pkg-preview {
+    margin-top: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pkg-preview .pkg-preview-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 450px;
 }
 
 .blk-subtitle {

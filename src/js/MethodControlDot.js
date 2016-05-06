@@ -158,104 +158,111 @@ export default class MethodControlDot extends React.Component {
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
         let _json_now_image = GloablData.getNowImageData() ;
-        let _json_style = {
-            float: 'right',
-            width: '40%'
-        };
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
 
         return (
-            <div>
-                <ReactGroup 
-                    onChange={this.handleChangeShape}
-                    outputFormat="json"
-                    name="method_option"
-                    selectKey={this.getSelectKey()}
-                    inputOption={this.getInputoption()}
-                    outputResult={this.state.control.shape}
-                    showKey={this.getShowKey()}
-                    between="~"
-                    display={_json_sub_store.display}
-                    padding={_json_sub_store.padding}
-                    fillet={_json_sub_store.fillet}
-                    listStyle={_json_sub_store.listStyle}
-                    listPosition={_json_sub_store.listPosition}
-                    iconPosition={_json_sub_store.iconPosition}
-                    iconShow={_json_sub_store.iconShow}
-                    styleName={_json_sub_store.styleName}
-                    composition={_json_sub_store.composition}
-                    offBack={_json_sub_store.offBack}
-                    styleBorder={_json_sub_store.styleBorder}
-                    styleIcon={_json_sub_store.styleIcon}
-                    styleIconBack={_json_sub_store.styleIconBack}
-                    styleList={_json_sub_store.styleList} />
-
+            <div className="pkg-control">
+                <div className="pkg-control-center">
+                    <ReactGroup 
+                        onChange={this.handleChangeShape}
+                        outputFormat="json"
+                        name="method_option"
+                        selectKey={this.getSelectKey()}
+                        inputOption={this.getInputoption()}
+                        outputResult={this.state.control.shape}
+                        showKey={this.getShowKey()}
+                        between="~"
+                        display={_json_sub_store.display}
+                        padding={_json_sub_store.padding}
+                        fillet={_json_sub_store.fillet}
+                        listStyle={_json_sub_store.listStyle}
+                        listPosition={_json_sub_store.listPosition}
+                        iconPosition={_json_sub_store.iconPosition}
+                        iconShow={_json_sub_store.iconShow}
+                        styleName={_json_sub_store.styleName}
+                        composition={_json_sub_store.composition}
+                        offBack={_json_sub_store.offBack}
+                        styleBorder={_json_sub_store.styleBorder}
+                        styleIcon={_json_sub_store.styleIcon}
+                        styleIconBack={_json_sub_store.styleIconBack}
+                        styleList={_json_sub_store.styleList} />
+                </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
-                    <img src={_str_img_src} style={_json_style} />
+                    <div className="pkg-control-right pkg-conpreview">
+                        <img src={_str_img_src} className="pkg-conpreview-image" />
+                    </div>
                 </If>
-
-                <div style={{marginTop: '15px', marginBottom: '5px'}}>
-                    <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
-                        {this.state.control.color}
-                    </span>
+                <div className="pkg-control-left">
+                    <div>
+                        <div style={{marginTop: '15px', marginBottom: '5px'}}>
+                            <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
+                                {this.state.control.color}
+                            </span>
+                        </div>
+                        <ColorPicker 
+                            value={this.state.control.color} 
+                            onDrag={this.colorPick} />
+                    </div>
                 </div>
-                <ColorPicker 
-                    value={this.state.control.color} 
-                    onDrag={this.colorPick} />
-
-                <div>
-                    頻率 ： 
-                    <input
-                        type="range"
-                        ref="frequency"
-                        step="1"
-                        min="1"
-                        max="100"
-                        value={this.state.control.frequency}
-                        onChange={this.handleChangeRange} /> {this.state.control.frequency} / 100
+                <div className="pkg-control-bottom">
+                    <div>
+                        <div>
+                            頻率 ： 
+                            <input
+                                type="range"
+                                ref="frequency"
+                                step="1"
+                                min="1"
+                                max="100"
+                                value={this.state.control.frequency}
+                                onChange={this.handleChangeRange} /> {this.state.control.frequency} / 100
+                        </div>
+                        <div>
+                            大小 ： 
+                            <input
+                                type="range"
+                                ref="minSize"
+                                step="1"
+                                min="1"
+                                max={this.state.control.maxSize}
+                                value={this.state.control.minSize}
+                                onChange={this.handleChangeRange} /> {this.state.control.minSize} / {this.state.control.maxSize}
+                            <input
+                                type="range"
+                                ref="maxSize"
+                                step="1"
+                                min={this.state.control.minSize}
+                                max="200"
+                                value={this.state.control.maxSize}
+                                onChange={this.handleChangeRange} /> {this.state.control.maxSize} / 200
+                        </div>
+                        <div>
+                            透明度 ： 
+                            <input
+                                type="range"
+                                ref="minAlpha"
+                                step="1"
+                                min="1"
+                                max={this.state.control.maxAlpha}
+                                value={this.state.control.minAlpha}
+                                onChange={this.handleChangeRange} /> {this.state.control.minAlpha} / {this.state.control.maxAlpha}
+                            <input
+                                type="range"
+                                ref="maxAlpha"
+                                step="1"
+                                min={this.state.control.minAlpha}
+                                max="100"
+                                value={this.state.control.maxAlpha}
+                                onChange={this.handleChangeRange} /> {this.state.control.maxAlpha} / 100
+                        </div>
+                    </div>
+                    <div>
+                        <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
+                            <button onClick={_scope.prevewAction}>預覽</button>
+                        </If>
+                        <button onClick={_scope.submitAction}>確定</button>
+                    </div>
                 </div>
-                <div>
-                    大小 ： 
-                    <input
-                        type="range"
-                        ref="minSize"
-                        step="1"
-                        min="1"
-                        max={this.state.control.maxSize}
-                        value={this.state.control.minSize}
-                        onChange={this.handleChangeRange} /> {this.state.control.minSize} / {this.state.control.maxSize}
-                    <input
-                        type="range"
-                        ref="maxSize"
-                        step="1"
-                        min={this.state.control.minSize}
-                        max="200"
-                        value={this.state.control.maxSize}
-                        onChange={this.handleChangeRange} /> {this.state.control.maxSize} / 200
-                </div>
-                <div>
-                    透明度 ： 
-                    <input
-                        type="range"
-                        ref="minAlpha"
-                        step="1"
-                        min="1"
-                        max={this.state.control.maxAlpha}
-                        value={this.state.control.minAlpha}
-                        onChange={this.handleChangeRange} /> {this.state.control.minAlpha} / {this.state.control.maxAlpha}
-                    <input
-                        type="range"
-                        ref="maxAlpha"
-                        step="1"
-                        min={this.state.control.minAlpha}
-                        max="100"
-                        value={this.state.control.maxAlpha}
-                        onChange={this.handleChangeRange} /> {this.state.control.maxAlpha} / 100
-                </div>
-                <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                    <button onClick={_scope.prevewAction}>預覽</button>
-                </If>
-                <button onClick={_scope.submitAction}>確定</button>
             </div>
         );
     }

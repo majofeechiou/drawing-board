@@ -9,6 +9,14 @@ $level_popup_method: 10;
 
 $width_size_confirm: 4em;
 
+@define-mixin after-clear {
+    &:after {
+        display: block;
+        content: '';
+        clear: both;
+    }
+}
+
 @define-mixin blk-center {
     display: block;
     margin-left: auto;
@@ -188,15 +196,6 @@ body *  {
     }
 }
 
-.pkg-preview {
-    margin-top: $block_spacing;
-    padding: $wrap_spacing;
-    .pkg-preview-image {
-        @mixin blk-center;
-        max-width: 100%;
-    }
-}
-
 .pkg-action {
     display: flex;
     flex-direction: row;
@@ -268,6 +267,46 @@ body *  {
     }
     .pkg-method-wrap {
         padding: $wrap_spacing;
+    }
+}
+
+.pkg-control {
+    @mixin after-clear;
+    position: relative;
+    .pkg-control-center {
+        display: block;
+        width: 100%;
+    }
+    .pkg-control-left {
+        float: left;
+        width: 43%;
+    }
+    .pkg-control-right {
+        position: relative;
+        float: right;
+        width: 55%;
+    }
+    .pkg-control-bottom {
+        clear: both;
+    }
+}
+
+.pkg-conpreview {
+    position: relative;
+    .pkg-conpreview-image {
+        @mixin blk-center;
+        max-width: 100%;
+    }
+}
+
+.pkg-preview {
+    margin-top: $block_spacing;
+    padding-top: $wrap_spacing;
+    padding-bottom: $wrap_spacing;
+    .pkg-preview-image {
+        @mixin blk-center;
+        max-width: 100%;
+        max-height: 450px;
     }
 }
 

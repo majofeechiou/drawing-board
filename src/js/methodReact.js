@@ -40,7 +40,7 @@ export default class MethodReact extends React.Component {
         });
     }
 
-
+    // defaultMethod = {};
     defaultMethod = {...MethodSettings.getAllMethod()[0]};
 
     getDefaultMethod(){

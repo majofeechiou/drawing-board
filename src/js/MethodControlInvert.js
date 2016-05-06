@@ -110,20 +110,20 @@ export default class MethodControlInvert extends React.Component {
     render(){
         let _scope = this;
         let _json_now_image = GloablData.getNowImageData() ;
-        let _json_style = {
-            float: 'right',
-            width: '40%'
-        };
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
-            <div>
+            <div className="pkg-control">
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
-                    <img src={_str_img_src} style={_json_style} />
+                    <div className="pkg-control-center pkg-conpreview">
+                        <img src={_str_img_src} className="pkg-conpreview-image" />
+                    </div>
                 </If>
-                <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                    <button onClick={_scope.prevewAction}>預覽</button>
-                </If>
-                <button onClick={_scope.submitAction}>確定</button>
+                <div className="pkg-control-bottom">
+                    <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
+                        <button onClick={_scope.prevewAction}>預覽</button>
+                    </If>
+                    <button onClick={_scope.submitAction}>確定</button>
+                </div>
             </div>
         );
     }

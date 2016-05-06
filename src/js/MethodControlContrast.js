@@ -119,28 +119,32 @@ export default class MethodControlContrast extends React.Component {
     render(){
         let _scope = this;
         let _json_now_image = GloablData.getNowImageData() ;
-        let _json_style = {
-            float: 'right',
-            width: '40%'
-        };
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
-            <div>
+            <div className="pkg-control">
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
-                    <img src={_str_img_src} style={_json_style} />
+                    <div className="pkg-control-right pkg-conpreview">
+                        <img src={_str_img_src} className="pkg-conpreview-image" />
+                    </div>
                 </If>
-                <input
-                    type="range"
-                    ref="range"
-                    step="1"
-                    min="-100"
-                    max="100"
-                    value={this.state.control.range}
-                    onChange={this.handleChangeRange} /> {this.state.control.range} / 100
-                <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                    <button onClick={_scope.prevewAction}>預覽</button>
-                </If>
-                <button onClick={_scope.submitAction}>確定</button>
+                <div className="pkg-control-left">
+                    <div>
+                        <input
+                            type="range"
+                            ref="range"
+                            step="1"
+                            min="-100"
+                            max="100"
+                            value={this.state.control.range}
+                            onChange={this.handleChangeRange} /> {this.state.control.range} / 100
+                    </div>
+                    <div>
+                        <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
+                            <button onClick={_scope.prevewAction}>預覽</button>
+                        </If>
+                        <button onClick={_scope.submitAction}>確定</button>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -82,7 +82,9 @@ export default class MethodSection extends GlobalConst {
 
             let _json_other = _json_emit.data || {} ;
             GloablData.setNowImageData( _json_other );
-            GloablData.setPreviewImageInfo( _json_emit.data );
+            GloablData.setPreviewImageInfo( _json_emit.data, function(){
+                _scope.sctionAfterSetPreviewImageInfo();
+            } );
 
         });
 
@@ -137,9 +139,7 @@ export default class MethodSection extends GlobalConst {
             let _json = arguments[0];
 
             GloablData.setPreviewImageInfo( _json, function(){
-                setTimeout( function(){
-                    GloablTools.Emitter().emit('preview.image.object.data.changing');
-                },500 );
+                _scope.sctionAfterSetPreviewImageInfo();
             } );
 
         });
@@ -148,6 +148,12 @@ export default class MethodSection extends GlobalConst {
 
     getMethodBaseClassName(){
         return OBJ_METHOD_POPUP.className.replace( METHOD_POPUP_OPEN_REG, '' );
+    }
+
+    sctionAfterSetPreviewImageInfo(){
+        setTimeout( function(){
+            GloablTools.Emitter().emit('preview.image.object.data.changing');
+        },500 );
     }
 
     render(){

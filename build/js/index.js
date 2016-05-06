@@ -31121,35 +31121,47 @@
 	        value: function render() {
 	            var _scope = this;
 	            var _json_now_image = _GloablData2.default.getNowImageData();
-	            var _json_style = {
-	                float: 'right',
-	                width: '40%'
-	            };
 	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement('img', { src: _str_img_src, style: _json_style }) : null,
-	                _react2.default.createElement('input', {
-	                    type: 'range',
-	                    ref: 'range',
-	                    step: '1',
-	                    min: '0',
-	                    max: '100',
-	                    value: this.state.control.range,
-	                    onChange: this.handleChangeRange }),
-	                ' ',
-	                this.state.control.range,
-	                ' / 100',
-	                _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.prevewAction },
-	                    '預覽'
+	                { className: 'pkg-control' },
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-right pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
 	                ) : null,
 	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
+	                    'div',
+	                    { className: 'pkg-control-left' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'range',
+	                            step: '1',
+	                            min: '0',
+	                            max: '100',
+	                            value: this.state.control.range,
+	                            onChange: this.handleChangeRange }),
+	                        ' ',
+	                        this.state.control.range,
+	                        ' / 100'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.prevewAction },
+	                            '預覽'
+	                        ) : null,
+	                        _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.submitAction },
+	                            '確定'
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -31330,35 +31342,47 @@
 	        value: function render() {
 	            var _scope = this;
 	            var _json_now_image = _GloablData2.default.getNowImageData();
-	            var _json_style = {
-	                float: 'right',
-	                width: '40%'
-	            };
 	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement('img', { src: _str_img_src, style: _json_style }) : null,
-	                _react2.default.createElement('input', {
-	                    type: 'range',
-	                    ref: 'range',
-	                    step: '1',
-	                    min: '-100',
-	                    max: '100',
-	                    value: this.state.control.range,
-	                    onChange: this.handleChangeRange }),
-	                ' ',
-	                this.state.control.range,
-	                ' / 100',
-	                _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.prevewAction },
-	                    '預覽'
+	                { className: 'pkg-control' },
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-right pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
 	                ) : null,
 	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
+	                    'div',
+	                    { className: 'pkg-control-left' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'range',
+	                            step: '1',
+	                            min: '-100',
+	                            max: '100',
+	                            value: this.state.control.range,
+	                            onChange: this.handleChangeRange }),
+	                        ' ',
+	                        this.state.control.range,
+	                        ' / 100'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.prevewAction },
+	                            '預覽'
+	                        ) : null,
+	                        _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.submitAction },
+	                            '確定'
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -31593,132 +31617,156 @@
 	            var _scope = this;
 	            var _json_sub_store = this.props.methodStore.getState().sub;
 	            var _json_now_image = _GloablData2.default.getNowImageData();
-	            var _json_style = {
-	                float: 'right',
-	                width: '40%'
-	            };
 	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
 
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _react2.default.createElement(_ReactGroup2.default, {
-	                    onChange: this.handleChangeShape,
-	                    outputFormat: 'json',
-	                    name: 'method_option',
-	                    selectKey: this.getSelectKey(),
-	                    inputOption: this.getInputoption(),
-	                    outputResult: this.state.control.shape,
-	                    showKey: this.getShowKey(),
-	                    between: '~',
-	                    display: _json_sub_store.display,
-	                    padding: _json_sub_store.padding,
-	                    fillet: _json_sub_store.fillet,
-	                    listStyle: _json_sub_store.listStyle,
-	                    listPosition: _json_sub_store.listPosition,
-	                    iconPosition: _json_sub_store.iconPosition,
-	                    iconShow: _json_sub_store.iconShow,
-	                    styleName: _json_sub_store.styleName,
-	                    composition: _json_sub_store.composition,
-	                    offBack: _json_sub_store.offBack,
-	                    styleBorder: _json_sub_store.styleBorder,
-	                    styleIcon: _json_sub_store.styleIcon,
-	                    styleIconBack: _json_sub_store.styleIconBack,
-	                    styleList: _json_sub_store.styleList }),
-	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement('img', { src: _str_img_src, style: _json_style }) : null,
+	                { className: 'pkg-control' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { style: { marginTop: '15px', marginBottom: '5px' } },
-	                    _react2.default.createElement(
-	                        'span',
-	                        { style: { display: 'inline-block', background: this.state.control.color, padding: '5px', color: 'white' } },
-	                        this.state.control.color
-	                    )
+	                    { className: 'pkg-control-center' },
+	                    _react2.default.createElement(_ReactGroup2.default, {
+	                        onChange: this.handleChangeShape,
+	                        outputFormat: 'json',
+	                        name: 'method_option',
+	                        selectKey: this.getSelectKey(),
+	                        inputOption: this.getInputoption(),
+	                        outputResult: this.state.control.shape,
+	                        showKey: this.getShowKey(),
+	                        between: '~',
+	                        display: _json_sub_store.display,
+	                        padding: _json_sub_store.padding,
+	                        fillet: _json_sub_store.fillet,
+	                        listStyle: _json_sub_store.listStyle,
+	                        listPosition: _json_sub_store.listPosition,
+	                        iconPosition: _json_sub_store.iconPosition,
+	                        iconShow: _json_sub_store.iconShow,
+	                        styleName: _json_sub_store.styleName,
+	                        composition: _json_sub_store.composition,
+	                        offBack: _json_sub_store.offBack,
+	                        styleBorder: _json_sub_store.styleBorder,
+	                        styleIcon: _json_sub_store.styleIcon,
+	                        styleIconBack: _json_sub_store.styleIconBack,
+	                        styleList: _json_sub_store.styleList })
 	                ),
-	                _react2.default.createElement(_reactColorPicker2.default, {
-	                    value: this.state.control.color,
-	                    onDrag: this.colorPick }),
-	                _react2.default.createElement(
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
 	                    'div',
-	                    null,
-	                    '頻率 ：',
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'frequency',
-	                        step: '1',
-	                        min: '1',
-	                        max: '100',
-	                        value: this.state.control.frequency,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.frequency,
-	                    ' / 100'
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    '大小 ：',
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'minSize',
-	                        step: '1',
-	                        min: '1',
-	                        max: this.state.control.maxSize,
-	                        value: this.state.control.minSize,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.minSize,
-	                    ' / ',
-	                    this.state.control.maxSize,
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'maxSize',
-	                        step: '1',
-	                        min: this.state.control.minSize,
-	                        max: '200',
-	                        value: this.state.control.maxSize,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.maxSize,
-	                    ' / 200'
-	                ),
-	                _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    '透明度 ：',
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'minAlpha',
-	                        step: '1',
-	                        min: '1',
-	                        max: this.state.control.maxAlpha,
-	                        value: this.state.control.minAlpha,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.minAlpha,
-	                    ' / ',
-	                    this.state.control.maxAlpha,
-	                    _react2.default.createElement('input', {
-	                        type: 'range',
-	                        ref: 'maxAlpha',
-	                        step: '1',
-	                        min: this.state.control.minAlpha,
-	                        max: '100',
-	                        value: this.state.control.maxAlpha,
-	                        onChange: this.handleChangeRange }),
-	                    ' ',
-	                    this.state.control.maxAlpha,
-	                    ' / 100'
-	                ),
-	                _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.prevewAction },
-	                    '預覽'
+	                    { className: 'pkg-control-right pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
 	                ) : null,
 	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
+	                    'div',
+	                    { className: 'pkg-control-left' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(
+	                            'div',
+	                            { style: { marginTop: '15px', marginBottom: '5px' } },
+	                            _react2.default.createElement(
+	                                'span',
+	                                { style: { display: 'inline-block', background: this.state.control.color, padding: '5px', color: 'white' } },
+	                                this.state.control.color
+	                            )
+	                        ),
+	                        _react2.default.createElement(_reactColorPicker2.default, {
+	                            value: this.state.control.color,
+	                            onDrag: this.colorPick })
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-bottom' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement(
+	                            'div',
+	                            null,
+	                            '頻率 ：',
+	                            _react2.default.createElement('input', {
+	                                type: 'range',
+	                                ref: 'frequency',
+	                                step: '1',
+	                                min: '1',
+	                                max: '100',
+	                                value: this.state.control.frequency,
+	                                onChange: this.handleChangeRange }),
+	                            ' ',
+	                            this.state.control.frequency,
+	                            ' / 100'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            null,
+	                            '大小 ：',
+	                            _react2.default.createElement('input', {
+	                                type: 'range',
+	                                ref: 'minSize',
+	                                step: '1',
+	                                min: '1',
+	                                max: this.state.control.maxSize,
+	                                value: this.state.control.minSize,
+	                                onChange: this.handleChangeRange }),
+	                            ' ',
+	                            this.state.control.minSize,
+	                            ' / ',
+	                            this.state.control.maxSize,
+	                            _react2.default.createElement('input', {
+	                                type: 'range',
+	                                ref: 'maxSize',
+	                                step: '1',
+	                                min: this.state.control.minSize,
+	                                max: '200',
+	                                value: this.state.control.maxSize,
+	                                onChange: this.handleChangeRange }),
+	                            ' ',
+	                            this.state.control.maxSize,
+	                            ' / 200'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            null,
+	                            '透明度 ：',
+	                            _react2.default.createElement('input', {
+	                                type: 'range',
+	                                ref: 'minAlpha',
+	                                step: '1',
+	                                min: '1',
+	                                max: this.state.control.maxAlpha,
+	                                value: this.state.control.minAlpha,
+	                                onChange: this.handleChangeRange }),
+	                            ' ',
+	                            this.state.control.minAlpha,
+	                            ' / ',
+	                            this.state.control.maxAlpha,
+	                            _react2.default.createElement('input', {
+	                                type: 'range',
+	                                ref: 'maxAlpha',
+	                                step: '1',
+	                                min: this.state.control.minAlpha,
+	                                max: '100',
+	                                value: this.state.control.maxAlpha,
+	                                onChange: this.handleChangeRange }),
+	                            ' ',
+	                            this.state.control.maxAlpha,
+	                            ' / 100'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.prevewAction },
+	                            '預覽'
+	                        ) : null,
+	                        _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.submitAction },
+	                            '確定'
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -31892,24 +31940,28 @@
 	        value: function render() {
 	            var _scope = this;
 	            var _json_now_image = _GloablData2.default.getNowImageData();
-	            var _json_style = {
-	                float: 'right',
-	                width: '40%'
-	            };
 	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement('img', { src: _str_img_src, style: _json_style }) : null,
-	                _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.prevewAction },
-	                    '預覽'
+	                { className: 'pkg-control' },
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-center pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
 	                ) : null,
 	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
+	                    'div',
+	                    { className: 'pkg-control-bottom' },
+	                    _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                        'button',
+	                        { onClick: _scope.prevewAction },
+	                        '預覽'
+	                    ) : null,
+	                    _react2.default.createElement(
+	                        'button',
+	                        { onClick: _scope.submitAction },
+	                        '確定'
+	                    )
 	                )
 	            );
 	        }
@@ -32090,35 +32142,47 @@
 	        value: function render() {
 	            var _scope = this;
 	            var _json_now_image = _GloablData2.default.getNowImageData();
-	            var _json_style = {
-	                float: 'right',
-	                width: '40%'
-	            };
 	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement('img', { src: _str_img_src, style: _json_style }) : null,
-	                _react2.default.createElement('input', {
-	                    type: 'range',
-	                    ref: 'range',
-	                    step: '1',
-	                    min: '-100',
-	                    max: '100',
-	                    value: this.state.control.range,
-	                    onChange: this.handleChangeRange }),
-	                ' ',
-	                this.state.control.range,
-	                ' / 100',
-	                _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.prevewAction },
-	                    '預覽'
+	                { className: 'pkg-control' },
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-right pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
 	                ) : null,
 	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: _scope.submitAction },
-	                    '確定'
+	                    'div',
+	                    { className: 'pkg-control-left' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'range',
+	                            step: '1',
+	                            min: '-100',
+	                            max: '100',
+	                            value: this.state.control.range,
+	                            onChange: this.handleChangeRange }),
+	                        ' ',
+	                        this.state.control.range,
+	                        ' / 100'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.prevewAction },
+	                            '預覽'
+	                        ) : null,
+	                        _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.submitAction },
+	                            '確定'
+	                        )
+	                    )
 	                )
 	            );
 	        }
@@ -32389,6 +32453,9 @@
 	                _scope.arrangeStates(_scope.getDefaultMethod());
 	            });
 	        }
+
+	        // defaultMethod = {};
+
 	    }, {
 	        key: 'getDefaultMethod',
 	        value: function getDefaultMethod() {
@@ -32675,7 +32742,9 @@
 
 	                var _json_other = _json_emit.data || {};
 	                _GloablData2.default.setNowImageData(_json_other);
-	                _GloablData2.default.setPreviewImageInfo(_json_emit.data);
+	                _GloablData2.default.setPreviewImageInfo(_json_emit.data, function () {
+	                    _scope.sctionAfterSetPreviewImageInfo();
+	                });
 	            });
 
 	            _GloablTools2.default.Emitter().on('method.cotroller.previewing', function () {
@@ -32724,9 +32793,7 @@
 	                var _json = arguments[0];
 
 	                _GloablData2.default.setPreviewImageInfo(_json, function () {
-	                    setTimeout(function () {
-	                        _GloablTools2.default.Emitter().emit('preview.image.object.data.changing');
-	                    }, 500);
+	                    _scope.sctionAfterSetPreviewImageInfo();
 	                });
 	            });
 	        }
@@ -32734,6 +32801,13 @@
 	        key: 'getMethodBaseClassName',
 	        value: function getMethodBaseClassName() {
 	            return OBJ_METHOD_POPUP.className.replace(METHOD_POPUP_OPEN_REG, '');
+	        }
+	    }, {
+	        key: 'sctionAfterSetPreviewImageInfo',
+	        value: function sctionAfterSetPreviewImageInfo() {
+	            setTimeout(function () {
+	                _GloablTools2.default.Emitter().emit('preview.image.object.data.changing');
+	            }, 500);
 	        }
 	    }, {
 	        key: 'render',
