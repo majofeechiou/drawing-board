@@ -579,18 +579,35 @@ export default class ImageDataComputeMethod extends Tools {
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	// 參考 http://www.jb51.net/article/78818.htm
+	// drawStar(obj_2d, r, x, y) {
+	// 	let _num_dit = Math.PI * 4 / 5;
+	// 	let _num_sin;
+	// 	let _num_cos;
+	// 	let _num_deg;
+	// 	for (let i = 0; i < 5; i++) {
+	// 		_num_deg = _num_dit * i;
+	// 		_num_sin = Math.sin(_num_deg) * r + y;
+	// 		_num_cos = Math.cos(_num_deg) * r + x;
+	// 		if( i===0 ){
+	// 			obj_2d.moveTo(_num_cos, _num_sin);
+	// 		}
+	// 		obj_2d.lineTo(_num_cos, _num_sin);
+	// 	}
+ //    }
 	drawStar(obj_2d, r, x, y) {
-		obj_2d.lineWidth = 5;
-		obj_2d.beginPath();
-		let _num_dit = Math.PI * 4 / 5;
-		let _num_sin = Math.sin(0) * r + y;
-		let _num_cos = Math.cos(0) * r + x;
+		let _num_dit = Math.PI * 2 / 10;
+		let _num_sin;
+		let _num_cos;
 		let _num_deg;
-		obj_2d.moveTo(_num_cos, _num_sin);
-		for (let i = 0; i < 5; i++) {
+		for (let i = 0; i < 10; i++) {
 			_num_deg = _num_dit * i;
-			_num_sin = Math.sin(_num_deg) * r + y;
-			_num_cos = Math.cos(_num_deg) * r + x;
+			if( i%2===0 ){
+				_num_sin = Math.sin(_num_deg) * r + y;
+				_num_cos = Math.cos(_num_deg) * r + x;
+			}else{
+				_num_sin = Math.sin(_num_deg) * r * 0.55 + y;
+				_num_cos = Math.cos(_num_deg) * r * 0.55 + x;
+			}
 			if( i===0 ){
 				obj_2d.moveTo(_num_cos, _num_sin);
 			}

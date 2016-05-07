@@ -53,10 +53,6 @@ export default class MethodSection extends GlobalConst {
 
             console.log('** ** ** ** method.cotroller.control.asking ** ** ** **');
             
-            console.log( 'method :: ', _json_img_setting.method===_json_emit.method, _json_img_setting.method, _json_emit.method );
-            console.log( 'control :: ', JSON.stringify(_json_img_setting.control)===JSON.stringify(_json_emit.control), _json_img_setting.control, _json_emit.control );
-            console.log( 'from :: ', _json_img_setting.from===_json_emit.from, _json_img_setting.from, _json_emit.from );
-
             if(
                 (_json_img_setting.method===_json_emit.method) && (typeof _json_img_setting.method === 'string') && (_json_img_setting.method!=='') &&
                 (JSON.stringify(_json_img_setting.control)===JSON.stringify(_json_emit.control)) &&
