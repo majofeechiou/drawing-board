@@ -7,16 +7,24 @@ import GloablTools from './GloablTools';
 import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
+import ReactGroup from 'ReactGroup';
+import Utils from './Utils';
 
 export default class MethodControlText extends React.Component {
     constructor(props) {
         super(props);
 
-        this.arrangeProps( props );
+        let _scope = this;
 
-        this.submitAction = this.submitAction.bind(this);
-        this.prevewAction = this.prevewAction.bind(this);
-        this.listenPreviewImageChange = this.listenPreviewImageChange.bind(this);
+        _scope.createAllPos();
+
+        _scope.arrangeProps( props );
+
+        _scope.handleChange = _scope.handleChange.bind(_scope);
+        _scope.handleChangePos = _scope.handleChangePos.bind(_scope);
+        _scope.submitAction = _scope.submitAction.bind(_scope);
+        _scope.prevewAction = _scope.prevewAction.bind(_scope);
+        _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
         
     }
 
@@ -50,11 +58,13 @@ export default class MethodControlText extends React.Component {
             {},
             { control: this.props.control }, 
             this.state, 
-            // { control: 
-            //     {
-            //         range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range) 
-            //     }
-            // },
+            { control: 
+                {
+                    pos: this.state.control.pos || this.props.control.pos, 
+                    text: (this.refs && this.refs.text)? this.refs.text.value : this.props.control.text, 
+                    size: (this.refs && this.refs.size)? Number(this.refs.size.value) : Number(this.props.control.size), 
+                }
+            },
             { imgObj: 
                 {
                     src: ( this.state && this.state.imgObj )? this.state.imgObj.src : GloablData.getImageObjectSrc()
@@ -107,19 +117,85 @@ export default class MethodControlText extends React.Component {
         } );
     }
 
+    handleChangePos( bln_change, json_return ){
+        console.log( 'json_return :: ', json_return );
+        let _scope = this ;
+        if( bln_change===true ){
+            let _json_new = _scope.arrangeState( {control: {pos: json_return.result}} );
+            _scope.setState( _json_new );
+        }
+    }
+
+    handleChange() {
+        let _json_new = this.arrangeState();
+        this.setState( _json_new );
+        this.render();
+    }
+
+    getSelectKey(){
+        return ['pos'];
+    }
+    getShowKey(){
+        return ['pos'];
+    }
+
+    createAllPos(){
+        this.all_pos = [
+            {pos: 'left top', key: Utils.createUniqueId()},
+            {pos: 'center top', key: Utils.createUniqueId()},
+            {pos: 'right top', key: Utils.createUniqueId()},
+            {pos: 'left center', key: Utils.createUniqueId()},
+            {pos: 'center center', key: Utils.createUniqueId()},
+            {pos: 'right center', key: Utils.createUniqueId()},
+            {pos: 'left bottom', key: Utils.createUniqueId()},
+            {pos: 'center bottom', key: Utils.createUniqueId()},
+            {pos: 'right bottom', key: Utils.createUniqueId()}
+        ];
+    }
+
+    getAllPos(){
+        return this.all_pos;
+    }
+
     render(){
         let _scope = this;
+        let _json_sub_store = this.props.methodStore.getState().sub;
         let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
             <div className="pkg-control">
                 <div className="pkg-control-center">
-                    輸入文字：<input type="text" name="text" value="" placeholder="請輸入文字" /><br />
-                    文字大小：<input type="range" name="size" min="9" max="80" step="1" /><br />
-                    文字顏色：<span>#f00</span><br />
-                    文字外框色：<span>#f00</span><br />
-                    文字位置（水平）：置左/置中/置右<br />
-                    文字位置（垂直）：置上/置中/置下<br />
+                    輸入文字：<input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} /><br />
+                    文字大小：<input type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} /><br />
+                    文字顏色：<span>#900</span><br />
+                    文字外框色：<span>#ff0</span><br />
+                    文字位置（水平 / 垂直）：
+                    <br />
+                    <For each="json_item" of={ _scope.getAllPos() }>
+                        <ReactGroup 
+                            onChange={_scope.handleChangePos}
+                            outputFormat="string"
+                            name="method_option"
+                            selectKey={_scope.getSelectKey()}
+                            inputOption={[json_item]}
+                            outputResult={_scope.state.control.pos}
+                            showKey={_scope.getShowKey()}
+                            between="~"
+                            display="inline-block"
+                            padding={_json_sub_store.padding}
+                            fillet={_json_sub_store.fillet}
+                            listStyle={_json_sub_store.listStyle}
+                            listPosition={_json_sub_store.listPosition}
+                            iconPosition={_json_sub_store.iconPosition}
+                            iconShow={_json_sub_store.iconShow}
+                            styleName={_json_sub_store.styleName}
+                            offBack={_json_sub_store.offBack}
+                            styleBorder={_json_sub_store.styleBorder}
+                            styleIcon={_json_sub_store.styleIcon}
+                            styleIconBack={_json_sub_store.styleIconBack}
+                            styleList={_json_sub_store.styleList}
+                            key={json_item.key} />
+                    </For>
                 </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
                     <div className="pkg-control-center pkg-conpreview">

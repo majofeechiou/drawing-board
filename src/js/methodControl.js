@@ -120,7 +120,11 @@ export default class MethodControl extends React.Component {
                 </div>
             );
         }else if( this.props.outputResult.method===Settings.METHOD_TEXT ){
-            _json_control = {};
+            _json_control = {
+                text: '',
+                size: 9,
+                pos: 'left top'
+            };
             return (
                 <div className={_scope.props.className}>
                     <MethodControlText

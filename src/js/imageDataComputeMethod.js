@@ -91,6 +91,54 @@ export default class ImageDataComputeMethod extends Tools {
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
+	// 文字
+	methodText( json, json_setting ){
+		let _scope = this;
+
+		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
+
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight();
+
+		let _str_pos = json.control.pos,
+			_ary_pos = _str_pos.split(' '),
+			_str_pos_x = _ary_pos[0],
+			_str_pos_y = _ary_pos[1];
+
+		let _num_size = json.control.size ;
+
+		let _num_wrap = 10;
+
+		_scope.obj_canvas_2d.textAlign = _str_pos_x;
+		_scope.obj_canvas_2d.textBaseline = "middle";
+
+		let _num_x,
+			_num_y;
+
+		if( _str_pos_x==='left' ){
+			_num_x = _num_wrap ;
+		}else if( _str_pos_x==='center' ){
+			_num_x = _num_compute_width/2 ;
+		}else{
+			_num_x = _num_compute_width-_num_wrap ;
+		}
+		if( _str_pos_y==='top' ){
+			_num_y = _num_wrap+_num_size/2 ;
+		}else if( _str_pos_y==='center' ){
+			_num_y = _num_compute_height/2 ;
+		}else{
+			_num_y = _num_compute_height-_num_size/2-_num_wrap ;
+		}
+
+		_scope.obj_canvas_2d.font = json.control.size+'px Georgia';
+		_scope.obj_canvas_2d.fillText("Hello World!",_num_x,_num_y);
+		_scope.obj_canvas_2d.fillStyle = 'red';
+
+		_scope.emitAfterMethod( json );
+
+	}
+
 	// 模糊效果
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
 	methodBlur( json, json_setting ){
@@ -98,9 +146,6 @@ export default class ImageDataComputeMethod extends Tools {
 
 		json = _scope.methodVars( json );
 		json_setting = json_setting || {} ;
-
-		console.log( 'json :::: ', json );
-		console.log( 'json_setting :::: ', json_setting );
 
 		let _num_compute_width = _scope.getComputeWidth(),
 			_num_compute_height = _scope.getComputeHeight(),
