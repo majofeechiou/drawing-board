@@ -38,7 +38,23 @@ export default class MethodSettings {
 			{
 			    shape: Settings.SHAPE_RECT,
 			    shape_name: Settings.SHAPE_RECT_NAME
-			}
+			},
+			{
+			    shape: Settings.SHAPE_RECT2,
+			    shape_name: Settings.SHAPE_RECT2_NAME
+			},
+			{
+			    shape: Settings.SHAPE_RHOMBUS,
+			    shape_name: Settings.SHAPE_RHOMBUS_NAME
+			},
+			{
+			    shape: Settings.SHAPE_STAR,
+			    shape_name: Settings.SHAPE_STAR_NAME
+			},
+			// {
+			//     shape: Settings.SHAPE_HEART,
+			//     shape_name: Settings.SHAPE_HEART_NAME
+			// }
 		];
 	}
 

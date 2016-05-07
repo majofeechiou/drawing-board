@@ -169,6 +169,7 @@ export default class ImageDataComputeMethod extends Tools {
 			_num_size_min = _json_control.minSize,
 			_num_size_max = _json_control.maxSize,
 			_num_size,
+			_num_size_helf,
 			_num_alpha_min = _json_control.minAlpha,
 			_num_alpha_max = _json_control.maxAlpha,
 			_num_alpha,
@@ -186,11 +187,13 @@ export default class ImageDataComputeMethod extends Tools {
 		}else{
 			let _num_size_avg = Math.round(( parseInt(_num_size_min,10)+parseInt(_num_size_max,10) )/2) ;
 			// _num_total = Math.floor( _num_compute_width*_num_compute_height/(_num_size_avg*2)/100 * _json_control.frequency * (Math.pow((_num_size_max+_num_size_avg)/2,2)/Math.pow((_num_size_min+_num_size_avg)/2,2)) / Math.floor((_num_size_avg+_num_size_max)/2) );
-			_num_total = Math.floor( _num_compute_width*_num_compute_height/(_num_size_avg*2+Math.round(Math.sqrt(_num_size_max))+Math.round(Math.sqrt(_num_size_min)))/400 * _json_control.frequency );
+			_num_total = Math.ceil( _num_compute_width*_num_compute_height/(_num_size_avg*2+Math.round(Math.sqrt(_num_size_max))+Math.round(Math.sqrt(_num_size_min)))/400 * _json_control.frequency );
 			json.created.setting = { ...json_setting };
 		}
 
 		let _ary_rgb = (HexRgb(_json_control.color));
+
+		_scope.obj_canvas_2d.beginPath();
 
 		for (let i = 0; i<_num_total; i++) {
 			if( _bln_old===true ){
@@ -218,11 +221,29 @@ export default class ImageDataComputeMethod extends Tools {
 
 			}
 
+			_num_size_helf = ( _num_size / 2 );
+
 			_scope.obj_canvas_2d.beginPath();
 			if( _str_shape===Settings.SHAPE_CIRCLE ){
-				_scope.obj_canvas_2d.arc(_num_x, _num_y, _num_size, 0, Math.PI * 2, true);
+				_scope.obj_canvas_2d.arc( _num_x, _num_y, _num_size_helf, 0, Math.PI * 2, true );
 			}else if( _str_shape===Settings.SHAPE_RECT ){
-				_scope.obj_canvas_2d.rect(_num_x-_num_size/2, _num_y-_num_size/2, _num_size, _num_size );
+				_scope.obj_canvas_2d.rect( _num_x-_num_size_helf, _num_y-_num_size_helf, _num_size, _num_size );
+			}else if( _str_shape===Settings.SHAPE_RECT2 ){
+		        _scope.obj_canvas_2d.moveTo(_num_x-Math.floor(_num_size_helf*1.4), _num_y);
+		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y-Math.floor(_num_size_helf*1.4));
+		        _scope.obj_canvas_2d.lineTo(_num_x+Math.floor(_num_size_helf*1.4), _num_y);
+		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y+Math.floor(_num_size_helf*1.4));
+		        _scope.obj_canvas_2d.lineTo(_num_x-Math.floor(_num_size_helf*1.4), _num_y);
+			}else if( _str_shape===Settings.SHAPE_RHOMBUS ){
+		        _scope.obj_canvas_2d.moveTo(_num_x-Math.floor(_num_size_helf*1.4*0.6), _num_y);
+		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y-Math.floor(_num_size_helf*1.4));
+		        _scope.obj_canvas_2d.lineTo(_num_x+Math.floor(_num_size_helf*1.4*0.6), _num_y);
+		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y+Math.floor(_num_size_helf*1.4));
+		        _scope.obj_canvas_2d.lineTo(_num_x-Math.floor(_num_size_helf*1.4*0.6), _num_y);
+			}else if( _str_shape===Settings.SHAPE_STAR ){
+				_scope.drawStar( _scope.obj_canvas_2d, _num_size_helf, _num_x, _num_y );
+			}else if( _str_shape===Settings.SHAPE_HEART ){
+				_scope.drawHeart( _scope.obj_canvas_2d );
 			}
 			
 			_scope.obj_canvas_2d.closePath();
@@ -552,6 +573,42 @@ export default class ImageDataComputeMethod extends Tools {
 
 	checkColorRange( num ){
 		return ( num>255 )? 255 : ( ( num<0 )? 0 : num );
+	}
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	// 參考 http://www.jb51.net/article/78818.htm
+	drawStar(obj_2d, r, x, y) {
+		obj_2d.lineWidth = 5;
+		obj_2d.beginPath();
+		let _num_dit = Math.PI * 4 / 5;
+		let _num_sin = Math.sin(0) * r + y;
+		let _num_cos = Math.cos(0) * r + x;
+		let _num_deg;
+		obj_2d.moveTo(_num_cos, _num_sin);
+		for (let i = 0; i < 5; i++) {
+			_num_deg = _num_dit * i;
+			_num_sin = Math.sin(_num_deg) * r + y;
+			_num_cos = Math.cos(_num_deg) * r + x;
+			if( i===0 ){
+				obj_2d.moveTo(_num_cos, _num_sin);
+			}
+			obj_2d.lineTo(_num_cos, _num_sin);
+		}
+    }
+
+	// 參考 http://bbs.blueidea.com/thread-3013245-1-1.html
+	// obj_2d.translate(300,100);
+	drawHeart( obj_2d ){
+		let r=0 , a=20 , start = 0 , end= 0;
+		obj_2d.rotate(Math.PI);
+		for(let q=0; q<1000; q++){
+			start +=  Math.PI * 2 /1000;
+			end = start + Math.PI * 2 /1000;
+			r=a*Math.sqrt(225/(17-16*Math.sin(start)*Math.sqrt(Math.cos(start)*Math.cos(start))))
+			obj_2d.arc(0,0,r,start,end,false);
+		}
 	}
 
 }

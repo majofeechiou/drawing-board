@@ -53,6 +53,18 @@ export default class Settings {
 	static SHAPE_RECT = 'rect';
 	static SHAPE_RECT_NAME = '方形';
 
+	static SHAPE_RECT2 = 'rect2';
+	static SHAPE_RECT2_NAME = '方形2';
+
+	static SHAPE_RHOMBUS = 'rhombus';
+	static SHAPE_RHOMBUS_NAME = '菱形';
+
+	static SHAPE_STAR = 'star';
+	static SHAPE_STAR_NAME = '星星';
+
+	static SHAPE_HEART = 'heart';
+	static SHAPE_HEART_NAME = '心形';
+
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static COMPUTE_TIMING_PREVIEW = 'preview';
