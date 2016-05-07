@@ -13,6 +13,8 @@ import MethodControlAlpha from './MethodControlAlpha';
 import MethodControlSaturate from './MethodControlSaturate';
 import MethodControlContrast from './MethodControlContrast';
 import MethodControlInvert from './MethodControlInvert';
+import MethodControlBlur from './MethodControlBlur';
+import MethodControlText from './MethodControlText';
 import MethodSettings from './MethodSettings';
 
 export default class MethodControl extends React.Component {
@@ -97,11 +99,31 @@ export default class MethodControl extends React.Component {
                         control={_json_control} />
                 </div>
             );
+        }else if( this.props.outputResult.method===Settings.METHOD_BLUR ){
+            _json_control = {
+                range: 0
+            };
+            return (
+                <div className={_scope.props.className}>
+                    <MethodControlBlur
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
+            );
         }else if( this.props.outputResult.method===Settings.METHOD_INVERT ){
             _json_control = {};
             return (
                 <div className={_scope.props.className}>
                     <MethodControlInvert
+                        methodStore={this.props.methodStore}
+                        control={_json_control} />
+                </div>
+            );
+        }else if( this.props.outputResult.method===Settings.METHOD_TEXT ){
+            _json_control = {};
+            return (
+                <div className={_scope.props.className}>
+                    <MethodControlText
                         methodStore={this.props.methodStore}
                         control={_json_control} />
                 </div>

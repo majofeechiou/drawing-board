@@ -8,16 +8,16 @@ import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
 
-export default class MethodControlSaturate extends React.Component {
+export default class MethodControlText extends React.Component {
     constructor(props) {
         super(props);
 
         this.arrangeProps( props );
 
-        this.handleChangeRange = this.handleChangeRange.bind(this);
         this.submitAction = this.submitAction.bind(this);
         this.prevewAction = this.prevewAction.bind(this);
         this.listenPreviewImageChange = this.listenPreviewImageChange.bind(this);
+        
     }
 
     componentWillMount(){
@@ -31,7 +31,7 @@ export default class MethodControlSaturate extends React.Component {
     }
 
     getComponentMethod(){
-        return Settings.METHOD_SATURATE;
+        return Settings.METHOD_TEXT;
     }
 
     componentWillReceiveProps(nextProps){
@@ -50,11 +50,11 @@ export default class MethodControlSaturate extends React.Component {
             {},
             { control: this.props.control }, 
             this.state, 
-            { control: 
-                {
-                    range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range) 
-                }
-            },
+            // { control: 
+            //     {
+            //         range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range) 
+            //     }
+            // },
             { imgObj: 
                 {
                     src: ( this.state && this.state.imgObj )? this.state.imgObj.src : GloablData.getImageObjectSrc()
@@ -107,43 +107,30 @@ export default class MethodControlSaturate extends React.Component {
         } );
     }
 
-    handleChangeRange(e) {
-        let _json_new = Extend.deep( this.state, {
-            control: {
-                range: Number(this.refs.range.value)
-            }
-        } );
-        this.setState( _json_new );
-    }
-
     render(){
         let _scope = this;
         let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
             <div className="pkg-control">
+                <div className="pkg-control-center">
+                    輸入文字：<input type="text" name="text" value="" placeholder="請輸入文字" /><br />
+                    文字大小：<input type="range" name="size" min="9" max="80" step="1" /><br />
+                    文字顏色：<span>#f00</span><br />
+                    文字外框色：<span>#f00</span><br />
+                    文字位置（水平）：置左/置中/置右<br />
+                    文字位置（垂直）：置上/置中/置下<br />
+                </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
-                    <div className="pkg-control-right pkg-conpreview">
+                    <div className="pkg-control-center pkg-conpreview">
                         <img src={_str_img_src} className="pkg-conpreview-image" />
                     </div>
                 </If>
-                <div className="pkg-control-left">
-                    <div>
-                        <input
-                            type="range"
-                            ref="range"
-                            step="1"
-                            min="-100"
-                            max="100"
-                            value={this.state.control.range}
-                            onChange={this.handleChangeRange} /> {this.state.control.range} / 100
-                    </div>
-                    <div>
-                        <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                            <button onClick={_scope.prevewAction}>預覽</button>
-                        </If>
-                        <button onClick={_scope.submitAction}>確定</button>
-                    </div>
+                <div className="pkg-control-bottom">
+                    <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
+                        <button onClick={_scope.prevewAction}>預覽</button>
+                    </If>
+                    <button onClick={_scope.submitAction}>確定</button>
                 </div>
             </div>
         );
@@ -151,9 +138,9 @@ export default class MethodControlSaturate extends React.Component {
 
 };
 
-MethodControlSaturate.propTypes = {
+MethodControlText.propTypes = {
     control: React.PropTypes.object,
 },
-MethodControlSaturate.defaultProps = {
+MethodControlText.defaultProps = {
     control: {},
 };

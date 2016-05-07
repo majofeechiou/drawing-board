@@ -7,6 +7,10 @@ export default class MethodSettings {
 	static getAllMethod(){
 		return [
 			{
+			    method: Settings.METHOD_TEXT,
+			    method_name: Settings.METHOD_TEXT_NAME
+			},
+			{
 			    method: Settings.METHOD_SATURATE,
 			    method_name: Settings.METHOD_SATURATE_NAME
 			},
@@ -21,6 +25,10 @@ export default class MethodSettings {
 			{
 			    method: Settings.METHOD_INVERT,
 			    method_name: Settings.METHOD_INVERT_NAME
+			},
+			{
+			    method: Settings.METHOD_BLUR,
+			    method_name: Settings.METHOD_BLUR_NAME
 			},
 			{
 			    method: Settings.METHOD_DOT,

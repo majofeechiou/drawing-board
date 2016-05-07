@@ -52,7 +52,7 @@ export default class MethodControlInvert extends React.Component {
             this.state, 
             // { control: 
             //     {
-            //         range: (this.refs && this.refs.range)? this.refs.range.value : this.props.control.range 
+            //         range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range) 
             //     }
             // },
             { imgObj: 

@@ -5,6 +5,9 @@ export default class Settings {
 	// static METHOD_SNOW = 'SNOW';
 	// static METHOD_SNOW_NAME = '雪花';
 
+	static METHOD_TEXT = 'TEXT';
+	static METHOD_TEXT_NAME = '文字';
+
 	static METHOD_DOT = 'DOT';
 	static METHOD_DOT_NAME = '雜點';
 
@@ -32,8 +35,8 @@ export default class Settings {
 	static METHOD_SEPIA = 'SEPIA';
 	static METHOD_SEPIA_NAME = '復古';
 
-	// static METHOD_SEPIA = 'blurry';
-	// static METHOD_SEPIA_NAME = '模糊';
+	static METHOD_BLUR = 'BLUR';
+	static METHOD_BLUR_NAME = '模糊';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 

@@ -8,7 +8,7 @@ import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
 
-export default class MethodControlSaturate extends React.Component {
+export default class MethodControlBlur extends React.Component {
     constructor(props) {
         super(props);
 
@@ -18,6 +18,7 @@ export default class MethodControlSaturate extends React.Component {
         this.submitAction = this.submitAction.bind(this);
         this.prevewAction = this.prevewAction.bind(this);
         this.listenPreviewImageChange = this.listenPreviewImageChange.bind(this);
+        
     }
 
     componentWillMount(){
@@ -31,7 +32,7 @@ export default class MethodControlSaturate extends React.Component {
     }
 
     getComponentMethod(){
-        return Settings.METHOD_SATURATE;
+        return Settings.METHOD_BLUR;
     }
 
     componentWillReceiveProps(nextProps){
@@ -133,10 +134,10 @@ export default class MethodControlSaturate extends React.Component {
                             type="range"
                             ref="range"
                             step="1"
-                            min="-100"
-                            max="100"
+                            min="0"
+                            max="180"
                             value={this.state.control.range}
-                            onChange={this.handleChangeRange} /> {this.state.control.range} / 100
+                            onChange={this.handleChangeRange} /> {this.state.control.range} / 180
                     </div>
                     <div>
                         <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
@@ -151,9 +152,9 @@ export default class MethodControlSaturate extends React.Component {
 
 };
 
-MethodControlSaturate.propTypes = {
+MethodControlBlur.propTypes = {
     control: React.PropTypes.object,
 },
-MethodControlSaturate.defaultProps = {
+MethodControlBlur.defaultProps = {
     control: {},
 };

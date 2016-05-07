@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(233);
+	module.exports = __webpack_require__(234);
 
 
 /***/ },
@@ -476,9 +476,6 @@
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-			// static METHOD_SEPIA = 'blurry';
-			// static METHOD_SEPIA_NAME = '模糊';
-
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 			// static METHOD_SNOW = 'SNOW';
@@ -510,6 +507,8 @@
 		return Settings;
 	}();
 
+	Settings.METHOD_TEXT = 'TEXT';
+	Settings.METHOD_TEXT_NAME = '文字';
 	Settings.METHOD_DOT = 'DOT';
 	Settings.METHOD_DOT_NAME = '雜點';
 	Settings.METHOD_ALPHA = 'ALPHA';
@@ -528,6 +527,8 @@
 	Settings.METHOD_INVERT_NAME = '負片';
 	Settings.METHOD_SEPIA = 'SEPIA';
 	Settings.METHOD_SEPIA_NAME = '復古';
+	Settings.METHOD_BLUR = 'BLUR';
+	Settings.METHOD_BLUR_NAME = '模糊';
 	Settings.OUTPUT_SIZE_SCALE = 'scale';
 	Settings.OUTPUT_SIZE_CUSTOM = 'custom';
 	Settings.OUTPUT_CUSTOM_COVER = 'cover';
@@ -3087,6 +3088,9 @@
 			key: 'getAllMethod',
 			value: function getAllMethod() {
 				return [{
+					method: _Settings2.default.METHOD_TEXT,
+					method_name: _Settings2.default.METHOD_TEXT_NAME
+				}, {
 					method: _Settings2.default.METHOD_SATURATE,
 					method_name: _Settings2.default.METHOD_SATURATE_NAME
 				}, {
@@ -3098,6 +3102,9 @@
 				}, {
 					method: _Settings2.default.METHOD_INVERT,
 					method_name: _Settings2.default.METHOD_INVERT_NAME
+				}, {
+					method: _Settings2.default.METHOD_BLUR,
+					method_name: _Settings2.default.METHOD_BLUR_NAME
 				}, {
 					method: _Settings2.default.METHOD_DOT,
 					method_name: _Settings2.default.METHOD_DOT_NAME
@@ -3269,7 +3276,7 @@
 
 	'use strict';
 
-	var tinycolor = __webpack_require__(232);
+	var tinycolor = __webpack_require__(233);
 
 	if (typeof window != 'undefined') {
 	    window.tinycolor = tinycolor;
@@ -13101,6 +13108,10 @@
 
 	var _Extend2 = _interopRequireDefault(_Extend);
 
+	var _stackblurCanvas = __webpack_require__(232);
+
+	var _stackblurCanvas2 = _interopRequireDefault(_stackblurCanvas);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -13108,6 +13119,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// https://github.com/flozz/StackBlur
 
 	// 運算的方式
 	// 寬高也是最後輸出的圖片的寬高
@@ -13217,6 +13230,33 @@
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+			// 模糊效果
+			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
+
+		}, {
+			key: 'methodBlur',
+			value: function methodBlur(json, json_setting) {
+				var _scope = this;
+
+				json = _scope.methodVars(json);
+				json_setting = json_setting || {};
+
+				console.log('json :::: ', json);
+				console.log('json_setting :::: ', json_setting);
+
+				var _num_compute_width = _scope.getComputeWidth(),
+				    _num_compute_height = _scope.getComputeHeight(),
+				    _num_range = json.control.range;
+
+				var _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+				var _json_image_data_new = _stackblurCanvas2.default.imageDataRGBA(_json_image_data, 0, 0, _num_compute_width, _num_compute_height, _num_range);
+
+				_scope.obj_canvas_2d.putImageData(_json_image_data_new, 0, 0);
+
+				_scope.emitAfterMethod(json);
+			}
 
 			// 在照片中添加纹理
 			// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
@@ -28567,6 +28607,544 @@
 
 /***/ },
 /* 232 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/*
+	    StackBlur - a fast almost Gaussian Blur For Canvas
+
+	    Version:     0.5
+	    Author:        Mario Klingemann
+	    Contact:     mario@quasimondo.com
+	    Website:    http://www.quasimondo.com/StackBlurForCanvas
+	    Twitter:    @quasimondo
+
+	    In case you find this class useful - especially in commercial projects -
+	    I am not totally unhappy for a small donation to my PayPal account
+	    mario@quasimondo.de
+
+	    Or support me on flattr:
+	    https://flattr.com/thing/72791/StackBlur-a-fast-almost-Gaussian-Blur-Effect-for-CanvasJavascript
+
+	    Copyright (c) 2010 Mario Klingemann
+
+	    Permission is hereby granted, free of charge, to any person
+	    obtaining a copy of this software and associated documentation
+	    files (the "Software"), to deal in the Software without
+	    restriction, including without limitation the rights to use,
+	    copy, modify, merge, publish, distribute, sublicense, and/or sell
+	    copies of the Software, and to permit persons to whom the
+	    Software is furnished to do so, subject to the following
+	    conditions:
+
+	    The above copyright notice and this permission notice shall be
+	    included in all copies or substantial portions of the Software.
+
+	    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+	    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+	    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+	    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+	    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+	    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+	    OTHER DEALINGS IN THE SOFTWARE.
+	    */
+
+	var mul_table = [512, 512, 456, 512, 328, 456, 335, 512, 405, 328, 271, 456, 388, 335, 292, 512, 454, 405, 364, 328, 298, 271, 496, 456, 420, 388, 360, 335, 312, 292, 273, 512, 482, 454, 428, 405, 383, 364, 345, 328, 312, 298, 284, 271, 259, 496, 475, 456, 437, 420, 404, 388, 374, 360, 347, 335, 323, 312, 302, 292, 282, 273, 265, 512, 497, 482, 468, 454, 441, 428, 417, 405, 394, 383, 373, 364, 354, 345, 337, 328, 320, 312, 305, 298, 291, 284, 278, 271, 265, 259, 507, 496, 485, 475, 465, 456, 446, 437, 428, 420, 412, 404, 396, 388, 381, 374, 367, 360, 354, 347, 341, 335, 329, 323, 318, 312, 307, 302, 297, 292, 287, 282, 278, 273, 269, 265, 261, 512, 505, 497, 489, 482, 475, 468, 461, 454, 447, 441, 435, 428, 422, 417, 411, 405, 399, 394, 389, 383, 378, 373, 368, 364, 359, 354, 350, 345, 341, 337, 332, 328, 324, 320, 316, 312, 309, 305, 301, 298, 294, 291, 287, 284, 281, 278, 274, 271, 268, 265, 262, 259, 257, 507, 501, 496, 491, 485, 480, 475, 470, 465, 460, 456, 451, 446, 442, 437, 433, 428, 424, 420, 416, 412, 408, 404, 400, 396, 392, 388, 385, 381, 377, 374, 370, 367, 363, 360, 357, 354, 350, 347, 344, 341, 338, 335, 332, 329, 326, 323, 320, 318, 315, 312, 310, 307, 304, 302, 299, 297, 294, 292, 289, 287, 285, 282, 280, 278, 275, 273, 271, 269, 267, 265, 263, 261, 259];
+
+	var shg_table = [9, 11, 12, 13, 13, 14, 14, 15, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 19, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24];
+
+	function processImage(img, canvas, radius, blurAlphaChannel) {
+	    if (typeof img == 'string') {
+	        var img = document.getElementById(img);
+	    } else if (!img instanceof HTMLImageElement) {
+	        return;
+	    }
+	    var w = img.naturalWidth;
+	    var h = img.naturalHeight;
+
+	    if (typeof canvas == 'string') {
+	        var canvas = document.getElementById(canvas);
+	    } else if (!canvas instanceof HTMLCanvasElement) {
+	        return;
+	    }
+
+	    canvas.style.width = w + 'px';
+	    canvas.style.height = h + 'px';
+	    canvas.width = w;
+	    canvas.height = h;
+
+	    var context = canvas.getContext('2d');
+	    context.clearRect(0, 0, w, h);
+	    context.drawImage(img, 0, 0);
+
+	    if (isNaN(radius) || radius < 1) return;
+
+	    if (blurAlphaChannel) processCanvasRGBA(canvas, 0, 0, w, h, radius);else processCanvasRGB(canvas, 0, 0, w, h, radius);
+	}
+
+	function getImageDataFromCanvas(canvas, top_x, top_y, width, height) {
+	    if (typeof canvas == 'string') var canvas = document.getElementById(canvas);else if (!canvas instanceof HTMLCanvasElement) return;
+
+	    var context = canvas.getContext('2d');
+	    var imageData;
+
+	    try {
+	        try {
+	            imageData = context.getImageData(top_x, top_y, width, height);
+	        } catch (e) {
+	            throw new Error("unable to access local image data: " + e);
+	            return;
+	        }
+	    } catch (e) {
+	        throw new Error("unable to access image data: " + e);
+	    }
+
+	    return imageData;
+	}
+
+	function processCanvasRGBA(canvas, top_x, top_y, width, height, radius) {
+	    if (isNaN(radius) || radius < 1) return;
+	    radius |= 0;
+
+	    var imageData = getImageDataFromCanvas(canvas, top_x, top_y, width, height);
+
+	    imageData = processImageDataRGBA(imageData, top_x, top_y, width, height, radius);
+
+	    canvas.getContext('2d').putImageData(imageData, top_x, top_y);
+	}
+
+	function processImageDataRGBA(imageData, top_x, top_y, width, height, radius) {
+	    var pixels = imageData.data;
+
+	    var x, y, i, p, yp, yi, yw, r_sum, g_sum, b_sum, a_sum, r_out_sum, g_out_sum, b_out_sum, a_out_sum, r_in_sum, g_in_sum, b_in_sum, a_in_sum, pr, pg, pb, pa, rbs;
+
+	    var div = radius + radius + 1;
+	    var w4 = width << 2;
+	    var widthMinus1 = width - 1;
+	    var heightMinus1 = height - 1;
+	    var radiusPlus1 = radius + 1;
+	    var sumFactor = radiusPlus1 * (radiusPlus1 + 1) / 2;
+
+	    var stackStart = new BlurStack();
+	    var stack = stackStart;
+	    for (i = 1; i < div; i++) {
+	        stack = stack.next = new BlurStack();
+	        if (i == radiusPlus1) var stackEnd = stack;
+	    }
+	    stack.next = stackStart;
+	    var stackIn = null;
+	    var stackOut = null;
+
+	    yw = yi = 0;
+
+	    var mul_sum = mul_table[radius];
+	    var shg_sum = shg_table[radius];
+
+	    for (y = 0; y < height; y++) {
+	        r_in_sum = g_in_sum = b_in_sum = a_in_sum = r_sum = g_sum = b_sum = a_sum = 0;
+
+	        r_out_sum = radiusPlus1 * (pr = pixels[yi]);
+	        g_out_sum = radiusPlus1 * (pg = pixels[yi + 1]);
+	        b_out_sum = radiusPlus1 * (pb = pixels[yi + 2]);
+	        a_out_sum = radiusPlus1 * (pa = pixels[yi + 3]);
+
+	        r_sum += sumFactor * pr;
+	        g_sum += sumFactor * pg;
+	        b_sum += sumFactor * pb;
+	        a_sum += sumFactor * pa;
+
+	        stack = stackStart;
+
+	        for (i = 0; i < radiusPlus1; i++) {
+	            stack.r = pr;
+	            stack.g = pg;
+	            stack.b = pb;
+	            stack.a = pa;
+	            stack = stack.next;
+	        }
+
+	        for (i = 1; i < radiusPlus1; i++) {
+	            p = yi + ((widthMinus1 < i ? widthMinus1 : i) << 2);
+	            r_sum += (stack.r = pr = pixels[p]) * (rbs = radiusPlus1 - i);
+	            g_sum += (stack.g = pg = pixels[p + 1]) * rbs;
+	            b_sum += (stack.b = pb = pixels[p + 2]) * rbs;
+	            a_sum += (stack.a = pa = pixels[p + 3]) * rbs;
+
+	            r_in_sum += pr;
+	            g_in_sum += pg;
+	            b_in_sum += pb;
+	            a_in_sum += pa;
+
+	            stack = stack.next;
+	        }
+
+	        stackIn = stackStart;
+	        stackOut = stackEnd;
+	        for (x = 0; x < width; x++) {
+	            pixels[yi + 3] = pa = a_sum * mul_sum >> shg_sum;
+	            if (pa != 0) {
+	                pa = 255 / pa;
+	                pixels[yi] = (r_sum * mul_sum >> shg_sum) * pa;
+	                pixels[yi + 1] = (g_sum * mul_sum >> shg_sum) * pa;
+	                pixels[yi + 2] = (b_sum * mul_sum >> shg_sum) * pa;
+	            } else {
+	                pixels[yi] = pixels[yi + 1] = pixels[yi + 2] = 0;
+	            }
+
+	            r_sum -= r_out_sum;
+	            g_sum -= g_out_sum;
+	            b_sum -= b_out_sum;
+	            a_sum -= a_out_sum;
+
+	            r_out_sum -= stackIn.r;
+	            g_out_sum -= stackIn.g;
+	            b_out_sum -= stackIn.b;
+	            a_out_sum -= stackIn.a;
+
+	            p = yw + ((p = x + radius + 1) < widthMinus1 ? p : widthMinus1) << 2;
+
+	            r_in_sum += stackIn.r = pixels[p];
+	            g_in_sum += stackIn.g = pixels[p + 1];
+	            b_in_sum += stackIn.b = pixels[p + 2];
+	            a_in_sum += stackIn.a = pixels[p + 3];
+
+	            r_sum += r_in_sum;
+	            g_sum += g_in_sum;
+	            b_sum += b_in_sum;
+	            a_sum += a_in_sum;
+
+	            stackIn = stackIn.next;
+
+	            r_out_sum += pr = stackOut.r;
+	            g_out_sum += pg = stackOut.g;
+	            b_out_sum += pb = stackOut.b;
+	            a_out_sum += pa = stackOut.a;
+
+	            r_in_sum -= pr;
+	            g_in_sum -= pg;
+	            b_in_sum -= pb;
+	            a_in_sum -= pa;
+
+	            stackOut = stackOut.next;
+
+	            yi += 4;
+	        }
+	        yw += width;
+	    }
+
+	    for (x = 0; x < width; x++) {
+	        g_in_sum = b_in_sum = a_in_sum = r_in_sum = g_sum = b_sum = a_sum = r_sum = 0;
+
+	        yi = x << 2;
+	        r_out_sum = radiusPlus1 * (pr = pixels[yi]);
+	        g_out_sum = radiusPlus1 * (pg = pixels[yi + 1]);
+	        b_out_sum = radiusPlus1 * (pb = pixels[yi + 2]);
+	        a_out_sum = radiusPlus1 * (pa = pixels[yi + 3]);
+
+	        r_sum += sumFactor * pr;
+	        g_sum += sumFactor * pg;
+	        b_sum += sumFactor * pb;
+	        a_sum += sumFactor * pa;
+
+	        stack = stackStart;
+
+	        for (i = 0; i < radiusPlus1; i++) {
+	            stack.r = pr;
+	            stack.g = pg;
+	            stack.b = pb;
+	            stack.a = pa;
+	            stack = stack.next;
+	        }
+
+	        yp = width;
+
+	        for (i = 1; i <= radius; i++) {
+	            yi = yp + x << 2;
+
+	            r_sum += (stack.r = pr = pixels[yi]) * (rbs = radiusPlus1 - i);
+	            g_sum += (stack.g = pg = pixels[yi + 1]) * rbs;
+	            b_sum += (stack.b = pb = pixels[yi + 2]) * rbs;
+	            a_sum += (stack.a = pa = pixels[yi + 3]) * rbs;
+
+	            r_in_sum += pr;
+	            g_in_sum += pg;
+	            b_in_sum += pb;
+	            a_in_sum += pa;
+
+	            stack = stack.next;
+
+	            if (i < heightMinus1) {
+	                yp += width;
+	            }
+	        }
+
+	        yi = x;
+	        stackIn = stackStart;
+	        stackOut = stackEnd;
+	        for (y = 0; y < height; y++) {
+	            p = yi << 2;
+	            pixels[p + 3] = pa = a_sum * mul_sum >> shg_sum;
+	            if (pa > 0) {
+	                pa = 255 / pa;
+	                pixels[p] = (r_sum * mul_sum >> shg_sum) * pa;
+	                pixels[p + 1] = (g_sum * mul_sum >> shg_sum) * pa;
+	                pixels[p + 2] = (b_sum * mul_sum >> shg_sum) * pa;
+	            } else {
+	                pixels[p] = pixels[p + 1] = pixels[p + 2] = 0;
+	            }
+
+	            r_sum -= r_out_sum;
+	            g_sum -= g_out_sum;
+	            b_sum -= b_out_sum;
+	            a_sum -= a_out_sum;
+
+	            r_out_sum -= stackIn.r;
+	            g_out_sum -= stackIn.g;
+	            b_out_sum -= stackIn.b;
+	            a_out_sum -= stackIn.a;
+
+	            p = x + ((p = y + radiusPlus1) < heightMinus1 ? p : heightMinus1) * width << 2;
+
+	            r_sum += r_in_sum += stackIn.r = pixels[p];
+	            g_sum += g_in_sum += stackIn.g = pixels[p + 1];
+	            b_sum += b_in_sum += stackIn.b = pixels[p + 2];
+	            a_sum += a_in_sum += stackIn.a = pixels[p + 3];
+
+	            stackIn = stackIn.next;
+
+	            r_out_sum += pr = stackOut.r;
+	            g_out_sum += pg = stackOut.g;
+	            b_out_sum += pb = stackOut.b;
+	            a_out_sum += pa = stackOut.a;
+
+	            r_in_sum -= pr;
+	            g_in_sum -= pg;
+	            b_in_sum -= pb;
+	            a_in_sum -= pa;
+
+	            stackOut = stackOut.next;
+
+	            yi += width;
+	        }
+	    }
+	    return imageData;
+	}
+
+	function processCanvasRGB(canvas, top_x, top_y, width, height, radius) {
+	    if (isNaN(radius) || radius < 1) return;
+	    radius |= 0;
+
+	    var imageData = getImageDataFromCanvas(canvas, top_x, top_y, width, height);
+	    imageData = processImageDataRGB(imageData, top_x, top_y, width, height, radius);
+
+	    canvas.getContext('2d').putImageData(imageData, top_x, top_y);
+	}
+
+	function processImageDataRGB(imageData, top_x, top_y, width, height, radius) {
+	    var pixels = imageData.data;
+
+	    var x, y, i, p, yp, yi, yw, r_sum, g_sum, b_sum, r_out_sum, g_out_sum, b_out_sum, r_in_sum, g_in_sum, b_in_sum, pr, pg, pb, rbs;
+
+	    var div = radius + radius + 1;
+	    var w4 = width << 2;
+	    var widthMinus1 = width - 1;
+	    var heightMinus1 = height - 1;
+	    var radiusPlus1 = radius + 1;
+	    var sumFactor = radiusPlus1 * (radiusPlus1 + 1) / 2;
+
+	    var stackStart = new BlurStack();
+	    var stack = stackStart;
+	    for (i = 1; i < div; i++) {
+	        stack = stack.next = new BlurStack();
+	        if (i == radiusPlus1) var stackEnd = stack;
+	    }
+	    stack.next = stackStart;
+	    var stackIn = null;
+	    var stackOut = null;
+
+	    yw = yi = 0;
+
+	    var mul_sum = mul_table[radius];
+	    var shg_sum = shg_table[radius];
+
+	    for (y = 0; y < height; y++) {
+	        r_in_sum = g_in_sum = b_in_sum = r_sum = g_sum = b_sum = 0;
+
+	        r_out_sum = radiusPlus1 * (pr = pixels[yi]);
+	        g_out_sum = radiusPlus1 * (pg = pixels[yi + 1]);
+	        b_out_sum = radiusPlus1 * (pb = pixels[yi + 2]);
+
+	        r_sum += sumFactor * pr;
+	        g_sum += sumFactor * pg;
+	        b_sum += sumFactor * pb;
+
+	        stack = stackStart;
+
+	        for (i = 0; i < radiusPlus1; i++) {
+	            stack.r = pr;
+	            stack.g = pg;
+	            stack.b = pb;
+	            stack = stack.next;
+	        }
+
+	        for (i = 1; i < radiusPlus1; i++) {
+	            p = yi + ((widthMinus1 < i ? widthMinus1 : i) << 2);
+	            r_sum += (stack.r = pr = pixels[p]) * (rbs = radiusPlus1 - i);
+	            g_sum += (stack.g = pg = pixels[p + 1]) * rbs;
+	            b_sum += (stack.b = pb = pixels[p + 2]) * rbs;
+
+	            r_in_sum += pr;
+	            g_in_sum += pg;
+	            b_in_sum += pb;
+
+	            stack = stack.next;
+	        }
+
+	        stackIn = stackStart;
+	        stackOut = stackEnd;
+	        for (x = 0; x < width; x++) {
+	            pixels[yi] = r_sum * mul_sum >> shg_sum;
+	            pixels[yi + 1] = g_sum * mul_sum >> shg_sum;
+	            pixels[yi + 2] = b_sum * mul_sum >> shg_sum;
+
+	            r_sum -= r_out_sum;
+	            g_sum -= g_out_sum;
+	            b_sum -= b_out_sum;
+
+	            r_out_sum -= stackIn.r;
+	            g_out_sum -= stackIn.g;
+	            b_out_sum -= stackIn.b;
+
+	            p = yw + ((p = x + radius + 1) < widthMinus1 ? p : widthMinus1) << 2;
+
+	            r_in_sum += stackIn.r = pixels[p];
+	            g_in_sum += stackIn.g = pixels[p + 1];
+	            b_in_sum += stackIn.b = pixels[p + 2];
+
+	            r_sum += r_in_sum;
+	            g_sum += g_in_sum;
+	            b_sum += b_in_sum;
+
+	            stackIn = stackIn.next;
+
+	            r_out_sum += pr = stackOut.r;
+	            g_out_sum += pg = stackOut.g;
+	            b_out_sum += pb = stackOut.b;
+
+	            r_in_sum -= pr;
+	            g_in_sum -= pg;
+	            b_in_sum -= pb;
+
+	            stackOut = stackOut.next;
+
+	            yi += 4;
+	        }
+	        yw += width;
+	    }
+
+	    for (x = 0; x < width; x++) {
+	        g_in_sum = b_in_sum = r_in_sum = g_sum = b_sum = r_sum = 0;
+
+	        yi = x << 2;
+	        r_out_sum = radiusPlus1 * (pr = pixels[yi]);
+	        g_out_sum = radiusPlus1 * (pg = pixels[yi + 1]);
+	        b_out_sum = radiusPlus1 * (pb = pixels[yi + 2]);
+
+	        r_sum += sumFactor * pr;
+	        g_sum += sumFactor * pg;
+	        b_sum += sumFactor * pb;
+
+	        stack = stackStart;
+
+	        for (i = 0; i < radiusPlus1; i++) {
+	            stack.r = pr;
+	            stack.g = pg;
+	            stack.b = pb;
+	            stack = stack.next;
+	        }
+
+	        yp = width;
+
+	        for (i = 1; i <= radius; i++) {
+	            yi = yp + x << 2;
+
+	            r_sum += (stack.r = pr = pixels[yi]) * (rbs = radiusPlus1 - i);
+	            g_sum += (stack.g = pg = pixels[yi + 1]) * rbs;
+	            b_sum += (stack.b = pb = pixels[yi + 2]) * rbs;
+
+	            r_in_sum += pr;
+	            g_in_sum += pg;
+	            b_in_sum += pb;
+
+	            stack = stack.next;
+
+	            if (i < heightMinus1) {
+	                yp += width;
+	            }
+	        }
+
+	        yi = x;
+	        stackIn = stackStart;
+	        stackOut = stackEnd;
+	        for (y = 0; y < height; y++) {
+	            p = yi << 2;
+	            pixels[p] = r_sum * mul_sum >> shg_sum;
+	            pixels[p + 1] = g_sum * mul_sum >> shg_sum;
+	            pixels[p + 2] = b_sum * mul_sum >> shg_sum;
+
+	            r_sum -= r_out_sum;
+	            g_sum -= g_out_sum;
+	            b_sum -= b_out_sum;
+
+	            r_out_sum -= stackIn.r;
+	            g_out_sum -= stackIn.g;
+	            b_out_sum -= stackIn.b;
+
+	            p = x + ((p = y + radiusPlus1) < heightMinus1 ? p : heightMinus1) * width << 2;
+
+	            r_sum += r_in_sum += stackIn.r = pixels[p];
+	            g_sum += g_in_sum += stackIn.g = pixels[p + 1];
+	            b_sum += b_in_sum += stackIn.b = pixels[p + 2];
+
+	            stackIn = stackIn.next;
+
+	            r_out_sum += pr = stackOut.r;
+	            g_out_sum += pg = stackOut.g;
+	            b_out_sum += pb = stackOut.b;
+
+	            r_in_sum -= pr;
+	            g_in_sum -= pg;
+	            b_in_sum -= pb;
+
+	            stackOut = stackOut.next;
+
+	            yi += width;
+	        }
+	    }
+
+	    return imageData;
+	}
+
+	function BlurStack() {
+	    this.r = 0;
+	    this.g = 0;
+	    this.b = 0;
+	    this.a = 0;
+	    this.next = null;
+	}
+
+	module.exports = {
+	    image: processImage,
+	    canvasRGBA: processCanvasRGBA,
+	    canvasRGB: processCanvasRGB,
+	    imageDataRGBA: processImageDataRGBA,
+	    imageDataRGB: processImageDataRGB
+	};
+
+/***/ },
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;"use strict";
@@ -29732,31 +30310,31 @@
 	})();
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(252);
-
-	// require('./../lib/react-group/css/index');
-	__webpack_require__(250);
-	__webpack_require__(251);
-
-	__webpack_require__(234);
 	__webpack_require__(253);
 
+	// require('./../lib/react-group/css/index');
+	__webpack_require__(251);
+	__webpack_require__(252);
+
+	__webpack_require__(235);
+	__webpack_require__(254);
+
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 
-	var _PictureDraw = __webpack_require__(248);
+	var _PictureDraw = __webpack_require__(249);
 
 	var _PictureDraw2 = _interopRequireDefault(_PictureDraw);
 
-	var _MethodSection = __webpack_require__(247);
+	var _MethodSection = __webpack_require__(248);
 
 	var _MethodSection2 = _interopRequireDefault(_MethodSection);
 
@@ -29785,7 +30363,7 @@
 	// 送給php產生圖檔，以進一步存下新的圖檔
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29878,7 +30456,7 @@
 	;
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30112,7 +30690,7 @@
 	exports.default = ImageDataOriginal;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30860,7 +31438,7 @@
 	;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30897,25 +31475,33 @@
 
 	var _GloablTools2 = _interopRequireDefault(_GloablTools);
 
-	var _MethodControlDot = __webpack_require__(241);
+	var _MethodControlDot = __webpack_require__(242);
 
 	var _MethodControlDot2 = _interopRequireDefault(_MethodControlDot);
 
-	var _MethodControlAlpha = __webpack_require__(239);
+	var _MethodControlAlpha = __webpack_require__(240);
 
 	var _MethodControlAlpha2 = _interopRequireDefault(_MethodControlAlpha);
 
-	var _MethodControlSaturate = __webpack_require__(243);
+	var _MethodControlSaturate = __webpack_require__(244);
 
 	var _MethodControlSaturate2 = _interopRequireDefault(_MethodControlSaturate);
 
-	var _MethodControlContrast = __webpack_require__(240);
+	var _MethodControlContrast = __webpack_require__(241);
 
 	var _MethodControlContrast2 = _interopRequireDefault(_MethodControlContrast);
 
-	var _MethodControlInvert = __webpack_require__(242);
+	var _MethodControlInvert = __webpack_require__(243);
 
 	var _MethodControlInvert2 = _interopRequireDefault(_MethodControlInvert);
+
+	var _MethodControlBlur = __webpack_require__(263);
+
+	var _MethodControlBlur2 = _interopRequireDefault(_MethodControlBlur);
+
+	var _MethodControlText = __webpack_require__(264);
+
+	var _MethodControlText2 = _interopRequireDefault(_MethodControlText);
 
 	var _MethodSettings = __webpack_require__(29);
 
@@ -31023,12 +31609,32 @@
 	                        methodStore: this.props.methodStore,
 	                        control: _json_control })
 	                );
+	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_BLUR) {
+	                _json_control = {
+	                    range: 0
+	                };
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlBlur2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
 	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_INVERT) {
 	                _json_control = {};
 	                return _react2.default.createElement(
 	                    'div',
 	                    { className: _scope.props.className },
 	                    _react2.default.createElement(_MethodControlInvert2.default, {
+	                        methodStore: this.props.methodStore,
+	                        control: _json_control })
+	                );
+	            } else if (this.props.outputResult.method === _Settings2.default.METHOD_TEXT) {
+	                _json_control = {};
+	                return _react2.default.createElement(
+	                    'div',
+	                    { className: _scope.props.className },
+	                    _react2.default.createElement(_MethodControlText2.default, {
 	                        methodStore: this.props.methodStore,
 	                        control: _json_control })
 	                );
@@ -31063,7 +31669,7 @@
 	};
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31156,7 +31762,7 @@
 	        value: function arrangeState(json) {
 	            json = json || {};
 	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
-	                    range: this.refs && this.refs.range ? this.refs.range.value : this.props.control.range
+	                    range: this.refs && this.refs.range ? Number(this.refs.range.value) : Number(this.props.control.range)
 	                }
 	            }, { imgObj: {
 	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
@@ -31216,7 +31822,7 @@
 	        value: function handleChangeRange(e) {
 	            var _json_new = _Extend2.default.deep(this.state, {
 	                control: {
-	                    range: this.refs.range.value
+	                    range: Number(this.refs.range.value)
 	                }
 	            });
 	            this.setState(_json_new);
@@ -31285,7 +31891,7 @@
 	};
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31377,7 +31983,7 @@
 	        value: function arrangeState(json) {
 	            json = json || {};
 	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
-	                    range: this.refs && this.refs.range ? this.refs.range.value : this.props.control.range
+	                    range: this.refs && this.refs.range ? Number(this.refs.range.value) : Number(this.props.control.range)
 	                }
 	            }, { imgObj: {
 	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
@@ -31437,7 +32043,7 @@
 	        value: function handleChangeRange(e) {
 	            var _json_new = _Extend2.default.deep(this.state, {
 	                control: {
-	                    range: this.refs.range.value
+	                    range: Number(this.refs.range.value)
 	                }
 	            });
 	            this.setState(_json_new);
@@ -31506,7 +32112,7 @@
 	};
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31890,7 +32496,7 @@
 	};
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31984,7 +32590,7 @@
 	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state,
 	            // { control:
 	            //     {
-	            //         range: (this.refs && this.refs.range)? this.refs.range.value : this.props.control.range
+	            //         range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range)
 	            //     }
 	            // },
 	            { imgObj: {
@@ -32085,7 +32691,7 @@
 	};
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32177,7 +32783,7 @@
 	        value: function arrangeState(json) {
 	            json = json || {};
 	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
-	                    range: this.refs && this.refs.range ? this.refs.range.value : this.props.control.range
+	                    range: this.refs && this.refs.range ? Number(this.refs.range.value) : Number(this.props.control.range)
 	                }
 	            }, { imgObj: {
 	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
@@ -32237,7 +32843,7 @@
 	        value: function handleChangeRange(e) {
 	            var _json_new = _Extend2.default.deep(this.state, {
 	                control: {
-	                    range: this.refs.range.value
+	                    range: Number(this.refs.range.value)
 	                }
 	            });
 	            this.setState(_json_new);
@@ -32306,7 +32912,7 @@
 	};
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32464,7 +33070,7 @@
 	// }
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32479,11 +33085,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _MethodOption = __webpack_require__(244);
+	var _MethodOption = __webpack_require__(245);
 
 	var _MethodOption2 = _interopRequireDefault(_MethodOption);
 
-	var _MethodControl = __webpack_require__(238);
+	var _MethodControl = __webpack_require__(239);
 
 	var _MethodControl2 = _interopRequireDefault(_MethodControl);
 
@@ -32643,7 +33249,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32711,7 +33317,7 @@
 	}
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32742,11 +33348,11 @@
 
 	var _redux = __webpack_require__(204);
 
-	var _MethodReact = __webpack_require__(245);
+	var _MethodReact = __webpack_require__(246);
 
 	var _MethodReact2 = _interopRequireDefault(_MethodReact);
 
-	var _MethodReducer = __webpack_require__(246);
+	var _MethodReducer = __webpack_require__(247);
 
 	var _MethodReducer2 = _interopRequireDefault(_MethodReducer);
 
@@ -32885,6 +33491,8 @@
 	                    _scope.imageDataComputeMethod.methodContrast(_json, _GloablData2.default.getSizeSetting());
 	                } else if (_str_method === _Settings2.default.METHOD_INVERT) {
 	                    _scope.imageDataComputeMethod.methodInvert(_json, _GloablData2.default.getSizeSetting());
+	                } else if (_str_method === _Settings2.default.METHOD_BLUR) {
+	                    _scope.imageDataComputeMethod.methodBlur(_json, _GloablData2.default.getSizeSetting());
 	                } else {
 	                    _scope.imageDataComputeMethod.methodOrigin(_json, _GloablData2.default.getSizeSetting());
 	                }
@@ -32956,7 +33564,7 @@
 	*/
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32975,7 +33583,7 @@
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
-	var _MainImageFilter = __webpack_require__(237);
+	var _MainImageFilter = __webpack_require__(238);
 
 	var _MainImageFilter2 = _interopRequireDefault(_MainImageFilter);
 
@@ -32983,15 +33591,15 @@
 
 	var _ImageDataComputeMethod2 = _interopRequireDefault(_ImageDataComputeMethod);
 
-	var _ImageDataComputeProcess = __webpack_require__(235);
+	var _ImageDataComputeProcess = __webpack_require__(236);
 
 	var _ImageDataComputeProcess2 = _interopRequireDefault(_ImageDataComputeProcess);
 
-	var _ImageDataOriginal = __webpack_require__(236);
+	var _ImageDataOriginal = __webpack_require__(237);
 
 	var _ImageDataOriginal2 = _interopRequireDefault(_ImageDataOriginal);
 
-	var _StepMethod = __webpack_require__(249);
+	var _StepMethod = __webpack_require__(250);
 
 	var _StepMethod2 = _interopRequireDefault(_StepMethod);
 
@@ -33229,6 +33837,8 @@
 						_scope.imageDataComputeMethod.methodContrast(_json, _scope.getEmitSetting());
 					} else if (_str_method === _Settings2.default.METHOD_INVERT) {
 						_scope.imageDataComputeMethod.methodInvert(_json, _scope.getEmitSetting());
+					} else if (_str_method === _Settings2.default.METHOD_BLUR) {
+						_scope.imageDataComputeMethod.methodBlur(_json, _scope.getEmitSetting());
 					} else {
 						_scope.imageDataComputeMethod.methodOrigin(_json, _scope.getEmitSetting());
 					}
@@ -33329,7 +33939,7 @@
 	;
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33425,12 +34035,6 @@
 	;
 
 /***/ },
-/* 250 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
 /* 251 */
 /***/ function(module, exports) {
 
@@ -33447,6 +34051,465 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 254 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 255 */,
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(15);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _Extend = __webpack_require__(12);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Settings = __webpack_require__(6);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _GloablData = __webpack_require__(20);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControlBlur = function (_React$Component) {
+	    _inherits(MethodControlBlur, _React$Component);
+
+	    function MethodControlBlur(props) {
+	        _classCallCheck(this, MethodControlBlur);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlBlur).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        _this.handleChangeRange = _this.handleChangeRange.bind(_this);
+	        _this.submitAction = _this.submitAction.bind(_this);
+	        _this.prevewAction = _this.prevewAction.bind(_this);
+	        _this.listenPreviewImageChange = _this.listenPreviewImageChange.bind(_this);
+
+	        return _this;
+	    }
+
+	    _createClass(MethodControlBlur, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().on('preview.image.object.data.changing', _scope.listenPreviewImageChange);
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().off('preview.image.object.data.changing', _scope.listenPreviewImageChange);
+	        }
+	    }, {
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_BLUR;
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'listenPreviewImageChange',
+	        value: function listenPreviewImageChange() {
+	            var _scope = this;
+	            var _json_new = _scope.arrangeState({ imgObj: { src: _GloablData2.default.getImageObjectSrc() } });
+	            _scope.setState(_json_new);
+	        }
+	    }, {
+	        key: 'arrangeState',
+	        value: function arrangeState(json) {
+	            json = json || {};
+	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state, { control: {
+	                    range: this.refs && this.refs.range ? Number(this.refs.range.value) : Number(this.props.control.range)
+	                }
+	            }, { imgObj: {
+	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
+	                }
+	            });
+	            return _Extend2.default.deep(_json_output, json);
+	        }
+	    }, {
+	        key: 'getNowImageDataBase64',
+	        value: function getNowImageDataBase64() {
+	            var _data_now = _GloablData2.default.getNowImageData();
+	            return _data_now.data;
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next, callback) {
+	            var _str_base64 = this.getNowImageDataBase64();
+	            if (this.state) {
+	                this.setState({
+	                    control: json_next.control,
+	                    imgObj: this.state.imgObj
+	                });
+	            } else {
+	                this.state = {
+	                    control: json_next.control,
+	                    imgObj: {
+	                        src: _str_base64 || _GloablData2.default.getImageObjectSrc()
+	                    }
+	                };
+	            }
+	            if (callback) {
+	                callback();
+	            }
+	        }
+	    }, {
+	        key: 'prevewAction',
+	        value: function prevewAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.previewing', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'handleChangeRange',
+	        value: function handleChangeRange(e) {
+	            var _json_new = _Extend2.default.deep(this.state, {
+	                control: {
+	                    range: Number(this.refs.range.value)
+	                }
+	            });
+	            this.setState(_json_new);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            var _json_now_image = _GloablData2.default.getNowImageData();
+	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'pkg-control' },
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-right pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
+	                ) : null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-left' },
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'range',
+	                            step: '1',
+	                            min: '0',
+	                            max: '180',
+	                            value: this.state.control.range,
+	                            onChange: this.handleChangeRange }),
+	                        ' ',
+	                        this.state.control.range,
+	                        ' / 180'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.prevewAction },
+	                            '預覽'
+	                        ) : null,
+	                        _react2.default.createElement(
+	                            'button',
+	                            { onClick: _scope.submitAction },
+	                            '確定'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlBlur;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlBlur;
+	;
+
+	MethodControlBlur.propTypes = {
+	    control: _react2.default.PropTypes.object
+	}, MethodControlBlur.defaultProps = {
+	    control: {}
+	};
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _GloablTools = __webpack_require__(15);
+
+	var _GloablTools2 = _interopRequireDefault(_GloablTools);
+
+	var _Extend = __webpack_require__(12);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Settings = __webpack_require__(6);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _GloablData = __webpack_require__(20);
+
+	var _GloablData2 = _interopRequireDefault(_GloablData);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MethodControlText = function (_React$Component) {
+	    _inherits(MethodControlText, _React$Component);
+
+	    function MethodControlText(props) {
+	        _classCallCheck(this, MethodControlText);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MethodControlText).call(this, props));
+
+	        _this.arrangeProps(props);
+
+	        _this.submitAction = _this.submitAction.bind(_this);
+	        _this.prevewAction = _this.prevewAction.bind(_this);
+	        _this.listenPreviewImageChange = _this.listenPreviewImageChange.bind(_this);
+
+	        return _this;
+	    }
+
+	    _createClass(MethodControlText, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().on('preview.image.object.data.changing', _scope.listenPreviewImageChange);
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().off('preview.image.object.data.changing', _scope.listenPreviewImageChange);
+	        }
+	    }, {
+	        key: 'getComponentMethod',
+	        value: function getComponentMethod() {
+	            return _Settings2.default.METHOD_TEXT;
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.arrangeProps(nextProps);
+	        }
+	    }, {
+	        key: 'listenPreviewImageChange',
+	        value: function listenPreviewImageChange() {
+	            var _scope = this;
+	            var _json_new = _scope.arrangeState({ imgObj: { src: _GloablData2.default.getImageObjectSrc() } });
+	            _scope.setState(_json_new);
+	        }
+	    }, {
+	        key: 'arrangeState',
+	        value: function arrangeState(json) {
+	            json = json || {};
+	            var _json_output = _Extend2.default.deep({}, { control: this.props.control }, this.state,
+	            // { control:
+	            //     {
+	            //         range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range)
+	            //     }
+	            // },
+	            { imgObj: {
+	                    src: this.state && this.state.imgObj ? this.state.imgObj.src : _GloablData2.default.getImageObjectSrc()
+	                }
+	            });
+	            return _Extend2.default.deep(_json_output, json);
+	        }
+	    }, {
+	        key: 'getNowImageDataBase64',
+	        value: function getNowImageDataBase64() {
+	            var _data_now = _GloablData2.default.getNowImageData();
+	            return _data_now.data;
+	        }
+	    }, {
+	        key: 'arrangeProps',
+	        value: function arrangeProps(json_next, callback) {
+	            var _str_base64 = this.getNowImageDataBase64();
+	            if (this.state) {
+	                this.setState({
+	                    control: json_next.control,
+	                    imgObj: this.state.imgObj
+	                });
+	            } else {
+	                this.state = {
+	                    control: json_next.control,
+	                    imgObj: {
+	                        src: _str_base64 || _GloablData2.default.getImageObjectSrc()
+	                    }
+	                };
+	            }
+	            if (callback) {
+	                callback();
+	            }
+	        }
+	    }, {
+	        key: 'prevewAction',
+	        value: function prevewAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.previewing', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'submitAction',
+	        value: function submitAction() {
+	            var _scope = this;
+	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
+	                from: _GloablData2.default.getFrom(),
+	                method: _scope.getComponentMethod(),
+	                control: _scope.state.control
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            var _json_now_image = _GloablData2.default.getNowImageData();
+	            var _str_img_src = this.state && this.state.imgObj ? this.state.imgObj.src : '';
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'pkg-control' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-center' },
+	                    '輸入文字：',
+	                    _react2.default.createElement('input', { type: 'text', name: 'text', value: '', placeholder: '請輸入文字' }),
+	                    _react2.default.createElement('br', null),
+	                    '文字大小：',
+	                    _react2.default.createElement('input', { type: 'range', name: 'size', min: '9', max: '80', step: '1' }),
+	                    _react2.default.createElement('br', null),
+	                    '文字顏色：',
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '#f00'
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    '文字外框色：',
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '#f00'
+	                    ),
+	                    _react2.default.createElement('br', null),
+	                    '文字位置（水平）：置左/置中/置右',
+	                    _react2.default.createElement('br', null),
+	                    '文字位置（垂直）：置上/置中/置下',
+	                    _react2.default.createElement('br', null)
+	                ),
+	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-center pkg-conpreview' },
+	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
+	                ) : null,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'pkg-control-bottom' },
+	                    _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                        'button',
+	                        { onClick: _scope.prevewAction },
+	                        '預覽'
+	                    ) : null,
+	                    _react2.default.createElement(
+	                        'button',
+	                        { onClick: _scope.submitAction },
+	                        '確定'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MethodControlText;
+	}(_react2.default.Component);
+
+	exports.default = MethodControlText;
+	;
+
+	MethodControlText.propTypes = {
+	    control: _react2.default.PropTypes.object
+	}, MethodControlText.defaultProps = {
+	    control: {}
+	};
 
 /***/ }
 /******/ ]);

@@ -58,6 +58,7 @@
     "reset-css": "^2.0.2011012603",
     "rgb-hex": "^1.0.0",
     "script-loader": "^0.6.1",
+    "stackblur-canvas": "^1.2.1",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",

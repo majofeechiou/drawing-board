@@ -218,6 +218,9 @@ export default class PictureDraw extends GlobalConst {
 				}else if( _str_method===Settings.METHOD_INVERT ){
 					_scope.imageDataComputeMethod.methodInvert( _json, _scope.getEmitSetting() );
 
+				}else if( _str_method===Settings.METHOD_BLUR ){
+					_scope.imageDataComputeMethod.methodBlur( _json, _scope.getEmitSetting() );
+
 				}else{
 					_scope.imageDataComputeMethod.methodOrigin( _json, _scope.getEmitSetting() );
 				}

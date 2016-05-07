@@ -125,6 +125,9 @@ export default class MethodSection extends GlobalConst {
             }else if( _str_method===Settings.METHOD_INVERT ){
                 _scope.imageDataComputeMethod.methodInvert( _json, GloablData.getSizeSetting() );
 
+            }else if( _str_method===Settings.METHOD_BLUR ){
+                _scope.imageDataComputeMethod.methodBlur( _json, GloablData.getSizeSetting() );
+
             }else{
                 _scope.imageDataComputeMethod.methodOrigin( _json, GloablData.getSizeSetting() );
             }

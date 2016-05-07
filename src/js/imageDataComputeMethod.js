@@ -3,6 +3,7 @@ import Tools from './Tools';
 import HexRgb from 'hex-rgb';
 import Settings from './Settings';
 import Extend from 'Extend';
+import StackBlur from 'stackblur-canvas'; // https://github.com/flozz/StackBlur
 
 // 運算的方式
 // 寬高也是最後輸出的圖片的寬高
@@ -89,6 +90,31 @@ export default class ImageDataComputeMethod extends Tools {
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	// 模糊效果
+	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx
+	methodBlur( json, json_setting ){
+		let _scope = this;
+
+		json = _scope.methodVars( json );
+		json_setting = json_setting || {} ;
+
+		console.log( 'json :::: ', json );
+		console.log( 'json_setting :::: ', json_setting );
+
+		let _num_compute_width = _scope.getComputeWidth(),
+			_num_compute_height = _scope.getComputeHeight(),
+			_num_range = json.control.range;
+
+        let _json_image_data = _scope.obj_canvas_2d.getImageData(0, 0, _num_compute_width, _num_compute_height);
+
+        let _json_image_data_new = StackBlur.imageDataRGBA(_json_image_data, 0, 0, _num_compute_width, _num_compute_height, _num_range);
+
+        _scope.obj_canvas_2d.putImageData(_json_image_data_new, 0, 0);
+
+        _scope.emitAfterMethod( json );
+
+	}
 
 	// 在照片中添加纹理
 	// https://msdn.microsoft.com/zh-cn/library/gg589486(v=vs.85).aspx

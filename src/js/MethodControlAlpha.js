@@ -53,7 +53,7 @@ export default class MethodControlAlpha extends React.Component {
             this.state, 
             { control: 
                 {
-                    range: (this.refs && this.refs.range)? this.refs.range.value : this.props.control.range 
+                    range: (this.refs && this.refs.range)? Number(this.refs.range.value) : Number(this.props.control.range) 
                 }
             },
             { imgObj: 
@@ -111,7 +111,7 @@ export default class MethodControlAlpha extends React.Component {
     handleChangeRange(e) {
         let _json_new = Extend.deep( this.state, {
             control: {
-                range: this.refs.range.value
+                range: Number(this.refs.range.value)
             }
         } );
         this.setState( _json_new );
