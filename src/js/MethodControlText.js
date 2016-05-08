@@ -176,13 +176,15 @@ export default class MethodControlText extends React.Component {
         return this.all_pos;
     }
 
-    textColorPickAction( str_color ){
-        let _json_state = this.arrangeState({control:{textColor:str_color}});
+    textColorPickAction( str_color, json ){
+        json = json || {} ;
+        let _json_state = this.arrangeState({control:{textColor:str_color}, showTextColorPicker:json.show});
         this.setState( _json_state );
     }
 
-    borderColorPickAction( str_color ){
-        let _json_state = this.arrangeState({control:{borderColor:str_color}});
+    borderColorPickAction( str_color, json ){
+        json = json || {} ;
+        let _json_state = this.arrangeState({control:{borderColor:str_color}, showBorderColorPicker:json.show});
         this.setState( _json_state );
     }
 
@@ -201,6 +203,12 @@ export default class MethodControlText extends React.Component {
         let _json_sub_store = this.props.methodStore.getState().sub;
         let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
+
+        let _str_textcolor_origin = _scope.state.control.textColor;
+        let _str_textcolor_pair = Utils.getPairColor(_str_textcolor_origin);
+        let _str_bordercolor_origin = _scope.state.control.borderColor;
+        let _str_bordercolor_pair = Utils.getPairColor(_str_bordercolor_origin);
+
         return (
             <div className="pkg-control">
                 <div className="pkg-control-left">
@@ -213,16 +221,18 @@ export default class MethodControlText extends React.Component {
                     <div>
                         文字顏色：
                         <span onClick={()=>{_scope.showTextColorPicker(true);}}
-                            style={{display: 'inline-block',background: _scope.state.control.textColor, padding: '5px', color: 'white'}}>
-                            {_scope.state.control.textColor} - {JSON.stringify(_scope.state.showTextColorPicker)}
+                            className="ui-colortag"
+                            style={{background:_str_textcolor_origin, color:_str_textcolor_pair}}>
+                            {_str_textcolor_origin} - {JSON.stringify(_scope.state.showTextColorPicker)}
                         </span>
                     </div>
 
                     <div>
                         文字外框色：
                         <span onClick={()=>{_scope.showBorderColorPicker(true);}}
-                            style={{display: 'inline-block',background: _scope.state.control.borderColor, padding: '5px', color: 'white'}}>
-                            {_scope.state.control.borderColor} - {JSON.stringify(_scope.state.showBorderColorPicker)}
+                            className="ui-colortag"
+                            style={{background:_str_bordercolor_origin, color:_str_bordercolor_pair}}>
+                            {_str_bordercolor_origin} - {JSON.stringify(_scope.state.showBorderColorPicker)}
                         </span>
                     </div>
 

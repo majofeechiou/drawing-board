@@ -30,6 +30,13 @@ $width_size_confirm: 4em;
     }
 }
 
+@define-mixin ui-colortag {
+    display: inline-block;
+    padding: $tiny_spacing;
+    width: 9em;
+    text-align: center;
+}
+
 html, body {
     font-size: 15px;
 }
@@ -365,6 +372,17 @@ body *  {
         right: $block_spacing;
         top: $block_spacing;
     }
+    .pkg-colorpicker-action {
+        margin-top: $wrap_spacing;
+        text-align: center;
+        .pkg-colorpicker-action-picked {
+            @mixin ui-colortag;
+        }
+    }
+}
+
+.ui-colortag {
+    @mixin ui-colortag;
 }
 
 @media screen and ( max-width: 767px ){

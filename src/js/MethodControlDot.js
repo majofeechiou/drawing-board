@@ -8,6 +8,7 @@ import GloablData from './GloablData';
 import ColorPickerCpt from './ColorPickerCpt';
 import MethodSettings from './MethodSettings';
 import ReactGroup from 'ReactGroup';
+import Utils from './Utils';
 
 // http://jslog.com/react-color-picker/
 // https://www.npmjs.com/package/react-color-picker
@@ -148,9 +149,11 @@ export default class MethodControlDot extends React.Component {
         return ['shape_name'];
     }
 
-    colorPick( str_color ){
+    colorPick( str_color, json ){
+        json = json || {} ;
         let _json_state = this.arrangeState();
         _json_state.control.color = str_color ;
+        _json_state.showColorPicker = json.show ;
         this.setState( _json_state );
     }
 
@@ -167,6 +170,8 @@ export default class MethodControlDot extends React.Component {
         let _json_sub_store = this.props.methodStore.getState().sub;
         let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
+        let _str_color_origin = _scope.state.control.color;
+        let _str_color_pair = Utils.getPairColor(_str_color_origin);
 
         return (
             <div className="pkg-control">
@@ -204,7 +209,8 @@ export default class MethodControlDot extends React.Component {
                     <div>
                         顏色 ： 
                         <span onClick={()=>{_scope.showColorPicker(true);}}
-                            style={{display: 'inline-block',background: _scope.state.control.color, padding: '5px', color: 'white'}}>
+                            className="ui-colortag"
+                            style={{background: _str_color_origin, color: _str_color_pair}}>
                             {_scope.state.control.color} - {JSON.stringify(_scope.state.showColorPicker)}
                         </span>
                     </div>

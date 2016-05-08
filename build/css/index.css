@@ -469,6 +469,18 @@ body *  {
     top: 25px;
 }
 
+.pkg-colorpicker .pkg-colorpicker-action {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pkg-colorpicker .pkg-colorpicker-action .pkg-colorpicker-action-picked {
+    display: inline-block;
+    padding: 0.3em;
+    width: 9em;
+    text-align: center;
+}
+
 .pkg-colorpicker:before {
     position: fixed;
     width: 100%;
@@ -481,6 +493,13 @@ body *  {
 
 .pkg-colorpicker.pkg-colorpicker_on {
     display: block;
+}
+
+.ui-colortag {
+    display: inline-block;
+    padding: 0.3em;
+    width: 9em;
+    text-align: center;
 }
 
 @media screen and ( max-width: 767px ){

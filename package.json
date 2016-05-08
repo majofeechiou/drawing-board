@@ -30,6 +30,7 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.3.13",
     "classnames": "^2.2.3",
+    "color": "^0.11.1",
     "component-emitter": "github:component/emitter",
     "css-loader": "^0.23.1",
     "deep-extend": "^0.4.1",
