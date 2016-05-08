@@ -30405,14 +30405,14 @@
 
 	'use strict';
 
-	__webpack_require__(255);
+	__webpack_require__(256);
 
 	// require('./../lib/react-group/css/index');
-	__webpack_require__(253);
 	__webpack_require__(254);
+	__webpack_require__(255);
 
 	__webpack_require__(235);
-	__webpack_require__(256);
+	__webpack_require__(257);
 
 /***/ },
 /* 235 */
@@ -30420,11 +30420,11 @@
 
 	"use strict";
 
-	var _PictureDraw = __webpack_require__(251);
+	var _PictureDraw = __webpack_require__(252);
 
 	var _PictureDraw2 = _interopRequireDefault(_PictureDraw);
 
-	var _MethodSection = __webpack_require__(250);
+	var _MethodSection = __webpack_require__(251);
 
 	var _MethodSection2 = _interopRequireDefault(_MethodSection);
 
@@ -30454,6 +30454,118 @@
 
 /***/ },
 /* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactColorPicker = __webpack_require__(133);
+
+	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
+
+	var _Extend = __webpack_require__(9);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // https://www.npmjs.com/package/react-color-picker
+
+
+	var ColorPickerCpt = function (_React$Component) {
+	    _inherits(ColorPickerCpt, _React$Component);
+
+	    function ColorPickerCpt(props) {
+	        _classCallCheck(this, ColorPickerCpt);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ColorPickerCpt).call(this, props));
+
+	        var _scope = _this;
+
+	        _scope.state = {
+	            color: props.color,
+	            show: props.show
+	        };
+
+	        _this.closeShow = _this.closeShow.bind(_this);
+
+	        return _this;
+	    }
+
+	    _createClass(ColorPickerCpt, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.setState(_Extend2.default.deep({}, this.state, _extends({}, nextProps)));
+	        }
+	    }, {
+	        key: 'hideShow',
+	        value: function hideShow() {
+	            this.setState(_Extend2.default.deep({}, this.state, { show: false }));
+	        }
+	    }, {
+	        key: 'closeShow',
+	        value: function closeShow() {
+	            this.hideShow();
+	            this.props.onShowChanged(false);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _str_cn = this.state.show === true ? 'pkg-colorpicker pkg-colorpicker_on' : 'pkg-colorpicker';
+	            return _react2.default.createElement(
+	                'div',
+	                { className: _str_cn },
+	                _react2.default.createElement(_reactColorPicker2.default, {
+	                    value: this.state.color,
+	                    onChange: this.props.onChange,
+	                    saturationWidth: 350,
+	                    saturationHeight: 350,
+	                    hueWidth: 30,
+	                    className: 'pkg-colorpicker-picker' }),
+	                _react2.default.createElement(
+	                    'button',
+	                    { className: 'pkg-colorpicker-close', onClick: this.closeShow },
+	                    'X'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ColorPickerCpt;
+	}(_react2.default.Component);
+
+	exports.default = ColorPickerCpt;
+
+
+	ColorPickerCpt.propTypes = {
+	    color: _react2.default.PropTypes.string,
+	    onChange: _react2.default.PropTypes.func.isRequired,
+	    onShowChanged: _react2.default.PropTypes.func.isRequired,
+	    show: _react2.default.PropTypes.bool
+	}, ColorPickerCpt.defaultProps = {
+	    control: '#fff',
+	    onChange: function onChange() {},
+	    onShowChanged: function onShowChanged() {},
+	    show: false
+	};
+
+/***/ },
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30546,7 +30658,7 @@
 	;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30780,7 +30892,7 @@
 	exports.default = ImageDataOriginal;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31528,7 +31640,7 @@
 	;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31565,31 +31677,31 @@
 
 	var _GloablTools2 = _interopRequireDefault(_GloablTools);
 
-	var _MethodControlDot = __webpack_require__(243);
+	var _MethodControlDot = __webpack_require__(244);
 
 	var _MethodControlDot2 = _interopRequireDefault(_MethodControlDot);
 
-	var _MethodControlAlpha = __webpack_require__(240);
+	var _MethodControlAlpha = __webpack_require__(241);
 
 	var _MethodControlAlpha2 = _interopRequireDefault(_MethodControlAlpha);
 
-	var _MethodControlSaturate = __webpack_require__(245);
+	var _MethodControlSaturate = __webpack_require__(246);
 
 	var _MethodControlSaturate2 = _interopRequireDefault(_MethodControlSaturate);
 
-	var _MethodControlContrast = __webpack_require__(242);
+	var _MethodControlContrast = __webpack_require__(243);
 
 	var _MethodControlContrast2 = _interopRequireDefault(_MethodControlContrast);
 
-	var _MethodControlInvert = __webpack_require__(244);
+	var _MethodControlInvert = __webpack_require__(245);
 
 	var _MethodControlInvert2 = _interopRequireDefault(_MethodControlInvert);
 
-	var _MethodControlBlur = __webpack_require__(241);
+	var _MethodControlBlur = __webpack_require__(242);
 
 	var _MethodControlBlur2 = _interopRequireDefault(_MethodControlBlur);
 
-	var _MethodControlText = __webpack_require__(246);
+	var _MethodControlText = __webpack_require__(247);
 
 	var _MethodControlText2 = _interopRequireDefault(_MethodControlText);
 
@@ -31723,7 +31835,9 @@
 	                _json_control = {
 	                    text: '',
 	                    size: 9,
-	                    pos: 'left top'
+	                    pos: 'left top',
+	                    textColor: '#c90',
+	                    borderColor: '#900'
 	                };
 	                return _react2.default.createElement(
 	                    'div',
@@ -31763,7 +31877,7 @@
 	};
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31983,7 +32097,7 @@
 	};
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32203,7 +32317,7 @@
 	};
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32422,7 +32536,7 @@
 	};
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32453,7 +32567,7 @@
 
 	var _GloablData2 = _interopRequireDefault(_GloablData);
 
-	var _ColorPickerCpt = __webpack_require__(265);
+	var _ColorPickerCpt = __webpack_require__(236);
 
 	var _ColorPickerCpt2 = _interopRequireDefault(_ColorPickerCpt);
 
@@ -32634,8 +32748,8 @@
 	        }
 	    }, {
 	        key: 'showColorPicker',
-	        value: function showColorPicker() {
-	            this.setState(_Extend2.default.deep({}, this.state, { showColorPicker: true }));
+	        value: function showColorPicker(bln) {
+	            this.setState(_Extend2.default.deep({}, this.state, { showColorPicker: !!bln }));
 	        }
 	    }, {
 	        key: 'render',
@@ -32689,14 +32803,14 @@
 	                        '顏色 ：',
 	                        _react2.default.createElement(
 	                            'span',
-	                            { onClick: _scope.showColorPicker,
+	                            { onClick: function onClick() {
+	                                    _scope.showColorPicker(true);
+	                                },
 	                                style: { display: 'inline-block', background: _scope.state.control.color, padding: '5px', color: 'white' } },
-	                            _scope.state.control.color
-	                        ),
-	                        _react2.default.createElement(_ColorPickerCpt2.default, {
-	                            color: _scope.state.control.color,
-	                            onDrag: _scope.colorPick,
-	                            show: _scope.state.showColorPicker })
+	                            _scope.state.control.color,
+	                            ' - ',
+	                            JSON.stringify(_scope.state.showColorPicker)
+	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
@@ -32784,7 +32898,14 @@
 	                        { onClick: _scope.submitAction },
 	                        '確定'
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement(_ColorPickerCpt2.default, {
+	                    color: _scope.state.control.color,
+	                    onChange: _scope.colorPick,
+	                    onShowChanged: function onShowChanged(bln) {
+	                        _scope.showColorPicker(bln);
+	                    },
+	                    show: _scope.state.showColorPicker })
 	            );
 	        }
 	    }]);
@@ -32802,7 +32923,7 @@
 	};
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32995,7 +33116,7 @@
 	};
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33214,7 +33335,7 @@
 	};
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33257,6 +33378,10 @@
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
+	var _ColorPickerCpt = __webpack_require__(236);
+
+	var _ColorPickerCpt2 = _interopRequireDefault(_ColorPickerCpt);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33284,6 +33409,10 @@
 	        _scope.submitAction = _scope.submitAction.bind(_scope);
 	        _scope.prevewAction = _scope.prevewAction.bind(_scope);
 	        _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
+	        _scope.showTextColorPicker = _scope.showTextColorPicker.bind(_scope);
+	        _scope.showBorderColorPicker = _scope.showBorderColorPicker.bind(_scope);
+	        _scope.textColorPickAction = _scope.textColorPickAction.bind(_scope);
+	        _scope.borderColorPickAction = _scope.borderColorPickAction.bind(_scope);
 
 	        return _this;
 	    }
@@ -33352,7 +33481,9 @@
 	                    control: json_next.control,
 	                    imgObj: {
 	                        src: _str_base64 || _GloablData2.default.getImageObjectSrc()
-	                    }
+	                    },
+	                    showTextColorPicker: false,
+	                    showBorderColorPicker: false
 	                };
 	            }
 	            if (callback) {
@@ -33440,6 +33571,30 @@
 	            return this.all_pos;
 	        }
 	    }, {
+	        key: 'textColorPickAction',
+	        value: function textColorPickAction(str_color) {
+	            var _json_state = this.arrangeState({ control: { textColor: str_color } });
+	            this.setState(_json_state);
+	        }
+	    }, {
+	        key: 'borderColorPickAction',
+	        value: function borderColorPickAction(str_color) {
+	            var _json_state = this.arrangeState({ control: { borderColor: str_color } });
+	            this.setState(_json_state);
+	        }
+	    }, {
+	        key: 'showTextColorPicker',
+	        value: function showTextColorPicker(bln) {
+	            var _json_state = this.arrangeState({ showTextColorPicker: !!bln });
+	            this.setState(_json_state);
+	        }
+	    }, {
+	        key: 'showBorderColorPicker',
+	        value: function showBorderColorPicker(bln) {
+	            var _json_state = this.arrangeState({ showBorderColorPicker: !!bln });
+	            this.setState(_json_state);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _scope = this;
@@ -33451,7 +33606,7 @@
 	                { className: 'pkg-control' },
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'pkg-control-center' },
+	                    { className: 'pkg-control-left' },
 	                    '輸入文字：',
 	                    _react2.default.createElement('input', { type: 'text', name: 'text', placeholder: '請輸入文字', ref: 'text', value: this.state.control.text, onChange: this.handleChange }),
 	                    _react2.default.createElement('br', null),
@@ -33460,51 +33615,71 @@
 	                    this.state.control.size,
 	                    'px',
 	                    _react2.default.createElement('br', null),
-	                    '文字顏色：',
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        '#900'
+	                        '文字顏色：',
+	                        _react2.default.createElement(
+	                            'span',
+	                            { onClick: function onClick() {
+	                                    _scope.showTextColorPicker(true);
+	                                },
+	                                style: { display: 'inline-block', background: _scope.state.control.textColor, padding: '5px', color: 'white' } },
+	                            _scope.state.control.textColor,
+	                            ' - ',
+	                            JSON.stringify(_scope.state.showTextColorPicker)
+	                        )
 	                    ),
-	                    _react2.default.createElement('br', null),
-	                    '文字外框色：',
 	                    _react2.default.createElement(
-	                        'span',
+	                        'div',
 	                        null,
-	                        '#ff0'
+	                        '文字外框色：',
+	                        _react2.default.createElement(
+	                            'span',
+	                            { onClick: function onClick() {
+	                                    _scope.showBorderColorPicker(true);
+	                                },
+	                                style: { display: 'inline-block', background: _scope.state.control.borderColor, padding: '5px', color: 'white' } },
+	                            _scope.state.control.borderColor,
+	                            ' - ',
+	                            JSON.stringify(_scope.state.showBorderColorPicker)
+	                        )
 	                    ),
-	                    _react2.default.createElement('br', null),
-	                    '文字位置（水平 / 垂直）：',
-	                    _react2.default.createElement('br', null),
-	                    _scope.getAllPos().map(function (json_item) {
-	                        return _react2.default.createElement(_ReactGroup2.default, {
-	                            onChange: _scope.handleChangePos,
-	                            outputFormat: 'string',
-	                            name: 'method_option',
-	                            selectKey: _scope.getSelectKey(),
-	                            inputOption: [json_item],
-	                            outputResult: _scope.state.control.pos,
-	                            showKey: _scope.getShowKey(),
-	                            between: '~',
-	                            display: 'inline-block',
-	                            padding: _json_sub_store.padding,
-	                            fillet: _json_sub_store.fillet,
-	                            listStyle: _json_sub_store.listStyle,
-	                            listPosition: _json_sub_store.listPosition,
-	                            iconPosition: _json_sub_store.iconPosition,
-	                            iconShow: _json_sub_store.iconShow,
-	                            styleName: _json_sub_store.styleName,
-	                            offBack: _json_sub_store.offBack,
-	                            styleBorder: _json_sub_store.styleBorder,
-	                            styleIcon: _json_sub_store.styleIcon,
-	                            styleIconBack: _json_sub_store.styleIconBack,
-	                            styleList: _json_sub_store.styleList,
-	                            key: json_item.key });
-	                    }, this)
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        '文字位置（水平 / 垂直）：',
+	                        _react2.default.createElement('br', null),
+	                        _scope.getAllPos().map(function (json_item) {
+	                            return _react2.default.createElement(_ReactGroup2.default, {
+	                                onChange: _scope.handleChangePos,
+	                                outputFormat: 'string',
+	                                name: 'method_option',
+	                                selectKey: _scope.getSelectKey(),
+	                                inputOption: [json_item],
+	                                outputResult: _scope.state.control.pos,
+	                                showKey: _scope.getShowKey(),
+	                                between: '~',
+	                                display: 'inline-block',
+	                                padding: _json_sub_store.padding,
+	                                fillet: _json_sub_store.fillet,
+	                                listStyle: _json_sub_store.listStyle,
+	                                listPosition: _json_sub_store.listPosition,
+	                                iconPosition: _json_sub_store.iconPosition,
+	                                iconShow: _json_sub_store.iconShow,
+	                                styleName: _json_sub_store.styleName,
+	                                offBack: _json_sub_store.offBack,
+	                                styleBorder: _json_sub_store.styleBorder,
+	                                styleIcon: _json_sub_store.styleIcon,
+	                                styleIconBack: _json_sub_store.styleIconBack,
+	                                styleList: _json_sub_store.styleList,
+	                                key: json_item.key });
+	                        }, this)
+	                    )
 	                ),
 	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
 	                    'div',
-	                    { className: 'pkg-control-center pkg-conpreview' },
+	                    { className: 'pkg-control-right pkg-conpreview' },
 	                    _react2.default.createElement('img', { src: _str_img_src, className: 'pkg-conpreview-image' })
 	                ) : null,
 	                _react2.default.createElement(
@@ -33520,7 +33695,21 @@
 	                        { onClick: _scope.submitAction },
 	                        '確定'
 	                    )
-	                )
+	                ),
+	                _react2.default.createElement(_ColorPickerCpt2.default, {
+	                    color: _scope.state.control.textColor,
+	                    onChange: _scope.textColorPickAction,
+	                    onShowChanged: function onShowChanged(bln) {
+	                        _scope.showTextColorPicker(bln);
+	                    },
+	                    show: _scope.state.showTextColorPicker }),
+	                _react2.default.createElement(_ColorPickerCpt2.default, {
+	                    color: _scope.state.control.borderColor,
+	                    onChange: _scope.borderColorPickAction,
+	                    onShowChanged: function onShowChanged(bln) {
+	                        _scope.showBorderColorPicker(bln);
+	                    },
+	                    show: _scope.state.showBorderColorPicker })
 	            );
 	        }
 	    }]);
@@ -33538,7 +33727,7 @@
 	};
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33696,7 +33885,7 @@
 	// }
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33711,11 +33900,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _MethodOption = __webpack_require__(247);
+	var _MethodOption = __webpack_require__(248);
 
 	var _MethodOption2 = _interopRequireDefault(_MethodOption);
 
-	var _MethodControl = __webpack_require__(239);
+	var _MethodControl = __webpack_require__(240);
 
 	var _MethodControl2 = _interopRequireDefault(_MethodControl);
 
@@ -33875,7 +34064,7 @@
 	};
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33943,7 +34132,7 @@
 	}
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33974,11 +34163,11 @@
 
 	var _redux = __webpack_require__(204);
 
-	var _MethodReact = __webpack_require__(248);
+	var _MethodReact = __webpack_require__(249);
 
 	var _MethodReact2 = _interopRequireDefault(_MethodReact);
 
-	var _MethodReducer = __webpack_require__(249);
+	var _MethodReducer = __webpack_require__(250);
 
 	var _MethodReducer2 = _interopRequireDefault(_MethodReducer);
 
@@ -34192,7 +34381,7 @@
 	*/
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34211,7 +34400,7 @@
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
-	var _MainImageFilter = __webpack_require__(238);
+	var _MainImageFilter = __webpack_require__(239);
 
 	var _MainImageFilter2 = _interopRequireDefault(_MainImageFilter);
 
@@ -34219,15 +34408,15 @@
 
 	var _ImageDataComputeMethod2 = _interopRequireDefault(_ImageDataComputeMethod);
 
-	var _ImageDataComputeProcess = __webpack_require__(236);
+	var _ImageDataComputeProcess = __webpack_require__(237);
 
 	var _ImageDataComputeProcess2 = _interopRequireDefault(_ImageDataComputeProcess);
 
-	var _ImageDataOriginal = __webpack_require__(237);
+	var _ImageDataOriginal = __webpack_require__(238);
 
 	var _ImageDataOriginal2 = _interopRequireDefault(_ImageDataOriginal);
 
-	var _StepMethod = __webpack_require__(252);
+	var _StepMethod = __webpack_require__(253);
 
 	var _StepMethod2 = _interopRequireDefault(_StepMethod);
 
@@ -34568,7 +34757,7 @@
 	;
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34664,12 +34853,6 @@
 	;
 
 /***/ },
-/* 253 */
-/***/ function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ },
 /* 254 */
 /***/ function(module, exports) {
 
@@ -34688,121 +34871,10 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */,
-/* 263 */,
-/* 264 */,
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
+/* 257 */
+/***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(7);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactColorPicker = __webpack_require__(133);
-
-	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
-
-	var _Extend = __webpack_require__(9);
-
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // https://www.npmjs.com/package/react-color-picker
-
-
-	var ColorPickerCpt = function (_React$Component) {
-	    _inherits(ColorPickerCpt, _React$Component);
-
-	    function ColorPickerCpt(props) {
-	        _classCallCheck(this, ColorPickerCpt);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ColorPickerCpt).call(this, props));
-
-	        var _scope = _this;
-
-	        _scope.state = {
-	            color: props.color,
-	            show: props.show
-	        };
-
-	        _this.closeShow = _this.closeShow.bind(_this);
-
-	        return _this;
-	    }
-
-	    _createClass(ColorPickerCpt, [{
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            this.setState(_Extend2.default.deep({}, this.state, _extends({}, nextProps)));
-	        }
-	    }, {
-	        key: 'hideShow',
-	        value: function hideShow() {
-	            this.setState(_Extend2.default.deep({}, this.state, { show: false }));
-	        }
-	    }, {
-	        key: 'closeShow',
-	        value: function closeShow() {
-	            this.hideShow();
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _str_cn = this.state.show ? 'pkg-colorpicker' : 'pkg-colorpicker pkg-colorpicker_off';
-	            return _react2.default.createElement(
-	                'div',
-	                { className: _str_cn },
-	                _react2.default.createElement(_reactColorPicker2.default, {
-	                    value: this.state.color,
-	                    onDrag: this.props.onDrag,
-	                    saturationWidth: 350,
-	                    saturationHeight: 350,
-	                    hueWidth: 30,
-	                    className: 'pkg-colorpicker-picker' }),
-	                _react2.default.createElement(
-	                    'button',
-	                    { className: 'pkg-colorpicker-close', onClick: this.closeShow },
-	                    'X'
-	                )
-	            );
-	        }
-	    }]);
-
-	    return ColorPickerCpt;
-	}(_react2.default.Component);
-
-	exports.default = ColorPickerCpt;
-
-
-	ColorPickerCpt.propTypes = {
-	    color: _react2.default.PropTypes.string,
-	    onDrag: _react2.default.PropTypes.func.isRequired,
-	    show: _react2.default.PropTypes.bool
-	}, ColorPickerCpt.defaultProps = {
-	    control: '#fff',
-	    onDrag: function onDrag() {},
-	    show: false
-	};
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);

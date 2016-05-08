@@ -8,6 +8,7 @@ import GloablData from './GloablData';
 import ReactGroup from 'ReactGroup';
 import Utils from './Utils';
 import MethodSettings from './MethodSettings';
+import ColorPickerCpt from './ColorPickerCpt';
 
 export default class MethodControlText extends React.Component {
     constructor(props) {
@@ -24,6 +25,11 @@ export default class MethodControlText extends React.Component {
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.prevewAction = _scope.prevewAction.bind(_scope);
         _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
+        _scope.showTextColorPicker = _scope.showTextColorPicker.bind(_scope);
+        _scope.showBorderColorPicker = _scope.showBorderColorPicker.bind(_scope);
+        _scope.textColorPickAction = _scope.textColorPickAction.bind(_scope);
+        _scope.borderColorPickAction = _scope.borderColorPickAction.bind(_scope);
+
         
     }
 
@@ -90,7 +96,9 @@ export default class MethodControlText extends React.Component {
                 control:json_next.control,
                 imgObj: {
                     src: _str_base64 || GloablData.getImageObjectSrc()
-                }
+                },
+                showTextColorPicker: false,
+                showBorderColorPicker: false
             };
         }
         if( callback ){
@@ -168,6 +176,26 @@ export default class MethodControlText extends React.Component {
         return this.all_pos;
     }
 
+    textColorPickAction( str_color ){
+        let _json_state = this.arrangeState({control:{textColor:str_color}});
+        this.setState( _json_state );
+    }
+
+    borderColorPickAction( str_color ){
+        let _json_state = this.arrangeState({control:{borderColor:str_color}});
+        this.setState( _json_state );
+    }
+
+    showTextColorPicker( bln ){
+        let _json_state = this.arrangeState({showTextColorPicker:!!bln});
+        this.setState( _json_state );
+    }
+
+    showBorderColorPicker( bln ){
+        let _json_state = this.arrangeState({showBorderColorPicker:!!bln});
+        this.setState( _json_state );
+    }
+
     render(){
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
@@ -175,41 +203,61 @@ export default class MethodControlText extends React.Component {
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
             <div className="pkg-control">
-                <div className="pkg-control-center">
-                    輸入文字：<input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} /><br />
-                    文字大小：<input type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} />{this.state.control.size}px<br />
-                    文字顏色：<span>#900</span><br />
-                    文字外框色：<span>#ff0</span><br />
-                    文字位置（水平 / 垂直）：
+                <div className="pkg-control-left">
+                    輸入文字：<input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} />
                     <br />
-                    <For each="json_item" of={ _scope.getAllPos() }>
-                        <ReactGroup 
-                            onChange={_scope.handleChangePos}
-                            outputFormat="string"
-                            name="method_option"
-                            selectKey={_scope.getSelectKey()}
-                            inputOption={[json_item]}
-                            outputResult={_scope.state.control.pos}
-                            showKey={_scope.getShowKey()}
-                            between="~"
-                            display="inline-block"
-                            padding={_json_sub_store.padding}
-                            fillet={_json_sub_store.fillet}
-                            listStyle={_json_sub_store.listStyle}
-                            listPosition={_json_sub_store.listPosition}
-                            iconPosition={_json_sub_store.iconPosition}
-                            iconShow={_json_sub_store.iconShow}
-                            styleName={_json_sub_store.styleName}
-                            offBack={_json_sub_store.offBack}
-                            styleBorder={_json_sub_store.styleBorder}
-                            styleIcon={_json_sub_store.styleIcon}
-                            styleIconBack={_json_sub_store.styleIconBack}
-                            styleList={_json_sub_store.styleList}
-                            key={json_item.key} />
-                    </For>
+
+                    文字大小：<input type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} />{this.state.control.size}px
+                    <br />
+
+                    <div>
+                        文字顏色：
+                        <span onClick={()=>{_scope.showTextColorPicker(true);}}
+                            style={{display: 'inline-block',background: _scope.state.control.textColor, padding: '5px', color: 'white'}}>
+                            {_scope.state.control.textColor} - {JSON.stringify(_scope.state.showTextColorPicker)}
+                        </span>
+                    </div>
+
+                    <div>
+                        文字外框色：
+                        <span onClick={()=>{_scope.showBorderColorPicker(true);}}
+                            style={{display: 'inline-block',background: _scope.state.control.borderColor, padding: '5px', color: 'white'}}>
+                            {_scope.state.control.borderColor} - {JSON.stringify(_scope.state.showBorderColorPicker)}
+                        </span>
+                    </div>
+
+                    <div>
+                        文字位置（水平 / 垂直）：
+                        <br />
+                        <For each="json_item" of={ _scope.getAllPos() }>
+                            <ReactGroup 
+                                onChange={_scope.handleChangePos}
+                                outputFormat="string"
+                                name="method_option"
+                                selectKey={_scope.getSelectKey()}
+                                inputOption={[json_item]}
+                                outputResult={_scope.state.control.pos}
+                                showKey={_scope.getShowKey()}
+                                between="~"
+                                display="inline-block"
+                                padding={_json_sub_store.padding}
+                                fillet={_json_sub_store.fillet}
+                                listStyle={_json_sub_store.listStyle}
+                                listPosition={_json_sub_store.listPosition}
+                                iconPosition={_json_sub_store.iconPosition}
+                                iconShow={_json_sub_store.iconShow}
+                                styleName={_json_sub_store.styleName}
+                                offBack={_json_sub_store.offBack}
+                                styleBorder={_json_sub_store.styleBorder}
+                                styleIcon={_json_sub_store.styleIcon}
+                                styleIconBack={_json_sub_store.styleIconBack}
+                                styleList={_json_sub_store.styleList}
+                                key={json_item.key} />
+                        </For>
+                    </div>
                 </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
-                    <div className="pkg-control-center pkg-conpreview">
+                    <div className="pkg-control-right pkg-conpreview">
                         <img src={_str_img_src} className="pkg-conpreview-image" />
                     </div>
                 </If>
@@ -219,11 +267,23 @@ export default class MethodControlText extends React.Component {
                     </If>
                     <button onClick={_scope.submitAction}>確定</button>
                 </div>
+
+                <ColorPickerCpt 
+                    color={_scope.state.control.textColor} 
+                    onChange={_scope.textColorPickAction}
+                    onShowChanged={(bln)=>{_scope.showTextColorPicker(bln);}}
+                    show={_scope.state.showTextColorPicker} />
+                <ColorPickerCpt 
+                    color={_scope.state.control.borderColor} 
+                    onChange={_scope.borderColorPickAction}
+                    onShowChanged={(bln)=>{_scope.showBorderColorPicker(bln);}}
+                    show={_scope.state.showBorderColorPicker} />
+
             </div>
         );
     }
 
-};
+}; 
 
 MethodControlText.propTypes = {
     control: React.PropTypes.object,

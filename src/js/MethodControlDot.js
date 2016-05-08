@@ -154,11 +154,11 @@ export default class MethodControlDot extends React.Component {
         this.setState( _json_state );
     }
 
-    showColorPicker(){
+    showColorPicker(bln){
         this.setState(Extend.deep(
             {},
             this.state,
-            {showColorPicker: true}
+            {showColorPicker: !!bln}
         ));
     }
 
@@ -203,14 +203,10 @@ export default class MethodControlDot extends React.Component {
                 <div className="pkg-control-left">
                     <div>
                         顏色 ： 
-                        <span onClick={_scope.showColorPicker}
+                        <span onClick={()=>{_scope.showColorPicker(true);}}
                             style={{display: 'inline-block',background: _scope.state.control.color, padding: '5px', color: 'white'}}>
-                            {_scope.state.control.color}
+                            {_scope.state.control.color} - {JSON.stringify(_scope.state.showColorPicker)}
                         </span>
-                        <ColorPickerCpt 
-                            color={_scope.state.control.color} 
-                            onDrag={_scope.colorPick}
-                            show={_scope.state.showColorPicker} />
                     </div>
                     <div>
                         頻率 ： 
@@ -268,6 +264,12 @@ export default class MethodControlDot extends React.Component {
                     </If>
                     <button onClick={_scope.submitAction}>確定</button>
                 </div>
+
+                <ColorPickerCpt 
+                    color={_scope.state.control.color} 
+                    onChange={_scope.colorPick}
+                    onShowChanged={(bln)=>{_scope.showColorPicker(bln);}}
+                    show={_scope.state.showColorPicker} />
             </div>
         );
     }

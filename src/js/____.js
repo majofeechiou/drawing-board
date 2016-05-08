@@ -34,15 +34,14 @@ export default class ColorPickerCpt extends React.Component {
     }
     closeShow(){
         this.hideShow();
-        this.props.onShowChanged(false);
     }
     render(){
-        let _str_cn = (this.state.show===true)? 'pkg-colorpicker pkg-colorpicker_on' : 'pkg-colorpicker' ;
+        let _str_cn = (this.state.show!==true)? 'pkg-colorpicker' : 'pkg-colorpicker pkg-colorpicker_on' ;
         return (
             <div className={_str_cn}>
                 <ColorPicker 
                     value={this.state.color} 
-                    onChange={this.props.onChange}
+                    onDrag={this.props.onDrag}
                     saturationWidth={350} 
                     saturationHeight={350} 
                     hueWidth={30}
@@ -55,13 +54,11 @@ export default class ColorPickerCpt extends React.Component {
 
 ColorPickerCpt.propTypes = {
     color: React.PropTypes.string,
-    onChange: React.PropTypes.func.isRequired,
-    onShowChanged: React.PropTypes.func.isRequired,
+    onDrag: React.PropTypes.func.isRequired,
     show: React.PropTypes.bool
 },
 ColorPickerCpt.defaultProps = {
     control: '#fff',
-    onChange: ()=>{},
-    onShowChanged: ()=>{},
+    onDrag: ()=>{},
     show: false
 };

@@ -338,7 +338,8 @@ body *  {
 }
 
 .pkg-colorpicker {
-    z-index: calc( $level_popup_method-2 );
+    z-index: calc( $level_popup_method - 2 );
+    display: none;
     &:before {
         position: fixed;
         width: 100%;
@@ -348,8 +349,8 @@ body *  {
         content: '';
         background-color: $color_popup_bg;
     }
-    &.pkg-colorpicker_off {
-        display: none;
+    &.pkg-colorpicker_on {
+        display: block;
     }
     .pkg-colorpicker-picker {
         position: absolute;
@@ -359,7 +360,7 @@ body *  {
         transform: translateX(-50%) translateY(-50%);
     }
     .pkg-colorpicker-close {
-        z-index: calc( $level_popup_method-1 );
+        z-index: calc( $level_popup_method - 1 );
         position: fixed;
         right: $block_spacing;
         top: $block_spacing;
