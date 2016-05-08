@@ -95,6 +95,8 @@ export default class ImageDataComputeMethod extends Tools {
 	methodText( json, json_setting ){
 		let _scope = this;
 
+		console.log('json :: ', json);
+
 		json = _scope.methodVars( json );
 		json_setting = json_setting || {} ;
 
@@ -132,7 +134,7 @@ export default class ImageDataComputeMethod extends Tools {
 		}
 
 		_scope.obj_canvas_2d.font = json.control.size+'px Georgia';
-		_scope.obj_canvas_2d.fillText("Hello World!",_num_x,_num_y);
+		_scope.obj_canvas_2d.fillText(json.control.text, _num_x, _num_y);
 		_scope.obj_canvas_2d.fillStyle = 'red';
 
 		_scope.emitAfterMethod( json );

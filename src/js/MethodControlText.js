@@ -9,6 +9,7 @@ import Settings from './Settings';
 import GloablData from './GloablData';
 import ReactGroup from 'ReactGroup';
 import Utils from './Utils';
+import MethodSettings from './MethodSettings';
 
 export default class MethodControlText extends React.Component {
     constructor(props) {
@@ -99,26 +100,44 @@ export default class MethodControlText extends React.Component {
         }
     }
 
+    judgeEmpty(){
+        let _bln_empty = false;
+        let _data_empty = (this.state.control.text).match(/^\s*$/);
+        if( (_data_empty instanceof Array === true) && _data_empty.length>0 ){
+            _bln_empty = true ;
+        }
+        return _bln_empty;
+    }
+
     prevewAction(){
-        let _scope = this;
-        GloablTools.Emitter().emit( 'method.cotroller.previewing', {
-            from: GloablData.getFrom(),
-            method: _scope.getComponentMethod(),
-            control: _scope.state.control
-        } );
+        let _scope = this,
+            _bln = _scope.judgeEmpty();
+        if( _bln===true ){
+            alert('Not Empty');
+        }else{
+            GloablTools.Emitter().emit( 'method.cotroller.previewing', {
+                from: GloablData.getFrom(),
+                method: _scope.getComponentMethod(),
+                control: _scope.state.control
+            } );
+        }
     }
 
     submitAction(){
-        let _scope = this;
-        GloablTools.Emitter().emit( 'method.cotroller.control.asking', {
-            from: GloablData.getFrom(),
-            method: _scope.getComponentMethod(),
-            control: _scope.state.control
-        } );
+        let _scope = this,
+            _bln = _scope.judgeEmpty();
+        if( _bln===true ){
+            alert('Not Empty');
+        }else{
+            GloablTools.Emitter().emit( 'method.cotroller.control.asking', {
+                from: GloablData.getFrom(),
+                method: _scope.getComponentMethod(),
+                control: _scope.state.control
+            } );
+        }
     }
 
     handleChangePos( bln_change, json_return ){
-        console.log( 'json_return :: ', json_return );
         let _scope = this ;
         if( bln_change===true ){
             let _json_new = _scope.arrangeState( {control: {pos: json_return.result}} );
@@ -136,21 +155,15 @@ export default class MethodControlText extends React.Component {
         return ['pos'];
     }
     getShowKey(){
-        return ['pos'];
+        return ['pos_name'];
     }
 
     createAllPos(){
-        this.all_pos = [
-            {pos: 'left top', key: Utils.createUniqueId()},
-            {pos: 'center top', key: Utils.createUniqueId()},
-            {pos: 'right top', key: Utils.createUniqueId()},
-            {pos: 'left center', key: Utils.createUniqueId()},
-            {pos: 'center center', key: Utils.createUniqueId()},
-            {pos: 'right center', key: Utils.createUniqueId()},
-            {pos: 'left bottom', key: Utils.createUniqueId()},
-            {pos: 'center bottom', key: Utils.createUniqueId()},
-            {pos: 'right bottom', key: Utils.createUniqueId()}
-        ];
+        let _sary = (MethodSettings.getAllPos()).map(function(json_item){
+            json_item.key = Utils.createUniqueId();
+            return json_item;
+        });
+        this.all_pos = _sary;
     }
 
     getAllPos(){

@@ -75,6 +75,14 @@ export default class Settings {
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
+	static POS_CENTER = 'center';
+	static POS_LEFT = 'left';
+	static POS_RIGHT = 'right';
+	static POS_TOP = 'top';
+	static POS_BOTTOM = 'bottom';
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
 	static IMAGE_DATA_FROM_LAST = 'last';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **

@@ -424,11 +424,7 @@
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-			value: function getConstNameByEn(str) {
-				if (typeof str === 'string' && str !== '') {
-					return Settings['METHOD_' + str + '_NAME'];
-				}
-			} // 畫面下方用來作為真的送出結果用的地方
+			// 畫面下方用來作為真的送出結果用的地方
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
@@ -440,6 +436,14 @@
 
 			// static METHOD_SNOW = 'SNOW';
 			// static METHOD_SNOW_NAME = '雪花';
+
+			value: function getConstNameByEn(str) {
+				if (typeof str === 'string' && str !== '') {
+					return Settings['METHOD_' + str + '_NAME'];
+				}
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 		}, {
 			key: 'getInitOutputImageScale',
@@ -509,6 +513,11 @@
 	Settings.SHAPE_HEART_NAME = '心形';
 	Settings.COMPUTE_TIMING_PREVIEW = 'preview';
 	Settings.COMPUTE_TIMING_RESULT = 'result';
+	Settings.POS_CENTER = 'center';
+	Settings.POS_LEFT = 'left';
+	Settings.POS_RIGHT = 'right';
+	Settings.POS_TOP = 'top';
+	Settings.POS_BOTTOM = 'bottom';
 	Settings.IMAGE_DATA_FROM_LAST = 'last';
 	exports.default = Settings;
 	;
@@ -3181,17 +3190,49 @@
 					shape_name: _Settings2.default.SHAPE_STAR_NAME
 				}];
 			}
+		}, {
+			key: 'getAllPos',
+
+			// {
+			//     shape: Settings.SHAPE_HEART,
+			//     shape_name: Settings.SHAPE_HEART_NAME
+			// }
+			value: function getAllPos() {
+				return [{
+					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_TOP,
+					pos_name: '左上'
+				}, {
+					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_TOP,
+					pos_name: '中上'
+				}, {
+					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_TOP,
+					pos_name: '右上'
+				}, {
+					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_CENTER,
+					pos_name: '左中'
+				}, {
+					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_CENTER,
+					pos_name: '正中'
+				}, {
+					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_CENTER,
+					pos_name: '右中'
+				}, {
+					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_BOTTOM,
+					pos_name: '左下'
+				}, {
+					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_BOTTOM,
+					pos_name: '中下'
+				}, {
+					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_BOTTOM,
+					pos_name: '右下'
+				}];
+			}
 		}]);
 
 		return MethodSettings;
 	}();
 
 	exports.default = MethodSettings;
-
-	// {
-	//     shape: Settings.SHAPE_HEART,
-	//     shape_name: Settings.SHAPE_HEART_NAME
-	// }
 	;
 
 /***/ },
@@ -13238,6 +13279,8 @@
 			value: function methodText(json, json_setting) {
 				var _scope = this;
 
+				console.log('json :: ', json);
+
 				json = _scope.methodVars(json);
 				json_setting = json_setting || {};
 
@@ -13275,7 +13318,7 @@
 				}
 
 				_scope.obj_canvas_2d.font = json.control.size + 'px Georgia';
-				_scope.obj_canvas_2d.fillText("Hello World!", _num_x, _num_y);
+				_scope.obj_canvas_2d.fillText(json.control.text, _num_x, _num_y);
 				_scope.obj_canvas_2d.fillStyle = 'red';
 
 				_scope.emitAfterMethod(json);
@@ -33226,6 +33269,10 @@
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
+	var _MethodSettings = __webpack_require__(30);
+
+	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -33329,29 +33376,48 @@
 	            }
 	        }
 	    }, {
+	        key: 'judgeEmpty',
+	        value: function judgeEmpty() {
+	            var _bln_empty = false;
+	            var _data_empty = this.state.control.text.match(/^\s*$/);
+	            if (_data_empty instanceof Array === true && _data_empty.length > 0) {
+	                _bln_empty = true;
+	            }
+	            return _bln_empty;
+	        }
+	    }, {
 	        key: 'prevewAction',
 	        value: function prevewAction() {
-	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.previewing', {
-	                from: _GloablData2.default.getFrom(),
-	                method: _scope.getComponentMethod(),
-	                control: _scope.state.control
-	            });
+	            var _scope = this,
+	                _bln = _scope.judgeEmpty();
+	            if (_bln === true) {
+	                alert('Not Empty');
+	            } else {
+	                _GloablTools2.default.Emitter().emit('method.cotroller.previewing', {
+	                    from: _GloablData2.default.getFrom(),
+	                    method: _scope.getComponentMethod(),
+	                    control: _scope.state.control
+	                });
+	            }
 	        }
 	    }, {
 	        key: 'submitAction',
 	        value: function submitAction() {
-	            var _scope = this;
-	            _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
-	                from: _GloablData2.default.getFrom(),
-	                method: _scope.getComponentMethod(),
-	                control: _scope.state.control
-	            });
+	            var _scope = this,
+	                _bln = _scope.judgeEmpty();
+	            if (_bln === true) {
+	                alert('Not Empty');
+	            } else {
+	                _GloablTools2.default.Emitter().emit('method.cotroller.control.asking', {
+	                    from: _GloablData2.default.getFrom(),
+	                    method: _scope.getComponentMethod(),
+	                    control: _scope.state.control
+	                });
+	            }
 	        }
 	    }, {
 	        key: 'handleChangePos',
 	        value: function handleChangePos(bln_change, json_return) {
-	            console.log('json_return :: ', json_return);
 	            var _scope = this;
 	            if (bln_change === true) {
 	                var _json_new = _scope.arrangeState({ control: { pos: json_return.result } });
@@ -33373,12 +33439,16 @@
 	    }, {
 	        key: 'getShowKey',
 	        value: function getShowKey() {
-	            return ['pos'];
+	            return ['pos_name'];
 	        }
 	    }, {
 	        key: 'createAllPos',
 	        value: function createAllPos() {
-	            this.all_pos = [{ pos: 'left top', key: _Utils2.default.createUniqueId() }, { pos: 'center top', key: _Utils2.default.createUniqueId() }, { pos: 'right top', key: _Utils2.default.createUniqueId() }, { pos: 'left center', key: _Utils2.default.createUniqueId() }, { pos: 'center center', key: _Utils2.default.createUniqueId() }, { pos: 'right center', key: _Utils2.default.createUniqueId() }, { pos: 'left bottom', key: _Utils2.default.createUniqueId() }, { pos: 'center bottom', key: _Utils2.default.createUniqueId() }, { pos: 'right bottom', key: _Utils2.default.createUniqueId() }];
+	            var _sary = _MethodSettings2.default.getAllPos().map(function (json_item) {
+	                json_item.key = _Utils2.default.createUniqueId();
+	                return json_item;
+	            });
+	            this.all_pos = _sary;
 	        }
 	    }, {
 	        key: 'getAllPos',
@@ -34366,7 +34436,6 @@
 
 				_scope.getGlobalConst(_scope).emitter.on('output.size.submiting', function () {
 					var _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
-					console.log('_sary_step_image :: ', _sary_step_image);
 
 					if (_sary_step_image.length > 0) {
 						_scope.mainImageFilter.setToolsSectionClassName(_scope.mainImageFilter.getGlobalConst(_scope.mainImageFilter).WORKSPACE_TOOLS_ON_ACTION);

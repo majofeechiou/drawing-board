@@ -66,4 +66,45 @@ export default class MethodSettings {
 		];
 	}
 
+	static getAllPos(){
+		return [
+			{
+				pos: Settings.POS_LEFT+' '+Settings.POS_TOP,
+				pos_name: '左上'
+			},
+		    {
+		    	pos: Settings.POS_CENTER+' '+Settings.POS_TOP,
+				pos_name: '中上'
+			},
+		    {
+		    	pos: Settings.POS_RIGHT+' '+Settings.POS_TOP,
+				pos_name: '右上'
+			},
+		    {
+		    	pos: Settings.POS_LEFT+' '+Settings.POS_CENTER,
+				pos_name: '左中'
+			},
+		    {
+		    	pos: Settings.POS_CENTER+' '+Settings.POS_CENTER,
+				pos_name: '正中'
+			},
+		    {
+		    	pos: Settings.POS_RIGHT+' '+Settings.POS_CENTER,
+				pos_name: '右中'
+			},
+		    {
+		    	pos: Settings.POS_LEFT+' '+Settings.POS_BOTTOM,
+				pos_name: '左下'
+			},
+		    {
+		    	pos: Settings.POS_CENTER+' '+Settings.POS_BOTTOM,
+				pos_name: '中下'
+			},
+		    {
+		    	pos: Settings.POS_RIGHT+' '+Settings.POS_BOTTOM,
+				pos_name: '右下'
+			}
+		];
+	}
+
 };

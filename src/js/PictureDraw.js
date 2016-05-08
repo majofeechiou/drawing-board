@@ -168,7 +168,6 @@ export default class PictureDraw extends GlobalConst {
 
 			_scope.getGlobalConst(_scope).emitter.on('output.size.submiting', function(){
 				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
-				console.log('_sary_step_image :: ', _sary_step_image);
 
 				if( _sary_step_image.length>0 ){
 					_scope.mainImageFilter.setToolsSectionClassName( _scope.mainImageFilter.getGlobalConst(_scope.mainImageFilter).WORKSPACE_TOOLS_ON_ACTION );
