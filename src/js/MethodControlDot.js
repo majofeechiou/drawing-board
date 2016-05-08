@@ -1,13 +1,11 @@
 'use strict';
 
-/* *** 這部份用 ReactJs + redux 做 *** */
-
 import React from 'react';
 import GloablTools from './GloablTools';
 import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
-import ColorPicker from 'react-color-picker';
+import ColorPickerCpt from './ColorPickerCpt';
 import MethodSettings from './MethodSettings';
 import ReactGroup from 'ReactGroup';
 
@@ -29,6 +27,7 @@ export default class MethodControlDot extends React.Component {
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
         _scope.colorPick = _scope.colorPick.bind(_scope);
+        _scope.showColorPicker = _scope.showColorPicker.bind(_scope);
 
     }
 
@@ -97,7 +96,8 @@ export default class MethodControlDot extends React.Component {
                 control:json_next.control,
                 imgObj: {
                     src: _str_base64 || GloablData.getImageObjectSrc()
-                }
+                },
+                showColorPicker: false
             };
         }
         if( callback ){
@@ -154,6 +154,14 @@ export default class MethodControlDot extends React.Component {
         this.setState( _json_state );
     }
 
+    showColorPicker(){
+        this.setState(Extend.deep(
+            {},
+            this.state,
+            {showColorPicker: true}
+        ));
+    }
+
     render(){
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
@@ -164,13 +172,13 @@ export default class MethodControlDot extends React.Component {
             <div className="pkg-control">
                 <div className="pkg-control-center">
                     <ReactGroup 
-                        onChange={this.handleChangeShape}
+                        onChange={_scope.handleChangeShape}
                         outputFormat="json"
                         name="method_option"
-                        selectKey={this.getSelectKey()}
-                        inputOption={this.getInputoption()}
-                        outputResult={this.state.control.shape}
-                        showKey={this.getShowKey()}
+                        selectKey={_scope.getSelectKey()}
+                        inputOption={_scope.getInputoption()}
+                        outputResult={_scope.state.control.shape}
+                        showKey={_scope.getShowKey()}
                         between="~"
                         display={_json_sub_store.display}
                         padding={_json_sub_store.padding}
@@ -194,74 +202,71 @@ export default class MethodControlDot extends React.Component {
                 </If>
                 <div className="pkg-control-left">
                     <div>
-                        <div style={{marginTop: '15px', marginBottom: '5px'}}>
-                            <span style={{display: 'inline-block',background: this.state.control.color, padding: '5px', color: 'white'}}>
-                                {this.state.control.color}
-                            </span>
-                        </div>
-                        <ColorPicker 
-                            value={this.state.control.color} 
-                            onDrag={this.colorPick} />
+                        顏色 ： 
+                        <span onClick={_scope.showColorPicker}
+                            style={{display: 'inline-block',background: _scope.state.control.color, padding: '5px', color: 'white'}}>
+                            {_scope.state.control.color}
+                        </span>
+                        <ColorPickerCpt 
+                            color={_scope.state.control.color} 
+                            onDrag={_scope.colorPick}
+                            show={_scope.state.showColorPicker} />
+                    </div>
+                    <div>
+                        頻率 ： 
+                        <input
+                            type="range"
+                            ref="frequency"
+                            step="1"
+                            min="1"
+                            max="100"
+                            value={_scope.state.control.frequency}
+                            onChange={_scope.handleChangeRange} /> {_scope.state.control.frequency} / 100
+                    </div>
+                    <div>
+                        大小 ： 
+                        <input
+                            type="range"
+                            ref="minSize"
+                            step="1"
+                            min="1"
+                            max={_scope.state.control.maxSize}
+                            value={_scope.state.control.minSize}
+                            onChange={_scope.handleChangeRange} /> {_scope.state.control.minSize} / {_scope.state.control.maxSize}
+                        <input
+                            type="range"
+                            ref="maxSize"
+                            step="1"
+                            min={_scope.state.control.minSize}
+                            max="200"
+                            value={_scope.state.control.maxSize}
+                            onChange={_scope.handleChangeRange} /> {_scope.state.control.maxSize} / 200
+                    </div>
+                    <div>
+                        透明度 ： 
+                        <input
+                            type="range"
+                            ref="minAlpha"
+                            step="1"
+                            min="1"
+                            max={_scope.state.control.maxAlpha}
+                            value={_scope.state.control.minAlpha}
+                            onChange={_scope.handleChangeRange} /> {_scope.state.control.minAlpha} / {_scope.state.control.maxAlpha}
+                        <input
+                            type="range"
+                            ref="maxAlpha"
+                            step="1"
+                            min={_scope.state.control.minAlpha}
+                            max="100"
+                            value={_scope.state.control.maxAlpha}
+                            onChange={_scope.handleChangeRange} /> {_scope.state.control.maxAlpha} / 100
                     </div>
                 </div>
                 <div className="pkg-control-bottom">
-                    <div>
-                        <div>
-                            頻率 ： 
-                            <input
-                                type="range"
-                                ref="frequency"
-                                step="1"
-                                min="1"
-                                max="100"
-                                value={this.state.control.frequency}
-                                onChange={this.handleChangeRange} /> {this.state.control.frequency} / 100
-                        </div>
-                        <div>
-                            大小 ： 
-                            <input
-                                type="range"
-                                ref="minSize"
-                                step="1"
-                                min="1"
-                                max={this.state.control.maxSize}
-                                value={this.state.control.minSize}
-                                onChange={this.handleChangeRange} /> {this.state.control.minSize} / {this.state.control.maxSize}
-                            <input
-                                type="range"
-                                ref="maxSize"
-                                step="1"
-                                min={this.state.control.minSize}
-                                max="200"
-                                value={this.state.control.maxSize}
-                                onChange={this.handleChangeRange} /> {this.state.control.maxSize} / 200
-                        </div>
-                        <div>
-                            透明度 ： 
-                            <input
-                                type="range"
-                                ref="minAlpha"
-                                step="1"
-                                min="1"
-                                max={this.state.control.maxAlpha}
-                                value={this.state.control.minAlpha}
-                                onChange={this.handleChangeRange} /> {this.state.control.minAlpha} / {this.state.control.maxAlpha}
-                            <input
-                                type="range"
-                                ref="maxAlpha"
-                                step="1"
-                                min={this.state.control.minAlpha}
-                                max="100"
-                                value={this.state.control.maxAlpha}
-                                onChange={this.handleChangeRange} /> {this.state.control.maxAlpha} / 100
-                        </div>
-                    </div>
-                    <div>
-                        <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                            <button onClick={_scope.prevewAction}>預覽</button>
-                        </If>
-                        <button onClick={_scope.submitAction}>確定</button>
-                    </div>
+                    <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
+                        <button onClick={_scope.prevewAction}>預覽</button>
+                    </If>
+                    <button onClick={_scope.submitAction}>確定</button>
                 </div>
             </div>
         );

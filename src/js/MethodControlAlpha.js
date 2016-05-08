@@ -1,7 +1,5 @@
 'use strict';
 
-/* *** 這部份用 ReactJs + redux 做 *** */
-
 import React from 'react';
 import GloablTools from './GloablTools';
 import Extend from 'Extend';

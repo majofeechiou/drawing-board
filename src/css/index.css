@@ -4,6 +4,7 @@ $wrap_spacing: 10px;
 $block_spacing: 25px;
 
 $color_white: #fff;
+$color_popup_bg: RGBA(0, 0, 0, 0.6);
 
 $level_popup_method: 10;
 
@@ -251,7 +252,7 @@ body *  {
     height: 100%;
     left: 0;
     top: 0;
-    background-color: RGBA(0, 0, 0, 0.6);
+    background-color: $color_popup_bg;
     content: '';
     .pkg-method-content-close {
         position: absolute;
@@ -334,6 +335,35 @@ body *  {
 
 .nowrap {
     white-space: nowrap;
+}
+
+.pkg-colorpicker {
+    z-index: calc( $level_popup_method-2 );
+    &:before {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        content: '';
+        background-color: $color_popup_bg;
+    }
+    &.pkg-colorpicker_off {
+        display: none;
+    }
+    .pkg-colorpicker-picker {
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+    .pkg-colorpicker-close {
+        z-index: calc( $level_popup_method-1 );
+        position: fixed;
+        right: $block_spacing;
+        top: $block_spacing;
+    }
 }
 
 @media screen and ( max-width: 767px ){

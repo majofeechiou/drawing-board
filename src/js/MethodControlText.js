@@ -1,7 +1,5 @@
 'use strict';
 
-/* *** 這部份用 ReactJs + redux 做 *** */
-
 import React from 'react';
 import GloablTools from './GloablTools';
 import Extend from 'Extend';
@@ -179,7 +177,7 @@ export default class MethodControlText extends React.Component {
             <div className="pkg-control">
                 <div className="pkg-control-center">
                     輸入文字：<input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} /><br />
-                    文字大小：<input type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} /><br />
+                    文字大小：<input type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} />{this.state.control.size}px<br />
                     文字顏色：<span>#900</span><br />
                     文字外框色：<span>#ff0</span><br />
                     文字位置（水平 / 垂直）：

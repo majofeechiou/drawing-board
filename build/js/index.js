@@ -2499,6 +2499,122 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Settings = __webpack_require__(5);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var MethodSettings = function () {
+		function MethodSettings() {
+			_classCallCheck(this, MethodSettings);
+		}
+
+		_createClass(MethodSettings, null, [{
+			key: 'getAllMethod',
+			value: function getAllMethod() {
+				return [{
+					method: _Settings2.default.METHOD_TEXT,
+					method_name: _Settings2.default.METHOD_TEXT_NAME
+				}, {
+					method: _Settings2.default.METHOD_SATURATE,
+					method_name: _Settings2.default.METHOD_SATURATE_NAME
+				}, {
+					method: _Settings2.default.METHOD_CONTRAST,
+					method_name: _Settings2.default.METHOD_CONTRAST_NAME
+				}, {
+					method: _Settings2.default.METHOD_ALPHA,
+					method_name: _Settings2.default.METHOD_ALPHA_NAME
+				}, {
+					method: _Settings2.default.METHOD_INVERT,
+					method_name: _Settings2.default.METHOD_INVERT_NAME
+				}, {
+					method: _Settings2.default.METHOD_BLUR,
+					method_name: _Settings2.default.METHOD_BLUR_NAME
+				}, {
+					method: _Settings2.default.METHOD_DOT,
+					method_name: _Settings2.default.METHOD_DOT_NAME
+				}];
+			}
+		}, {
+			key: 'getAllShape',
+			value: function getAllShape() {
+				return [{
+					shape: _Settings2.default.SHAPE_CIRCLE,
+					shape_name: _Settings2.default.SHAPE_CIRCLE_NAME
+				}, {
+					shape: _Settings2.default.SHAPE_RECT,
+					shape_name: _Settings2.default.SHAPE_RECT_NAME
+				}, {
+					shape: _Settings2.default.SHAPE_RECT2,
+					shape_name: _Settings2.default.SHAPE_RECT2_NAME
+				}, {
+					shape: _Settings2.default.SHAPE_RHOMBUS,
+					shape_name: _Settings2.default.SHAPE_RHOMBUS_NAME
+				}, {
+					shape: _Settings2.default.SHAPE_STAR,
+					shape_name: _Settings2.default.SHAPE_STAR_NAME
+				}];
+			}
+		}, {
+			key: 'getAllPos',
+
+			// {
+			//     shape: Settings.SHAPE_HEART,
+			//     shape_name: Settings.SHAPE_HEART_NAME
+			// }
+			value: function getAllPos() {
+				return [{
+					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_TOP,
+					pos_name: '左上'
+				}, {
+					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_TOP,
+					pos_name: '中上'
+				}, {
+					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_TOP,
+					pos_name: '右上'
+				}, {
+					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_CENTER,
+					pos_name: '左中'
+				}, {
+					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_CENTER,
+					pos_name: '正中'
+				}, {
+					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_CENTER,
+					pos_name: '右中'
+				}, {
+					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_BOTTOM,
+					pos_name: '左下'
+				}, {
+					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_BOTTOM,
+					pos_name: '中下'
+				}, {
+					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_BOTTOM,
+					pos_name: '右下'
+				}];
+			}
+		}]);
+
+		return MethodSettings;
+	}();
+
+	exports.default = MethodSettings;
+	;
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
 
@@ -2544,7 +2660,7 @@
 	;
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -2666,7 +2782,7 @@
 	exports.default = Setting;
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2914,7 +3030,7 @@
 	module.exports = EventPluginHub;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2931,7 +3047,7 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(15);
-	var EventPluginHub = __webpack_require__(27);
+	var EventPluginHub = __webpack_require__(28);
 	var EventPluginUtils = __webpack_require__(47);
 
 	var accumulateInto = __webpack_require__(93);
@@ -3056,7 +3172,7 @@
 	module.exports = EventPropagators;
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -3118,122 +3234,6 @@
 	SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
 	module.exports = SyntheticUIEvent;
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _Settings = __webpack_require__(5);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var MethodSettings = function () {
-		function MethodSettings() {
-			_classCallCheck(this, MethodSettings);
-		}
-
-		_createClass(MethodSettings, null, [{
-			key: 'getAllMethod',
-			value: function getAllMethod() {
-				return [{
-					method: _Settings2.default.METHOD_TEXT,
-					method_name: _Settings2.default.METHOD_TEXT_NAME
-				}, {
-					method: _Settings2.default.METHOD_SATURATE,
-					method_name: _Settings2.default.METHOD_SATURATE_NAME
-				}, {
-					method: _Settings2.default.METHOD_CONTRAST,
-					method_name: _Settings2.default.METHOD_CONTRAST_NAME
-				}, {
-					method: _Settings2.default.METHOD_ALPHA,
-					method_name: _Settings2.default.METHOD_ALPHA_NAME
-				}, {
-					method: _Settings2.default.METHOD_INVERT,
-					method_name: _Settings2.default.METHOD_INVERT_NAME
-				}, {
-					method: _Settings2.default.METHOD_BLUR,
-					method_name: _Settings2.default.METHOD_BLUR_NAME
-				}, {
-					method: _Settings2.default.METHOD_DOT,
-					method_name: _Settings2.default.METHOD_DOT_NAME
-				}];
-			}
-		}, {
-			key: 'getAllShape',
-			value: function getAllShape() {
-				return [{
-					shape: _Settings2.default.SHAPE_CIRCLE,
-					shape_name: _Settings2.default.SHAPE_CIRCLE_NAME
-				}, {
-					shape: _Settings2.default.SHAPE_RECT,
-					shape_name: _Settings2.default.SHAPE_RECT_NAME
-				}, {
-					shape: _Settings2.default.SHAPE_RECT2,
-					shape_name: _Settings2.default.SHAPE_RECT2_NAME
-				}, {
-					shape: _Settings2.default.SHAPE_RHOMBUS,
-					shape_name: _Settings2.default.SHAPE_RHOMBUS_NAME
-				}, {
-					shape: _Settings2.default.SHAPE_STAR,
-					shape_name: _Settings2.default.SHAPE_STAR_NAME
-				}];
-			}
-		}, {
-			key: 'getAllPos',
-
-			// {
-			//     shape: Settings.SHAPE_HEART,
-			//     shape_name: Settings.SHAPE_HEART_NAME
-			// }
-			value: function getAllPos() {
-				return [{
-					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_TOP,
-					pos_name: '左上'
-				}, {
-					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_TOP,
-					pos_name: '中上'
-				}, {
-					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_TOP,
-					pos_name: '右上'
-				}, {
-					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_CENTER,
-					pos_name: '左中'
-				}, {
-					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_CENTER,
-					pos_name: '正中'
-				}, {
-					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_CENTER,
-					pos_name: '右中'
-				}, {
-					pos: _Settings2.default.POS_LEFT + ' ' + _Settings2.default.POS_BOTTOM,
-					pos_name: '左下'
-				}, {
-					pos: _Settings2.default.POS_CENTER + ' ' + _Settings2.default.POS_BOTTOM,
-					pos_name: '中下'
-				}, {
-					pos: _Settings2.default.POS_RIGHT + ' ' + _Settings2.default.POS_BOTTOM,
-					pos_name: '右下'
-				}];
-			}
-		}]);
-
-		return MethodSettings;
-	}();
-
-	exports.default = MethodSettings;
-	;
 
 /***/ },
 /* 31 */
@@ -4028,7 +4028,7 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(29);
+	var SyntheticUIEvent = __webpack_require__(30);
 	var ViewportMetrics = __webpack_require__(92);
 
 	var getEventModifierState = __webpack_require__(57);
@@ -13930,7 +13930,7 @@
 		};
 	}();
 
-	var _Setting = __webpack_require__(26);
+	var _Setting = __webpack_require__(27);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -14258,7 +14258,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Setting = __webpack_require__(26);
+	var _Setting = __webpack_require__(27);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -16058,7 +16058,7 @@
 	};
 
 	var EventConstants = __webpack_require__(15);
-	var EventPropagators = __webpack_require__(28);
+	var EventPropagators = __webpack_require__(29);
 	var ExecutionEnvironment = __webpack_require__(6);
 	var FallbackCompositionState = __webpack_require__(142);
 	var SyntheticCompositionEvent = __webpack_require__(183);
@@ -16661,8 +16661,8 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(15);
-	var EventPluginHub = __webpack_require__(27);
-	var EventPropagators = __webpack_require__(28);
+	var EventPluginHub = __webpack_require__(28);
+	var EventPropagators = __webpack_require__(29);
 	var ExecutionEnvironment = __webpack_require__(6);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactUpdates = __webpack_require__(13);
@@ -17197,7 +17197,7 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(15);
-	var EventPropagators = __webpack_require__(28);
+	var EventPropagators = __webpack_require__(29);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var SyntheticMouseEvent = __webpack_require__(39);
 
@@ -18823,7 +18823,7 @@
 	var DOMProperty = __webpack_require__(18);
 	var DOMPropertyOperations = __webpack_require__(46);
 	var EventConstants = __webpack_require__(15);
-	var EventPluginHub = __webpack_require__(27);
+	var EventPluginHub = __webpack_require__(28);
 	var EventPluginRegistry = __webpack_require__(34);
 	var ReactBrowserEventEmitter = __webpack_require__(35);
 	var ReactComponentBrowserEnvironment = __webpack_require__(78);
@@ -22009,7 +22009,7 @@
 
 	'use strict';
 
-	var EventPluginHub = __webpack_require__(27);
+	var EventPluginHub = __webpack_require__(28);
 
 	function runEventQueueInBatch(events) {
 	  EventPluginHub.enqueueEvents(events);
@@ -22210,7 +22210,7 @@
 	'use strict';
 
 	var DOMProperty = __webpack_require__(18);
-	var EventPluginHub = __webpack_require__(27);
+	var EventPluginHub = __webpack_require__(28);
 	var EventPluginUtils = __webpack_require__(47);
 	var ReactComponentEnvironment = __webpack_require__(49);
 	var ReactClass = __webpack_require__(76);
@@ -23408,7 +23408,7 @@
 	'use strict';
 
 	var EventConstants = __webpack_require__(15);
-	var EventPropagators = __webpack_require__(28);
+	var EventPropagators = __webpack_require__(29);
 	var ExecutionEnvironment = __webpack_require__(6);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactInputSelection = __webpack_require__(84);
@@ -23610,7 +23610,7 @@
 
 	var EventConstants = __webpack_require__(15);
 	var EventListener = __webpack_require__(66);
-	var EventPropagators = __webpack_require__(28);
+	var EventPropagators = __webpack_require__(29);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var SyntheticAnimationEvent = __webpack_require__(181);
 	var SyntheticClipboardEvent = __webpack_require__(182);
@@ -23621,7 +23621,7 @@
 	var SyntheticDragEvent = __webpack_require__(184);
 	var SyntheticTouchEvent = __webpack_require__(188);
 	var SyntheticTransitionEvent = __webpack_require__(189);
-	var SyntheticUIEvent = __webpack_require__(29);
+	var SyntheticUIEvent = __webpack_require__(30);
 	var SyntheticWheelEvent = __webpack_require__(190);
 
 	var emptyFunction = __webpack_require__(12);
@@ -24409,7 +24409,7 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(29);
+	var SyntheticUIEvent = __webpack_require__(30);
 
 	/**
 	 * @interface FocusEvent
@@ -24492,7 +24492,7 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(29);
+	var SyntheticUIEvent = __webpack_require__(30);
 
 	var getEventCharCode = __webpack_require__(56);
 	var getEventKey = __webpack_require__(195);
@@ -24581,7 +24581,7 @@
 
 	'use strict';
 
-	var SyntheticUIEvent = __webpack_require__(29);
+	var SyntheticUIEvent = __webpack_require__(30);
 
 	var getEventModifierState = __webpack_require__(57);
 
@@ -30428,7 +30428,7 @@
 
 	var _MethodSection2 = _interopRequireDefault(_MethodSection);
 
-	var _Utils = __webpack_require__(25);
+	var _Utils = __webpack_require__(26);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
@@ -30791,7 +30791,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _Utils = __webpack_require__(25);
+	var _Utils = __webpack_require__(26);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
@@ -30799,7 +30799,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _MethodSettings = __webpack_require__(30);
+	var _MethodSettings = __webpack_require__(25);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -31541,7 +31541,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _Utils = __webpack_require__(25);
+	var _Utils = __webpack_require__(26);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
@@ -31557,7 +31557,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(26);
+	var _Setting = __webpack_require__(27);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -31593,7 +31593,7 @@
 
 	var _MethodControlText2 = _interopRequireDefault(_MethodControlText);
 
-	var _MethodSettings = __webpack_require__(30);
+	var _MethodSettings = __webpack_require__(25);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -31767,8 +31767,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -31990,8 +31988,6 @@
 
 	'use strict';
 
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -32212,8 +32208,6 @@
 
 	'use strict';
 
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -32433,8 +32427,6 @@
 
 	'use strict';
 
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -32461,11 +32453,11 @@
 
 	var _GloablData2 = _interopRequireDefault(_GloablData);
 
-	var _reactColorPicker = __webpack_require__(133);
+	var _ColorPickerCpt = __webpack_require__(265);
 
-	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
+	var _ColorPickerCpt2 = _interopRequireDefault(_ColorPickerCpt);
 
-	var _MethodSettings = __webpack_require__(30);
+	var _MethodSettings = __webpack_require__(25);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -32503,6 +32495,7 @@
 	        _scope.submitAction = _scope.submitAction.bind(_scope);
 	        _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
 	        _scope.colorPick = _scope.colorPick.bind(_scope);
+	        _scope.showColorPicker = _scope.showColorPicker.bind(_scope);
 
 	        return _this;
 	    }
@@ -32573,7 +32566,8 @@
 	                    control: json_next.control,
 	                    imgObj: {
 	                        src: _str_base64 || _GloablData2.default.getImageObjectSrc()
-	                    }
+	                    },
+	                    showColorPicker: false
 	                };
 	            }
 	            if (callback) {
@@ -32639,6 +32633,11 @@
 	            this.setState(_json_state);
 	        }
 	    }, {
+	        key: 'showColorPicker',
+	        value: function showColorPicker() {
+	            this.setState(_Extend2.default.deep({}, this.state, { showColorPicker: true }));
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var _scope = this;
@@ -32653,13 +32652,13 @@
 	                    'div',
 	                    { className: 'pkg-control-center' },
 	                    _react2.default.createElement(_ReactGroup2.default, {
-	                        onChange: this.handleChangeShape,
+	                        onChange: _scope.handleChangeShape,
 	                        outputFormat: 'json',
 	                        name: 'method_option',
-	                        selectKey: this.getSelectKey(),
-	                        inputOption: this.getInputoption(),
-	                        outputResult: this.state.control.shape,
-	                        showKey: this.getShowKey(),
+	                        selectKey: _scope.getSelectKey(),
+	                        inputOption: _scope.getInputoption(),
+	                        outputResult: _scope.state.control.shape,
+	                        showKey: _scope.getShowKey(),
 	                        between: '~',
 	                        display: _json_sub_store.display,
 	                        padding: _json_sub_store.padding,
@@ -32687,112 +32686,103 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        null,
+	                        '顏色 ：',
 	                        _react2.default.createElement(
-	                            'div',
-	                            { style: { marginTop: '15px', marginBottom: '5px' } },
-	                            _react2.default.createElement(
-	                                'span',
-	                                { style: { display: 'inline-block', background: this.state.control.color, padding: '5px', color: 'white' } },
-	                                this.state.control.color
-	                            )
+	                            'span',
+	                            { onClick: _scope.showColorPicker,
+	                                style: { display: 'inline-block', background: _scope.state.control.color, padding: '5px', color: 'white' } },
+	                            _scope.state.control.color
 	                        ),
-	                        _react2.default.createElement(_reactColorPicker2.default, {
-	                            value: this.state.control.color,
-	                            onDrag: this.colorPick })
+	                        _react2.default.createElement(_ColorPickerCpt2.default, {
+	                            color: _scope.state.control.color,
+	                            onDrag: _scope.colorPick,
+	                            show: _scope.state.showColorPicker })
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        '頻率 ：',
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'frequency',
+	                            step: '1',
+	                            min: '1',
+	                            max: '100',
+	                            value: _scope.state.control.frequency,
+	                            onChange: _scope.handleChangeRange }),
+	                        ' ',
+	                        _scope.state.control.frequency,
+	                        ' / 100'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        '大小 ：',
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'minSize',
+	                            step: '1',
+	                            min: '1',
+	                            max: _scope.state.control.maxSize,
+	                            value: _scope.state.control.minSize,
+	                            onChange: _scope.handleChangeRange }),
+	                        ' ',
+	                        _scope.state.control.minSize,
+	                        ' / ',
+	                        _scope.state.control.maxSize,
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'maxSize',
+	                            step: '1',
+	                            min: _scope.state.control.minSize,
+	                            max: '200',
+	                            value: _scope.state.control.maxSize,
+	                            onChange: _scope.handleChangeRange }),
+	                        ' ',
+	                        _scope.state.control.maxSize,
+	                        ' / 200'
+	                    ),
+	                    _react2.default.createElement(
+	                        'div',
+	                        null,
+	                        '透明度 ：',
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'minAlpha',
+	                            step: '1',
+	                            min: '1',
+	                            max: _scope.state.control.maxAlpha,
+	                            value: _scope.state.control.minAlpha,
+	                            onChange: _scope.handleChangeRange }),
+	                        ' ',
+	                        _scope.state.control.minAlpha,
+	                        ' / ',
+	                        _scope.state.control.maxAlpha,
+	                        _react2.default.createElement('input', {
+	                            type: 'range',
+	                            ref: 'maxAlpha',
+	                            step: '1',
+	                            min: _scope.state.control.minAlpha,
+	                            max: '100',
+	                            value: _scope.state.control.maxAlpha,
+	                            onChange: _scope.handleChangeRange }),
+	                        ' ',
+	                        _scope.state.control.maxAlpha,
+	                        ' / 100'
 	                    )
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'pkg-control-bottom' },
+	                    _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
+	                        'button',
+	                        { onClick: _scope.prevewAction },
+	                        '預覽'
+	                    ) : null,
 	                    _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            '頻率 ：',
-	                            _react2.default.createElement('input', {
-	                                type: 'range',
-	                                ref: 'frequency',
-	                                step: '1',
-	                                min: '1',
-	                                max: '100',
-	                                value: this.state.control.frequency,
-	                                onChange: this.handleChangeRange }),
-	                            ' ',
-	                            this.state.control.frequency,
-	                            ' / 100'
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            '大小 ：',
-	                            _react2.default.createElement('input', {
-	                                type: 'range',
-	                                ref: 'minSize',
-	                                step: '1',
-	                                min: '1',
-	                                max: this.state.control.maxSize,
-	                                value: this.state.control.minSize,
-	                                onChange: this.handleChangeRange }),
-	                            ' ',
-	                            this.state.control.minSize,
-	                            ' / ',
-	                            this.state.control.maxSize,
-	                            _react2.default.createElement('input', {
-	                                type: 'range',
-	                                ref: 'maxSize',
-	                                step: '1',
-	                                min: this.state.control.minSize,
-	                                max: '200',
-	                                value: this.state.control.maxSize,
-	                                onChange: this.handleChangeRange }),
-	                            ' ',
-	                            this.state.control.maxSize,
-	                            ' / 200'
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            '透明度 ：',
-	                            _react2.default.createElement('input', {
-	                                type: 'range',
-	                                ref: 'minAlpha',
-	                                step: '1',
-	                                min: '1',
-	                                max: this.state.control.maxAlpha,
-	                                value: this.state.control.minAlpha,
-	                                onChange: this.handleChangeRange }),
-	                            ' ',
-	                            this.state.control.minAlpha,
-	                            ' / ',
-	                            this.state.control.maxAlpha,
-	                            _react2.default.createElement('input', {
-	                                type: 'range',
-	                                ref: 'maxAlpha',
-	                                step: '1',
-	                                min: this.state.control.minAlpha,
-	                                max: '100',
-	                                value: this.state.control.maxAlpha,
-	                                onChange: this.handleChangeRange }),
-	                            ' ',
-	                            this.state.control.maxAlpha,
-	                            ' / 100'
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        'div',
-	                        null,
-	                        _json_now_image && typeof _json_now_image.origin_data === 'string' && _json_now_image.origin_data !== '' ? _react2.default.createElement(
-	                            'button',
-	                            { onClick: _scope.prevewAction },
-	                            '預覽'
-	                        ) : null,
-	                        _react2.default.createElement(
-	                            'button',
-	                            { onClick: _scope.submitAction },
-	                            '確定'
-	                        )
+	                        'button',
+	                        { onClick: _scope.submitAction },
+	                        '確定'
 	                    )
 	                )
 	            );
@@ -32816,8 +32806,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -33011,8 +32999,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-
-	/* *** 這部份用 ReactJs + redux 做 *** */
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -33233,8 +33219,6 @@
 
 	'use strict';
 
-	/* *** 這部份用 ReactJs + redux 做 *** */
-
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -33265,11 +33249,11 @@
 
 	var _ReactGroup2 = _interopRequireDefault(_ReactGroup);
 
-	var _Utils = __webpack_require__(25);
+	var _Utils = __webpack_require__(26);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
-	var _MethodSettings = __webpack_require__(30);
+	var _MethodSettings = __webpack_require__(25);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -33473,6 +33457,8 @@
 	                    _react2.default.createElement('br', null),
 	                    '文字大小：',
 	                    _react2.default.createElement('input', { type: 'range', name: 'size', min: '9', max: '80', step: '1', ref: 'size', value: this.state.control.size, onChange: this.handleChange }),
+	                    this.state.control.size,
+	                    'px',
 	                    _react2.default.createElement('br', null),
 	                    '文字顏色：',
 	                    _react2.default.createElement(
@@ -33581,11 +33567,11 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _MethodSettings = __webpack_require__(30);
+	var _MethodSettings = __webpack_require__(25);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
-	var _Setting = __webpack_require__(26);
+	var _Setting = __webpack_require__(27);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -33745,7 +33731,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _MethodSettings = __webpack_require__(30);
+	var _MethodSettings = __webpack_require__(25);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -33903,7 +33889,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(26);
+	var _Setting = __webpack_require__(27);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -34221,7 +34207,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Utils = __webpack_require__(25);
+	var _Utils = __webpack_require__(26);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
@@ -34597,7 +34583,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Utils = __webpack_require__(25);
+	var _Utils = __webpack_require__(26);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
@@ -34700,6 +34686,123 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactColorPicker = __webpack_require__(133);
+
+	var _reactColorPicker2 = _interopRequireDefault(_reactColorPicker);
+
+	var _Extend = __webpack_require__(9);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // https://www.npmjs.com/package/react-color-picker
+
+
+	var ColorPickerCpt = function (_React$Component) {
+	    _inherits(ColorPickerCpt, _React$Component);
+
+	    function ColorPickerCpt(props) {
+	        _classCallCheck(this, ColorPickerCpt);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ColorPickerCpt).call(this, props));
+
+	        var _scope = _this;
+
+	        _scope.state = {
+	            color: props.color,
+	            show: props.show
+	        };
+
+	        _this.closeShow = _this.closeShow.bind(_this);
+
+	        return _this;
+	    }
+
+	    _createClass(ColorPickerCpt, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.setState(_Extend2.default.deep({}, this.state, _extends({}, nextProps)));
+	        }
+	    }, {
+	        key: 'hideShow',
+	        value: function hideShow() {
+	            this.setState(_Extend2.default.deep({}, this.state, { show: false }));
+	        }
+	    }, {
+	        key: 'closeShow',
+	        value: function closeShow() {
+	            this.hideShow();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _str_cn = this.state.show ? 'pkg-colorpicker' : 'pkg-colorpicker pkg-colorpicker_off';
+	            return _react2.default.createElement(
+	                'div',
+	                { className: _str_cn },
+	                _react2.default.createElement(_reactColorPicker2.default, {
+	                    value: this.state.color,
+	                    onDrag: this.props.onDrag,
+	                    saturationWidth: 350,
+	                    saturationHeight: 350,
+	                    hueWidth: 30,
+	                    className: 'pkg-colorpicker-picker' }),
+	                _react2.default.createElement(
+	                    'button',
+	                    { className: 'pkg-colorpicker-close', onClick: this.closeShow },
+	                    'X'
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ColorPickerCpt;
+	}(_react2.default.Component);
+
+	exports.default = ColorPickerCpt;
+
+
+	ColorPickerCpt.propTypes = {
+	    color: _react2.default.PropTypes.string,
+	    onDrag: _react2.default.PropTypes.func.isRequired,
+	    show: _react2.default.PropTypes.bool
+	}, ColorPickerCpt.defaultProps = {
+	    control: '#fff',
+	    onDrag: function onDrag() {},
+	    show: false
+	};
 
 /***/ }
 /******/ ]);
