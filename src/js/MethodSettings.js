@@ -107,4 +107,21 @@ export default class MethodSettings {
 		];
 	}
 
+	static getAllTextStyle(){
+		return [
+			{
+				style: Settings.TEXT_STYLE_SOLID,
+				style_name: Settings.TEXT_STYLE_SOLID_NAME
+			},
+			{
+				style: Settings.TEXT_STYLE_HOLLOW,
+				style_name: Settings.TEXT_STYLE_HOLLOW_NAME
+			},
+			{
+				style: Settings.TEXT_STYLE_BOTH,
+				style_name: Settings.TEXT_STYLE_BOTH_NAME
+			}
+		];
+	}
+
 };

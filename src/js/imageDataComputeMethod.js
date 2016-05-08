@@ -118,24 +118,33 @@ export default class ImageDataComputeMethod extends Tools {
 		let _num_x,
 			_num_y;
 
-		if( _str_pos_x==='left' ){
+		if( _str_pos_x===Settings.POS_LEFT ){
 			_num_x = _num_wrap ;
-		}else if( _str_pos_x==='center' ){
+		}else if( _str_pos_x===Settings.POS_CENTER ){
 			_num_x = _num_compute_width/2 ;
 		}else{
 			_num_x = _num_compute_width-_num_wrap ;
 		}
-		if( _str_pos_y==='top' ){
+		if( _str_pos_y===Settings.POS_TOP ){
 			_num_y = _num_wrap+_num_size/2 ;
-		}else if( _str_pos_y==='center' ){
+		}else if( _str_pos_y===Settings.POS_CENTER ){
 			_num_y = _num_compute_height/2 ;
 		}else{
 			_num_y = _num_compute_height-_num_size/2-_num_wrap ;
 		}
 
 		_scope.obj_canvas_2d.font = json.control.size+'px Georgia';
-		_scope.obj_canvas_2d.fillText(json.control.text, _num_x, _num_y);
-		_scope.obj_canvas_2d.fillStyle = 'red';
+
+		if( json.control.style===Settings.TEXT_STYLE_HOLLOW || json.control.style===Settings.TEXT_STYLE_BOTH ){
+			_scope.obj_canvas_2d.lineWidth = 3;
+			_scope.obj_canvas_2d.strokeStyle = json.control.borderColor;
+			_scope.obj_canvas_2d.strokeText(json.control.text, _num_x, _num_y);
+		}
+
+		if( json.control.style===Settings.TEXT_STYLE_SOLID || json.control.style===Settings.TEXT_STYLE_BOTH ){
+			_scope.obj_canvas_2d.fillStyle = json.control.textColor;
+			_scope.obj_canvas_2d.fillText(json.control.text, _num_x, _num_y);
+		}
 
 		_scope.emitAfterMethod( json );
 

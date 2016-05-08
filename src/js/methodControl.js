@@ -123,10 +123,12 @@ export default class MethodControl extends React.Component {
             _json_control = {
                 text: '',
                 size: 9,
-                pos: 'left top',
+                pos: MethodSettings.getAllPos()[0].pos,
                 textColor: '#c90',
-                borderColor: '#900'
+                borderColor: '#900',
+                style: MethodSettings.getAllTextStyle()[0].style
             };
+            console.log('_json_control :: ', _json_control);
             return (
                 <div className={_scope.props.className}>
                     <MethodControlText

@@ -86,6 +86,17 @@ export default class Settings {
 	static IMAGE_DATA_FROM_LAST = 'last';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	static TEXT_STYLE_SOLID = 'solid';
+	static TEXT_STYLE_SOLID_NAME = '實心字';
+
+	static TEXT_STYLE_HOLLOW = 'hollow';
+	static TEXT_STYLE_HOLLOW_NAME = '空心字';
+
+	static TEXT_STYLE_BOTH = 'both';
+	static TEXT_STYLE_BOTH_NAME = '實心加邊框';
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static getConstNameByEn( str ){

@@ -17,11 +17,13 @@ export default class MethodControlText extends React.Component {
         let _scope = this;
 
         _scope.createAllPos();
+        _scope.createAllTextStyle();
 
         _scope.arrangeProps( props );
 
         _scope.handleChange = _scope.handleChange.bind(_scope);
         _scope.handleChangePos = _scope.handleChangePos.bind(_scope);
+        _scope.handleChangeTextStyle = _scope.handleChangeTextStyle.bind(_scope);
         _scope.submitAction = _scope.submitAction.bind(_scope);
         _scope.prevewAction = _scope.prevewAction.bind(_scope);
         _scope.listenPreviewImageChange = _scope.listenPreviewImageChange.bind(_scope);
@@ -66,6 +68,7 @@ export default class MethodControlText extends React.Component {
             { control: 
                 {
                     pos: this.state.control.pos || this.props.control.pos, 
+                    style: this.state.control.style || this.props.control.style, 
                     text: (this.refs && this.refs.text)? this.refs.text.value : this.props.control.text, 
                     size: (this.refs && this.refs.size)? Number(this.refs.size.value) : Number(this.props.control.size), 
                 }
@@ -151,17 +154,32 @@ export default class MethodControlText extends React.Component {
         }
     }
 
+    handleChangeTextStyle( bln_change, json_return ){
+        let _scope = this ;
+        if( bln_change===true ){
+            let _json_new = _scope.arrangeState( {control: {style: json_return.result}} );
+            _scope.setState( _json_new );
+        }
+    }
+
     handleChange() {
         let _json_new = this.arrangeState();
         this.setState( _json_new );
         this.render();
     }
 
-    getSelectKey(){
+    getPosSelectKey(){
         return ['pos'];
     }
-    getShowKey(){
+    getPosShowKey(){
         return ['pos_name'];
+    }
+
+    getTextSelectKey(){
+        return ['style'];
+    }
+    getTextShowKey(){
+        return ['style_name'];
     }
 
     createAllPos(){
@@ -172,8 +190,20 @@ export default class MethodControlText extends React.Component {
         this.all_pos = _sary;
     }
 
+    createAllTextStyle(){
+        let _sary = (MethodSettings.getAllTextStyle()).map(function(json_item){
+            json_item.key = Utils.createUniqueId();
+            return json_item;
+        });
+        this.all_text_type = _sary;
+    }
+
     getAllPos(){
         return this.all_pos;
+    }
+
+    getAllTextStyle(){
+        return this.all_text_type;
     }
 
     textColorPickAction( str_color, json ){
@@ -219,6 +249,36 @@ export default class MethodControlText extends React.Component {
                     <br />
 
                     <div>
+                        文字樣式：
+                        <br />
+                        <For each="json_item" of={ _scope.getAllTextStyle() }>
+                            <ReactGroup 
+                                onChange={_scope.handleChangeTextStyle}
+                                outputFormat="string"
+                                name="method_option"
+                                selectKey={_scope.getTextSelectKey()}
+                                inputOption={[json_item]}
+                                outputResult={_scope.state.control.style}
+                                showKey={_scope.getTextShowKey()}
+                                between="~"
+                                display="inline-block"
+                                padding={_json_sub_store.padding}
+                                fillet={_json_sub_store.fillet}
+                                listStyle={_json_sub_store.listStyle}
+                                listPosition={_json_sub_store.listPosition}
+                                iconPosition={_json_sub_store.iconPosition}
+                                iconShow={_json_sub_store.iconShow}
+                                styleName={_json_sub_store.styleName}
+                                offBack={_json_sub_store.offBack}
+                                styleBorder={_json_sub_store.styleBorder}
+                                styleIcon={_json_sub_store.styleIcon}
+                                styleIconBack={_json_sub_store.styleIconBack}
+                                styleList={_json_sub_store.styleList}
+                                key={json_item.key} />
+                        </For>
+                    </div>
+
+                    <div>
                         文字顏色：
                         <span onClick={()=>{_scope.showTextColorPicker(true);}}
                             className="ui-colortag"
@@ -244,10 +304,10 @@ export default class MethodControlText extends React.Component {
                                 onChange={_scope.handleChangePos}
                                 outputFormat="string"
                                 name="method_option"
-                                selectKey={_scope.getSelectKey()}
+                                selectKey={_scope.getPosSelectKey()}
                                 inputOption={[json_item]}
                                 outputResult={_scope.state.control.pos}
-                                showKey={_scope.getShowKey()}
+                                showKey={_scope.getPosShowKey()}
                                 between="~"
                                 display="inline-block"
                                 padding={_json_sub_store.padding}
