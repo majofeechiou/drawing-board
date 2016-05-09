@@ -9,6 +9,7 @@ import ReactGroup from 'ReactGroup';
 import Utils from './Utils';
 import MethodSettings from './MethodSettings';
 import ColorPickerCpt from './ColorPickerCpt';
+import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 export default class MethodControlText extends React.Component {
     constructor(props) {
@@ -250,38 +251,33 @@ export default class MethodControlText extends React.Component {
 
                     <div>
                         文字樣式：
-                        <br />
-                        <For each="json_item" of={ _scope.getAllTextStyle() }>
-                            <ReactGroup 
-                                onChange={_scope.handleChangeTextStyle}
-                                outputFormat="string"
-                                name="method_option"
-                                selectKey={_scope.getTextSelectKey()}
-                                inputOption={[json_item]}
-                                outputResult={_scope.state.control.style}
-                                showKey={_scope.getTextShowKey()}
-                                between="~"
-                                display="inline-block"
-                                padding={_json_sub_store.padding}
-                                fillet={_json_sub_store.fillet}
-                                listStyle={_json_sub_store.listStyle}
-                                listPosition={_json_sub_store.listPosition}
-                                iconPosition={_json_sub_store.iconPosition}
-                                iconShow={_json_sub_store.iconShow}
-                                styleName={_json_sub_store.styleName}
-                                offBack={_json_sub_store.offBack}
-                                styleBorder={_json_sub_store.styleBorder}
-                                styleIcon={_json_sub_store.styleIcon}
-                                styleIconBack={_json_sub_store.styleIconBack}
-                                styleList={_json_sub_store.styleList}
-                                key={json_item.key} />
-                        </For>
+                        <ReactGroup 
+                            onChange={_scope.handleChangeTextStyle}
+                            outputFormat="string"
+                            name="method_option"
+                            selectKey={_scope.getTextSelectKey()}
+                            inputOption={_scope.getAllTextStyle()}
+                            outputResult={_scope.state.control.style}
+                            showKey={_scope.getTextShowKey()}
+                            between="~"
+                            display={ReactGroupSetting.DISPLAY_INBLOCK}
+                            padding={_json_sub_store.padding}
+                            fillet={_json_sub_store.fillet}
+                            listStyle={_json_sub_store.listStyle}
+                            listPosition={_json_sub_store.listPosition}
+                            iconPosition={_json_sub_store.iconPosition}
+                            styleName={_json_sub_store.styleName}
+                            offBack={_json_sub_store.offBack}
+                            styleBorder={_json_sub_store.styleBorder}
+                            styleIcon={_json_sub_store.styleIcon}
+                            styleIconBack={_json_sub_store.styleIconBack}
+                            styleList={_json_sub_store.styleList} />
                     </div>
 
                     <div>
                         文字顏色：
                         <span onClick={()=>{_scope.showTextColorPicker(true);}}
-                            className="ui-colortag"
+                            className="ui-colortag ui-hover"
                             style={{background:_str_textcolor_origin, color:_str_textcolor_pair}}>
                             {_str_textcolor_origin} - {JSON.stringify(_scope.state.showTextColorPicker)}
                         </span>
@@ -290,40 +286,43 @@ export default class MethodControlText extends React.Component {
                     <div>
                         文字外框色：
                         <span onClick={()=>{_scope.showBorderColorPicker(true);}}
-                            className="ui-colortag"
+                            className="ui-colortag ui-hover"
                             style={{background:_str_bordercolor_origin, color:_str_bordercolor_pair}}>
                             {_str_bordercolor_origin} - {JSON.stringify(_scope.state.showBorderColorPicker)}
                         </span>
                     </div>
 
                     <div>
-                        文字位置（水平 / 垂直）：
-                        <br />
-                        <For each="json_item" of={ _scope.getAllPos() }>
-                            <ReactGroup 
-                                onChange={_scope.handleChangePos}
-                                outputFormat="string"
-                                name="method_option"
-                                selectKey={_scope.getPosSelectKey()}
-                                inputOption={[json_item]}
-                                outputResult={_scope.state.control.pos}
-                                showKey={_scope.getPosShowKey()}
-                                between="~"
-                                display="inline-block"
-                                padding={_json_sub_store.padding}
-                                fillet={_json_sub_store.fillet}
-                                listStyle={_json_sub_store.listStyle}
-                                listPosition={_json_sub_store.listPosition}
-                                iconPosition={_json_sub_store.iconPosition}
-                                iconShow={_json_sub_store.iconShow}
-                                styleName={_json_sub_store.styleName}
-                                offBack={_json_sub_store.offBack}
-                                styleBorder={_json_sub_store.styleBorder}
-                                styleIcon={_json_sub_store.styleIcon}
-                                styleIconBack={_json_sub_store.styleIconBack}
-                                styleList={_json_sub_store.styleList}
-                                key={json_item.key} />
-                        </For>
+                        文字位置：
+                        <div className="pkg-textpos">
+                            <br />
+                            <For each="json_item" of={ _scope.getAllPos() }>
+                                <div className="pkg-textpos-item">
+                                    <ReactGroup 
+                                        className="pkg-textpos-item-btn"
+                                        onChange={_scope.handleChangePos}
+                                        outputFormat="string"
+                                        name="method_option"
+                                        selectKey={_scope.getPosSelectKey()}
+                                        inputOption={[json_item]}
+                                        outputResult={_scope.state.control.pos}
+                                        showKey={_scope.getPosShowKey()}
+                                        between="~"
+                                        display={ReactGroupSetting.DISPLAY_INBLOCK}
+                                        padding={_json_sub_store.padding}
+                                        fillet={_json_sub_store.fillet}
+                                        listPosition={_json_sub_store.listPosition}
+                                        iconPosition={_json_sub_store.iconPosition}
+                                        styleName={_json_sub_store.styleName}
+                                        offBack={_json_sub_store.offBack}
+                                        styleBorder={_json_sub_store.styleBorder}
+                                        styleIcon={_json_sub_store.styleIcon}
+                                        styleIconBack={_json_sub_store.styleIconBack}
+                                        styleList={_json_sub_store.styleList}
+                                        key={json_item.key} />
+                                </div>
+                            </For>
+                        </div>
                     </div>
                 </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
@@ -354,6 +353,31 @@ export default class MethodControlText extends React.Component {
     }
 
 }; 
+
+/*
+<ReactGroup 
+    onChange={_scope.handleChangePos}
+    outputFormat="string"
+    name="method_option"
+    selectKey={_scope.getPosSelectKey()}
+    inputOption={ _scope.getAllPos() }
+    outputResult={_scope.state.control.pos}
+    showKey={_scope.getPosShowKey()}
+    between="~"
+    display={ReactGroupSetting.DISPLAY_BLOCK}
+    padding={_json_sub_store.padding}
+    fillet={_json_sub_store.fillet}
+    listPosition={_json_sub_store.listPosition}
+    iconPosition={_json_sub_store.iconPosition}
+    iconShow={_json_sub_store.iconShow}
+    styleName={_json_sub_store.styleName}
+    offBack={_json_sub_store.offBack}
+    styleBorder={_json_sub_store.styleBorder}
+    styleIcon={_json_sub_store.styleIcon}
+    styleIconBack={_json_sub_store.styleIconBack}
+    styleList={_json_sub_store.styleList}
+    composition={ReactGroupSetting.COMPOSITION_THIRD} />
+*/
 
 MethodControlText.propTypes = {
     control: React.PropTypes.object,

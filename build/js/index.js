@@ -1101,7 +1101,7 @@
 	var PooledClass = __webpack_require__(22);
 	var ReactFeatureFlags = __webpack_require__(83);
 	var ReactPerf = __webpack_require__(8);
-	var ReactReconciler = __webpack_require__(25);
+	var ReactReconciler = __webpack_require__(26);
 	var Transaction = __webpack_require__(53);
 
 	var invariant = __webpack_require__(1);
@@ -2201,7 +2201,7 @@
 	            } else if (_num_origin_light <= 45 && _num_origin_light > 20) {
 	                _json_output = (0, _color2.default)(str_color_origin).lighten(0.8);
 	            } else {
-	                _json_output = (0, _color2.default)(str_color_origin).negate().rotate(-75);
+	                _json_output = (0, _color2.default)(str_color_origin).negate().rotate(-85);
 	            }
 	            // let _json_output = Color(str_color_origin).negate().rotate(-90);
 	            var _ary_output = _json_output.values.rgb;
@@ -2350,6 +2350,128 @@
 
 /***/ },
 /* 24 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	/* 3D旋轉選項 */
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	var Setting = function Setting() {
+		_classCallCheck(this, Setting);
+	};
+
+	/* ?????????
+		有哪些類型：
+		原版 - clean
+		方框 - rectangle
+		按鈕 - button
+		膠囊 - capsule
+		圓形 - circle
+	*/
+	/*
+		轉變動畫：
+		rotate-旋轉
+		rotate-翻轉
+		rotate-3d上下翻轉
+		rotate-3d左右翻轉
+		opacity
+		scale-心臟跳動
+		filter-模糊
+		translateY-雨滴落下
+	*/
+
+	Setting.DISPLAY_BLOCK = 'block';
+	Setting.DISPLAY_INBLOCK = 'inline-block';
+	Setting.PADDING_TINY = 'tiny';
+	Setting.PADDING_SMALL = 'small';
+	Setting.PADDING_LITTLE = 'little';
+	Setting.PADDING_BASE = 'base';
+	Setting.PADDING_MIDDLE = 'middle';
+	Setting.PADDING_BIG = 'big';
+	Setting.PADDING_LARGE = 'large';
+	Setting.PADDING_HUGE = 'huge';
+	Setting.FILLET_NONE = 'none';
+	Setting.FILLET_TINY = 'tiny';
+	Setting.FILLET_BASE = 'base';
+	Setting.FILLET_CIRCLE = 'circle';
+	Setting.ICON_POSTION_TOP = 'top';
+	Setting.ICON_POSTION_BOTTOM = 'bottom';
+	Setting.ICON_POSTION_LEFT = 'left';
+	Setting.ICON_POSTION_RIGHT = 'right';
+	Setting.ICON_POSTION_NONE = 'none';
+	Setting.ICON_SHOW_HEART = 'heart';
+	Setting.ICON_SHOW_EMPTY_HEART = 'empty-heart';
+	Setting.ICON_SHOW_CHECKED = 'checked';
+	Setting.ICON_SHOW_SQUARE_CHECKED = 'square-checked';
+	Setting.ICON_SHOW_SQUARE = 'square';
+	Setting.ICON_SHOW_CLOSE = 'close';
+	Setting.ICON_SHOW_LINE = 'line';
+	Setting.LIST_POSITION_OUTER = 'outer';
+	Setting.LIST_POSITION_INNER = 'inner';
+	Setting.LIST_STYLE_DISC = 'disc';
+	Setting.LIST_STYLE_CIRCLE = 'circle';
+	Setting.LIST_STYLE_DECIMAL = 'decimal';
+	Setting.LIST_STYLE_SQUARE = 'square';
+	Setting.LIST_STYLE_DECIMAL_LEADING_ZERO = 'decimal-leading-zero';
+	Setting.LIST_STYLE_LOWER_ROMAN = 'lower-roman';
+	Setting.LIST_STYLE_UPPER_ROMAN = 'upper-roman';
+	Setting.LIST_STYLE_LOWER_GREEK = 'lower-greek';
+	Setting.LIST_STYLE_LOWER_LATIN = 'lower-latin';
+	Setting.LIST_STYLE_UPPER_LATIN = 'upper-latin';
+	Setting.STYLE_NAME_RESURGENCE = 'resurgence';
+	Setting.STYLE_NAME_SPRING = 'spring';
+	Setting.STYLE_NAME_WINE = 'wine';
+	Setting.STYLE_NAME_BLUESKY = 'bluesky';
+	Setting.STYLE_NAME_LOVELY = 'lovely';
+	Setting.STYLE_NAME_LUXURY = 'luxury';
+	Setting.STYLE_NAME_FANTASY = 'fantasy';
+	Setting.STYLE_NAME_RIGID = 'rigid';
+	Setting.STYLE_NAME_WATERSIDE = 'waterside';
+	Setting.COMPOSITION_HALF = 'half';
+	Setting.COMPOSITION_THIRD = 'third';
+	Setting.COMPOSITION_QUARTER = 'quarter';
+	Setting.COMPOSITION_FIFTH = 'fifth';
+	Setting.COMPOSITION_SIXTH = 'sixth';
+	Setting.COMPOSITION_EIGHTH = 'eighth';
+	Setting.COMPOSITION_TENTH = 'tenth';
+	Setting.COMPOSITION_TWELFTH = 'twelfth';
+	Setting.COMPOSITION_TINYEM = 'tiny-em';
+	Setting.COMPOSITION_SMALLEM = 'small-em';
+	Setting.COMPOSITION_LITTLEEM = 'little-em';
+	Setting.COMPOSITION_BASEEM = 'base-em';
+	Setting.COMPOSITION_MIDDLEEM = 'middle-em';
+	Setting.COMPOSITION_BIGEM = 'big-em';
+	Setting.COMPOSITION_LARGEEM = 'large-em';
+	Setting.COMPOSITION_TINYPERCENT = 'tiny-percent';
+	Setting.COMPOSITION_SMALLPERCENT = 'small-percent';
+	Setting.COMPOSITION_LITTLEPERCENT = 'little-percent';
+	Setting.COMPOSITION_BASEPERCENT = 'base-percent';
+	Setting.COMPOSITION_MIDDLEPERCENT = 'middle-percent';
+	Setting.COMPOSITION_BIGPERCENT = 'big-percent';
+	Setting.COMPOSITION_LARGEPERCENT = 'large-percent';
+	Setting.COMPOSITION_TINY = 'tiny';
+	Setting.COMPOSITION_SMALL = 'small';
+	Setting.COMPOSITION_LITTLE = 'little';
+	Setting.COMPOSITION_BASE = 'base';
+	Setting.COMPOSITION_MIDDLE = 'middle';
+	Setting.COMPOSITION_BIG = 'big';
+	Setting.COMPOSITION_LARGE = 'large';
+	Setting.DISABLED_TRUE = true;
+	Setting.DISABLED_FALSE = false;
+	exports.default = Setting;
+
+/***/ },
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2459,7 +2581,7 @@
 	module.exports = DOMLazyTree;
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -2594,7 +2716,7 @@
 	module.exports = ReactReconciler;
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2722,128 +2844,6 @@
 
 	exports.default = MethodSettings;
 	;
-
-/***/ },
-/* 27 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/* 3D旋轉選項 */
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var Setting = function Setting() {
-		_classCallCheck(this, Setting);
-	};
-
-	/* ?????????
-		有哪些類型：
-		原版 - clean
-		方框 - rectangle
-		按鈕 - button
-		膠囊 - capsule
-		圓形 - circle
-	*/
-	/*
-		轉變動畫：
-		rotate-旋轉
-		rotate-翻轉
-		rotate-3d上下翻轉
-		rotate-3d左右翻轉
-		opacity
-		scale-心臟跳動
-		filter-模糊
-		translateY-雨滴落下
-	*/
-
-	Setting.DISPLAY_BLOCK = 'block';
-	Setting.DISPLAY_INBLOCK = 'inline-block';
-	Setting.PADDING_TINY = 'tiny';
-	Setting.PADDING_SMALL = 'small';
-	Setting.PADDING_LITTLE = 'little';
-	Setting.PADDING_BASE = 'base';
-	Setting.PADDING_MIDDLE = 'middle';
-	Setting.PADDING_BIG = 'big';
-	Setting.PADDING_LARGE = 'large';
-	Setting.PADDING_HUGE = 'huge';
-	Setting.FILLET_NONE = 'none';
-	Setting.FILLET_TINY = 'tiny';
-	Setting.FILLET_BASE = 'base';
-	Setting.FILLET_CIRCLE = 'circle';
-	Setting.ICON_POSTION_TOP = 'top';
-	Setting.ICON_POSTION_BOTTOM = 'bottom';
-	Setting.ICON_POSTION_LEFT = 'left';
-	Setting.ICON_POSTION_RIGHT = 'right';
-	Setting.ICON_POSTION_NONE = 'none';
-	Setting.ICON_SHOW_HEART = 'heart';
-	Setting.ICON_SHOW_EMPTY_HEART = 'empty-heart';
-	Setting.ICON_SHOW_CHECKED = 'checked';
-	Setting.ICON_SHOW_SQUARE_CHECKED = 'square-checked';
-	Setting.ICON_SHOW_SQUARE = 'square';
-	Setting.ICON_SHOW_CLOSE = 'close';
-	Setting.ICON_SHOW_LINE = 'line';
-	Setting.LIST_POSITION_OUTER = 'outer';
-	Setting.LIST_POSITION_INNER = 'inner';
-	Setting.LIST_STYLE_DISC = 'disc';
-	Setting.LIST_STYLE_CIRCLE = 'circle';
-	Setting.LIST_STYLE_DECIMAL = 'decimal';
-	Setting.LIST_STYLE_SQUARE = 'square';
-	Setting.LIST_STYLE_DECIMAL_LEADING_ZERO = 'decimal-leading-zero';
-	Setting.LIST_STYLE_LOWER_ROMAN = 'lower-roman';
-	Setting.LIST_STYLE_UPPER_ROMAN = 'upper-roman';
-	Setting.LIST_STYLE_LOWER_GREEK = 'lower-greek';
-	Setting.LIST_STYLE_LOWER_LATIN = 'lower-latin';
-	Setting.LIST_STYLE_UPPER_LATIN = 'upper-latin';
-	Setting.STYLE_NAME_RESURGENCE = 'resurgence';
-	Setting.STYLE_NAME_SPRING = 'spring';
-	Setting.STYLE_NAME_WINE = 'wine';
-	Setting.STYLE_NAME_BLUESKY = 'bluesky';
-	Setting.STYLE_NAME_LOVELY = 'lovely';
-	Setting.STYLE_NAME_LUXURY = 'luxury';
-	Setting.STYLE_NAME_FANTASY = 'fantasy';
-	Setting.STYLE_NAME_RIGID = 'rigid';
-	Setting.STYLE_NAME_WATERSIDE = 'waterside';
-	Setting.COMPOSITION_HALF = 'half';
-	Setting.COMPOSITION_THIRD = 'third';
-	Setting.COMPOSITION_QUARTER = 'quarter';
-	Setting.COMPOSITION_FIFTH = 'fifth';
-	Setting.COMPOSITION_SIXTH = 'sixth';
-	Setting.COMPOSITION_EIGHTH = 'eighth';
-	Setting.COMPOSITION_TENTH = 'tenth';
-	Setting.COMPOSITION_TWELFTH = 'twelfth';
-	Setting.COMPOSITION_TINYEM = 'tiny-em';
-	Setting.COMPOSITION_SMALLEM = 'small-em';
-	Setting.COMPOSITION_LITTLEEM = 'little-em';
-	Setting.COMPOSITION_BASEEM = 'base-em';
-	Setting.COMPOSITION_MIDDLEEM = 'middle-em';
-	Setting.COMPOSITION_BIGEM = 'big-em';
-	Setting.COMPOSITION_LARGEEM = 'large-em';
-	Setting.COMPOSITION_TINYPERCENT = 'tiny-percent';
-	Setting.COMPOSITION_SMALLPERCENT = 'small-percent';
-	Setting.COMPOSITION_LITTLEPERCENT = 'little-percent';
-	Setting.COMPOSITION_BASEPERCENT = 'base-percent';
-	Setting.COMPOSITION_MIDDLEPERCENT = 'middle-percent';
-	Setting.COMPOSITION_BIGPERCENT = 'big-percent';
-	Setting.COMPOSITION_LARGEPERCENT = 'large-percent';
-	Setting.COMPOSITION_TINY = 'tiny';
-	Setting.COMPOSITION_SMALL = 'small';
-	Setting.COMPOSITION_LITTLE = 'little';
-	Setting.COMPOSITION_BASE = 'base';
-	Setting.COMPOSITION_MIDDLE = 'middle';
-	Setting.COMPOSITION_BIG = 'big';
-	Setting.COMPOSITION_LARGE = 'large';
-	Setting.DISABLED_TRUE = true;
-	Setting.DISABLED_FALSE = false;
-	exports.default = Setting;
 
 /***/ },
 /* 28 */
@@ -4279,7 +4279,7 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(24);
+	var DOMLazyTree = __webpack_require__(25);
 	var Danger = __webpack_require__(140);
 	var ReactMultiChildUpdateTypes = __webpack_require__(85);
 	var ReactPerf = __webpack_require__(8);
@@ -5221,7 +5221,7 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(24);
+	var DOMLazyTree = __webpack_require__(25);
 	var DOMProperty = __webpack_require__(18);
 	var ReactBrowserEventEmitter = __webpack_require__(35);
 	var ReactCurrentOwner = __webpack_require__(19);
@@ -5233,7 +5233,7 @@
 	var ReactInstrumentation = __webpack_require__(36);
 	var ReactMarkupChecksum = __webpack_require__(174);
 	var ReactPerf = __webpack_require__(8);
-	var ReactReconciler = __webpack_require__(25);
+	var ReactReconciler = __webpack_require__(26);
 	var ReactUpdateQueue = __webpack_require__(90);
 	var ReactUpdates = __webpack_require__(13);
 
@@ -14164,7 +14164,7 @@
 		};
 	}();
 
-	var _Setting = __webpack_require__(27);
+	var _Setting = __webpack_require__(24);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -14492,7 +14492,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Setting = __webpack_require__(27);
+	var _Setting = __webpack_require__(24);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -17249,7 +17249,7 @@
 
 	'use strict';
 
-	var DOMLazyTree = __webpack_require__(24);
+	var DOMLazyTree = __webpack_require__(25);
 	var ExecutionEnvironment = __webpack_require__(6);
 
 	var createNodesFromMarkup = __webpack_require__(122);
@@ -17946,7 +17946,7 @@
 
 	'use strict';
 
-	var ReactReconciler = __webpack_require__(25);
+	var ReactReconciler = __webpack_require__(26);
 
 	var instantiateReactComponent = __webpack_require__(97);
 	var shouldUpdateReactComponent = __webpack_require__(62);
@@ -18095,7 +18095,7 @@
 	var ReactPerf = __webpack_require__(8);
 	var ReactPropTypeLocations = __webpack_require__(38);
 	var ReactPropTypeLocationNames = __webpack_require__(37);
-	var ReactReconciler = __webpack_require__(25);
+	var ReactReconciler = __webpack_require__(26);
 	var ReactUpdateQueue = __webpack_require__(90);
 
 	var emptyObject = __webpack_require__(31);
@@ -18880,7 +18880,7 @@
 	var ReactDefaultInjection = __webpack_require__(167);
 	var ReactMount = __webpack_require__(52);
 	var ReactPerf = __webpack_require__(8);
-	var ReactReconciler = __webpack_require__(25);
+	var ReactReconciler = __webpack_require__(26);
 	var ReactUpdates = __webpack_require__(13);
 	var ReactVersion = __webpack_require__(91);
 
@@ -19052,7 +19052,7 @@
 
 	var AutoFocusUtils = __webpack_require__(135);
 	var CSSPropertyOperations = __webpack_require__(137);
-	var DOMLazyTree = __webpack_require__(24);
+	var DOMLazyTree = __webpack_require__(25);
 	var DOMNamespaces = __webpack_require__(139);
 	var DOMProperty = __webpack_require__(18);
 	var DOMPropertyOperations = __webpack_require__(46);
@@ -20061,7 +20061,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var DOMLazyTree = __webpack_require__(24);
+	var DOMLazyTree = __webpack_require__(25);
 	var ReactDOMComponentTree = __webpack_require__(4);
 
 	var ReactDOMEmptyComponent = function ReactDOMEmptyComponent(instantiate) {
@@ -20927,7 +20927,7 @@
 	var _assign = __webpack_require__(3);
 
 	var DOMChildrenOperations = __webpack_require__(45);
-	var DOMLazyTree = __webpack_require__(24);
+	var DOMLazyTree = __webpack_require__(25);
 	var ReactDOMComponentTree = __webpack_require__(4);
 	var ReactPerf = __webpack_require__(8);
 
@@ -22586,7 +22586,7 @@
 	var ReactMultiChildUpdateTypes = __webpack_require__(85);
 
 	var ReactCurrentOwner = __webpack_require__(19);
-	var ReactReconciler = __webpack_require__(25);
+	var ReactReconciler = __webpack_require__(26);
 	var ReactChildReconciler = __webpack_require__(146);
 
 	var flattenChildren = __webpack_require__(195);
@@ -32667,7 +32667,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _MethodSettings = __webpack_require__(26);
+	var _MethodSettings = __webpack_require__(27);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -33425,7 +33425,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(27);
+	var _Setting = __webpack_require__(24);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -33461,7 +33461,7 @@
 
 	var _MethodControlText2 = _interopRequireDefault(_MethodControlText);
 
-	var _MethodSettings = __webpack_require__(26);
+	var _MethodSettings = __webpack_require__(27);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -34329,7 +34329,7 @@
 
 	var _ColorPickerCpt2 = _interopRequireDefault(_ColorPickerCpt);
 
-	var _MethodSettings = __webpack_require__(26);
+	var _MethodSettings = __webpack_require__(27);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -34340,6 +34340,10 @@
 	var _Utils = __webpack_require__(21);
 
 	var _Utils2 = _interopRequireDefault(_Utils);
+
+	var _Setting = __webpack_require__(24);
+
+	var _Setting2 = _interopRequireDefault(_Setting);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34364,6 +34368,8 @@
 	        var _scope = _this;
 
 	        _scope.arrangeProps(props);
+
+	        _scope.createInputoption();
 
 	        _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
 	        _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
@@ -34487,9 +34493,19 @@
 	            }
 	        }
 	    }, {
+	        key: 'createInputoption',
+	        value: function createInputoption() {
+	            // this.input_option = MethodSettings.getAllShape();
+	            var _sary = _MethodSettings2.default.getAllShape().map(function (json_item) {
+	                json_item.key = _Utils2.default.createUniqueId();
+	                return json_item;
+	            });
+	            this.input_option = _sary;
+	        }
+	    }, {
 	        key: 'getInputoption',
 	        value: function getInputoption() {
-	            return _MethodSettings2.default.getAllShape();
+	            return this.input_option;
 	        }
 	    }, {
 	        key: 'getSelectKey',
@@ -34531,29 +34547,31 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'pkg-control-center' },
-	                    _react2.default.createElement(_ReactGroup2.default, {
-	                        onChange: _scope.handleChangeShape,
-	                        outputFormat: 'json',
-	                        name: 'method_option',
-	                        selectKey: _scope.getSelectKey(),
-	                        inputOption: _scope.getInputoption(),
-	                        outputResult: _scope.state.control.shape,
-	                        showKey: _scope.getShowKey(),
-	                        between: '~',
-	                        display: _json_sub_store.display,
-	                        padding: _json_sub_store.padding,
-	                        fillet: _json_sub_store.fillet,
-	                        listStyle: _json_sub_store.listStyle,
-	                        listPosition: _json_sub_store.listPosition,
-	                        iconPosition: _json_sub_store.iconPosition,
-	                        iconShow: _json_sub_store.iconShow,
-	                        styleName: _json_sub_store.styleName,
-	                        composition: _json_sub_store.composition,
-	                        offBack: _json_sub_store.offBack,
-	                        styleBorder: _json_sub_store.styleBorder,
-	                        styleIcon: _json_sub_store.styleIcon,
-	                        styleIconBack: _json_sub_store.styleIconBack,
-	                        styleList: _json_sub_store.styleList })
+	                    _scope.getInputoption().map(function (json_item) {
+	                        return _react2.default.createElement(_ReactGroup2.default, {
+	                            onChange: _scope.handleChangeShape,
+	                            outputFormat: 'json',
+	                            name: 'method_option',
+	                            selectKey: _scope.getSelectKey(),
+	                            inputOption: [json_item],
+	                            outputResult: _scope.state.control.shape,
+	                            showKey: _scope.getShowKey(),
+	                            between: '~',
+	                            display: _Setting2.default.DISPLAY_INBLOCK,
+	                            padding: _json_sub_store.padding,
+	                            fillet: _json_sub_store.fillet,
+	                            listPosition: _json_sub_store.listPosition,
+	                            iconPosition: _json_sub_store.iconPosition,
+	                            iconShow: _json_sub_store.iconShow,
+	                            styleName: _json_sub_store.styleName,
+	                            composition: _json_sub_store.composition,
+	                            offBack: _json_sub_store.offBack,
+	                            styleBorder: _json_sub_store.styleBorder,
+	                            styleIcon: _json_sub_store.styleIcon,
+	                            styleIconBack: _json_sub_store.styleIconBack,
+	                            styleList: _json_sub_store.styleList,
+	                            key: json_item.key });
+	                    }, this)
 	                ),
 	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
 	                    'div',
@@ -34572,7 +34590,7 @@
 	                            { onClick: function onClick() {
 	                                    _scope.showColorPicker(true);
 	                                },
-	                                className: 'ui-colortag',
+	                                className: 'ui-colortag ui-hover',
 	                                style: { background: _str_color_origin, color: _str_color_pair } },
 	                            _scope.state.control.color,
 	                            ' - ',
@@ -35141,13 +35159,17 @@
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
-	var _MethodSettings = __webpack_require__(26);
+	var _MethodSettings = __webpack_require__(27);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
 	var _ColorPickerCpt = __webpack_require__(110);
 
 	var _ColorPickerCpt2 = _interopRequireDefault(_ColorPickerCpt);
+
+	var _Setting = __webpack_require__(24);
+
+	var _Setting2 = _interopRequireDefault(_Setting);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35430,32 +35452,27 @@
 	                        'div',
 	                        null,
 	                        '文字樣式：',
-	                        _react2.default.createElement('br', null),
-	                        _scope.getAllTextStyle().map(function (json_item) {
-	                            return _react2.default.createElement(_ReactGroup2.default, {
-	                                onChange: _scope.handleChangeTextStyle,
-	                                outputFormat: 'string',
-	                                name: 'method_option',
-	                                selectKey: _scope.getTextSelectKey(),
-	                                inputOption: [json_item],
-	                                outputResult: _scope.state.control.style,
-	                                showKey: _scope.getTextShowKey(),
-	                                between: '~',
-	                                display: 'inline-block',
-	                                padding: _json_sub_store.padding,
-	                                fillet: _json_sub_store.fillet,
-	                                listStyle: _json_sub_store.listStyle,
-	                                listPosition: _json_sub_store.listPosition,
-	                                iconPosition: _json_sub_store.iconPosition,
-	                                iconShow: _json_sub_store.iconShow,
-	                                styleName: _json_sub_store.styleName,
-	                                offBack: _json_sub_store.offBack,
-	                                styleBorder: _json_sub_store.styleBorder,
-	                                styleIcon: _json_sub_store.styleIcon,
-	                                styleIconBack: _json_sub_store.styleIconBack,
-	                                styleList: _json_sub_store.styleList,
-	                                key: json_item.key });
-	                        }, this)
+	                        _react2.default.createElement(_ReactGroup2.default, {
+	                            onChange: _scope.handleChangeTextStyle,
+	                            outputFormat: 'string',
+	                            name: 'method_option',
+	                            selectKey: _scope.getTextSelectKey(),
+	                            inputOption: _scope.getAllTextStyle(),
+	                            outputResult: _scope.state.control.style,
+	                            showKey: _scope.getTextShowKey(),
+	                            between: '~',
+	                            display: _Setting2.default.DISPLAY_INBLOCK,
+	                            padding: _json_sub_store.padding,
+	                            fillet: _json_sub_store.fillet,
+	                            listStyle: _json_sub_store.listStyle,
+	                            listPosition: _json_sub_store.listPosition,
+	                            iconPosition: _json_sub_store.iconPosition,
+	                            styleName: _json_sub_store.styleName,
+	                            offBack: _json_sub_store.offBack,
+	                            styleBorder: _json_sub_store.styleBorder,
+	                            styleIcon: _json_sub_store.styleIcon,
+	                            styleIconBack: _json_sub_store.styleIconBack,
+	                            styleList: _json_sub_store.styleList })
 	                    ),
 	                    _react2.default.createElement(
 	                        'div',
@@ -35466,7 +35483,7 @@
 	                            { onClick: function onClick() {
 	                                    _scope.showTextColorPicker(true);
 	                                },
-	                                className: 'ui-colortag',
+	                                className: 'ui-colortag ui-hover',
 	                                style: { background: _str_textcolor_origin, color: _str_textcolor_pair } },
 	                            _str_textcolor_origin,
 	                            ' - ',
@@ -35482,7 +35499,7 @@
 	                            { onClick: function onClick() {
 	                                    _scope.showBorderColorPicker(true);
 	                                },
-	                                className: 'ui-colortag',
+	                                className: 'ui-colortag ui-hover',
 	                                style: { background: _str_bordercolor_origin, color: _str_bordercolor_pair } },
 	                            _str_bordercolor_origin,
 	                            ' - ',
@@ -35492,33 +35509,40 @@
 	                    _react2.default.createElement(
 	                        'div',
 	                        null,
-	                        '文字位置（水平 / 垂直）：',
-	                        _react2.default.createElement('br', null),
-	                        _scope.getAllPos().map(function (json_item) {
-	                            return _react2.default.createElement(_ReactGroup2.default, {
-	                                onChange: _scope.handleChangePos,
-	                                outputFormat: 'string',
-	                                name: 'method_option',
-	                                selectKey: _scope.getPosSelectKey(),
-	                                inputOption: [json_item],
-	                                outputResult: _scope.state.control.pos,
-	                                showKey: _scope.getPosShowKey(),
-	                                between: '~',
-	                                display: 'inline-block',
-	                                padding: _json_sub_store.padding,
-	                                fillet: _json_sub_store.fillet,
-	                                listStyle: _json_sub_store.listStyle,
-	                                listPosition: _json_sub_store.listPosition,
-	                                iconPosition: _json_sub_store.iconPosition,
-	                                iconShow: _json_sub_store.iconShow,
-	                                styleName: _json_sub_store.styleName,
-	                                offBack: _json_sub_store.offBack,
-	                                styleBorder: _json_sub_store.styleBorder,
-	                                styleIcon: _json_sub_store.styleIcon,
-	                                styleIconBack: _json_sub_store.styleIconBack,
-	                                styleList: _json_sub_store.styleList,
-	                                key: json_item.key });
-	                        }, this)
+	                        '文字位置：',
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'pkg-textpos' },
+	                            _react2.default.createElement('br', null),
+	                            _scope.getAllPos().map(function (json_item) {
+	                                return _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'pkg-textpos-item' },
+	                                    _react2.default.createElement(_ReactGroup2.default, {
+	                                        className: 'pkg-textpos-item-btn',
+	                                        onChange: _scope.handleChangePos,
+	                                        outputFormat: 'string',
+	                                        name: 'method_option',
+	                                        selectKey: _scope.getPosSelectKey(),
+	                                        inputOption: [json_item],
+	                                        outputResult: _scope.state.control.pos,
+	                                        showKey: _scope.getPosShowKey(),
+	                                        between: '~',
+	                                        display: _Setting2.default.DISPLAY_INBLOCK,
+	                                        padding: _json_sub_store.padding,
+	                                        fillet: _json_sub_store.fillet,
+	                                        listPosition: _json_sub_store.listPosition,
+	                                        iconPosition: _json_sub_store.iconPosition,
+	                                        styleName: _json_sub_store.styleName,
+	                                        offBack: _json_sub_store.offBack,
+	                                        styleBorder: _json_sub_store.styleBorder,
+	                                        styleIcon: _json_sub_store.styleIcon,
+	                                        styleIconBack: _json_sub_store.styleIconBack,
+	                                        styleList: _json_sub_store.styleList,
+	                                        key: json_item.key })
+	                                );
+	                            }, this)
+	                        )
 	                    )
 	                ),
 	                _str_img_src && typeof _str_img_src === 'string' && _str_img_src !== '' ? _react2.default.createElement(
@@ -35564,6 +35588,31 @@
 	exports.default = MethodControlText;
 	;
 
+	/*
+	<ReactGroup 
+	    onChange={_scope.handleChangePos}
+	    outputFormat="string"
+	    name="method_option"
+	    selectKey={_scope.getPosSelectKey()}
+	    inputOption={ _scope.getAllPos() }
+	    outputResult={_scope.state.control.pos}
+	    showKey={_scope.getPosShowKey()}
+	    between="~"
+	    display={ReactGroupSetting.DISPLAY_BLOCK}
+	    padding={_json_sub_store.padding}
+	    fillet={_json_sub_store.fillet}
+	    listPosition={_json_sub_store.listPosition}
+	    iconPosition={_json_sub_store.iconPosition}
+	    iconShow={_json_sub_store.iconShow}
+	    styleName={_json_sub_store.styleName}
+	    offBack={_json_sub_store.offBack}
+	    styleBorder={_json_sub_store.styleBorder}
+	    styleIcon={_json_sub_store.styleIcon}
+	    styleIconBack={_json_sub_store.styleIconBack}
+	    styleList={_json_sub_store.styleList}
+	    composition={ReactGroupSetting.COMPOSITION_THIRD} />
+	*/
+
 	MethodControlText.propTypes = {
 	    control: _react2.default.PropTypes.object
 	}, MethodControlText.defaultProps = {
@@ -35600,11 +35649,11 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _MethodSettings = __webpack_require__(26);
+	var _MethodSettings = __webpack_require__(27);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
-	var _Setting = __webpack_require__(27);
+	var _Setting = __webpack_require__(24);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -35764,7 +35813,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _MethodSettings = __webpack_require__(26);
+	var _MethodSettings = __webpack_require__(27);
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
@@ -35922,7 +35971,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(27);
+	var _Setting = __webpack_require__(24);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 

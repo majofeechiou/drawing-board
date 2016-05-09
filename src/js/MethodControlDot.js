@@ -9,6 +9,7 @@ import ColorPickerCpt from './ColorPickerCpt';
 import MethodSettings from './MethodSettings';
 import ReactGroup from 'ReactGroup';
 import Utils from './Utils';
+import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 // http://jslog.com/react-color-picker/
 // https://www.npmjs.com/package/react-color-picker
@@ -21,6 +22,8 @@ export default class MethodControlDot extends React.Component {
         let _scope = this;
 
         _scope.arrangeProps( props );
+
+        _scope.createInputoption();
 
         _scope.handleChangeRange = _scope.handleChangeRange.bind(_scope);
         _scope.handleChangeShape = _scope.handleChangeShape.bind(_scope);
@@ -139,8 +142,16 @@ export default class MethodControlDot extends React.Component {
 
     }
 
+    createInputoption(){
+        // this.input_option = MethodSettings.getAllShape();
+        let _sary = (MethodSettings.getAllShape()).map(function(json_item){
+            json_item.key = Utils.createUniqueId();
+            return json_item;
+        });
+        this.input_option = _sary;
+    }
     getInputoption(){
-        return MethodSettings.getAllShape();
+        return this.input_option;
     }
     getSelectKey(){
         return ['shape','shape_name'];
@@ -176,29 +187,31 @@ export default class MethodControlDot extends React.Component {
         return (
             <div className="pkg-control">
                 <div className="pkg-control-center">
-                    <ReactGroup 
-                        onChange={_scope.handleChangeShape}
-                        outputFormat="json"
-                        name="method_option"
-                        selectKey={_scope.getSelectKey()}
-                        inputOption={_scope.getInputoption()}
-                        outputResult={_scope.state.control.shape}
-                        showKey={_scope.getShowKey()}
-                        between="~"
-                        display={_json_sub_store.display}
-                        padding={_json_sub_store.padding}
-                        fillet={_json_sub_store.fillet}
-                        listStyle={_json_sub_store.listStyle}
-                        listPosition={_json_sub_store.listPosition}
-                        iconPosition={_json_sub_store.iconPosition}
-                        iconShow={_json_sub_store.iconShow}
-                        styleName={_json_sub_store.styleName}
-                        composition={_json_sub_store.composition}
-                        offBack={_json_sub_store.offBack}
-                        styleBorder={_json_sub_store.styleBorder}
-                        styleIcon={_json_sub_store.styleIcon}
-                        styleIconBack={_json_sub_store.styleIconBack}
-                        styleList={_json_sub_store.styleList} />
+                    <For each="json_item" of={ _scope.getInputoption() }>
+                        <ReactGroup 
+                            onChange={_scope.handleChangeShape}
+                            outputFormat="json"
+                            name="method_option"
+                            selectKey={_scope.getSelectKey()}
+                            inputOption={[json_item]}
+                            outputResult={_scope.state.control.shape}
+                            showKey={_scope.getShowKey()}
+                            between="~"
+                            display={ReactGroupSetting.DISPLAY_INBLOCK}
+                            padding={_json_sub_store.padding}
+                            fillet={_json_sub_store.fillet}
+                            listPosition={_json_sub_store.listPosition}
+                            iconPosition={_json_sub_store.iconPosition}
+                            iconShow={_json_sub_store.iconShow}
+                            styleName={_json_sub_store.styleName}
+                            composition={_json_sub_store.composition}
+                            offBack={_json_sub_store.offBack}
+                            styleBorder={_json_sub_store.styleBorder}
+                            styleIcon={_json_sub_store.styleIcon}
+                            styleIconBack={_json_sub_store.styleIconBack}
+                            styleList={_json_sub_store.styleList}
+                            key={json_item.key} />
+                    </For>
                 </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
                     <div className="pkg-control-right pkg-conpreview">
@@ -209,7 +222,7 @@ export default class MethodControlDot extends React.Component {
                     <div>
                         顏色 ： 
                         <span onClick={()=>{_scope.showColorPicker(true);}}
-                            className="ui-colortag"
+                            className="ui-colortag ui-hover"
                             style={{background: _str_color_origin, color: _str_color_pair}}>
                             {_scope.state.control.color} - {JSON.stringify(_scope.state.showColorPicker)}
                         </span>

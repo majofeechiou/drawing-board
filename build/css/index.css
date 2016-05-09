@@ -166,9 +166,11 @@ body *  {
     border: 1px solid #00f;
 }
 
-.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_size .pkg-workspace-tools-item {}
+.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_size .pkg-workspace-tools-item {
+}
 
-.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_size .pkg-workspace-tools-item.pkg-workspace-tools-item_size {}
+.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_size .pkg-workspace-tools-item.pkg-workspace-tools-item_size {
+}
 
 .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_size .pkg-workspace-tools-item.pkg-workspace-tools-item_size:after {
     display: none;
@@ -178,31 +180,36 @@ body *  {
     display: none;
 }
 
-.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item {}
+.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item {
+}
 
 .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_size {
     display: none;
 }
 
-.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_back, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_upload {}
+.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_back, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_upload {
+}
 
 .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_back:after, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_upload .pkg-workspace-tools-item.pkg-workspace-tools-item_upload:after {
     display: none;
 }
 
-.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item {}
+.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item {
+}
 
 .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_size {
     display: none;
 }
 
-.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_back, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_upload, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_action {}
+.pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_back, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_upload, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_action {
+}
 
 .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_back:after, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_upload:after, .pkg-workspace .pkg-workspace-tools.pkg-workspace-tools_action .pkg-workspace-tools-item.pkg-workspace-tools-item_action:after {
     display: none;
 }
 
-.pkg-workspace .pkg-workspace-preview {}
+.pkg-workspace .pkg-workspace-preview {
+}
 
 .pkg-size .pkg-size-confirm, .pkg-back .pkg-back-confirm {
     position: absolute;
@@ -495,11 +502,40 @@ body *  {
     display: block;
 }
 
+.pkg-textpos {
+    width: 15em;
+}
+
+.pkg-textpos .pkg-textpos-item {
+    position: relative;
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+.pkg-textpos .pkg-textpos-item .pkg-textpos-item-btn {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.pkg-textpos:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
 .ui-colortag {
     display: inline-block;
     padding: 0.3em;
     width: 9em;
     text-align: center;
+}
+
+.ui-hover {
+}
+
+.ui-hover:hover {
+    cursor: pointer;
 }
 
 @media screen and ( max-width: 767px ){

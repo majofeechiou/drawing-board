@@ -381,8 +381,27 @@ body *  {
     }
 }
 
+.pkg-textpos {
+    @mixin after-clear;
+    width: 15em;
+    .pkg-textpos-item {
+        position: relative;
+        width: 33%;
+        float: left;
+        text-align: center;
+        .pkg-textpos-item-btn {
+            margin-top: $item_spacing;
+            margin-bottom: $item_spacing;
+        }
+    }
+}
+
 .ui-colortag {
     @mixin ui-colortag;
+}
+
+.ui-hover {
+    @mixin hover;
 }
 
 @media screen and ( max-width: 767px ){
