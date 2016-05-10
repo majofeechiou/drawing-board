@@ -38,14 +38,14 @@ export default class RadioGroup extends React.Component {
 
 	arrangeProps(props){
 		let _str_format = 'string' ; 
-		if( typeof props.outputFormat === 'string' && (props.outputFormat).match(/^((string)|(json)|(array)|(sarry))$/i)!==null ){
+		if( typeof props.outputFormat === 'string' && (props.outputFormat).match(/^((string)|(json)|(array)|(sarray))$/i)!==null ){
 			_str_format = props.outputFormat ;
 		}
 		// let _data_result = 
-		// 	( _str_format==='array' || _str_format==='sarry' )? [] : 
+		// 	( _str_format==='array' || _str_format==='sarray' )? [] : 
 		// 	(( _str_format==='json' )? {} : '' ) ;
 		let _data_result;
-		if(  _str_format==='array' || _str_format==='sarry' ){
+		if(  _str_format==='array' || _str_format==='sarray' ){
 			if( props.outputResult instanceof Array === true ){
 				_data_result = props.outputResult;
 			}else{
@@ -207,54 +207,58 @@ export default class RadioGroup extends React.Component {
 			'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) ),
 		});
 		let _str_selectkey = this.getMainSelectKey();
-		return <div className={_str_classname_all}>
-			{this.props.inputOption.map((json_item)=>{
+		return <div>
+			<div className={_str_classname_all}>
+				{this.props.inputOption.map((json_item)=>{
 
-				let _str_classname_outer = ClassNames({
-					'pkg-checked-option': true,
-					'pkg-checked-option_checked': this.judegItemChecked(json_item),
-					'pkg-list-option': (this.props.listPosition===Setting.LIST_POSITION_OUTER),
-					'pkg-checked-icon': (this.props.listPosition!==Setting.LIST_POSITION_OUTER),
-					
-					'pkg-style-item': true,
-					'pkg-style-item_checked': this.judegItemChecked(json_item) ,
-					'pkg-style-icon': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
-					'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
-					'pkg-style-iconback': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
-					'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
-					'pkg-style-border': ( this.props.styleBorder===true ),
-					'pkg-style-border_checked': ( (this.props.styleBorder===true) && this.judegItemChecked(json_item) ),
-					'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) ),
-					'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
-				});
+					let _str_classname_outer = ClassNames({
+						'pkg-checked-option': true,
+						'pkg-checked-option_checked': this.judegItemChecked(json_item),
+						'pkg-list-option': (this.props.listPosition===Setting.LIST_POSITION_OUTER),
+						'pkg-checked-icon': (this.props.listPosition!==Setting.LIST_POSITION_OUTER),
+						
+						'pkg-style-item': true,
+						'pkg-style-item_checked': this.judegItemChecked(json_item) ,
+						'pkg-style-icon': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
+						'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
+						'pkg-style-iconback': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) ),
+						'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
+						'pkg-style-border': ( this.props.styleBorder===true ),
+						'pkg-style-border_checked': ( (this.props.styleBorder===true) && this.judegItemChecked(json_item) ),
+						'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) ),
+						'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_OUTER) && this.judegItemChecked(json_item) ),
+					});
 
-				let _str_classname_inner_add = ClassNames({
-					'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
-					'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
-					'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
-				});
+					let _str_classname_inner_add = ClassNames({
+						'pkg-style-icon_checked': ( (this.props.styleIcon===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
+						'pkg-style-iconback_checked': ( (this.props.styleIconBack===true) && (this.props.listPosition!==Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
+						'pkg-style-list_checked': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) && this.judegItemChecked(json_item) ),
+					});
 
-				return (
-					<label key={this.props.name+'-'+_str_selectkey+'-'+json_item[_str_selectkey]+Date.now()+'-'+Math.floor(Math.random()*1000)}
-						className={_str_classname_outer}>
-						<span className={_str_classname_inner+' '+_str_classname_inner_add}>
-							<ItemBase value={json_item[_str_selectkey]}
-								checked={this.judegItemChecked(json_item)}
-								onChange={this.handleChange}
-								disabled={this.state.disabled}
-								type={ (this.state.format==='array' || this.state.format==='sarry')? 'checkbox' : 'radio' }
-								name={this.props.name}
-								showKey={this.props.showKey}
-								between={this.props.between}
-								item={json_item} />
-						</span>
-					</label> 
-				);
-			})}
+					return (
+						<label key={this.props.name+'-'+_str_selectkey+'-'+json_item[_str_selectkey]+Date.now()+'-'+Math.floor(Math.random()*1000)}
+							className={_str_classname_outer}>
+							<span className={_str_classname_inner+' '+_str_classname_inner_add}>
+								<ItemBase value={json_item[_str_selectkey]}
+									checked={this.judegItemChecked(json_item)}
+									onChange={this.handleChange}
+									disabled={this.state.disabled}
+									type={ (this.state.format==='array' || this.state.format==='sarray')? 'checkbox' : 'radio' }
+									name={this.props.name}
+									showKey={this.props.showKey}
+									between={this.props.between}
+									item={json_item} />
+							</span>
+						</label> 
+					);
+				})}
+			</div>
+
+			<button onClick={this.toggleDisabled}>toggle disabled</button>
+
 		</div>;
 	}
 }
-// <button onClick={this.toggleDisabled}>toggle disabled</button>
 
 RadioGroup.propTypes = {
 	onChange: React.PropTypes.func,
