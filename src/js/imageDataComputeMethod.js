@@ -310,12 +310,12 @@ export default class ImageDataComputeMethod extends Tools {
 				_scope.obj_canvas_2d.arc( _num_x, _num_y, _num_size_helf, 0, Math.PI * 2, true );
 			}else if( _str_shape===Settings.SHAPE_RECT ){
 				_scope.obj_canvas_2d.rect( _num_x-_num_size_helf, _num_y-_num_size_helf, _num_size, _num_size );
-			}else if( _str_shape===Settings.SHAPE_RECT2 ){
-		        _scope.obj_canvas_2d.moveTo(_num_x-Math.floor(_num_size_helf*1.4), _num_y);
-		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y-Math.floor(_num_size_helf*1.4));
-		        _scope.obj_canvas_2d.lineTo(_num_x+Math.floor(_num_size_helf*1.4), _num_y);
-		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y+Math.floor(_num_size_helf*1.4));
-		        _scope.obj_canvas_2d.lineTo(_num_x-Math.floor(_num_size_helf*1.4), _num_y);
+			// }else if( _str_shape===Settings.SHAPE_RECT2 ){
+		 //        _scope.obj_canvas_2d.moveTo(_num_x-Math.floor(_num_size_helf*1.4), _num_y);
+		 //        _scope.obj_canvas_2d.lineTo(_num_x, _num_y-Math.floor(_num_size_helf*1.4));
+		 //        _scope.obj_canvas_2d.lineTo(_num_x+Math.floor(_num_size_helf*1.4), _num_y);
+		 //        _scope.obj_canvas_2d.lineTo(_num_x, _num_y+Math.floor(_num_size_helf*1.4));
+		 //        _scope.obj_canvas_2d.lineTo(_num_x-Math.floor(_num_size_helf*1.4), _num_y);
 			}else if( _str_shape===Settings.SHAPE_RHOMBUS ){
 		        _scope.obj_canvas_2d.moveTo(_num_x-Math.floor(_num_size_helf*1.4*0.6), _num_y);
 		        _scope.obj_canvas_2d.lineTo(_num_x, _num_y-Math.floor(_num_size_helf*1.4));

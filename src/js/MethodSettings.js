@@ -1,6 +1,7 @@
 'use strict';
 
 import Settings from './Settings';
+import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 export default class MethodSettings {
 
@@ -41,23 +42,27 @@ export default class MethodSettings {
 		return [
 			{
 			    shape: Settings.SHAPE_CIRCLE,
-			    shape_name: Settings.SHAPE_CIRCLE_NAME
+			    shape_name: Settings.SHAPE_CIRCLE_NAME,
+			    icon: ReactGroupSetting.ICON_SHOW_CIRCLE
 			},
 			{
 			    shape: Settings.SHAPE_RECT,
-			    shape_name: Settings.SHAPE_RECT_NAME
+			    shape_name: Settings.SHAPE_RECT_NAME,
+			    icon: ReactGroupSetting.ICON_SHOW_SQUARE
 			},
-			{
-			    shape: Settings.SHAPE_RECT2,
-			    shape_name: Settings.SHAPE_RECT2_NAME
-			},
+			// {
+			//     shape: Settings.SHAPE_RECT2,
+			//     shape_name: Settings.SHAPE_RECT2_NAME
+			// },
 			{
 			    shape: Settings.SHAPE_RHOMBUS,
-			    shape_name: Settings.SHAPE_RHOMBUS_NAME
+			    shape_name: Settings.SHAPE_RHOMBUS_NAME,
+			    icon: ReactGroupSetting.ICON_SHOW_RHOMBUS
 			},
 			{
 			    shape: Settings.SHAPE_STAR,
-			    shape_name: Settings.SHAPE_STAR_NAME
+			    shape_name: Settings.SHAPE_STAR_NAME,
+			    icon: ReactGroupSetting.ICON_SHOW_STAR
 			},
 			// {
 			//     shape: Settings.SHAPE_HEART,
@@ -65,6 +70,21 @@ export default class MethodSettings {
 			// }
 		];
 	}
+
+
+	// static ICON_SHOW_HEART = 'heart'; // 實的愛心
+	// static ICON_SHOW_EMPTY_HEART = 'empty-heart'; // 空的愛心
+	// static ICON_SHOW_CHECKED = 'checked'; // 純勾勾
+	// static ICON_SHOW_SQUARE_CHECKED = 'square-checked'; // 方框中有勾勾
+	// static ICON_SHOW_SQUARE = 'square'; // 純方形
+	// static ICON_SHOW_CLOSE = 'close'; // 純叉叉
+	// static ICON_SHOW_LINE = 'line'; // 純橫線
+	// static ICON_SHOW_EMPTY_SQUARE = 'empty-square'; // 純方框
+	// static ICON_SHOW_RHOMBUS = 'rhombus'; // 菱形
+	// static ICON_SHOW_STAR = 'star'; // 星形
+	// static ICON_SHOW_EMPTY_STAR = 'empty-star'; // 星形
+	// static ICON_SHOW_CIRCLE = 'circle'; // 圓形
+	// static ICON_SHOW_EMPTY_CIRCLE = 'empty-circle'; // 空心圓形
 
 	static getAllPos(){
 		return [

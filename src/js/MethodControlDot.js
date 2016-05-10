@@ -202,7 +202,7 @@ export default class MethodControlDot extends React.Component {
                             fillet={_json_sub_store.fillet}
                             listPosition={_json_sub_store.listPosition}
                             iconPosition={_json_sub_store.iconPosition}
-                            iconShow={_json_sub_store.iconShow}
+                            iconShow={[json_item.icon]}
                             styleName={_json_sub_store.styleName}
                             composition={_json_sub_store.composition}
                             offBack={_json_sub_store.offBack}
