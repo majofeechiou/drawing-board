@@ -207,7 +207,7 @@ export default class RadioGroup extends React.Component {
 			'pkg-style-list': ( (this.props.styleList===true) && (this.props.listPosition===Setting.LIST_POSITION_INNER) ),
 		});
 		let _str_selectkey = this.getMainSelectKey();
-		return <div>
+		return (
 			<div className={_str_classname_all}>
 				{this.props.inputOption.map((json_item)=>{
 
@@ -254,11 +254,11 @@ export default class RadioGroup extends React.Component {
 				})}
 			</div>
 
-			<button onClick={this.toggleDisabled}>toggle disabled</button>
-
-		</div>;
+		);
 	}
 }
+
+// <button onClick={this.toggleDisabled}>toggle disabled</button> // 這個要移除
 
 RadioGroup.propTypes = {
 	onChange: React.PropTypes.func,
