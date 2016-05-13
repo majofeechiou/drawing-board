@@ -5,6 +5,7 @@ import GloablTools from './GloablTools';
 import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
+import MethodActions from './MethodActions';
 
 export default class MethodControlInvert extends React.Component {
     constructor(props) {
@@ -107,7 +108,6 @@ export default class MethodControlInvert extends React.Component {
 
     render(){
         let _scope = this;
-        let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
             <div className="pkg-control">
@@ -116,12 +116,10 @@ export default class MethodControlInvert extends React.Component {
                         <img src={_str_img_src} className="pkg-conpreview-image" />
                     </div>
                 </If>
-                <div className="pkg-control-bottom">
-                    <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                        <button onClick={_scope.prevewAction}>預覽</button>
-                    </If>
-                    <button onClick={_scope.submitAction}>確定</button>
-                </div>
+                <MethodActions 
+                    prevewAction={_scope.prevewAction}
+                    submitAction={_scope.submitAction}
+                    className='pkg-control-bottom' />
             </div>
         );
     }

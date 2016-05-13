@@ -9,6 +9,7 @@ import ReactGroup from 'ReactGroup';
 import Utils from './Utils';
 import MethodSettings from './MethodSettings';
 import ColorPickerCpt from './ColorPickerCpt';
+import MethodActions from './MethodActions';
 import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 export default class MethodControlText extends React.Component {
@@ -32,6 +33,7 @@ export default class MethodControlText extends React.Component {
         _scope.showBorderColorPicker = _scope.showBorderColorPicker.bind(_scope);
         _scope.textColorPickAction = _scope.textColorPickAction.bind(_scope);
         _scope.borderColorPickAction = _scope.borderColorPickAction.bind(_scope);
+        _scope.closeMethod = _scope.closeMethod.bind(_scope);
 
         
     }
@@ -229,10 +231,13 @@ export default class MethodControlText extends React.Component {
         this.setState( _json_state );
     }
 
+    closeMethod(){
+        GloablTools.Emitter().emit('method.setting.close.asked');
+    }
+
     render(){
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
-        let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
 
         let _str_textcolor_origin = _scope.state.control.textColor;
@@ -295,9 +300,8 @@ export default class MethodControlText extends React.Component {
                     <div>
                         文字位置：
                         <div className="pkg-textpos">
-                            <br />
                             <For each="json_item" of={ _scope.getAllPos() }>
-                                <div className="pkg-textpos-item">
+                                <div className="pkg-textpos-item" key={json_item.key}>
                                     <ReactGroup 
                                         className="pkg-textpos-item-btn"
                                         onChange={_scope.handleChangePos}
@@ -318,8 +322,7 @@ export default class MethodControlText extends React.Component {
                                         styleBorder={_json_sub_store.styleBorder}
                                         styleIcon={_json_sub_store.styleIcon}
                                         styleIconBack={_json_sub_store.styleIconBack}
-                                        styleList={_json_sub_store.styleList}
-                                        key={json_item.key} />
+                                        styleList={_json_sub_store.styleList} />
                                 </div>
                             </For>
                         </div>
@@ -330,12 +333,10 @@ export default class MethodControlText extends React.Component {
                         <img src={_str_img_src} className="pkg-conpreview-image" />
                     </div>
                 </If>
-                <div className="pkg-control-bottom">
-                    <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                        <button onClick={_scope.prevewAction}>預覽</button>
-                    </If>
-                    <button onClick={_scope.submitAction}>確定</button>
-                </div>
+                <MethodActions 
+                    prevewAction={_scope.prevewAction}
+                    submitAction={_scope.submitAction}
+                    className='pkg-control-bottom' />
 
                 <ColorPickerCpt 
                     color={_scope.state.control.textColor} 

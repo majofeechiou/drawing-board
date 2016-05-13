@@ -5,6 +5,7 @@ import GloablTools from './GloablTools';
 import Extend from 'Extend';
 import Settings from './Settings';
 import GloablData from './GloablData';
+import MethodActions from './MethodActions';
 
 export default class MethodControlAlpha extends React.Component {
     constructor(props) {
@@ -117,7 +118,6 @@ export default class MethodControlAlpha extends React.Component {
 
     render(){
         let _scope = this;
-        let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         return (
             <div className="pkg-control">
@@ -137,12 +137,9 @@ export default class MethodControlAlpha extends React.Component {
                             value={this.state.control.range}
                             onChange={this.handleChangeRange} /> {this.state.control.range} / 100
                     </div>
-                    <div>
-                        <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                            <button onClick={_scope.prevewAction}>預覽</button>
-                        </If>
-                        <button onClick={_scope.submitAction}>確定</button>
-                    </div>
+                    <MethodActions 
+                        prevewAction={_scope.prevewAction}
+                        submitAction={_scope.submitAction} />
                 </div>
             </div>
         );

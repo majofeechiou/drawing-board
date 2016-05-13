@@ -10,7 +10,11 @@ $level_popup_method: 10;
 
 $width_size_confirm: 4em;
 
-@define-mixin after-clear {
+@define-mixin borderRadius {
+    border-radius: 3px;
+}
+
+@define-mixin afterClear {
     &:after {
         display: block;
         content: '';
@@ -18,7 +22,7 @@ $width_size_confirm: 4em;
     }
 }
 
-@define-mixin blk-center {
+@define-mixin blkCenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -30,11 +34,17 @@ $width_size_confirm: 4em;
     }
 }
 
-@define-mixin ui-colortag {
+@define-mixin uiColortag {
+    @mixin borderRadius;
     display: inline-block;
     padding: $tiny_spacing;
     width: 9em;
     text-align: center;
+}
+
+@define-mixin noBorder {
+    border: none;
+    outline: none;
 }
 
 html, body {
@@ -54,7 +64,7 @@ body *  {
         }
     }
     .pkg-tmp-workspace {
-        @mixin blk-center ;
+        @mixin blkCenter ;
         /* min-width: 768px; */
     }
 }
@@ -186,7 +196,7 @@ body *  {
         width: 100%;
         height: 100%;
         .pkg-upload-inner-origin {
-            @mixin blk-center;
+            @mixin blkCenter;
             max-width: 100%;
             /*max-height: 300px;*/
             max-height: 100%;
@@ -279,7 +289,7 @@ body *  {
 }
 
 .pkg-control {
-    @mixin after-clear;
+    @mixin afterClear;
     position: relative;
     .pkg-control-center {
         display: block;
@@ -302,7 +312,7 @@ body *  {
 .pkg-conpreview {
     position: relative;
     .pkg-conpreview-image {
-        @mixin blk-center;
+        @mixin blkCenter;
         max-width: 100%;
         max-height: 450px;
     }
@@ -313,7 +323,7 @@ body *  {
     padding-top: $wrap_spacing;
     padding-bottom: $wrap_spacing;
     .pkg-preview-image {
-        @mixin blk-center;
+        @mixin blkCenter;
         max-width: 100%;
         max-height: 450px;
     }
@@ -324,6 +334,11 @@ body *  {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.5em;
+}
+
+.blk-buttonSection {
+    padding-top: 1.5em;
+    text-align: center;
 }
 
 .mrg-rt-base {
@@ -376,13 +391,13 @@ body *  {
         margin-top: $wrap_spacing;
         text-align: center;
         .pkg-colorpicker-action-picked {
-            @mixin ui-colortag;
+            @mixin uiColortag;
         }
     }
 }
 
 .pkg-textpos {
-    @mixin after-clear;
+    @mixin afterClear;
     width: 15em;
     .pkg-textpos-item {
         position: relative;
@@ -397,11 +412,31 @@ body *  {
 }
 
 .ui-colortag {
-    @mixin ui-colortag;
+    @mixin uiColortag;
 }
 
 .ui-hover {
     @mixin hover;
+}
+
+.ui-button {
+    @mixin borderRadius;
+    @mixin noBorder;
+    display: inline-block;
+    padding: 5px 15px;
+    font-weight: bold;
+    &.ui-button_strong {
+        background-color: #900;
+        color: #fdd;
+    }
+    &.ui-button_warn {
+        background-color: #fc3;
+        color: #900;
+    }
+    &.ui-button_ignore {
+        background-color: #9ca;
+        color: #063;
+    }
 }
 
 @media screen and ( max-width: 767px ){

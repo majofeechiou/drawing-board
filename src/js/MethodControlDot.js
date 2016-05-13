@@ -10,6 +10,7 @@ import MethodSettings from './MethodSettings';
 import ReactGroup from 'ReactGroup';
 import Utils from './Utils';
 import ReactGroupSetting from './../../lib/react-group/js/Setting';
+import MethodActions from './MethodActions';
 
 // http://jslog.com/react-color-picker/
 // https://www.npmjs.com/package/react-color-picker
@@ -179,7 +180,6 @@ export default class MethodControlDot extends React.Component {
     render(){
         let _scope = this;
         let _json_sub_store = this.props.methodStore.getState().sub;
-        let _json_now_image = GloablData.getNowImageData() ;
         let _str_img_src = ( this.state && this.state.imgObj )? this.state.imgObj.src : '' ;
         let _str_color_origin = _scope.state.control.color;
         let _str_color_pair = Utils.getPairColor(_str_color_origin);
@@ -277,12 +277,10 @@ export default class MethodControlDot extends React.Component {
                             onChange={_scope.handleChangeRange} /> {_scope.state.control.maxAlpha} / 100
                     </div>
                 </div>
-                <div className="pkg-control-bottom">
-                    <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                        <button onClick={_scope.prevewAction}>預覽</button>
-                    </If>
-                    <button onClick={_scope.submitAction}>確定</button>
-                </div>
+                <MethodActions 
+                    prevewAction={_scope.prevewAction}
+                    submitAction={_scope.submitAction}
+                    className='pkg-control-bottom' />
 
                 <ColorPickerCpt 
                     color={_scope.state.control.color} 
