@@ -20,12 +20,12 @@ export default class MethodActions extends React.Component {
     render(){
         let _json_now_image = GloablData.getNowImageData() ;
         return (
-            <div className={this.props.className+' blk-buttonSection'}>
+            <div className={this.props.className+' pkg-btnSection'}>
                 <If condition={ _json_now_image && (typeof _json_now_image.origin_data === 'string') && _json_now_image.origin_data!=='' }>
-                    <button onClick={this.props.prevewAction} className="ui-button ui-button_warn">預覽</button>
+                    <button onClick={this.props.prevewAction} className="pkg-btnSection-btn ui-button ui-button_warn">預覽</button>
                 </If>
-                <button onClick={this.props.submitAction} className="ui-button ui-button_strong">確定</button>
-                <button onClick={this.closeMethod} className="ui-button ui-button_ignore">取消</button>
+                <button onClick={this.props.submitAction} className="pkg-btnSection-btn ui-button ui-button_strong">確定</button>
+                <button onClick={this.closeMethod} className="pkg-btnSection-btn ui-button ui-button_ignore">取消</button>
             </div>
         );
     }

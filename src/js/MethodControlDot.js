@@ -186,7 +186,7 @@ export default class MethodControlDot extends React.Component {
 
         return (
             <div className="pkg-control">
-                <div className="pkg-control-center">
+                <div className="pkg-control-center blk-dotstyle">
                     <For each="json_item" of={ _scope.getInputoption() }>
                         <ReactGroup 
                             onChange={_scope.handleChangeShape}
@@ -218,64 +218,103 @@ export default class MethodControlDot extends React.Component {
                         <img src={_str_img_src} className="pkg-conpreview-image" />
                     </div>
                 </If>
-                <div className="pkg-control-left">
-                    <div>
-                        顏色 ： 
-                        <span onClick={()=>{_scope.showColorPicker(true);}}
-                            className="ui-colortag ui-hover"
-                            style={{background: _str_color_origin, color: _str_color_pair}}>
-                            {_scope.state.control.color} - {JSON.stringify(_scope.state.showColorPicker)}
-                        </span>
+                <div className="pkg-control-left pkg-table">
+
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            顏色：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <span onClick={()=>{_scope.showColorPicker(true);}}
+                                className="ui-colortag ui-hover"
+                                style={{background: _str_color_origin, color: _str_color_pair}}>
+                                {_scope.state.control.color}
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        頻率 ： 
-                        <input
-                            type="range"
-                            ref="frequency"
-                            step="1"
-                            min="1"
-                            max="100"
-                            value={_scope.state.control.frequency}
-                            onChange={_scope.handleChangeRange} /> {_scope.state.control.frequency} / 100
+
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            頻率：
+                        </div>
+                        <div className="pkg-table-cell pkg-range">
+                            <input
+                                className="pkg-range-opt"
+                                type="range"
+                                ref="frequency"
+                                step="1"
+                                min="1"
+                                max="100"
+                                value={_scope.state.control.frequency}
+                                onChange={_scope.handleChangeRange} />
+                            <span className="pkg-range-show">{_scope.state.control.frequency} / 100</span>
+                        </div>
                     </div>
-                    <div>
-                        大小 ： 
-                        <input
-                            type="range"
-                            ref="minSize"
-                            step="1"
-                            min="1"
-                            max={_scope.state.control.maxSize}
-                            value={_scope.state.control.minSize}
-                            onChange={_scope.handleChangeRange} /> {_scope.state.control.minSize} / {_scope.state.control.maxSize}
-                        <input
-                            type="range"
-                            ref="maxSize"
-                            step="1"
-                            min={_scope.state.control.minSize}
-                            max="200"
-                            value={_scope.state.control.maxSize}
-                            onChange={_scope.handleChangeRange} /> {_scope.state.control.maxSize} / 200
+
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            大小：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <span className="pkg-range">
+                                <input
+                                    className="pkg-range-opt"
+                                    type="range"
+                                    ref="minSize"
+                                    step="1"
+                                    min="1"
+                                    max={_scope.state.control.maxSize}
+                                    value={_scope.state.control.minSize}
+                                    onChange={_scope.handleChangeRange} />
+                                <span className="pkg-range-show">{_scope.state.control.minSize} / {_scope.state.control.maxSize}</span>
+                            </span>
+                            <span className="pkg-range">
+                                <input
+                                    className="pkg-range-opt"
+                                    type="range"
+                                    ref="maxSize"
+                                    step="1"
+                                    min={_scope.state.control.minSize}
+                                    max="200"
+                                    value={_scope.state.control.maxSize}
+                                    onChange={_scope.handleChangeRange} />
+                                <span className="pkg-range-show">{_scope.state.control.maxSize} / 200</span>
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        透明度 ： 
-                        <input
-                            type="range"
-                            ref="minAlpha"
-                            step="1"
-                            min="1"
-                            max={_scope.state.control.maxAlpha}
-                            value={_scope.state.control.minAlpha}
-                            onChange={_scope.handleChangeRange} /> {_scope.state.control.minAlpha} / {_scope.state.control.maxAlpha}
-                        <input
-                            type="range"
-                            ref="maxAlpha"
-                            step="1"
-                            min={_scope.state.control.minAlpha}
-                            max="100"
-                            value={_scope.state.control.maxAlpha}
-                            onChange={_scope.handleChangeRange} /> {_scope.state.control.maxAlpha} / 100
+
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            透明度：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <span className="pkg-range">
+                                <input
+                                    className="pkg-range-opt"
+                                    type="range"
+                                    ref="minAlpha"
+                                    step="1"
+                                    min="1"
+                                    max={_scope.state.control.maxAlpha}
+                                    value={_scope.state.control.minAlpha}
+                                    onChange={_scope.handleChangeRange} />
+                                <span className="pkg-range-show">{_scope.state.control.minAlpha} / {_scope.state.control.maxAlpha}</span>
+                            </span>
+                            <span className="pkg-range">
+                                <input
+                                    className="pkg-range-opt"
+                                    type="range"
+                                    ref="maxAlpha"
+                                    step="1"
+                                    min={_scope.state.control.minAlpha}
+                                    max="100"
+                                    value={_scope.state.control.maxAlpha}
+                                    onChange={_scope.handleChangeRange} />
+                                <span className="pkg-range-show">{_scope.state.control.maxAlpha} / 100</span>
+                            </span>
+                        </div>
                     </div>
+
                 </div>
                 <MethodActions 
                     prevewAction={_scope.prevewAction}

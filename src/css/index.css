@@ -5,6 +5,7 @@ $block_spacing: 25px;
 
 $color_white: #fff;
 $color_popup_bg: RGBA(0, 0, 0, 0.6);
+$color_separate: color($color_white blackness(15%));
 
 $level_popup_method: 10;
 
@@ -36,15 +37,19 @@ $width_size_confirm: 4em;
 
 @define-mixin uiColortag {
     @mixin borderRadius;
+    @mixin keyinWidth;
     display: inline-block;
     padding: $tiny_spacing;
-    width: 9em;
     text-align: center;
 }
 
 @define-mixin noBorder {
     border: none;
     outline: none;
+}
+
+@define-mixin keyinWidth {
+    width: 150px;
 }
 
 html, body {
@@ -336,9 +341,18 @@ body *  {
     margin-bottom: 0.5em;
 }
 
-.blk-buttonSection {
+.blk-dotstyle {
+    margin-bottom: calc( $block_spacing / 2 );
+}
+
+.pkg-btnSection {
     padding-top: 1.5em;
     text-align: center;
+    .pkg-btnSection-btn {
+        &:nth-of-type(n+2){
+            margin-left: 2em;
+        }
+    }
 }
 
 .mrg-rt-base {
@@ -411,6 +425,66 @@ body *  {
     }
 }
 
+ .pkg-table {
+    display: table;
+    .pkg-table-row {
+        display: table-row;
+        &:last-of-type {
+            .pkg-table-cell {
+                border-bottom: none;
+            }
+        }
+        .pkg-table-cell {
+            display: table-cell;
+            padding: $tiny_spacing 0;
+            text-align: left;
+            vertical-align: middle;
+            border-bottom: 1px solid $color_separate;
+            &.pkg-table-cell_head {
+                white-space: nowrap;
+            }
+        }
+    }
+} 
+
+/* .pkg-table {
+    .pkg-table-row {
+        @mixin afterClear ;
+        .pkg-table-cell {
+            float: left;
+            &.pkg-table-cell_head {
+                width: 6.5em;
+            }
+        }
+    }
+} */
+
+/* .pkg-table {
+    display: block;
+    .pkg-table-row {
+        display: block;
+        margin-bottom: 1em;
+        .pkg-table-cell {
+            display: inline-block;
+            vertical-align: middle;
+            &.pkg-table-cell_head {
+                width: 6.5em;
+            }
+        }
+    }
+} */
+
+.pkg-range {
+    display: inline-block;
+    .pkg-range-opt {
+        @mixin keyinWidth;
+    }
+    .pkg-range-show {
+        display: inline-block;
+        margin-left: 0.5em;
+    }
+}
+
 .ui-colortag {
     @mixin uiColortag;
 }
@@ -437,6 +511,10 @@ body *  {
         background-color: #9ca;
         color: #063;
     }
+}
+
+.ui-center {
+    text-align: center;
 }
 
 @media screen and ( max-width: 767px ){

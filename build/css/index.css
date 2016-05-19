@@ -437,9 +437,20 @@ body *  {
     margin-bottom: 0.5em;
 }
 
-.blk-buttonSection {
+.blk-dotstyle {
+    margin-bottom: 12.5px;
+}
+
+.pkg-btnSection {
     padding-top: 1.5em;
     text-align: center;
+}
+
+.pkg-btnSection .pkg-btnSection-btn {
+}
+
+.pkg-btnSection .pkg-btnSection-btn:nth-of-type(n+2) {
+    margin-left: 2em;
 }
 
 .mrg-rt-base {
@@ -488,9 +499,9 @@ body *  {
 
 .pkg-colorpicker .pkg-colorpicker-action .pkg-colorpicker-action-picked {
     border-radius: 3px;
+    width: 150px;
     display: inline-block;
     padding: 0.3em;
-    width: 9em;
     text-align: center;
 }
 
@@ -530,11 +541,75 @@ body *  {
     clear: both;
 }
 
+ .pkg-table {
+    display: table;
+}
+
+ .pkg-table .pkg-table-row {
+    display: table-row;
+}
+
+ .pkg-table .pkg-table-row .pkg-table-cell {
+    display: table-cell;
+    padding: 0.3em 0;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid rgb(222, 222, 222)
+}
+
+ .pkg-table .pkg-table-row .pkg-table-cell.pkg-table-cell_head {
+    white-space: nowrap;
+}
+
+ .pkg-table .pkg-table-row:last-of-type .pkg-table-cell {
+    border-bottom: none;
+} 
+
+/* .pkg-table {
+    .pkg-table-row {
+        @mixin afterClear ;
+        .pkg-table-cell {
+            float: left;
+            &.pkg-table-cell_head {
+                width: 6.5em;
+            }
+        }
+    }
+} */
+
+/* .pkg-table {
+    display: block;
+    .pkg-table-row {
+        display: block;
+        margin-bottom: 1em;
+        .pkg-table-cell {
+            display: inline-block;
+            vertical-align: middle;
+            &.pkg-table-cell_head {
+                width: 6.5em;
+            }
+        }
+    }
+} */
+
+.pkg-range {
+    display: inline-block;
+}
+
+.pkg-range .pkg-range-opt {
+    width: 150px;
+}
+
+.pkg-range .pkg-range-show {
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
 .ui-colortag {
     border-radius: 3px;
+    width: 150px;
     display: inline-block;
     padding: 0.3em;
-    width: 9em;
     text-align: center;
 }
 
@@ -567,6 +642,10 @@ body *  {
 .ui-button.ui-button_ignore {
     background-color: #9ca;
     color: #063;
+}
+
+.ui-center {
+    text-align: center;
 }
 
 @media screen and ( max-width: 767px ){

@@ -125,16 +125,18 @@ export default class MethodControlContrast extends React.Component {
                         <img src={_str_img_src} className="pkg-conpreview-image" />
                     </div>
                 </If>
-                <div className="pkg-control-left">
-                    <div>
+                <div className="pkg-control-left ui-center">
+                    <div className="pkg-range">
                         <input
+                            className="pkg-range-opt"
                             type="range"
                             ref="range"
                             step="1"
                             min="-100"
                             max="100"
                             value={this.state.control.range}
-                            onChange={this.handleChangeRange} /> {this.state.control.range} / 100
+                            onChange={this.handleChangeRange} />
+                        <span className="pkg-range-show">{this.state.control.range} / 100</span>
                     </div>
                     <MethodActions 
                         prevewAction={_scope.prevewAction}

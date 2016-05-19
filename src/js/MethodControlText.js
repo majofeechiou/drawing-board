@@ -247,86 +247,117 @@ export default class MethodControlText extends React.Component {
 
         return (
             <div className="pkg-control">
-                <div className="pkg-control-left">
-                    輸入文字：<input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} />
-                    <br />
-
-                    文字大小：<input type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} />{this.state.control.size}px
-                    <br />
-
-                    <div>
-                        文字樣式：
-                        <ReactGroup 
-                            onChange={_scope.handleChangeTextStyle}
-                            outputFormat="string"
-                            name="method_option"
-                            selectKey={_scope.getTextSelectKey()}
-                            inputOption={_scope.getAllTextStyle()}
-                            outputResult={_scope.state.control.style}
-                            showKey={_scope.getTextShowKey()}
-                            between="~"
-                            display={ReactGroupSetting.DISPLAY_INBLOCK}
-                            padding={_json_sub_store.padding}
-                            fillet={_json_sub_store.fillet}
-                            listStyle={_json_sub_store.listStyle}
-                            listPosition={_json_sub_store.listPosition}
-                            iconPosition={_json_sub_store.iconPosition}
-                            styleName={_json_sub_store.styleName}
-                            offBack={_json_sub_store.offBack}
-                            styleBorder={_json_sub_store.styleBorder}
-                            styleIcon={_json_sub_store.styleIcon}
-                            styleIconBack={_json_sub_store.styleIconBack}
-                            styleList={_json_sub_store.styleList} />
-                    </div>
-
-                    <div>
-                        文字顏色：
-                        <span onClick={()=>{_scope.showTextColorPicker(true);}}
-                            className="ui-colortag ui-hover"
-                            style={{background:_str_textcolor_origin, color:_str_textcolor_pair}}>
-                            {_str_textcolor_origin} - {JSON.stringify(_scope.state.showTextColorPicker)}
-                        </span>
-                    </div>
-
-                    <div>
-                        文字外框色：
-                        <span onClick={()=>{_scope.showBorderColorPicker(true);}}
-                            className="ui-colortag ui-hover"
-                            style={{background:_str_bordercolor_origin, color:_str_bordercolor_pair}}>
-                            {_str_bordercolor_origin} - {JSON.stringify(_scope.state.showBorderColorPicker)}
-                        </span>
-                    </div>
-
-                    <div>
-                        文字位置：
-                        <div className="pkg-textpos">
-                            <For each="json_item" of={ _scope.getAllPos() }>
-                                <div className="pkg-textpos-item" key={json_item.key}>
-                                    <ReactGroup 
-                                        className="pkg-textpos-item-btn"
-                                        onChange={_scope.handleChangePos}
-                                        outputFormat="string"
-                                        name="method_option"
-                                        selectKey={_scope.getPosSelectKey()}
-                                        inputOption={[json_item]}
-                                        outputResult={_scope.state.control.pos}
-                                        showKey={_scope.getPosShowKey()}
-                                        between="~"
-                                        display={ReactGroupSetting.DISPLAY_INBLOCK}
-                                        padding={_json_sub_store.padding}
-                                        fillet={_json_sub_store.fillet}
-                                        listPosition={_json_sub_store.listPosition}
-                                        iconPosition={_json_sub_store.iconPosition}
-                                        styleName={_json_sub_store.styleName}
-                                        offBack={_json_sub_store.offBack}
-                                        styleBorder={_json_sub_store.styleBorder}
-                                        styleIcon={_json_sub_store.styleIcon}
-                                        styleIconBack={_json_sub_store.styleIconBack}
-                                        styleList={_json_sub_store.styleList} />
-                                </div>
-                            </For>
+                <div className="pkg-control-left pkg-table">
+                
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            輸入文字：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} />
                         </div>
                     </div>
+                
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            文字大小：
+                        </div>
+                        <div className="pkg-table-cell pkg-range">
+                            <input className="pkg-range-opt" type="range" name="size" min="9" max="80" step="1" ref="size" value={this.state.control.size} onChange={this.handleChange} />
+                            <span className="pkg-range-show">{this.state.control.size}px</span>
+                        </div>
+                    </div>
+
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            文字樣式：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <ReactGroup 
+                                onChange={_scope.handleChangeTextStyle}
+                                outputFormat="string"
+                                name="method_option"
+                                selectKey={_scope.getTextSelectKey()}
+                                inputOption={_scope.getAllTextStyle()}
+                                outputResult={_scope.state.control.style}
+                                showKey={_scope.getTextShowKey()}
+                                between="~"
+                                display={ReactGroupSetting.DISPLAY_INBLOCK}
+                                padding={_json_sub_store.padding}
+                                fillet={_json_sub_store.fillet}
+                                listStyle={_json_sub_store.listStyle}
+                                listPosition={_json_sub_store.listPosition}
+                                iconPosition={_json_sub_store.iconPosition}
+                                styleName={_json_sub_store.styleName}
+                                offBack={_json_sub_store.offBack}
+                                styleBorder={_json_sub_store.styleBorder}
+                                styleIcon={_json_sub_store.styleIcon}
+                                styleIconBack={_json_sub_store.styleIconBack}
+                                styleList={_json_sub_store.styleList} />
+                        </div>
+                    </div>
+                
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            文字顏色：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <span onClick={()=>{_scope.showTextColorPicker(true);}}
+                                className="ui-colortag ui-hover"
+                                style={{background:_str_textcolor_origin, color:_str_textcolor_pair}}>
+                                {_str_textcolor_origin}
+                            </span>
+                        </div>
+                    </div>
+                
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            文字外框色：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <span onClick={()=>{_scope.showBorderColorPicker(true);}}
+                                className="ui-colortag ui-hover"
+                                style={{background:_str_bordercolor_origin, color:_str_bordercolor_pair}}>
+                                {_str_bordercolor_origin}
+                            </span>
+                        </div>
+                    </div>
+                
+                    <div className="pkg-table-row">
+                        <div className="pkg-table-cell pkg-table-cell_head">
+                            文字位置：
+                        </div>
+                        <div className="pkg-table-cell">
+                            <div className="pkg-textpos">
+                                <For each="json_item" of={ _scope.getAllPos() }>
+                                    <div className="pkg-textpos-item" key={json_item.key}>
+                                        <ReactGroup 
+                                            className="pkg-textpos-item-btn"
+                                            onChange={_scope.handleChangePos}
+                                            outputFormat="string"
+                                            name="method_option"
+                                            selectKey={_scope.getPosSelectKey()}
+                                            inputOption={[json_item]}
+                                            outputResult={_scope.state.control.pos}
+                                            showKey={_scope.getPosShowKey()}
+                                            between="~"
+                                            display={ReactGroupSetting.DISPLAY_INBLOCK}
+                                            padding={_json_sub_store.padding}
+                                            fillet={_json_sub_store.fillet}
+                                            listPosition={_json_sub_store.listPosition}
+                                            iconPosition={_json_sub_store.iconPosition}
+                                            styleName={_json_sub_store.styleName}
+                                            offBack={_json_sub_store.offBack}
+                                            styleBorder={_json_sub_store.styleBorder}
+                                            styleIcon={_json_sub_store.styleIcon}
+                                            styleIconBack={_json_sub_store.styleIconBack}
+                                            styleList={_json_sub_store.styleList} />
+                                    </div>
+                                </For>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <If condition={ _str_img_src && (typeof _str_img_src === 'string') && _str_img_src!=='' }>
                     <div className="pkg-control-right pkg-conpreview">
