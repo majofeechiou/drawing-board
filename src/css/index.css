@@ -11,6 +11,10 @@ $level_popup_method: 10;
 
 $width_size_confirm: 4em;
 
+@define-mixin keyinWidth {
+    width: 150px;
+}
+
 @define-mixin borderRadius {
     border-radius: 3px;
 }
@@ -46,10 +50,6 @@ $width_size_confirm: 4em;
 @define-mixin noBorder {
     border: none;
     outline: none;
-}
-
-@define-mixin keyinWidth {
-    width: 150px;
 }
 
 html, body {
