@@ -39,11 +39,15 @@ $width_size_confirm: 4em;
     }
 }
 
-@define-mixin uiColortag {
+@define-mixin keyinCpt {
     @mixin borderRadius;
     @mixin keyinWidth;
     display: inline-block;
     padding: $tiny_spacing;
+}
+
+@define-mixin uiColortag {
+    @mixin keyinCpt;
     text-align: center;
 }
 
@@ -355,24 +359,6 @@ body *  {
     }
 }
 
-.mrg-rt-base {
-    margin-right: $item_spacing;
-}
-.mrg-lt-tiny {
-    margin-left: $tiny_spacing;
-}
-.mrg-rt-tiny {
-    margin-right: $tiny_spacing;
-}
-
-.dpy-inblock {
-    display: inline-block;
-}
-
-.nowrap {
-    white-space: nowrap;
-}
-
 .pkg-colorpicker {
     z-index: calc( $level_popup_method - 2 );
     display: none;
@@ -391,9 +377,12 @@ body *  {
     .pkg-colorpicker-picker {
         position: absolute;
         display: block;
+        padding: $wrap_spacing;
         left: 50%;
         top: 50%;
         transform: translateX(-50%) translateY(-50%);
+        white-space: nowrap;
+        background-color: $color_white;
     }
     .pkg-colorpicker-close {
         z-index: calc( $level_popup_method - 1 );
@@ -408,6 +397,10 @@ body *  {
             @mixin uiColortag;
         }
     }
+    .pkg-btnSection {
+        margin-top: $wrap_spacing;
+        padding-top: 0;
+    }
 }
 
 .pkg-textpos {
@@ -419,8 +412,11 @@ body *  {
         float: left;
         text-align: center;
         .pkg-textpos-item-btn {
+            /*
             margin-top: $item_spacing;
             margin-bottom: $item_spacing;
+            */
+            width: 100%;
         }
     }
 }
@@ -442,6 +438,9 @@ body *  {
             border-bottom: 1px solid $color_separate;
             &.pkg-table-cell_head {
                 white-space: nowrap;
+            }
+            &.pkg-table-cell_right {
+                text-align: right;
             }
         }
     }
@@ -515,6 +514,38 @@ body *  {
 
 .ui-center {
     text-align: center;
+}
+.ui-right {
+    text-align: right;
+}
+
+.ui-keyin {
+    @mixin keyinCpt;
+    outline: none;
+}
+
+.mrg-rt-base {
+    margin-right: $item_spacing;
+}
+.mrg-lt-tiny {
+    margin-left: $tiny_spacing;
+}
+.mrg-rt-tiny {
+    margin-right: $tiny_spacing;
+}
+.wth-100pct {
+    width: 100%;
+}
+.wth-50pct {
+    width: 50%;
+}
+
+.dpy-inblock {
+    display: inline-block;
+}
+
+.nowrap {
+    white-space: nowrap;
 }
 
 @media screen and ( max-width: 767px ){

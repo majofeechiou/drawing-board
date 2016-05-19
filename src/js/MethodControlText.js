@@ -254,7 +254,7 @@ export default class MethodControlText extends React.Component {
                             輸入文字：
                         </div>
                         <div className="pkg-table-cell">
-                            <input type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} />
+                            <input className="ui-keyin" type="text" name="text" placeholder="請輸入文字" ref="text" value={this.state.control.text} onChange={this.handleChange} />
                         </div>
                     </div>
                 
@@ -351,7 +351,8 @@ export default class MethodControlText extends React.Component {
                                             styleBorder={_json_sub_store.styleBorder}
                                             styleIcon={_json_sub_store.styleIcon}
                                             styleIconBack={_json_sub_store.styleIconBack}
-                                            styleList={_json_sub_store.styleList} />
+                                            styleList={_json_sub_store.styleList}
+                                            composition={ReactGroupSetting.COMPOSITION_WHOLE} />
                                     </div>
                                 </For>
                             </div>

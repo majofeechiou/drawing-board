@@ -70,10 +70,16 @@ export default class ColorPickerCpt extends React.Component {
                         saturationWidth={350} 
                         saturationHeight={350} 
                         hueWidth={30} />
-                    <div className="pkg-colorpicker-action">
-                        <span className="pkg-colorpicker-action-picked" style={{background:_str_bg, color:_str_text}}>{this.state.color}</span>
-                        <button onClick={this.emitChangeColor}>確定</button>
-                        <button onClick={this.closeShow}>取消</button>
+                    <div className="pkg-colorpicker-action pkg-btnSection pkg-table wth-100pct">
+                        <div className="pkg-table-row">
+                            <div className="pkg-table-cell wth-50pct">
+                                <span className="pkg-colorpicker-action-picked" style={{background:_str_bg, color:_str_text}}>{this.state.color}</span>
+                            </div>
+                            <div className="pkg-table-cell pkg-table-cell_right">
+                                <button className="pkg-btnSection-btn ui-button ui-button_strong" onClick={this.emitChangeColor}>確定</button>
+                                <button className="pkg-btnSection-btn ui-button ui-button_ignore" onClick={this.closeShow}>取消</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <button className="pkg-colorpicker-close" onClick={this.closeShow}>X</button>

@@ -37,7 +37,7 @@ export default class Utils{
         }else if( _num_origin_light<=45 && _num_origin_light>20 ){
             _json_output = Color(str_color_origin).lighten(0.8);
         }else{
-            _json_output = Color(str_color_origin).negate().rotate(-85);
+            _json_output = Color(str_color_origin).negate().rotate(-150);
         }
         // let _json_output = Color(str_color_origin).negate().rotate(-90);
         let _ary_output = _json_output.values.rgb;
