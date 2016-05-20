@@ -1,0 +1,34 @@
+	/*
+		draw-board icon font: draw-board
+		Creation date: 20/05/2016 16:09
+		*/
+
+@font-face {
+	font-family: "drawBoard";
+	src: url("../font/draw-board.eot");
+	src: url("../font/draw-board.eot?#iefix") format("embedded-opentype"),
+		 url("../font/draw-board.woff") format("woff"),
+		 url("../font/draw-board.ttf") format("truetype"),
+		 url("../font/draw-board.svg#drawBoard") format("svg");
+	font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	@font-face {
+		font-family: "drawBoard";
+		src: url("../font/draw-board.svg#drawBoard") format("svg");
+	}
+}
+
+@define-mixin iconDrawBoardBefore $content {
+	&:before {
+	    font-family: drawBoard;
+	    content: $content;
+	}
+}
+@define-mixin iconDrawBoardAfter $content {
+	&:after {
+	    font-family: drawBoard;
+	    content: $content;
+	}
+}

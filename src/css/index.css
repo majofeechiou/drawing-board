@@ -1,9 +1,13 @@
+@import draw-board;
+
 $tiny_spacing: 0.3em;
 $item_spacing: 0.5em;
+$padding_spacing: 5px;
 $wrap_spacing: 10px;
 $block_spacing: 25px;
 
 $color_white: #fff;
+$color_black: #000;
 $color_popup_bg: RGBA(0, 0, 0, 0.6);
 $color_separate: color($color_white blackness(15%));
 
@@ -280,11 +284,11 @@ body *  {
     top: 0;
     background-color: $color_popup_bg;
     content: '';
-    .pkg-method-content-close {
+    /* .pkg-method-content-close {
         position: absolute;
         right: $wrap_spacing;
         top: $wrap_spacing;
-    }
+    } */
     .pkg-method-content {
         background-color: color($color_white blackness(5%));
         .pkg-method-content-options {
@@ -387,8 +391,10 @@ body *  {
     .pkg-colorpicker-close {
         z-index: calc( $level_popup_method - 1 );
         position: fixed;
+        /*
         right: $block_spacing;
         top: $block_spacing;
+        */
     }
     .pkg-colorpicker-action {
         margin-top: $wrap_spacing;
@@ -486,6 +492,12 @@ body *  {
 
 .ui-colortag {
     @mixin uiColortag;
+    &.ui-hover {
+        @mixin iconDrawBoardAfter "\f100" ;
+        &:after {
+            float: right;
+        }
+    }
 }
 
 .ui-hover {
@@ -522,6 +534,20 @@ body *  {
 .ui-keyin {
     @mixin keyinCpt;
     outline: none;
+}
+
+.ui-close {
+    @mixin iconDrawBoardBefore "\f101" ;
+    @mixin hover;
+    position: absolute;
+    display: inline-block;
+    padding: $padding_spacing;
+    right: 10px;
+    top: 10px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: color( $color_black a(35%) );
+    color: $color_white;
 }
 
 .mrg-rt-base {

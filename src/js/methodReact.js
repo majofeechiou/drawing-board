@@ -78,7 +78,7 @@ export default class MethodReact extends React.Component {
         let _json_method = nextProps.methodStore || this.props.methodStore ;
         let _str_cn = 'pkg-method-content';
         let _str_cn_options = 'pkg-method-content-options pkg-method-wrap';
-        let _str_cn_close = 'pkg-method-content-close';
+        let _str_cn_close = 'pkg-method-content-close ui-close';
         let _str_cn_control = 'pkg-method-content-control pkg-method-wrap';
         return (
             <div className={_str_cn}>
@@ -87,9 +87,9 @@ export default class MethodReact extends React.Component {
                     handleChange={ this.handleChange }
                     outputResult={ _json_result }
                     methodStore={ this.props.methodStore } />
-                <button 
+                <span 
                     className={_str_cn_close} 
-                    onClick={ this.closeMethod }>X</button>
+                    onClick={ this.closeMethod }></span>
                 <MethodControl 
                     className={_str_cn_control}
                     outputResult={ _json_result }

@@ -82,7 +82,7 @@ export default class ColorPickerCpt extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button className="pkg-colorpicker-close" onClick={this.closeShow}>X</button>
+                <span className="pkg-colorpicker-close ui-close" onClick={this.closeShow}></span>
             </div>
         );
     }
