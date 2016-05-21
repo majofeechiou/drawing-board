@@ -1,6 +1,6 @@
     /*
     Flaticon icon font: Flaticon
-    Creation date: 20/05/2016 16:09
+    Creation date: 21/05/2016 05:24
     */
 
     @font-face {
@@ -37,7 +37,17 @@
     }
 
     .flaticon-arrows:before { content: "\f100"; }
-.flaticon-cross-remove-sign:before { content: "\f101"; }
+.flaticon-arrows-1:before { content: "\f101"; }
+.flaticon-cross-remove-sign:before { content: "\f102"; }
+.flaticon-image:before { content: "\f103"; }
+.flaticon-image-1:before { content: "\f104"; }
+.flaticon-image-2:before { content: "\f105"; }
+.flaticon-keyboard-right-arrow-button:before { content: "\f106"; }
     
     $font-Flaticon-arrows: "\f100";
-    $font-Flaticon-cross-remove-sign: "\f101";
+    $font-Flaticon-arrows-1: "\f101";
+    $font-Flaticon-cross-remove-sign: "\f102";
+    $font-Flaticon-image: "\f103";
+    $font-Flaticon-image-1: "\f104";
+    $font-Flaticon-image-2: "\f105";
+    $font-Flaticon-keyboard-right-arrow-button: "\f106";

@@ -13,7 +13,7 @@ $color_separate: color($color_white blackness(15%));
 
 $level_popup_method: 10;
 
-$width_size_confirm: 4em;
+$width_size_confirm: 35px;
 
 @define-mixin keyinWidth {
     width: 150px;
@@ -85,7 +85,8 @@ body *  {
 .pkg-workspace {
     margin-bottom: $block_spacing;
     height: 150px;
-    border: 1px solid #f00;
+    background-color: color($color_white blackness(5%));
+    border-bottom: 1px solid color($color_white blackness(15%));
     .pkg-workspace-tools {
         position: relative;
         display: flex;
@@ -155,16 +156,13 @@ body *  {
                 padding-right: calc( $width_size_confirm + $wrap_spacing / 2 );
                 width: 100%;
                 /* max-width: 25em; */
-                border: 1px solid #f00;
             }
             &.pkg-workspace-tools-item_upload {
                 width: 300px;
-                border: 1px solid #0f0;
             }
             &.pkg-workspace-tools-item_action {
                 flex-grow: 1;
                 min-width: 60px;
-                border: 1px solid #00f;
             }
         }
     }
@@ -190,6 +188,7 @@ body *  {
         }
     }
     .pkg-size-confirm {
+        @mixin iconDrawBoardBefore "\f106" ;
         width: $width_size_confirm;
     }
 }
@@ -197,6 +196,7 @@ body *  {
 .pkg-back {
     width: $width_size_confirm;
     .pkg-back-confirm {
+        @mixin iconDrawBoardBefore "\f101" ;
         width: 100%;
     }
 }
@@ -228,10 +228,22 @@ body *  {
 }
 
 .pkg-action {
+    position: relative;
     display: flex;
+    padding-left: $wrap_spacing;
     flex-direction: row;
     align-items: stretch;
     flex-wrap: nowrap;
+    &:before {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 0;
+        height: 70%;
+        left: 0;
+        top: 15%;
+        border-left: 1px solid $color_separate; 
+    }
     .pkg-action-tools {
         display: flex;
         padding: $wrap_spacing;
@@ -244,8 +256,17 @@ body *  {
         left: 0;
         top: 0;
         height: 100%;*/
-        .pkg-action-tools-button:nth-of-type(n+2) {
-            margin-top: $wrap_spacing;
+        .pkg-action-tools-button {
+            font-size: 24px;
+            &:nth-of-type(n+2) {
+                margin-top: $wrap_spacing;
+            }
+            &.pkg-action-tools-button_add {
+                @mixin iconDrawBoardBefore "\f103" ;
+            }
+            &.pkg-action-tools-button_download {
+                @mixin iconDrawBoardBefore "\f105" ;
+            }
         }
     }
     .pkg-action-method {
@@ -537,7 +558,7 @@ body *  {
 }
 
 .ui-close {
-    @mixin iconDrawBoardBefore "\f101" ;
+    @mixin iconDrawBoardBefore "\f102" ;
     @mixin hover;
     position: absolute;
     display: inline-block;
@@ -548,6 +569,12 @@ body *  {
     border-radius: 50%;
     background-color: color( $color_black a(35%) );
     color: $color_white;
+}
+
+.ui-toolsbtn {
+    @mixin noBorder;
+    background-color: color($color_white blackness(15%));
+    color: color($color_white blackness(85%));
 }
 
 .mrg-rt-base {

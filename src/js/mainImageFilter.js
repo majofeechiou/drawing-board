@@ -223,16 +223,16 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 新增按鈕
 		let _obj_add_button = document.createElement('button');
-		_obj_add_button.className = 'pkg-action-tools-button';
-		_obj_add_button.innerText = '新增效果';
+		_obj_add_button.className = 'pkg-action-tools-button pkg-action-tools-button_add ui-toolsbtn';
+		// _obj_add_button.innerText = '新增效果';
 		this.methodAddBtnActive.call( _obj_add_button, this );
 		_obj_section.appendChild(_obj_add_button);
 		// this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button );
 
 		// 下載按鈕
 		let _obj_download_button = document.createElement('button');
-		_obj_download_button.className = 'pkg-action-tools-button';
-		_obj_download_button.innerText = '下載圖片';
+		_obj_download_button.className = 'pkg-action-tools-button pkg-action-tools-button_download ui-toolsbtn';
+		// _obj_download_button.innerText = '下載圖片';
 		this.downloadBtnActive.call( _obj_download_button, this );
 		_obj_section.appendChild(_obj_download_button);
 		// this.addGlobalConst( this, 'OBJ_METHOD_DOWNLOAD_BUTTON', _obj_download_button );
@@ -408,8 +408,8 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 圖片尺寸 - 自訂尺寸 - button
 		let _obj_size_submit = document.createElement('button');
-		_obj_size_submit.className = 'pkg-size-confirm';
-		_obj_size_submit.innerText = '確定';
+		_obj_size_submit.className = 'pkg-size-confirm ui-toolsbtn';
+		// _obj_size_submit.innerText = '確定';
 		this.addGlobalConst( this, 'OBJ_SIZE_SUBMIT', _obj_size_submit );
 
 		_obj_size_section.appendChild( _obj_size_title );
@@ -427,8 +427,8 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 圖片尺寸 - 返回自訂尺寸 - button
 		let _obj_back_submit = document.createElement('button');
-		_obj_back_submit.className = 'pkg-back-confirm';
-		_obj_back_submit.innerText = '返回尺寸設定';
+		_obj_back_submit.className = 'pkg-back-confirm ui-toolsbtn';
+		// _obj_back_submit.innerText = '返回尺寸設定';
 		this.addGlobalConst( this, 'OBJ_BACK_SUBMIT', _obj_back_submit );
 		_obj_back_section.appendChild( _obj_back_submit );
 
