@@ -294,6 +294,19 @@ export default class PictureDraw extends GlobalConst {
 				GloablTools.Emitter().emit('method.setting.open.asked',_json_emit, _scope.getEmitSetting());
 			});
 
+			_scope.getGlobalConst(_scope).emitter.on('images.downloading', function(e){
+				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
+				if( _sary_step_image.length>0 ){
+					let _str_data = _sary_step_image[(_sary_step_image.length-1)].data;
+					_scope.mainImageFilter.getObjDownloadGo().href = _str_data;
+					setTimeout(function(){
+						_scope.mainImageFilter.getObjDownloadGo().click();
+					},500);
+				}else{
+					alert('什麼都沒有');
+				}
+			});
+
 		}
 
 	}

@@ -150,6 +150,11 @@ export default class MainImageFilter extends GlobalConst {
 		return this.getGlobalConst(this).OBJ_BACK_SUBMIT;
 	}
 
+	// 真正用來下載圖片用的
+	getObjDownloadGo(){
+		return this.getGlobalConst(this).OBJ_DOWNLAD_GO;
+	}
+
 	setToolsSectionClassName( str_on ){
 		let _scope = this;
 
@@ -488,6 +493,15 @@ export default class MainImageFilter extends GlobalConst {
 			let _obj_preview_section = _scope.returnPreviewSection();
 			Utils.addClassName(_obj_preview_section, 'pkg-workspace-preview');
 			_obj_main.appendChild(_obj_preview_section);
+
+			// 一些隱聝的東西
+			let _obj_hide = document.createElement('div');
+			_obj_hide.style.display = 'none';
+			let _obj_download = document.createElement('a');
+			_obj_download.setAttribute('target','_blank');
+			this.addGlobalConst( this, 'OBJ_DOWNLAD_GO', _obj_download );
+			_obj_hide.appendChild(_obj_download);
+			_obj_main.appendChild(_obj_hide);
 
 			// ** ** ** ** ** ** ** ** **
 
