@@ -197,6 +197,9 @@ export default class MainImageFilter extends GlobalConst {
 		// 原圖預覽圖片
 		let _obj_origin_image_section = this.returnOriginImageSection();
 		_obj_origin_image_section.className = 'pkg-upload-inner-origin';
+		_obj_origin_image_section.src = './img/svg.svg#img-upload';
+		// _obj_origin_image_section.src = './img/svg.svg';
+		// _obj_origin_image_section.setAttribute('data-src','./img/svg.svg');
 		_obj_upload_section_inner.appendChild(_obj_origin_image_section);
 
 		return _obj_upload_section;

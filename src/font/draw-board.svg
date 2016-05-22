@@ -10,9 +10,9 @@ Created by FontForge 20120731 at Sat May 21 05:24:32 2016
 Created by Apache with FontForge 2.0 (http://fontforge.sf.net)
 </metadata>
 <defs>
-<font id="Flaticon" horiz-adv-x="512" >
+<font id="draw-board" horiz-adv-x="512" >
   <font-face 
-    font-family="Flaticon"
+    font-family="drawBoard"
     font-weight="500"
     font-stretch="normal"
     units-per-em="512"
