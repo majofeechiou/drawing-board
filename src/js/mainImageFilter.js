@@ -184,7 +184,7 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_upload_section.className = 'pkg-upload';
 
 		let _obj_upload_section_inner 	= document.createElement('div');
-		_obj_upload_section_inner.className = 'pkg-upload-inner';
+		_obj_upload_section_inner.className = 'pkg-upload-inner tt';
 		_obj_upload_section.appendChild(_obj_upload_section_inner);
 
 		let _obj_upload 	= document.createElement('input');
@@ -197,10 +197,13 @@ export default class MainImageFilter extends GlobalConst {
 		// 原圖預覽圖片
 		let _obj_origin_image_section = this.returnOriginImageSection();
 		_obj_origin_image_section.className = 'pkg-upload-inner-origin';
-		_obj_origin_image_section.src = './img/svg.svg#img-upload';
-		// _obj_origin_image_section.src = './img/svg.svg';
-		// _obj_origin_image_section.setAttribute('data-src','./img/svg.svg');
 		_obj_upload_section_inner.appendChild(_obj_origin_image_section);
+
+		let _obj_origin_image_svg = document.createElement('img');
+		_obj_origin_image_svg.className = 'pkg-upload-inner-origin svg-inject';
+		_obj_origin_image_svg.src = './img/svg.svg#img-upload';
+		// _obj_origin_image_svg.src = './img/svg.svg';
+		_obj_upload_section_inner.appendChild(_obj_origin_image_svg);
 
 		return _obj_upload_section;
 	}

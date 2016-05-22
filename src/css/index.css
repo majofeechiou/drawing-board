@@ -294,6 +294,13 @@ body *  {
                 @mixin hover;
                 margin-left: $tiny_spacing;
                 display: inline-block;
+                &:hover {
+                    &:before {
+                        background-color: $color_aid_01;
+                        box-shadow: 0 0 0 5px $color_aid_02;
+                        color: $color_aid_03;
+                    }
+                }
                 &:before {
                     display: inline-block;
                     padding: $tiny_spacing;

@@ -128,7 +128,6 @@ export default class MethodControl extends React.Component {
                 borderColor: '#900',
                 style: MethodSettings.getAllTextStyle()[0].style
             };
-            console.log('_json_control :: ', _json_control);
             return (
                 <div className={_scope.props.className}>
                     <MethodControlText

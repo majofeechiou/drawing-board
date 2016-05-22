@@ -83,7 +83,16 @@ module.exports = {
         }
 	},
     postcss: function () {
-        return [ require('autoprefixer')({browsers: ['> 1%', 'IE 7']}), require('precss'), require('postcss-fontpath'), require("postcss-calc"), require('postcss-color-alpha'), require('postcss-mixins') ];
+        return [ 
+            require('autoprefixer')({browsers: ['> 1%', 'IE 7']}), 
+            require('precss'), 
+            // require('postcss-inline-svg'),
+            // require('postcss-svgo'),
+            require('postcss-fontpath'), 
+            require("postcss-calc"), 
+            require('postcss-color-alpha'), 
+            require('postcss-mixins') 
+        ];
     },
 	plugins: [
 		new HtmlPack({ 

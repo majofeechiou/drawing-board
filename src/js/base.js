@@ -6,6 +6,7 @@
 import PictureDraw from "./PictureDraw";
 import MethodSection from "./MethodSection";
 import Utils from "./Utils";
+import SVGInjector from "svg-injector";
 
 (function body () {
 
@@ -20,5 +21,12 @@ import Utils from "./Utils";
 
  //    new PictureDraw( _obj_main[1], Utils.createUniqueId() ); 
 	// new PictureDraw( _obj_main[2], Utils.createUniqueId() ); 
+
+    setTimeout(function(){
+        let mySVGsToInject = document.querySelectorAll('img.svg-inject');
+
+        // Do the injection
+        SVGInjector(mySVGsToInject);
+    },2000);
 
 })();
