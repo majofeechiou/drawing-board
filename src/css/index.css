@@ -10,6 +10,9 @@ $color_white: #fff;
 $color_black: #000;
 $color_popup_bg: RGBA(0, 0, 0, 0.6);
 $color_separate: color($color_white blackness(15%));
+$color_aid_01: color($color_white blackness(15%));
+$color_aid_02: color($color_white blackness(5%));
+$color_aid_03: color($color_white blackness(85%));
 
 $level_popup_method: 10;
 
@@ -85,8 +88,8 @@ body *  {
 .pkg-workspace {
     margin-bottom: $block_spacing;
     height: 150px;
-    background-color: color($color_white blackness(5%));
-    border-bottom: 1px solid color($color_white blackness(15%));
+    background-color: $color_aid_02;
+    border-bottom: 1px solid $color_aid_01;
     .pkg-workspace-tools {
         position: relative;
         display: flex;
@@ -230,7 +233,6 @@ body *  {
 .pkg-action {
     position: relative;
     display: flex;
-    padding-left: $wrap_spacing;
     flex-direction: row;
     align-items: stretch;
     flex-wrap: nowrap;
@@ -247,7 +249,6 @@ body *  {
     .pkg-action-tools {
         display: flex;
         padding: $wrap_spacing;
-        width: $width_size_confirm;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -257,6 +258,8 @@ body *  {
         top: 0;
         height: 100%;*/
         .pkg-action-tools-button {
+            @mixin borderRadius;
+            @mixin hover;
             font-size: 24px;
             &:nth-of-type(n+2) {
                 margin-top: $wrap_spacing;
@@ -277,19 +280,26 @@ body *  {
         flex-grow: 1;
         overflow-x: hidden;
         overflow-y: auto;
-        li {
+        .pkg-action-method-item {
+            @mixin borderRadius;
             display: inline-block;
             margin: $tiny_spacing $item_spacing;
             padding: calc( $tiny_spacing/2 ) $item_spacing ;
-            border: 1px solid #f00;
-            border-radius: $tiny_spacing ;
+            background-color: $color_aid_01;
             .pkg-action-method-delete {
+                @mixin iconDrawBoardBefore "\f102" ;
+                @mixin hover;
                 margin-left: $tiny_spacing;
                 display: inline-block;
-                padding: $tiny_spacing;
-                border-radius: 50%;
-                border: 1px solid #f00;
-                @mixin hover;
+                &:before {
+                    display: inline-block;
+                    padding: $tiny_spacing;
+                    background-color: $color_aid_03;
+                    color: $color_white;
+                    transform: scale(0.6);
+                    border-radius: 50%;
+                    box-shadow: 0 0 0 5px $color_aid_03;
+                }
             }
         }
     }
@@ -311,10 +321,10 @@ body *  {
         top: $wrap_spacing;
     } */
     .pkg-method-content {
-        background-color: color($color_white blackness(5%));
+        background-color: $color_aid_02;
         .pkg-method-content-options {
             padding-right: 3em;
-            background-color: color($color_white blackness(15%));
+            background-color: $color_aid_01;
         }
     }
     .pkg-method-wrap {
@@ -573,8 +583,8 @@ body *  {
 
 .ui-toolsbtn {
     @mixin noBorder;
-    background-color: color($color_white blackness(15%));
-    color: color($color_white blackness(85%));
+    background-color: $color_aid_01;
+    color: $color_aid_03;
 }
 
 .mrg-rt-base {
