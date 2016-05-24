@@ -599,6 +599,7 @@ body *  {
 
 .ui-toolsbtn {
     @mixin noBorder;
+    @mixin hover;
     background-color: $color_aid_01;
     color: $color_aid_03;
 }
@@ -645,15 +646,14 @@ body *  {
     }
 }
 
-
-@media screen and ( min-width: 900px ){
+@media screen and ( min-width: 768px ){
     .pkg-workspace {
         @mixin afterClear;
         margin-bottom: 0;
         height: 100%;
         .pkg-workspace-tools {
             position: fixed;
-            width: 40%;
+            width: 50%;
             flex-direction: column;
             .pkg-workspace-tools-item {
                 width: 100%;
@@ -666,13 +666,13 @@ body *  {
                     height: calc( $max_height_preview_img_left + 30px );
                 }
                 &.pkg-workspace-tools-item_action {
-                    height: 150px;
+                    height: auto;
                 }
             } 
         }
         .pkg-workspace-preview {
             float: right;
-            width: 59%;
+            width: 50%;
         }
     }
     .pkg-upload {
@@ -680,6 +680,28 @@ body *  {
             .pkg-upload-inner-origin {
                 max-height: $max_height_preview_img_left;
             }
+        }
+    }
+}
+
+@media screen and ( min-width: 900px ) and ( max-width: 1199px ){
+    .pkg-workspace {
+        .pkg-workspace-tools {
+            width: 40%;
+        }
+        .pkg-workspace-preview {
+            width: 60%;
+        }
+    }
+}
+
+@media screen and ( min-width: 1200px ){
+    .pkg-workspace {
+        .pkg-workspace-tools {
+            width: 35%;
+        }
+        .pkg-workspace-preview {
+            width: 65%;
         }
     }
 }
