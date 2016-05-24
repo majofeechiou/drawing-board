@@ -189,7 +189,7 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_upload_section.className = 'pkg-upload';
 
 		let _obj_upload_section_inner 	= document.createElement('div');
-		_obj_upload_section_inner.className = 'pkg-upload-inner tt';
+		_obj_upload_section_inner.className = 'pkg-upload-inner';
 		_obj_upload_section.appendChild(_obj_upload_section_inner);
 
 		let _obj_upload 	= document.createElement('input');

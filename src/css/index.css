@@ -17,6 +17,7 @@ $color_aid_03: color($color_white blackness(85%));
 $level_popup_method: 10;
 
 $width_size_confirm: 35px;
+$max_height_preview_img: 350px;
 
 @define-mixin keyinWidth {
     width: 150px;
@@ -88,8 +89,6 @@ body *  {
 .pkg-workspace {
     margin-bottom: $block_spacing;
     height: 150px;
-    background-color: $color_aid_02;
-    border-bottom: 1px solid $color_aid_01;
     .pkg-workspace-tools {
         position: relative;
         display: flex;
@@ -97,6 +96,8 @@ body *  {
         align-items: stretch;
         flex-wrap: nowrap;
         height: 100%;
+        background-color: $color_aid_02;
+        border-bottom: 1px solid $color_aid_01;
         &.pkg-workspace-tools_size {
             .pkg-workspace-tools-item {
                 &.pkg-workspace-tools-item_size {
@@ -141,6 +142,7 @@ body *  {
         .pkg-workspace-tools-item {
             position: relative;
             height: 100%;
+            width: $width_size_confirm;
             &:after {
                 position: absolute;
                 display: block;
@@ -197,7 +199,6 @@ body *  {
 }
 
 .pkg-back {
-    width: $width_size_confirm;
     .pkg-back-confirm {
         @mixin iconDrawBoardBefore "\f101" ;
         width: 100%;
@@ -325,16 +326,20 @@ body *  {
     top: 0;
     background-color: $color_popup_bg;
     content: '';
-    /* .pkg-method-content-close {
-        position: absolute;
-        right: $wrap_spacing;
-        top: $wrap_spacing;
-    } */
     .pkg-method-content {
         background-color: $color_aid_02;
+        /* .pkg-method-content-close {
+            position: absolute;
+            right: $wrap_spacing;
+            top: $wrap_spacing;
+        } */
         .pkg-method-content-options {
             padding-right: 3em;
             background-color: $color_aid_01;
+        }
+        .pkg-method-content-control {
+            max-height: $max_height_preview_img;
+            overflow-y: auto;
         }
     }
     .pkg-method-wrap {
@@ -368,7 +373,7 @@ body *  {
     .pkg-conpreview-image {
         @mixin blkCenter;
         max-width: 100%;
-        max-height: 450px;
+        max-height: $max_height_preview_img;
     }
 }
 
@@ -379,7 +384,7 @@ body *  {
     .pkg-preview-image {
         @mixin blkCenter;
         max-width: 100%;
-        max-height: 450px;
+        max-height: $max_height_preview_img;
     }
 }
 
@@ -630,4 +635,36 @@ body *  {
             background: #ccc;
         }
     }
+
+    .pkg-control {
+        .pkg-control-left,
+        .pkg-control-right {
+            width: 100%;
+        }
+    }
 }
+
+/*
+@media screen and ( min-width: 900px ){
+    .pkg-workspace {
+        @mixin afterClear;
+        margin-bottom: 0;
+        height: 100%;
+        .pkg-workspace-tools {
+            position: fixed;
+            width: 40%;
+            flex-direction: column;
+            .pkg-workspace-tools-item {
+                &.pkg-workspace-tools-item_back {
+                    width: 100%;
+                    height: $width_size_confirm;
+                } 
+            } 
+        }
+        .pkg-workspace-preview {
+            float: right;
+            width: 59%;
+        }
+    }
+}
+*/
