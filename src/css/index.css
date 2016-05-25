@@ -85,6 +85,11 @@ body *  {
         @mixin blkCenter ;
         /* min-width: 768px; */
     }
+    .pkg-tmp-setting {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+    }
 }
 
 .pkg-workspace {
@@ -474,7 +479,7 @@ body *  {
     }
 }
 
- .pkg-table {
+.pkg-table {
     display: table;
     .pkg-table-row {
         display: table-row;
@@ -535,6 +540,12 @@ body *  {
         display: inline-block;
         margin-left: 0.5em;
     }
+}
+
+.pkg-setting {
+    width: 120px;
+    padding: $wrap_spacing;
+    text-align: center;
 }
 
 .ui-colortag {

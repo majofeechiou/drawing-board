@@ -5,6 +5,7 @@
 
 import PictureDraw from "./PictureDraw";
 import MethodSection from "./MethodSection";
+import SettingSection from "./SettingSection";
 import Utils from "./Utils";
 import SVGInjector from "svg-injector";
 
@@ -12,6 +13,9 @@ import SVGInjector from "svg-injector";
 
     let methodSection = new MethodSection( Utils.createUniqueId() );
     methodSection.create();
+
+    let settingSection = new SettingSection();
+    settingSection.create();
 
     // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 

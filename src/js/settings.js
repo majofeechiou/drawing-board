@@ -97,6 +97,11 @@ export default class Settings {
 	static TEXT_STYLE_BOTH_NAME = '實心加邊框';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+	static METHOD_LOOKS_INIT = 'METHOD_LOOKS_INIT';
+	static METHOD_LOOKS_TEST = 'METHOD_LOOKS_TEST';
+
+	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 	static getConstNameByEn( str ){
