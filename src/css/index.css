@@ -682,6 +682,13 @@ body *  {
             }
         }
     }
+    .pkg-preview {
+        margin-top: 0;
+        .pkg-preview-image {
+            max-height: 500px;
+            max-height: 90vh;
+        }
+    }
 }
 
 @media screen and ( min-width: 900px ) and ( max-width: 1199px ){
