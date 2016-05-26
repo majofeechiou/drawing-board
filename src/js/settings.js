@@ -98,8 +98,8 @@ export default class Settings {
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-	static METHOD_LOOKS_INIT = 'METHOD_LOOKS_INIT';
-	static METHOD_LOOKS_TEST = 'METHOD_LOOKS_TEST';
+	static METHOD_LOOKS_LUXURY_A = 'METHOD_LOOKS_LUXURY_A';
+	static METHOD_LOOKS_LUXURY_B = 'METHOD_LOOKS_LUXURY_B';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **

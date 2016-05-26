@@ -545,8 +545,12 @@ body *  {
 .pkg-setting {
     width: 180px;
     padding: $wrap_spacing;
-    text-align: center;
     font-size: 9px;
+    .pkg-setting-btn {
+        display: block;
+        margin-top: $item_spacing;
+        text-align: center;
+    }
 }
 
 .ui-colortag {
@@ -697,6 +701,7 @@ body *  {
     .pkg-preview {
         margin-top: 0;
         .pkg-preview-image {
+            max-width: 90%;
             max-height: 500px;
             max-height: 90vh;
         }

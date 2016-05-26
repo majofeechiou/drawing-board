@@ -117,7 +117,7 @@
 
 	'use strict';
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 
 	/**
 	 * Similar to invariant but only logs a warning if the condition is not met.
@@ -338,8 +338,8 @@
 	Settings.TEXT_STYLE_HOLLOW_NAME = '空心字';
 	Settings.TEXT_STYLE_BOTH = 'both';
 	Settings.TEXT_STYLE_BOTH_NAME = '實心加邊框';
-	Settings.METHOD_LOOKS_INIT = 'METHOD_LOOKS_INIT';
-	Settings.METHOD_LOOKS_TEST = 'METHOD_LOOKS_TEST';
+	Settings.METHOD_LOOKS_LUXURY_A = 'METHOD_LOOKS_LUXURY_A';
+	Settings.METHOD_LOOKS_LUXURY_B = 'METHOD_LOOKS_LUXURY_B';
 	exports.default = Settings;
 	;
 
@@ -1173,6 +1173,135 @@
 /* 13 */
 /***/ function(module, exports) {
 
+	'use strict';
+
+	/* 3D旋轉選項 */
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	var Setting = function Setting() {
+		_classCallCheck(this, Setting);
+	};
+
+	/* ?????????
+		有哪些類型：
+		原版 - clean
+		方框 - rectangle
+		按鈕 - button
+		膠囊 - capsule
+		圓形 - circle
+	*/
+	/*
+		轉變動畫：
+		rotate-旋轉
+		rotate-翻轉
+		rotate-3d上下翻轉
+		rotate-3d左右翻轉
+		opacity
+		scale-心臟跳動
+		filter-模糊
+		translateY-雨滴落下
+	*/
+
+	Setting.DISPLAY_BLOCK = 'block';
+	Setting.DISPLAY_INBLOCK = 'inline-block';
+	Setting.PADDING_TINY = 'tiny';
+	Setting.PADDING_SMALL = 'small';
+	Setting.PADDING_LITTLE = 'little';
+	Setting.PADDING_BASE = 'base';
+	Setting.PADDING_MIDDLE = 'middle';
+	Setting.PADDING_BIG = 'big';
+	Setting.PADDING_LARGE = 'large';
+	Setting.PADDING_HUGE = 'huge';
+	Setting.FILLET_NONE = 'none';
+	Setting.FILLET_TINY = 'tiny';
+	Setting.FILLET_BASE = 'base';
+	Setting.FILLET_CIRCLE = 'circle';
+	Setting.ICON_POSTION_TOP = 'top';
+	Setting.ICON_POSTION_BOTTOM = 'bottom';
+	Setting.ICON_POSTION_LEFT = 'left';
+	Setting.ICON_POSTION_RIGHT = 'right';
+	Setting.ICON_POSTION_NONE = 'none';
+	Setting.ICON_SHOW_HEART = 'heart';
+	Setting.ICON_SHOW_EMPTY_HEART = 'empty-heart';
+	Setting.ICON_SHOW_CHECKED = 'checked';
+	Setting.ICON_SHOW_SQUARE_CHECKED = 'square-checked';
+	Setting.ICON_SHOW_SQUARE = 'square';
+	Setting.ICON_SHOW_CLOSE = 'close';
+	Setting.ICON_SHOW_LINE = 'line';
+	Setting.ICON_SHOW_EMPTY_SQUARE = 'empty-square';
+	Setting.ICON_SHOW_RHOMBUS = 'rhombus';
+	Setting.ICON_SHOW_STAR = 'star';
+	Setting.ICON_SHOW_EMPTY_STAR = 'empty-star';
+	Setting.ICON_SHOW_CIRCLE = 'circle';
+	Setting.ICON_SHOW_EMPTY_CIRCLE = 'empty-circle';
+	Setting.LIST_POSITION_OUTER = 'outer';
+	Setting.LIST_POSITION_INNER = 'inner';
+	Setting.LIST_STYLE_DISC = 'disc';
+	Setting.LIST_STYLE_CIRCLE = 'circle';
+	Setting.LIST_STYLE_DECIMAL = 'decimal';
+	Setting.LIST_STYLE_SQUARE = 'square';
+	Setting.LIST_STYLE_DECIMAL_LEADING_ZERO = 'decimal-leading-zero';
+	Setting.LIST_STYLE_LOWER_ROMAN = 'lower-roman';
+	Setting.LIST_STYLE_UPPER_ROMAN = 'upper-roman';
+	Setting.LIST_STYLE_LOWER_GREEK = 'lower-greek';
+	Setting.LIST_STYLE_LOWER_LATIN = 'lower-latin';
+	Setting.LIST_STYLE_UPPER_LATIN = 'upper-latin';
+	Setting.STYLE_NAME_RESURGENCE = 'resurgence';
+	Setting.STYLE_NAME_SPRING = 'spring';
+	Setting.STYLE_NAME_WINE = 'wine';
+	Setting.STYLE_NAME_BLUESKY = 'bluesky';
+	Setting.STYLE_NAME_LOVELY = 'lovely';
+	Setting.STYLE_NAME_LUXURY = 'luxury';
+	Setting.STYLE_NAME_FANTASY = 'fantasy';
+	Setting.STYLE_NAME_RIGID = 'rigid';
+	Setting.STYLE_NAME_WATERSIDE = 'waterside';
+	Setting.COMPOSITION_WHOLE = 'whole';
+	Setting.COMPOSITION_HALF = 'half';
+	Setting.COMPOSITION_THIRD = 'third';
+	Setting.COMPOSITION_QUARTER = 'quarter';
+	Setting.COMPOSITION_FIFTH = 'fifth';
+	Setting.COMPOSITION_SIXTH = 'sixth';
+	Setting.COMPOSITION_EIGHTH = 'eighth';
+	Setting.COMPOSITION_TENTH = 'tenth';
+	Setting.COMPOSITION_TWELFTH = 'twelfth';
+	Setting.COMPOSITION_TINYEM = 'tiny-em';
+	Setting.COMPOSITION_SMALLEM = 'small-em';
+	Setting.COMPOSITION_LITTLEEM = 'little-em';
+	Setting.COMPOSITION_BASEEM = 'base-em';
+	Setting.COMPOSITION_MIDDLEEM = 'middle-em';
+	Setting.COMPOSITION_BIGEM = 'big-em';
+	Setting.COMPOSITION_LARGEEM = 'large-em';
+	Setting.COMPOSITION_TINYPERCENT = 'tiny-percent';
+	Setting.COMPOSITION_SMALLPERCENT = 'small-percent';
+	Setting.COMPOSITION_LITTLEPERCENT = 'little-percent';
+	Setting.COMPOSITION_BASEPERCENT = 'base-percent';
+	Setting.COMPOSITION_MIDDLEPERCENT = 'middle-percent';
+	Setting.COMPOSITION_BIGPERCENT = 'big-percent';
+	Setting.COMPOSITION_LARGEPERCENT = 'large-percent';
+	Setting.COMPOSITION_TINY = 'tiny';
+	Setting.COMPOSITION_SMALL = 'small';
+	Setting.COMPOSITION_LITTLE = 'little';
+	Setting.COMPOSITION_BASE = 'base';
+	Setting.COMPOSITION_MIDDLE = 'middle';
+	Setting.COMPOSITION_BIG = 'big';
+	Setting.COMPOSITION_LARGE = 'large';
+	Setting.DISABLED_TRUE = true;
+	Setting.DISABLED_FALSE = false;
+	exports.default = Setting;
+
+/***/ },
+/* 14 */
+/***/ function(module, exports) {
+
 	"use strict";
 
 	/**
@@ -1212,7 +1341,7 @@
 	module.exports = emptyFunction;
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -1458,135 +1587,6 @@
 	module.exports = ReactUpdates;
 
 /***/ },
-/* 15 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	/* 3D旋轉選項 */
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	function _classCallCheck(instance, Constructor) {
-		if (!(instance instanceof Constructor)) {
-			throw new TypeError("Cannot call a class as a function");
-		}
-	}
-
-	var Setting = function Setting() {
-		_classCallCheck(this, Setting);
-	};
-
-	/* ?????????
-		有哪些類型：
-		原版 - clean
-		方框 - rectangle
-		按鈕 - button
-		膠囊 - capsule
-		圓形 - circle
-	*/
-	/*
-		轉變動畫：
-		rotate-旋轉
-		rotate-翻轉
-		rotate-3d上下翻轉
-		rotate-3d左右翻轉
-		opacity
-		scale-心臟跳動
-		filter-模糊
-		translateY-雨滴落下
-	*/
-
-	Setting.DISPLAY_BLOCK = 'block';
-	Setting.DISPLAY_INBLOCK = 'inline-block';
-	Setting.PADDING_TINY = 'tiny';
-	Setting.PADDING_SMALL = 'small';
-	Setting.PADDING_LITTLE = 'little';
-	Setting.PADDING_BASE = 'base';
-	Setting.PADDING_MIDDLE = 'middle';
-	Setting.PADDING_BIG = 'big';
-	Setting.PADDING_LARGE = 'large';
-	Setting.PADDING_HUGE = 'huge';
-	Setting.FILLET_NONE = 'none';
-	Setting.FILLET_TINY = 'tiny';
-	Setting.FILLET_BASE = 'base';
-	Setting.FILLET_CIRCLE = 'circle';
-	Setting.ICON_POSTION_TOP = 'top';
-	Setting.ICON_POSTION_BOTTOM = 'bottom';
-	Setting.ICON_POSTION_LEFT = 'left';
-	Setting.ICON_POSTION_RIGHT = 'right';
-	Setting.ICON_POSTION_NONE = 'none';
-	Setting.ICON_SHOW_HEART = 'heart';
-	Setting.ICON_SHOW_EMPTY_HEART = 'empty-heart';
-	Setting.ICON_SHOW_CHECKED = 'checked';
-	Setting.ICON_SHOW_SQUARE_CHECKED = 'square-checked';
-	Setting.ICON_SHOW_SQUARE = 'square';
-	Setting.ICON_SHOW_CLOSE = 'close';
-	Setting.ICON_SHOW_LINE = 'line';
-	Setting.ICON_SHOW_EMPTY_SQUARE = 'empty-square';
-	Setting.ICON_SHOW_RHOMBUS = 'rhombus';
-	Setting.ICON_SHOW_STAR = 'star';
-	Setting.ICON_SHOW_EMPTY_STAR = 'empty-star';
-	Setting.ICON_SHOW_CIRCLE = 'circle';
-	Setting.ICON_SHOW_EMPTY_CIRCLE = 'empty-circle';
-	Setting.LIST_POSITION_OUTER = 'outer';
-	Setting.LIST_POSITION_INNER = 'inner';
-	Setting.LIST_STYLE_DISC = 'disc';
-	Setting.LIST_STYLE_CIRCLE = 'circle';
-	Setting.LIST_STYLE_DECIMAL = 'decimal';
-	Setting.LIST_STYLE_SQUARE = 'square';
-	Setting.LIST_STYLE_DECIMAL_LEADING_ZERO = 'decimal-leading-zero';
-	Setting.LIST_STYLE_LOWER_ROMAN = 'lower-roman';
-	Setting.LIST_STYLE_UPPER_ROMAN = 'upper-roman';
-	Setting.LIST_STYLE_LOWER_GREEK = 'lower-greek';
-	Setting.LIST_STYLE_LOWER_LATIN = 'lower-latin';
-	Setting.LIST_STYLE_UPPER_LATIN = 'upper-latin';
-	Setting.STYLE_NAME_RESURGENCE = 'resurgence';
-	Setting.STYLE_NAME_SPRING = 'spring';
-	Setting.STYLE_NAME_WINE = 'wine';
-	Setting.STYLE_NAME_BLUESKY = 'bluesky';
-	Setting.STYLE_NAME_LOVELY = 'lovely';
-	Setting.STYLE_NAME_LUXURY = 'luxury';
-	Setting.STYLE_NAME_FANTASY = 'fantasy';
-	Setting.STYLE_NAME_RIGID = 'rigid';
-	Setting.STYLE_NAME_WATERSIDE = 'waterside';
-	Setting.COMPOSITION_WHOLE = 'whole';
-	Setting.COMPOSITION_HALF = 'half';
-	Setting.COMPOSITION_THIRD = 'third';
-	Setting.COMPOSITION_QUARTER = 'quarter';
-	Setting.COMPOSITION_FIFTH = 'fifth';
-	Setting.COMPOSITION_SIXTH = 'sixth';
-	Setting.COMPOSITION_EIGHTH = 'eighth';
-	Setting.COMPOSITION_TENTH = 'tenth';
-	Setting.COMPOSITION_TWELFTH = 'twelfth';
-	Setting.COMPOSITION_TINYEM = 'tiny-em';
-	Setting.COMPOSITION_SMALLEM = 'small-em';
-	Setting.COMPOSITION_LITTLEEM = 'little-em';
-	Setting.COMPOSITION_BASEEM = 'base-em';
-	Setting.COMPOSITION_MIDDLEEM = 'middle-em';
-	Setting.COMPOSITION_BIGEM = 'big-em';
-	Setting.COMPOSITION_LARGEEM = 'large-em';
-	Setting.COMPOSITION_TINYPERCENT = 'tiny-percent';
-	Setting.COMPOSITION_SMALLPERCENT = 'small-percent';
-	Setting.COMPOSITION_LITTLEPERCENT = 'little-percent';
-	Setting.COMPOSITION_BASEPERCENT = 'base-percent';
-	Setting.COMPOSITION_MIDDLEPERCENT = 'middle-percent';
-	Setting.COMPOSITION_BIGPERCENT = 'big-percent';
-	Setting.COMPOSITION_LARGEPERCENT = 'large-percent';
-	Setting.COMPOSITION_TINY = 'tiny';
-	Setting.COMPOSITION_SMALL = 'small';
-	Setting.COMPOSITION_LITTLE = 'little';
-	Setting.COMPOSITION_BASE = 'base';
-	Setting.COMPOSITION_MIDDLE = 'middle';
-	Setting.COMPOSITION_BIG = 'big';
-	Setting.COMPOSITION_LARGE = 'large';
-	Setting.DISABLED_TRUE = true;
-	Setting.DISABLED_FALSE = false;
-	exports.default = Setting;
-
-/***/ },
 /* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1709,7 +1709,7 @@
 
 	var PooledClass = __webpack_require__(24);
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 	var warning = __webpack_require__(2);
 
 	var didWarnForAddedNewProperty = false;
@@ -1859,7 +1859,7 @@
 	      this[shouldBeReleasedProperties[i]] = null;
 	    }
 	    if (true) {
-	      var noop = __webpack_require__(13);
+	      var noop = __webpack_require__(14);
 	      Object.defineProperty(this, 'nativeEvent', getPooledWarningPropertyDefinition('nativeEvent', null));
 	      Object.defineProperty(this, 'preventDefault', getPooledWarningPropertyDefinition('preventDefault', noop));
 	      Object.defineProperty(this, 'stopPropagation', getPooledWarningPropertyDefinition('stopPropagation', noop));
@@ -2835,7 +2835,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -5400,7 +5400,7 @@
 	var ReactPerf = __webpack_require__(9);
 	var ReactReconciler = __webpack_require__(27);
 	var ReactUpdateQueue = __webpack_require__(91);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var emptyObject = __webpack_require__(33);
 	var instantiateReactComponent = __webpack_require__(98);
@@ -6770,7 +6770,7 @@
 
 	var _assign = __webpack_require__(3);
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 	var warning = __webpack_require__(2);
 
 	var validateDOMNesting = emptyFunction;
@@ -7148,7 +7148,7 @@
 	 * @typechecks
 	 */
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 
 	/**
 	 * Upstream version of event listener. Does not take into account specific
@@ -7926,7 +7926,7 @@
 	var PooledClass = __webpack_require__(24);
 	var ReactElement = __webpack_require__(11);
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 	var traverseAllChildren = __webpack_require__(65);
 
 	var twoArgumentPooler = PooledClass.twoArgumentPooler;
@@ -9056,7 +9056,7 @@
 
 	var LinkedValueUtils = __webpack_require__(50);
 	var ReactDOMComponentTree = __webpack_require__(5);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var warning = __webpack_require__(2);
 
@@ -10043,7 +10043,7 @@
 	var ReactElement = __webpack_require__(11);
 	var ReactPropTypeLocationNames = __webpack_require__(39);
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 	var getIteratorFn = __webpack_require__(61);
 
 	/**
@@ -10435,7 +10435,7 @@
 
 	var ReactCurrentOwner = __webpack_require__(20);
 	var ReactInstanceMap = __webpack_require__(53);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
@@ -14289,7 +14289,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -14305,14 +14305,14 @@
 		_createClass(StyleSettings, null, [{
 			key: 'getAllStyle',
 			value: function getAllStyle() {
-				return [this.getStyleInit(), this.getStyleTest()];
+				return [this.getStyleLuxuryA(), this.getStyleLuxuryB()];
 			}
 		}, {
-			key: 'getStyleInit',
-			value: function getStyleInit() {
+			key: 'getStyleLuxuryA',
+			value: function getStyleLuxuryA() {
 				return {
-					name: '預設樣版',
-					value: _Settings2.default.METHOD_LOOKS_INIT,
+					name: '豪華樣版 A',
+					value: _Settings2.default.METHOD_LOOKS_LUXURY_A,
 					method: {
 						display: _Setting2.default.DISPLAY_INBLOCK,
 						padding: _Setting2.default.PADDING_BASE,
@@ -14332,11 +14332,11 @@
 				};
 			}
 		}, {
-			key: 'getStyleTest',
-			value: function getStyleTest() {
+			key: 'getStyleLuxuryB',
+			value: function getStyleLuxuryB() {
 				return {
-					name: '測試樣版',
-					value: _Settings2.default.METHOD_LOOKS_TEST,
+					name: '豪華樣版 B',
+					value: _Settings2.default.METHOD_LOOKS_LUXURY_B,
 					method: {
 						display: _Setting2.default.DISPLAY_INBLOCK,
 						padding: _Setting2.default.PADDING_TINY,
@@ -14391,7 +14391,7 @@
 		};
 	}();
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -14719,7 +14719,7 @@
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -17127,7 +17127,7 @@
 	var EventPropagators = __webpack_require__(30);
 	var ExecutionEnvironment = __webpack_require__(7);
 	var ReactDOMComponentTree = __webpack_require__(5);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 	var SyntheticEvent = __webpack_require__(17);
 
 	var getEventTarget = __webpack_require__(60);
@@ -17481,7 +17481,7 @@
 	var ExecutionEnvironment = __webpack_require__(7);
 
 	var createNodesFromMarkup = __webpack_require__(124);
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 	var getMarkupWrap = __webpack_require__(70);
 	var invariant = __webpack_require__(1);
 
@@ -19109,7 +19109,7 @@
 	var ReactMount = __webpack_require__(54);
 	var ReactPerf = __webpack_require__(9);
 	var ReactReconciler = __webpack_require__(27);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 	var ReactVersion = __webpack_require__(92);
 
 	var findDOMNode = __webpack_require__(196);
@@ -20605,7 +20605,7 @@
 	var DOMPropertyOperations = __webpack_require__(48);
 	var LinkedValueUtils = __webpack_require__(50);
 	var ReactDOMComponentTree = __webpack_require__(5);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
@@ -21331,7 +21331,7 @@
 	var DOMPropertyOperations = __webpack_require__(48);
 	var LinkedValueUtils = __webpack_require__(50);
 	var ReactDOMComponentTree = __webpack_require__(5);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var invariant = __webpack_require__(1);
 	var warning = __webpack_require__(2);
@@ -21759,10 +21759,10 @@
 
 	var _assign = __webpack_require__(3);
 
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 	var Transaction = __webpack_require__(55);
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 
 	var RESET_BATCHED_UPDATES = {
 	  initialize: emptyFunction,
@@ -22515,7 +22515,7 @@
 	var ExecutionEnvironment = __webpack_require__(7);
 	var PooledClass = __webpack_require__(24);
 	var ReactDOMComponentTree = __webpack_require__(5);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var getEventTarget = __webpack_require__(60);
 	var getUnboundedScrollPosition = __webpack_require__(125);
@@ -22680,7 +22680,7 @@
 	var ReactBrowserEventEmitter = __webpack_require__(37);
 	var ReactNativeComponent = __webpack_require__(87);
 	var ReactPerf = __webpack_require__(9);
-	var ReactUpdates = __webpack_require__(14);
+	var ReactUpdates = __webpack_require__(15);
 
 	var ReactInjection = {
 	  Component: ReactComponentEnvironment.injection,
@@ -24086,7 +24086,7 @@
 	var SyntheticUIEvent = __webpack_require__(31);
 	var SyntheticWheelEvent = __webpack_require__(193);
 
-	var emptyFunction = __webpack_require__(13);
+	var emptyFunction = __webpack_require__(14);
 	var getEventCharCode = __webpack_require__(58);
 	var invariant = __webpack_require__(1);
 	var keyOf = __webpack_require__(18);
@@ -34180,7 +34180,7 @@
 
 	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -35083,7 +35083,7 @@
 
 	var _Utils2 = _interopRequireDefault(_Utils);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -35961,7 +35961,7 @@
 
 	var _MethodActions2 = _interopRequireDefault(_MethodActions);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -36495,7 +36495,7 @@
 
 	var _MethodSettings2 = _interopRequireDefault(_MethodSettings);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
@@ -36696,9 +36696,9 @@
 	        _this.default();
 
 	        // setTimeout(function(){
-	        //     props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
+	        //     props.methodStore.dispatch({type:'METHOD_LOOKS_LUXURY_B'});
 	        //     setTimeout(function(){
-	        //         props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
+	        //         props.methodStore.dispatch({type:'METHOD_LOOKS_LUXURY_A'});
 	        //     },2000);
 	        // },2000);
 
@@ -36813,26 +36813,26 @@
 
 	var _StyleSettings2 = _interopRequireDefault(_StyleSettings);
 
-	var _Setting = __webpack_require__(15);
+	var _Setting = __webpack_require__(13);
 
 	var _Setting2 = _interopRequireDefault(_Setting);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var _json_init = _StyleSettings2.default.getStyleInit();
-	var _json_test = _StyleSettings2.default.getStyleTest();
+	var _json_luxury_a = _StyleSettings2.default.getStyleLuxuryA();
+	var _json_luxury_b = _StyleSettings2.default.getStyleLuxuryB();
 
-	var _json_state_init = _json_init.method;
-	var _json_state_test = _json_test.method;
+	var _json_state_init = _json_luxury_a.method;
+	var _json_state_test = _json_luxury_b.method;
 
 	function MethodReducer() {
 	    var state = arguments.length <= 0 || arguments[0] === undefined ? { method: _json_state_init, sub: _json_state_test } : arguments[0];
 	    var action = arguments[1];
 
 	    switch (action.type) {
-	        case _json_init.value:
+	        case _json_luxury_a.value:
 	            return state = { method: _json_state_init, sub: _json_state_test };
-	        case _json_test.value:
+	        case _json_luxury_b.value:
 	            return state = { method: _json_state_test, sub: _json_state_init };
 	        default:
 	            return state;
@@ -37507,25 +37507,9 @@
 
 	var _GlobalConst3 = _interopRequireDefault(_GlobalConst2);
 
-	var _Extend = __webpack_require__(8);
+	var _SettingOption = __webpack_require__(281);
 
-	var _Extend2 = _interopRequireDefault(_Extend);
-
-	var _Settings = __webpack_require__(4);
-
-	var _Settings2 = _interopRequireDefault(_Settings);
-
-	var _StyleSettings = __webpack_require__(113);
-
-	var _StyleSettings2 = _interopRequireDefault(_StyleSettings);
-
-	var _ReactGroup = __webpack_require__(32);
-
-	var _ReactGroup2 = _interopRequireDefault(_ReactGroup);
-
-	var _Setting = __webpack_require__(15);
-
-	var _Setting2 = _interopRequireDefault(_Setting);
+	var _SettingOption2 = _interopRequireDefault(_SettingOption);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37538,9 +37522,14 @@
 	// import { createStore } from 'redux'
 	// import MethodReact from './MethodReact';
 	// import MethodReducer from './MethodReducer';
-
+	// import Extend from 'Extend';
 	// import GloablData from './GloablData';
+	// import Settings from './Settings';
+	// import StyleSettings from './StyleSettings';
 
+
+	// import ReactGroup from 'ReactGroup';
+	// import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 	var OBJ_SETTING_STYLE = document.getElementById("setting-style");
 
@@ -37550,86 +37539,13 @@
 	    function SettingSection() {
 	        _classCallCheck(this, SettingSection);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SettingSection).call(this));
-
-	        _this.default();
-
-	        _this.output_result = '';
-
-	        return _this;
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SettingSection).call(this));
 	    }
 
 	    _createClass(SettingSection, [{
-	        key: 'getSelectKey',
-	        value: function getSelectKey() {
-	            return ['value'];
-	        }
-	    }, {
-	        key: 'getInputoption',
-	        value: function getInputoption() {
-	            var _sary = _StyleSettings2.default.getAllStyle();
-	            console.log('_sary :: ', _sary);
-	            return _sary;
-	        }
-	    }, {
-	        key: 'getOutputResult',
-	        value: function getOutputResult() {
-	            return this.output_result;
-	        }
-	    }, {
-	        key: 'getShowKey',
-	        value: function getShowKey() {
-	            return ['name'];
-	        }
-	    }, {
-	        key: 'default',
-	        value: function _default() {
-	            var _scope = this;
-
-	            // GloablTools.Emitter().on('method.setting.open.asked', function(){
-	            //     let _json_emit = arguments[0];
-	            //     let _json_setting = arguments[1];
-	            //     GloablTools.Emitter().emit('step.image.new.loading', _json_emit);
-
-	            //     let _str_cn_base = _scope.getMethodBaseClassName();
-	            //     OBJ_SETTING_STYLE.className = _str_cn_base+' '+METHOD_POPUP_OPEN_CLASSNAME;
-	            //     GloablTools.Emitter().emit('method.setting.opening');
-
-	            //     GloablData.setSizeSetting( _json_setting );
-	            // });
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _scope = this;
-	            var _json_style = this.getInputoption()[0].method;
-	            // ReactDOM.render(
-	            //     <MethodReact />,
-	            //         OBJ_SETTING_STYLE
-	            // );
-	            _reactDom2.default.render(_react2.default.createElement(_ReactGroup2.default, {
-	                onChange: this.handleChange,
-	                outputFormat: 'string',
-	                name: 'style_option',
-	                selectKey: this.getSelectKey(),
-	                inputOption: this.getInputoption(),
-	                outputResult: this.getOutputResult(),
-	                showKey: this.getShowKey(),
-	                between: '~',
-	                display: _Setting2.default.DISPLAY_BLOCK,
-	                padding: _json_style.padding,
-	                fillet: _json_style.fillet,
-	                listStyle: _json_style.listStyle,
-	                listPosition: _json_style.listPosition,
-	                iconPosition: _json_style.iconPosition,
-	                iconShow: _json_style.iconShow,
-	                styleName: _json_style.styleName,
-	                composition: _Setting2.default.COMPOSITION_WHOLE,
-	                offBack: _json_style.offBack,
-	                styleBorder: _json_style.styleBorder,
-	                styleIcon: _json_style.styleIcon,
-	                styleIconBack: _json_style.styleIconBack,
-	                styleList: _json_style.styleList }), OBJ_SETTING_STYLE);
+	            _reactDom2.default.render(_react2.default.createElement(_SettingOption2.default, null), OBJ_SETTING_STYLE);
 	        }
 	    }, {
 	        key: 'create',
@@ -37763,6 +37679,202 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/* *** 這部份用 ReactJs + redux + nativeJS 做 *** */
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(6);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(21);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _GlobalConst = __webpack_require__(43);
+
+	var _GlobalConst2 = _interopRequireDefault(_GlobalConst);
+
+	var _Extend = __webpack_require__(8);
+
+	var _Extend2 = _interopRequireDefault(_Extend);
+
+	var _Utils = __webpack_require__(23);
+
+	var _Utils2 = _interopRequireDefault(_Utils);
+
+	var _Settings = __webpack_require__(4);
+
+	var _Settings2 = _interopRequireDefault(_Settings);
+
+	var _StyleSettings = __webpack_require__(113);
+
+	var _StyleSettings2 = _interopRequireDefault(_StyleSettings);
+
+	var _ReactGroup = __webpack_require__(32);
+
+	var _ReactGroup2 = _interopRequireDefault(_ReactGroup);
+
+	var _Setting = __webpack_require__(13);
+
+	var _Setting2 = _interopRequireDefault(_Setting);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import GloablTools from './GloablTools';
+	// import { createStore } from 'redux'
+	// import MethodReact from './MethodReact';
+	// import MethodReducer from './MethodReducer';
+
+	// import GloablData from './GloablData';
+
+
+	// export default class SettingOption extends GlobalConst {
+	var SettingOption = function (_React$Component) {
+	    _inherits(SettingOption, _React$Component);
+
+	    function SettingOption() {
+	        _classCallCheck(this, SettingOption);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SettingOption).call(this));
+
+	        _this.handleChange = _this.handleChange.bind(_this);
+
+	        _this.default();
+
+	        _this.output_result = _this.getInputoption()[0][_this.getSelectKey()[0]];
+
+	        return _this;
+	    }
+
+	    _createClass(SettingOption, [{
+	        key: 'getSelectKey',
+	        value: function getSelectKey() {
+	            return ['value'];
+	        }
+	    }, {
+	        key: 'getInputoption',
+	        value: function getInputoption() {
+	            var _sary = _StyleSettings2.default.getAllStyle();
+	            console.log('_sary :::: ', _sary);
+	            return _sary;
+	        }
+	    }, {
+	        key: 'getOutputResult',
+	        value: function getOutputResult() {
+	            return this.output_result;
+	        }
+	    }, {
+	        key: 'setOutputResult',
+	        value: function setOutputResult(str) {
+	            this.output_result = str || '';
+	        }
+	    }, {
+	        key: 'getShowKey',
+	        value: function getShowKey() {
+	            return ['name'];
+	        }
+	    }, {
+	        key: 'handleChange',
+	        value: function handleChange(bln_change, json_return) {
+	            if (bln_change === true) {
+	                this.setOutputResult(json_return.result);
+	                // // this.render();
+	            }
+	        }
+	    }, {
+	        key: 'default',
+	        value: function _default() {
+	            var _scope = this;
+
+	            // GloablTools.Emitter().on('method.setting.open.asked', function(){
+	            //     let _json_emit = arguments[0];
+	            //     let _json_setting = arguments[1];
+	            //     GloablTools.Emitter().emit('step.image.new.loading', _json_emit);
+
+	            //     let _str_cn_base = _scope.getMethodBaseClassName();
+	            //     OBJ_SETTING_STYLE.className = _str_cn_base+' '+METHOD_POPUP_OPEN_CLASSNAME;
+	            //     GloablTools.Emitter().emit('method.setting.opening');
+
+	            //     GloablData.setSizeSetting( _json_setting );
+	            // });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _scope = this;
+	            // let json_item = this.getInputoption()[0].method;
+	            // ReactDOM.render(
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _scope.getInputoption().map(function (json_item) {
+	                    return _react2.default.createElement(_ReactGroup2.default, {
+	                        onChange: this.handleChange,
+	                        outputFormat: 'string',
+	                        name: 'style_option',
+	                        selectKey: this.getSelectKey(),
+	                        inputOption: [json_item],
+	                        outputResult: this.getOutputResult(),
+	                        showKey: this.getShowKey(),
+	                        between: '~',
+	                        display: _Setting2.default.DISPLAY_BLOCK,
+	                        padding: json_item.method.padding,
+	                        fillet: json_item.method.fillet,
+	                        listStyle: json_item.method.listStyle,
+	                        listPosition: json_item.method.listPosition,
+	                        iconPosition: json_item.method.iconPosition,
+	                        iconShow: json_item.method.iconShow,
+	                        styleName: json_item.method.styleName,
+	                        composition: _Setting2.default.COMPOSITION_WHOLE,
+	                        offBack: json_item.method.offBack,
+	                        styleBorder: json_item.method.styleBorder,
+	                        styleIcon: json_item.method.styleIcon,
+	                        styleIconBack: json_item.method.styleIconBack,
+	                        styleList: json_item.method.styleList });
+	                }, this)
+	            );
+	        }
+	    }, {
+	        key: 'create',
+	        value: function create() {
+	            this.render();
+	        }
+	    }]);
+
+	    return SettingOption;
+	}(_react2.default.Component);
+
+	exports.default = SettingOption;
+	;
 
 /***/ }
 /******/ ]);

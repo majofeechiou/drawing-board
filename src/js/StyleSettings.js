@@ -7,15 +7,15 @@ export default class StyleSettings {
 
 	static getAllStyle(){
 		return [
-			this.getStyleInit(),
-			this.getStyleTest()
+			this.getStyleLuxuryA(),
+			this.getStyleLuxuryB()
 		];
 	}
 
-	static getStyleInit(){
+	static getStyleLuxuryA(){
 		return {
-			name: '預設樣版',
-			value: Settings.METHOD_LOOKS_INIT,
+			name: '豪華樣版 A',
+			value: Settings.METHOD_LOOKS_LUXURY_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_INBLOCK,
 			    padding: ReactGroupSetting.PADDING_BASE,
@@ -35,10 +35,10 @@ export default class StyleSettings {
 		};
 	}
 
-	static getStyleTest(){
+	static getStyleLuxuryB(){
 		return {
-			name: '測試樣版',
-			value: Settings.METHOD_LOOKS_TEST,
+			name: '豪華樣版 B',
+			value: Settings.METHOD_LOOKS_LUXURY_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_INBLOCK,
 			    padding: ReactGroupSetting.PADDING_TINY,

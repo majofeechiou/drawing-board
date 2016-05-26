@@ -24,9 +24,9 @@ export default class MethodReact extends React.Component {
         this.default();
 
         // setTimeout(function(){
-        //     props.methodStore.dispatch({type:'METHOD_LOOKS_TEST'});
+        //     props.methodStore.dispatch({type:'METHOD_LOOKS_LUXURY_B'});
         //     setTimeout(function(){
-        //         props.methodStore.dispatch({type:'METHOD_LOOKS_INIT'});
+        //         props.methodStore.dispatch({type:'METHOD_LOOKS_LUXURY_A'});
         //     },2000);
         // },2000);
 
