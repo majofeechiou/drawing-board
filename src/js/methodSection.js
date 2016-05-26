@@ -146,6 +146,11 @@ export default class MethodSection extends GlobalConst {
 
         });
 
+        GloablTools.Emitter().on('method.style.changing',function(){
+            let _json = arguments[0];
+            methodStore.dispatch({type:_json.method})
+        });
+
     }
 
     getMethodBaseClassName(){

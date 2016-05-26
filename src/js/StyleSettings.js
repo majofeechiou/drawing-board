@@ -44,7 +44,7 @@ export default class StyleSettings {
 			    padding: ReactGroupSetting.PADDING_TINY,
 			    fillet: ReactGroupSetting.FILLET_BASE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
-			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_HEART, ReactGroupSetting.ICON_SHOW_HEART],
 			    styleName: ReactGroupSetting.STYLE_NAME_LUXURY,
