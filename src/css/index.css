@@ -543,9 +543,10 @@ body *  {
 }
 
 .pkg-setting {
-    width: 120px;
+    width: 180px;
     padding: $wrap_spacing;
     text-align: center;
+    font-size: 9px;
 }
 
 .ui-colortag {
