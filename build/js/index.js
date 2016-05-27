@@ -243,6 +243,14 @@
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
+			value: function getConstNameByEn(str) {
+				if (typeof str === 'string' && str !== '') {
+					return Settings['METHOD_' + str + '_NAME'];
+				}
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 			// 畫面下方用來作為真的送出結果用的地方
@@ -257,14 +265,6 @@
 
 			// static METHOD_SNOW = 'SNOW';
 			// static METHOD_SNOW_NAME = '雪花';
-
-			value: function getConstNameByEn(str) {
-				if (typeof str === 'string' && str !== '') {
-					return Settings['METHOD_' + str + '_NAME'];
-				}
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 		}, {
 			key: 'getInitOutputImageScale',
@@ -355,6 +355,9 @@
 	Settings.METHOD_LOOKS_WINE_A = 'METHOD_LOOKS_WINE_A';
 	Settings.METHOD_LOOKS_WINE_B = 'METHOD_LOOKS_WINE_B';
 	Settings.METHOD_LOOKS_WINE_C = 'METHOD_LOOKS_WINE_C';
+	Settings.METHOD_LOOKS_BLUESKY_A = 'METHOD_LOOKS_BLUESKY_A';
+	Settings.METHOD_LOOKS_BLUESKY_B = 'METHOD_LOOKS_BLUESKY_B';
+	Settings.METHOD_LOOKS_BLUESKY_C = 'METHOD_LOOKS_BLUESKY_C';
 	Settings.METHOD_LOOKS_LUXURY_A = 'METHOD_LOOKS_LUXURY_A';
 	Settings.METHOD_LOOKS_LUXURY_B = 'METHOD_LOOKS_LUXURY_B';
 	Settings.METHOD_LOOKS_LUXURY_C = 'METHOD_LOOKS_LUXURY_C';
@@ -14332,7 +14335,7 @@
 		_createClass(StyleSettings, null, [{
 			key: 'getAllStyle',
 			value: function getAllStyle() {
-				return [_Extend2.default.exterior({}, this.getStyleResurgenceA(), this.returnSub(this.getStyleResurgenceB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceB(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceC(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringA(), this.returnSub(this.getStyleSpringC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringB(), this.returnSub(this.getStyleSpringA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringC(), this.returnSub(this.getStyleSpringB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineA(), this.returnSub(this.getStyleWineC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineB(), this.returnSub(this.getStyleWineA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineC(), this.returnSub(this.getStyleWineB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryA(), this.returnSub(this.getStyleLuxuryC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryB(), this.returnSub(this.getStyleLuxuryA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryC(), this.returnSub(this.getStyleLuxuryB(), { padding: _Setting2.default.PADDING_TINY }))];
+				return [_Extend2.default.exterior({}, this.getStyleResurgenceA(), this.returnSub(this.getStyleResurgenceB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceB(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceC(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringA(), this.returnSub(this.getStyleSpringC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringB(), this.returnSub(this.getStyleSpringA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringC(), this.returnSub(this.getStyleSpringB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineA(), this.returnSub(this.getStyleWineC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineB(), this.returnSub(this.getStyleWineA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineC(), this.returnSub(this.getStyleWineB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleBlueskyA(), this.returnSub(this.getStyleBlueskyC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleBlueskyB(), this.returnSub(this.getStyleBlueskyA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleBlueskyC(), this.returnSub(this.getStyleBlueskyB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryA(), this.returnSub(this.getStyleLuxuryC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryB(), this.returnSub(this.getStyleLuxuryA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryC(), this.returnSub(this.getStyleLuxuryB(), { padding: _Setting2.default.PADDING_TINY }))];
 			}
 		}, {
 			key: 'returnSub',
@@ -14489,7 +14492,7 @@
 						iconShow: [_Setting2.default.ICON_SHOW_EMPTY_HEART],
 						styleName: _Setting2.default.STYLE_NAME_SPRING,
 						composition: _Setting2.default.COMPOSITION_BASE,
-						offBack: false,
+						offBack: true,
 						styleBorder: true,
 						styleIcon: true,
 						styleIconBack: false,
@@ -14576,6 +14579,81 @@
 			// ...................
 
 		}, {
+			key: 'getStyleBlueskyA',
+			value: function getStyleBlueskyA() {
+				return {
+					name: '藍天 A',
+					value: _Settings2.default.METHOD_LOOKS_BLUESKY_A,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_MIDDLE,
+						fillet: _Setting2.default.FILLET_CIRCLE,
+						listStyle: _Setting2.default.LIST_STYLE_DECIMAL,
+						listPosition: _Setting2.default.LIST_POSITION_OUTER,
+						iconPosition: _Setting2.default.ICON_POSTION_RIGHT,
+						iconShow: [_Setting2.default.ICON_SHOW_CLOSE, _Setting2.default.ICON_SHOW_CHECKED],
+						styleName: _Setting2.default.STYLE_NAME_BLUESKY,
+						composition: _Setting2.default.COMPOSITION_TINYEM,
+						offBack: false,
+						styleBorder: true,
+						styleIcon: true,
+						styleIconBack: true,
+						styleList: true
+					}
+				};
+			}
+		}, {
+			key: 'getStyleBlueskyB',
+			value: function getStyleBlueskyB() {
+				return {
+					name: '藍天 B',
+					value: _Settings2.default.METHOD_LOOKS_BLUESKY_B,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_SMALL,
+						fillet: _Setting2.default.FILLET_NONE,
+						listStyle: _Setting2.default.LIST_STYLE_UPPER_ROMAN,
+						listPosition: _Setting2.default.LIST_POSITION_INNER,
+						iconPosition: _Setting2.default.ICON_POSTION_LEFT,
+						iconShow: [_Setting2.default.ICON_SHOW_EMPTY_SQUARE, _Setting2.default.ICON_SHOW_SQUARE],
+						styleName: _Setting2.default.STYLE_NAME_BLUESKY,
+						composition: _Setting2.default.COMPOSITION_BASE,
+						offBack: false,
+						styleBorder: false,
+						styleIcon: true,
+						styleIconBack: false,
+						styleList: true
+					}
+				};
+			}
+		}, {
+			key: 'getStyleBlueskyC',
+			value: function getStyleBlueskyC() {
+				return {
+					name: '藍天 C',
+					value: _Settings2.default.METHOD_LOOKS_BLUESKY_C,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_SMALL,
+						fillet: _Setting2.default.FILLET_NONE,
+						listStyle: _Setting2.default.LIST_STYLE_UPPER_LATIN,
+						listPosition: _Setting2.default.LIST_POSITION_OUTER,
+						iconPosition: _Setting2.default.ICON_POSTION_BOTTOM,
+						iconShow: [_Setting2.default.ICON_SHOW_LINE, _Setting2.default.ICON_SHOW_EMPTY_CIRCLE],
+						styleName: _Setting2.default.STYLE_NAME_BLUESKY,
+						composition: _Setting2.default.COMPOSITION_BASEEM,
+						offBack: true,
+						styleBorder: true,
+						styleIcon: false,
+						styleIconBack: true,
+						styleList: true
+					}
+				};
+			}
+
+			// ...................
+
+		}, {
 			key: 'getStyleLuxuryA',
 			value: function getStyleLuxuryA() {
 				return {
@@ -14607,30 +14685,6 @@
 					value: _Settings2.default.METHOD_LOOKS_LUXURY_B,
 					method: {
 						display: _Setting2.default.DISPLAY_INBLOCK,
-						padding: _Setting2.default.PADDING_MIDDLE,
-						fillet: _Setting2.default.FILLET_BASE,
-						listStyle: _Setting2.default.LIST_STYLE_CIRCLE,
-						listPosition: _Setting2.default.LIST_POSITION_OUTER,
-						iconPosition: _Setting2.default.ICON_POSTION_LEFT,
-						iconShow: [_Setting2.default.ICON_SHOW_EMPTY_CIRCLE, _Setting2.default.ICON_SHOW_EMPTY_HEART],
-						styleName: _Setting2.default.STYLE_NAME_LUXURY,
-						composition: _Setting2.default.COMPOSITION_TINYPERCENT,
-						offBack: true,
-						styleBorder: true,
-						styleIcon: true,
-						styleIconBack: true,
-						styleList: false
-					}
-				};
-			}
-		}, {
-			key: 'getStyleLuxuryC',
-			value: function getStyleLuxuryC() {
-				return {
-					name: '華貴樣版 C',
-					value: _Settings2.default.METHOD_LOOKS_LUXURY_C,
-					method: {
-						display: _Setting2.default.DISPLAY_INBLOCK,
 						padding: _Setting2.default.PADDING_TINY,
 						fillet: _Setting2.default.FILLET_NONE,
 						// listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
@@ -14644,6 +14698,30 @@
 						styleIcon: false,
 						styleIconBack: false,
 						styleList: true
+					}
+				};
+			}
+		}, {
+			key: 'getStyleLuxuryC',
+			value: function getStyleLuxuryC() {
+				return {
+					name: '華貴樣版 C',
+					value: _Settings2.default.METHOD_LOOKS_LUXURY_C,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_MIDDLE,
+						fillet: _Setting2.default.FILLET_BASE,
+						listStyle: _Setting2.default.LIST_STYLE_CIRCLE,
+						listPosition: _Setting2.default.LIST_POSITION_OUTER,
+						iconPosition: _Setting2.default.ICON_POSTION_LEFT,
+						iconShow: [_Setting2.default.ICON_SHOW_EMPTY_CIRCLE, _Setting2.default.ICON_SHOW_EMPTY_HEART],
+						styleName: _Setting2.default.STYLE_NAME_LUXURY,
+						composition: _Setting2.default.COMPOSITION_TINYPERCENT,
+						offBack: true,
+						styleBorder: true,
+						styleIcon: true,
+						styleIconBack: true,
+						styleList: false
 					}
 				};
 			}
