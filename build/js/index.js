@@ -243,14 +243,6 @@
 
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-			value: function getConstNameByEn(str) {
-				if (typeof str === 'string' && str !== '') {
-					return Settings['METHOD_' + str + '_NAME'];
-				}
-			}
-
-			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
-
 			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 			// 畫面下方用來作為真的送出結果用的地方
@@ -265,6 +257,14 @@
 
 			// static METHOD_SNOW = 'SNOW';
 			// static METHOD_SNOW_NAME = '雪花';
+
+			value: function getConstNameByEn(str) {
+				if (typeof str === 'string' && str !== '') {
+					return Settings['METHOD_' + str + '_NAME'];
+				}
+			}
+
+			// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
 		}, {
 			key: 'getInitOutputImageScale',
@@ -352,6 +352,9 @@
 	Settings.METHOD_LOOKS_SPRING_A = 'METHOD_LOOKS_SPRING_A';
 	Settings.METHOD_LOOKS_SPRING_B = 'METHOD_LOOKS_SPRING_B';
 	Settings.METHOD_LOOKS_SPRING_C = 'METHOD_LOOKS_SPRING_C';
+	Settings.METHOD_LOOKS_WINE_A = 'METHOD_LOOKS_WINE_A';
+	Settings.METHOD_LOOKS_WINE_B = 'METHOD_LOOKS_WINE_B';
+	Settings.METHOD_LOOKS_WINE_C = 'METHOD_LOOKS_WINE_C';
 	Settings.METHOD_LOOKS_LUXURY_A = 'METHOD_LOOKS_LUXURY_A';
 	Settings.METHOD_LOOKS_LUXURY_B = 'METHOD_LOOKS_LUXURY_B';
 	Settings.METHOD_LOOKS_LUXURY_C = 'METHOD_LOOKS_LUXURY_C';
@@ -14310,6 +14313,17 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	// // 色彩風格
+	// static STYLE_NAME_RESURGENCE = 'resurgence'; // 死灰復燃
+	// static STYLE_NAME_SPRING = 'spring'; // 春天
+	// static STYLE_NAME_WINE = 'wine'; // 紅酒
+	// static STYLE_NAME_BLUESKY = 'bluesky'; // 藍天
+	// static STYLE_NAME_LOVELY = 'lovely'; // 可愛
+	// static STYLE_NAME_LUXURY = 'luxury'; // 華貴
+	// static STYLE_NAME_FANTASY = 'fantasy'; // 奇幻
+	// static STYLE_NAME_RIGID = 'rigid'; // 鋼硬
+	// static STYLE_NAME_WATERSIDE = 'waterside'; // 水畔
+
 	var StyleSettings = function () {
 		function StyleSettings() {
 			_classCallCheck(this, StyleSettings);
@@ -14318,7 +14332,7 @@
 		_createClass(StyleSettings, null, [{
 			key: 'getAllStyle',
 			value: function getAllStyle() {
-				return [_Extend2.default.exterior({}, this.getStyleResurgenceA(), this.returnSub(this.getStyleResurgenceB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceB(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceC(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringA(), this.returnSub(this.getStyleSpringC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringB(), this.returnSub(this.getStyleSpringA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringC(), this.returnSub(this.getStyleSpringB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryA(), this.returnSub(this.getStyleLuxuryC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryB(), this.returnSub(this.getStyleLuxuryA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryC(), this.returnSub(this.getStyleLuxuryB(), { padding: _Setting2.default.PADDING_TINY }))];
+				return [_Extend2.default.exterior({}, this.getStyleResurgenceA(), this.returnSub(this.getStyleResurgenceB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceB(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleResurgenceC(), this.returnSub(this.getStyleResurgenceA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringA(), this.returnSub(this.getStyleSpringC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringB(), this.returnSub(this.getStyleSpringA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleSpringC(), this.returnSub(this.getStyleSpringB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineA(), this.returnSub(this.getStyleWineC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineB(), this.returnSub(this.getStyleWineA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleWineC(), this.returnSub(this.getStyleWineB(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryA(), this.returnSub(this.getStyleLuxuryC(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryB(), this.returnSub(this.getStyleLuxuryA(), { padding: _Setting2.default.PADDING_TINY })), _Extend2.default.exterior({}, this.getStyleLuxuryC(), this.returnSub(this.getStyleLuxuryB(), { padding: _Setting2.default.PADDING_TINY }))];
 			}
 		}, {
 			key: 'returnSub',
@@ -14479,6 +14493,81 @@
 						styleBorder: true,
 						styleIcon: true,
 						styleIconBack: false,
+						styleList: true
+					}
+				};
+			}
+
+			// ...................
+
+		}, {
+			key: 'getStyleWineA',
+			value: function getStyleWineA() {
+				return {
+					name: '紅酒 A',
+					value: _Settings2.default.METHOD_LOOKS_WINE_A,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_MIDDLE,
+						fillet: _Setting2.default.FILLET_CIRCLE,
+						// listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
+						listPosition: _Setting2.default.LIST_POSITION_OUTER,
+						iconPosition: _Setting2.default.ICON_POSTION_RIGHT,
+						iconShow: [_Setting2.default.ICON_SHOW_EMPTY_STAR, _Setting2.default.ICON_SHOW_STAR],
+						styleName: _Setting2.default.STYLE_NAME_WINE,
+						composition: _Setting2.default.COMPOSITION_TINYEM,
+						offBack: false,
+						styleBorder: true,
+						styleIcon: true,
+						styleIconBack: true,
+						styleList: true
+					}
+				};
+			}
+		}, {
+			key: 'getStyleWineB',
+			value: function getStyleWineB() {
+				return {
+					name: '紅酒 B',
+					value: _Settings2.default.METHOD_LOOKS_WINE_B,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_SMALL,
+						fillet: _Setting2.default.FILLET_NONE,
+						// listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
+						listPosition: _Setting2.default.LIST_POSITION_INNER,
+						iconPosition: _Setting2.default.ICON_POSTION_BOTTOM,
+						iconShow: [_Setting2.default.ICON_SHOW_LINE, _Setting2.default.ICON_SHOW_EMPTY_CIRCLE],
+						styleName: _Setting2.default.STYLE_NAME_WINE,
+						composition: _Setting2.default.COMPOSITION_BASEEM,
+						offBack: false,
+						styleBorder: false,
+						styleIcon: false,
+						styleIconBack: false,
+						styleList: false
+					}
+				};
+			}
+		}, {
+			key: 'getStyleWineC',
+			value: function getStyleWineC() {
+				return {
+					name: '紅酒 C',
+					value: _Settings2.default.METHOD_LOOKS_WINE_C,
+					method: {
+						display: _Setting2.default.DISPLAY_INBLOCK,
+						padding: _Setting2.default.PADDING_SMALL,
+						fillet: _Setting2.default.FILLET_NONE,
+						listStyle: _Setting2.default.LIST_STYLE_DECIMAL,
+						listPosition: _Setting2.default.LIST_POSITION_INNER,
+						iconPosition: _Setting2.default.ICON_POSTION_LEFT,
+						iconShow: [_Setting2.default.ICON_SHOW_EMPTY_SQUARE, _Setting2.default.ICON_SHOW_SQUARE],
+						styleName: _Setting2.default.STYLE_NAME_WINE,
+						composition: _Setting2.default.COMPOSITION_BASE,
+						offBack: true,
+						styleBorder: true,
+						styleIcon: false,
+						styleIconBack: true,
 						styleList: true
 					}
 				};
