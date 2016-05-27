@@ -93,11 +93,10 @@ export default class SettingOption extends React.Component {
                             showKey={_scope.getShowKey()}
                             between="~"
                             display={ReactGroupSetting.DISPLAY_BLOCK}
-                            padding={json_item.method.padding}
-                            fillet={json_item.method.fillet}
-                            listStyle={json_item.method.listStyle}
-                            listPosition={json_item.method.listPosition}
-                            iconPosition={json_item.method.iconPosition}
+                            padding={ReactGroupSetting.PADDING_SMALL}
+                            fillet={ReactGroupSetting.FILLET_TINY}
+                            listPosition={ReactGroupSetting.LIST_POSITION_INNER}
+                            iconPosition={ReactGroupSetting.ICON_POSTION_LEFT}
                             iconShow={json_item.method.iconShow}
                             styleName={json_item.method.styleName}
                             composition={ReactGroupSetting.COMPOSITION_WHOLE}
@@ -117,3 +116,30 @@ export default class SettingOption extends React.Component {
     }
 
 };
+
+
+// <div>
+//     <ReactGroup 
+//         onChange={_scope.handleChange}
+//         outputFormat="string"
+//         name="style_option"
+//         selectKey={_scope.getSelectKey()}
+//         inputOption={[json_item]}
+//         outputResult={_scope.state.method}
+//         showKey={_scope.getShowKey()}
+//         between="~"
+//         display={ReactGroupSetting.DISPLAY_BLOCK}
+//         padding={json_item.method.padding}
+//         fillet={json_item.method.fillet}
+//         listStyle={json_item.method.listStyle}
+//         listPosition={json_item.method.listPosition}
+//         iconPosition={json_item.method.iconPosition}
+//         iconShow={json_item.method.iconShow}
+//         styleName={json_item.method.styleName}
+//         composition={ReactGroupSetting.COMPOSITION_WHOLE}
+//         offBack={json_item.method.offBack}
+//         styleBorder={json_item.method.styleBorder}
+//         styleIcon={json_item.method.styleIcon}
+//         styleIconBack={json_item.method.styleIconBack}
+//         styleList={json_item.method.styleList} />
+// </div>
