@@ -134,7 +134,7 @@ export default class StyleSettings {
 			    // listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
 			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_CHECKED],
+			    iconShow: [ReactGroupSetting.ICON_SHOW_CLOSE, ReactGroupSetting.ICON_SHOW_CHECKED],
 			    styleName: ReactGroupSetting.STYLE_NAME_SPRING,
 			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
 			    offBack: false,
@@ -205,12 +205,12 @@ export default class StyleSettings {
 			    listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_HEART, ReactGroupSetting.ICON_SHOW_HEART],
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_EMPTY_HEART],
 			    styleName: ReactGroupSetting.STYLE_NAME_LUXURY,
 			    composition: ReactGroupSetting.COMPOSITION_TINYPERCENT,
 			    offBack: true,
 			    styleBorder: true,
-			    styleIcon: false,
+			    styleIcon: true,
 			    styleIconBack: true,
 			    styleList: false
 			}
@@ -228,13 +228,13 @@ export default class StyleSettings {
 			    // listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_SQUARE, ReactGroupSetting.ICON_SHOW_RHOMBUS],
+			    iconShow: [ReactGroupSetting.ICON_SHOW_RHOMBUS],
 			    styleName: ReactGroupSetting.STYLE_NAME_LUXURY,
 			    composition: ReactGroupSetting.COMPOSITION_TINY,
-			    offBack: true,
-			    styleBorder: true,
-			    styleIcon: true,
-			    styleIconBack: true,
+			    offBack: false,
+			    styleBorder: false,
+			    styleIcon: false,
+			    styleIconBack: false,
 			    styleList: true
 			}
 		};
