@@ -47,13 +47,13 @@ export default class StyleSettings {
 			Extend.exterior( {}, this.getStyleFantasyB(), this.returnSub( this.getStyleFantasyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleFantasyC(), this.returnSub( this.getStyleFantasyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleWatersideA(), this.returnSub( this.getStyleWatersideC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleWatersideB(), this.returnSub( this.getStyleWatersideA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleWatersideC(), this.returnSub( this.getStyleWatersideB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWatersideA(), this.returnSub( this.getStyleWatersideC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWatersideB(), this.returnSub( this.getStyleWatersideA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWatersideC(), this.returnSub( this.getStyleWatersideB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 		];
 	}
 
@@ -530,8 +530,8 @@ export default class StyleSettings {
 			    styleName: ReactGroupSetting.STYLE_NAME_FANTASY,
 			    composition: ReactGroupSetting.COMPOSITION_TINY,
 			    offBack: false,
-			    styleBorder: true,
-			    styleIcon: false,
+			    styleBorder: false,
+			    styleIcon: true,
 			    styleIconBack: false,
 			    styleList: true
 			}
@@ -601,7 +601,7 @@ export default class StyleSettings {
 			    styleName: ReactGroupSetting.STYLE_NAME_RIGID,
 			    composition: ReactGroupSetting.COMPOSITION_TINYPERCENT,
 			    offBack: false,
-			    styleBorder: true,
+			    styleBorder: false,
 			    styleIcon: false,
 			    styleIconBack: false,
 			    styleList: true
