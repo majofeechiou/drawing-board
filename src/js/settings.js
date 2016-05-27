@@ -100,6 +100,10 @@ export default class Settings {
 
 	static METHOD_LOOKS_LUXURY_A = 'METHOD_LOOKS_LUXURY_A';
 	static METHOD_LOOKS_LUXURY_B = 'METHOD_LOOKS_LUXURY_B';
+	static METHOD_LOOKS_LUXURY_C = 'METHOD_LOOKS_LUXURY_C';
+	static METHOD_LOOKS_RESURGENCE_A = 'METHOD_LOOKS_RESURGENCE_A';
+	static METHOD_LOOKS_RESURGENCE_B = 'METHOD_LOOKS_RESURGENCE_B';
+	static METHOD_LOOKS_RESURGENCE_C = 'METHOD_LOOKS_RESURGENCE_C';
 
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 	// ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
