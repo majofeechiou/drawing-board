@@ -42,6 +42,18 @@ export default class StyleSettings {
 			Extend.exterior( {}, this.getStyleLuxuryA(), this.returnSub( this.getStyleLuxuryC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleLuxuryB(), this.returnSub( this.getStyleLuxuryA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleLuxuryC(), this.returnSub( this.getStyleLuxuryB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+
+			Extend.exterior( {}, this.getStyleFantasyA(), this.returnSub( this.getStyleFantasyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleFantasyB(), this.returnSub( this.getStyleFantasyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleFantasyC(), this.returnSub( this.getStyleFantasyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+
+			// Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+
+			// Extend.exterior( {}, this.getStyleWatersideA(), this.returnSub( this.getStyleWatersideC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleWatersideB(), this.returnSub( this.getStyleWatersideA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleWatersideC(), this.returnSub( this.getStyleWatersideB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 		];
 	}
 
@@ -59,12 +71,12 @@ export default class StyleSettings {
 			name: '死灰復燃 A',
 			value: Settings.METHOD_LOOKS_RESURGENCE_A,
 			method: {
-				display: ReactGroupSetting.DISPLAY_INBLOCK,
+				display: ReactGroupSetting.DISPLAY_BLOCK,
 				padding: ReactGroupSetting.PADDING_SMALL,
-				fillet: ReactGroupSetting.FILLET_CIRCLE,
+				fillet: ReactGroupSetting.FILLET_BASE,
 				// listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
 				listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
-				iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
+				iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
 				iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_SQUARE, ReactGroupSetting.ICON_SHOW_SQUARE],
 				styleName: ReactGroupSetting.STYLE_NAME_RESURGENCE,
 				composition: ReactGroupSetting.COMPOSITION_TINYEM,
@@ -82,12 +94,12 @@ export default class StyleSettings {
 			name: '死灰復燃 B',
 			value: Settings.METHOD_LOOKS_RESURGENCE_B,
 			method: {
-				display: ReactGroupSetting.DISPLAY_INBLOCK,
+				display: ReactGroupSetting.DISPLAY_BLOCK,
 				padding: ReactGroupSetting.PADDING_TINY,
-				fillet: ReactGroupSetting.FILLET_NONE,
+				fillet: ReactGroupSetting.FILLET_CIRCLE,
 				listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
 				listPosition: ReactGroupSetting.LIST_POSITION_INNER,
-				iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
+				iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
 				iconShow: [ReactGroupSetting.ICON_SHOW_STAR],
 				styleName: ReactGroupSetting.STYLE_NAME_RESURGENCE,
 				composition: ReactGroupSetting.COMPOSITION_BASEEM,
@@ -105,7 +117,7 @@ export default class StyleSettings {
 			name: '死灰復燃 C',
 			value: Settings.METHOD_LOOKS_RESURGENCE_C,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_TINY,
 			    fillet: ReactGroupSetting.FILLET_NONE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_DECIMAL,
@@ -130,7 +142,7 @@ export default class StyleSettings {
 			name: '春天 A',
 			value: Settings.METHOD_LOOKS_SPRING_A,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_MIDDLE,
 			    fillet: ReactGroupSetting.FILLET_CIRCLE,
 			    // listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
@@ -138,7 +150,7 @@ export default class StyleSettings {
 			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_HEART],
 			    styleName: ReactGroupSetting.STYLE_NAME_SPRING,
-			    composition: ReactGroupSetting.COMPOSITION_TINYEM,
+			    composition: ReactGroupSetting.COMPOSITION_TINY,
 			    offBack: false,
 			    styleBorder: true,
 			    styleIcon: true,
@@ -153,15 +165,15 @@ export default class StyleSettings {
 			name: '春天 B',
 			value: Settings.METHOD_LOOKS_SPRING_B,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
 			    fillet: ReactGroupSetting.FILLET_NONE,
-			    // listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
+			    listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
 			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_CLOSE, ReactGroupSetting.ICON_SHOW_CHECKED],
 			    styleName: ReactGroupSetting.STYLE_NAME_SPRING,
-			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
+			    composition: ReactGroupSetting.COMPOSITION_MIDDLE,
 			    offBack: false,
 			    styleBorder: false,
 			    styleIcon: false,
@@ -176,15 +188,15 @@ export default class StyleSettings {
 			name: '春天 C',
 			value: Settings.METHOD_LOOKS_SPRING_C,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
-			    fillet: ReactGroupSetting.FILLET_NONE,
+			    fillet: ReactGroupSetting.FILLET_BASE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_DECIMAL,
 			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_HEART],
 			    styleName: ReactGroupSetting.STYLE_NAME_SPRING,
-			    composition: ReactGroupSetting.COMPOSITION_BASE,
+			    composition: ReactGroupSetting.COMPOSITION_MIDDLEEM,
 			    offBack: true,
 			    styleBorder: true,
 			    styleIcon: true,
@@ -201,15 +213,15 @@ export default class StyleSettings {
 			name: '紅酒 A',
 			value: Settings.METHOD_LOOKS_WINE_A,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_MIDDLE,
 			    fillet: ReactGroupSetting.FILLET_CIRCLE,
 			    // listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_STAR, ReactGroupSetting.ICON_SHOW_STAR],
 			    styleName: ReactGroupSetting.STYLE_NAME_WINE,
-			    composition: ReactGroupSetting.COMPOSITION_TINYEM,
+			    composition: ReactGroupSetting.COMPOSITION_SMALL,
 			    offBack: false,
 			    styleBorder: true,
 			    styleIcon: true,
@@ -224,15 +236,15 @@ export default class StyleSettings {
 			name: '紅酒 B',
 			value: Settings.METHOD_LOOKS_WINE_B,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
-			    fillet: ReactGroupSetting.FILLET_NONE,
+			    fillet: ReactGroupSetting.FILLET_TINY,
 			    // listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
 			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE],
 			    styleName: ReactGroupSetting.STYLE_NAME_WINE,
-			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
+			    composition: ReactGroupSetting.COMPOSITION_MIDDLE,
 			    offBack: false,
 			    styleBorder: false,
 			    styleIcon: false,
@@ -247,7 +259,7 @@ export default class StyleSettings {
 			name: '紅酒 C',
 			value: Settings.METHOD_LOOKS_WINE_C,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
 			    fillet: ReactGroupSetting.FILLET_NONE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_DECIMAL,
@@ -272,12 +284,12 @@ export default class StyleSettings {
 			name: '藍天 A',
 			value: Settings.METHOD_LOOKS_BLUESKY_A,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_MIDDLE,
 			    fillet: ReactGroupSetting.FILLET_CIRCLE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_DECIMAL,
-			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_CLOSE, ReactGroupSetting.ICON_SHOW_CHECKED],
 			    styleName: ReactGroupSetting.STYLE_NAME_BLUESKY,
 			    composition: ReactGroupSetting.COMPOSITION_TINYEM,
@@ -295,7 +307,7 @@ export default class StyleSettings {
 			name: '藍天 B',
 			value: Settings.METHOD_LOOKS_BLUESKY_B,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
 			    fillet: ReactGroupSetting.FILLET_NONE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
@@ -318,9 +330,9 @@ export default class StyleSettings {
 			name: '藍天 C',
 			value: Settings.METHOD_LOOKS_BLUESKY_C,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
-			    fillet: ReactGroupSetting.FILLET_NONE,
+			    fillet: ReactGroupSetting.FILLET_TINY,
 			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_LATIN,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
@@ -343,7 +355,7 @@ export default class StyleSettings {
 			name: '可愛 A',
 			value: Settings.METHOD_LOOKS_LOVELY_A,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_MIDDLE,
 			    fillet: ReactGroupSetting.FILLET_CIRCLE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_DECIMAL,
@@ -366,13 +378,13 @@ export default class StyleSettings {
 			name: '可愛 B',
 			value: Settings.METHOD_LOOKS_LOVELY_B,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
 			    fillet: ReactGroupSetting.FILLET_NONE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
 			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_CHECKED],
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_CIRCLE],
 			    styleName: ReactGroupSetting.STYLE_NAME_LOVELY,
 			    composition: ReactGroupSetting.COMPOSITION_BASE,
 				offBack: false,
@@ -389,13 +401,13 @@ export default class StyleSettings {
 			name: '可愛 C',
 			value: Settings.METHOD_LOOKS_LOVELY_C,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_SMALL,
-			    fillet: ReactGroupSetting.FILLET_NONE,
+			    fillet: ReactGroupSetting.FILLET_CIRCLE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_LATIN,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_CIRCLE],
+			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_CHECKED],
 			    styleName: ReactGroupSetting.STYLE_NAME_LOVELY,
 			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
 			    offBack: true,
@@ -414,7 +426,7 @@ export default class StyleSettings {
 			name: '華貴樣版 A',
 			value: Settings.METHOD_LOOKS_LUXURY_A,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_BASE,
 			    fillet: ReactGroupSetting.FILLET_BASE,
 			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_LATIN,
@@ -437,13 +449,13 @@ export default class StyleSettings {
 			name: '華貴樣版 B',
 			value: Settings.METHOD_LOOKS_LUXURY_B,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_TINY,
 			    fillet: ReactGroupSetting.FILLET_NONE,
 			    // listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
 			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_RHOMBUS],
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_SQUARE, ReactGroupSetting.ICON_SHOW_CHECKED],
 			    styleName: ReactGroupSetting.STYLE_NAME_LUXURY,
 			    composition: ReactGroupSetting.COMPOSITION_TINY,
 			    offBack: false,
@@ -460,18 +472,231 @@ export default class StyleSettings {
 			name: '華貴樣版 C',
 			value: Settings.METHOD_LOOKS_LUXURY_C,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
 			    padding: ReactGroupSetting.PADDING_MIDDLE,
-			    fillet: ReactGroupSetting.FILLET_BASE,
-			    listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
+			    fillet: ReactGroupSetting.FILLET_NONE,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
 			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_EMPTY_HEART],
+			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE],
 			    styleName: ReactGroupSetting.STYLE_NAME_LUXURY,
 			    composition: ReactGroupSetting.COMPOSITION_TINYPERCENT,
 			    offBack: true,
 			    styleBorder: true,
 			    styleIcon: true,
+			    styleIconBack: true,
+			    styleList: false
+			}
+		};
+	}
+
+	// ...................
+
+	static getStyleFantasyA(){
+		return {
+			name: '奇幻 A',
+			value: Settings.METHOD_LOOKS_FANTASY_A,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_BASE,
+			    fillet: ReactGroupSetting.FILLET_BASE,
+			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_RHOMBUS],
+			    styleName: ReactGroupSetting.STYLE_NAME_FANTASY,
+			    composition: ReactGroupSetting.COMPOSITION_SMALL,
+			    offBack: false,
+			    styleBorder: true,
+			    styleIcon: true,
+			    styleIconBack: true,
+			    styleList: true
+		    }
+		};
+	}
+
+	static getStyleFantasyB(){
+		return {
+			name: '奇幻 B',
+			value: Settings.METHOD_LOOKS_FANTASY_B,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_TINY,
+			    fillet: ReactGroupSetting.FILLET_CIRCLE,
+			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_RHOMBUS],
+			    styleName: ReactGroupSetting.STYLE_NAME_FANTASY,
+			    composition: ReactGroupSetting.COMPOSITION_TINY,
+			    offBack: false,
+			    styleBorder: true,
+			    styleIcon: false,
+			    styleIconBack: false,
+			    styleList: true
+			}
+		};
+	}
+
+	static getStyleFantasyC(){
+		return {
+			name: '奇幻 C',
+			value: Settings.METHOD_LOOKS_FANTASY_C,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_MIDDLE,
+			    fillet: ReactGroupSetting.FILLET_BASE,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_DISC,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_STAR, ReactGroupSetting.ICON_SHOW_STAR],
+			    styleName: ReactGroupSetting.STYLE_NAME_FANTASY,
+			    composition: ReactGroupSetting.COMPOSITION_TINYPERCENT,
+			    offBack: true,
+			    styleBorder: true,
+			    styleIcon: true,
+			    styleIconBack: true,
+			    styleList: false
+			}
+		};
+	}
+
+	// ...................
+
+	static getStyleRigidA(){
+		return {
+			name: '鋼硬 A',
+			value: Settings.METHOD_LOOKS_RIGID_A,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_BASE,
+			    fillet: ReactGroupSetting.FILLET_CIRCLE,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_STAR],
+			    styleName: ReactGroupSetting.STYLE_NAME_RIGID,
+			    composition: ReactGroupSetting.COMPOSITION_TINY,
+			    offBack: false,
+			    styleBorder: true,
+			    styleIcon: true,
+			    styleIconBack: true,
+			    styleList: true
+		    }
+		};
+	}
+
+	static getStyleRigidB(){
+		return {
+			name: '鋼硬 B',
+			value: Settings.METHOD_LOOKS_RIGID_B,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_TINY,
+			    fillet: ReactGroupSetting.FILLET_BASE,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_CLOSE, ReactGroupSetting.ICON_SHOW_CHECKED],
+			    styleName: ReactGroupSetting.STYLE_NAME_RIGID,
+			    composition: ReactGroupSetting.COMPOSITION_TINYPERCENT,
+			    offBack: false,
+			    styleBorder: true,
+			    styleIcon: false,
+			    styleIconBack: false,
+			    styleList: true
+			}
+		};
+	}
+
+	static getStyleRigidC(){
+		return {
+			name: '鋼硬 C',
+			value: Settings.METHOD_LOOKS_RIGID_C,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_MIDDLE,
+			    fillet: ReactGroupSetting.FILLET_NONE,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_DISC,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_CHECKED],
+			    styleName: ReactGroupSetting.STYLE_NAME_RIGID,
+			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
+			    offBack: true,
+			    styleBorder: true,
+			    styleIcon: true,
+			    styleIconBack: true,
+			    styleList: false
+			}
+		};
+	}
+
+	// ...................
+
+	static getStyleWatersideA(){
+		return {
+			name: '水畔 A',
+			value: Settings.METHOD_LOOKS_WATERSIDE_A,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_BASE,
+			    fillet: ReactGroupSetting.FILLET_TINY,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_HEART, ReactGroupSetting.ICON_SHOW_HEART],
+			    styleName: ReactGroupSetting.STYLE_NAME_WATERSIDE,
+			    composition: ReactGroupSetting.COMPOSITION_TINY,
+			    offBack: false,
+			    styleBorder: true,
+			    styleIcon: true,
+			    styleIconBack: true,
+			    styleList: true
+		    }
+		};
+	}
+
+	static getStyleWatersideB(){
+		return {
+			name: '水畔 B',
+			value: Settings.METHOD_LOOKS_WATERSIDE_B,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_SMALL,
+			    fillet: ReactGroupSetting.FILLET_BASE,
+			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_CIRCLE],
+			    styleName: ReactGroupSetting.STYLE_NAME_WATERSIDE,
+			    composition: ReactGroupSetting.COMPOSITION_TINYPERCENT,
+			    offBack: false,
+			    styleBorder: false,
+			    styleIcon: true,
+			    styleIconBack: false,
+			    styleList: false
+			}
+		};
+	}
+
+	static getStyleWatersideC(){
+		return {
+			name: '水畔 C',
+			value: Settings.METHOD_LOOKS_WATERSIDE_C,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_BLOCK,
+			    padding: ReactGroupSetting.PADDING_LITTLE,
+			    fillet: ReactGroupSetting.FILLET_CIRCLE,
+			    // listStyle: ReactGroupSetting.LIST_STYLE_DISC,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_STAR, ReactGroupSetting.ICON_SHOW_STAR],
+			    styleName: ReactGroupSetting.STYLE_NAME_WATERSIDE,
+			    composition: ReactGroupSetting.COMPOSITION_SMALL,
+			    offBack: true,
+			    styleBorder: true,
+			    styleIcon: false,
 			    styleIconBack: true,
 			    styleList: false
 			}
