@@ -35,6 +35,10 @@ export default class StyleSettings {
 			Extend.exterior( {}, this.getStyleBlueskyB(), this.returnSub( this.getStyleBlueskyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleBlueskyC(), this.returnSub( this.getStyleBlueskyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
+			Extend.exterior( {}, this.getStyleLovelyA(), this.returnSub( this.getStyleLovelyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleLovelyB(), this.returnSub( this.getStyleLovelyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleLovelyC(), this.returnSub( this.getStyleLovelyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+
 			Extend.exterior( {}, this.getStyleLuxuryA(), this.returnSub( this.getStyleLuxuryC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleLuxuryB(), this.returnSub( this.getStyleLuxuryA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleLuxuryC(), this.returnSub( this.getStyleLuxuryB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
@@ -55,20 +59,20 @@ export default class StyleSettings {
 			name: '死灰復燃 A',
 			value: Settings.METHOD_LOOKS_RESURGENCE_A,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
-			    padding: ReactGroupSetting.PADDING_SMALL,
-			    fillet: ReactGroupSetting.FILLET_CIRCLE,
-			    // listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
-			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_SQUARE, ReactGroupSetting.ICON_SHOW_SQUARE],
-			    styleName: ReactGroupSetting.STYLE_NAME_RESURGENCE,
-			    composition: ReactGroupSetting.COMPOSITION_TINYEM,
-			    offBack: false,
-			    styleBorder: true,
-			    styleIcon: true,
-			    styleIconBack: true,
-			    styleList: true
+				display: ReactGroupSetting.DISPLAY_INBLOCK,
+				padding: ReactGroupSetting.PADDING_SMALL,
+				fillet: ReactGroupSetting.FILLET_CIRCLE,
+				// listStyle: ReactGroupSetting.LIST_STYLE_CIRCLE,
+				listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+				iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
+				iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_SQUARE, ReactGroupSetting.ICON_SHOW_SQUARE],
+				styleName: ReactGroupSetting.STYLE_NAME_RESURGENCE,
+				composition: ReactGroupSetting.COMPOSITION_TINYEM,
+				offBack: false,
+				styleBorder: true,
+				styleIcon: true,
+				styleIconBack: true,
+				styleList: true
 		    }
 		};
 	}
@@ -78,20 +82,20 @@ export default class StyleSettings {
 			name: '死灰復燃 B',
 			value: Settings.METHOD_LOOKS_RESURGENCE_B,
 			method: {
-			    display: ReactGroupSetting.DISPLAY_INBLOCK,
-			    padding: ReactGroupSetting.PADDING_TINY,
-			    fillet: ReactGroupSetting.FILLET_NONE,
-			    listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
-			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
-			    iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
-			    iconShow: [ReactGroupSetting.ICON_SHOW_STAR],
-			    styleName: ReactGroupSetting.STYLE_NAME_RESURGENCE,
-			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
-			    offBack: false,
-			    styleBorder: false,
-			    styleIcon: true,
-			    styleIconBack: false,
-			    styleList: false
+				display: ReactGroupSetting.DISPLAY_INBLOCK,
+				padding: ReactGroupSetting.PADDING_TINY,
+				fillet: ReactGroupSetting.FILLET_NONE,
+				listStyle: ReactGroupSetting.LIST_STYLE_LOWER_GREEK,
+				listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+				iconPosition: ReactGroupSetting.ICON_POSTION_TOP,
+				iconShow: [ReactGroupSetting.ICON_SHOW_STAR],
+				styleName: ReactGroupSetting.STYLE_NAME_RESURGENCE,
+				composition: ReactGroupSetting.COMPOSITION_BASEEM,
+				offBack: false,
+				styleBorder: false,
+				styleIcon: true,
+				styleIconBack: false,
+				styleList: false
 			}
 		};
 	}
@@ -322,6 +326,77 @@ export default class StyleSettings {
 			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
 			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE],
 			    styleName: ReactGroupSetting.STYLE_NAME_BLUESKY,
+			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
+			    offBack: true,
+			    styleBorder: true,
+			    styleIcon: false,
+			    styleIconBack: true,
+			    styleList: true
+			}
+		};
+	}
+
+	// ...................
+
+	static getStyleLovelyA(){
+		return {
+			name: '可愛 A',
+			value: Settings.METHOD_LOOKS_LOVELY_A,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    padding: ReactGroupSetting.PADDING_MIDDLE,
+			    fillet: ReactGroupSetting.FILLET_CIRCLE,
+			    listStyle: ReactGroupSetting.LIST_STYLE_DECIMAL,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_RIGHT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_HEART, ReactGroupSetting.ICON_SHOW_HEART],
+			    styleName: ReactGroupSetting.STYLE_NAME_LOVELY,
+			    composition: ReactGroupSetting.COMPOSITION_TINYEM,
+				offBack: false,
+				styleBorder: true,
+				styleIcon: true,
+				styleIconBack: true,
+				styleList: true
+		    }
+		};
+	}
+
+	static getStyleLovelyB(){
+		return {
+			name: '可愛 B',
+			value: Settings.METHOD_LOOKS_LOVELY_B,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    padding: ReactGroupSetting.PADDING_SMALL,
+			    fillet: ReactGroupSetting.FILLET_NONE,
+			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_ROMAN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_INNER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_LEFT,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_LINE, ReactGroupSetting.ICON_SHOW_CHECKED],
+			    styleName: ReactGroupSetting.STYLE_NAME_LOVELY,
+			    composition: ReactGroupSetting.COMPOSITION_BASE,
+				offBack: false,
+				styleBorder: false,
+				styleIcon: true,
+				styleIconBack: false,
+				styleList: false
+			}
+		};
+	}
+
+	static getStyleLovelyC(){
+		return {
+			name: '可愛 C',
+			value: Settings.METHOD_LOOKS_LOVELY_C,
+			method: {
+			    display: ReactGroupSetting.DISPLAY_INBLOCK,
+			    padding: ReactGroupSetting.PADDING_SMALL,
+			    fillet: ReactGroupSetting.FILLET_NONE,
+			    listStyle: ReactGroupSetting.LIST_STYLE_UPPER_LATIN,
+			    listPosition: ReactGroupSetting.LIST_POSITION_OUTER,
+			    iconPosition: ReactGroupSetting.ICON_POSTION_BOTTOM,
+			    iconShow: [ReactGroupSetting.ICON_SHOW_EMPTY_CIRCLE, ReactGroupSetting.ICON_SHOW_CIRCLE],
+			    styleName: ReactGroupSetting.STYLE_NAME_LOVELY,
 			    composition: ReactGroupSetting.COMPOSITION_BASEEM,
 			    offBack: true,
 			    styleBorder: true,
