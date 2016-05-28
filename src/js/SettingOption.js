@@ -49,6 +49,14 @@ export default class SettingOption extends React.Component {
         return ['name'];
     }
 
+    getNowItemInfo(){
+        let _obj_nowitem = document.getElementsByClassName(Utils.CLASSNAME_PAGE_STYLE_NOW_ITEM),
+            _num_top = ( _obj_nowitem.length>0 )? (_obj_nowitem[0].offsetTop) : 0,
+            _num_height = ( _obj_nowitem.length>0 )? (_obj_nowitem[0].offsetHeight) : 0,
+            _num_output = _num_top + _num_height/2;
+        return _num_output;
+    }
+
     handleChange( bln_change, json_return ){
         let _scope = this;
         if( bln_change===true ){
@@ -59,7 +67,24 @@ export default class SettingOption extends React.Component {
     }
 
     getPageStyleClassName( str_methodname ){
-        return Utils.getPageStyleClassName( str_methodname );
+        let _str_output = Utils.getPageStyleClassName( str_methodname );
+        // console.log( str_methodname===this.state.method, str_methodname, '===', this.state.method );
+        if( str_methodname===this.state.method ){
+            _str_output += ' '+Utils.CLASSNAME_PAGE_STYLE_NOW_ITEM;
+        }
+        return _str_output;
+    }
+
+    setNowPosition(){
+        document.getElementById('now-item-show').style.top = this.getNowItemInfo()+'px';
+    }
+
+    componentDidMount(){
+        this.setNowPosition();
+    }
+
+    componentDidUpdate(){
+        this.setNowPosition();
     }
 
     default(){
@@ -81,10 +106,8 @@ export default class SettingOption extends React.Component {
 
     render(){
         let _scope = this;
-        // let json_item = this.getInputoption()[0].method;
-        // ReactDOM.render(
         return (
-            <div>
+            <div className="pkg-setting-scroll">
                 <For each="json_item" of={ _scope.getInputoption() }>
                     <div className={_scope.getPageStyleClassName(json_item[_scope.getSelectKey()[0]])+' pkg-setting-option-item'}>
                         <ReactGroup 
@@ -111,6 +134,7 @@ export default class SettingOption extends React.Component {
                             styleList={json_item.method.styleList} />
                     </div>
                 </For>
+                <span className="pkg-setting-option-now" id="now-item-show"></span>
             </div>
         );
     }

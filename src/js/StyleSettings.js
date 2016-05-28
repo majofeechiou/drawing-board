@@ -19,41 +19,41 @@ export default class StyleSettings {
 
 	static getAllStyle(){
 		return [
-			// Extend.exterior( {}, this.getStyleResurgenceA(), this.returnSub( this.getStyleResurgenceB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleResurgenceB(), this.returnSub( this.getStyleResurgenceA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleResurgenceC(), this.returnSub( this.getStyleResurgenceA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleResurgenceA(), this.returnSub( this.getStyleResurgenceB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleResurgenceB(), this.returnSub( this.getStyleResurgenceA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleResurgenceC(), this.returnSub( this.getStyleResurgenceA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			
-			// Extend.exterior( {}, this.getStyleSpringA(), this.returnSub( this.getStyleSpringC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleSpringB(), this.returnSub( this.getStyleSpringA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleSpringC(), this.returnSub( this.getStyleSpringB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleSpringA(), this.returnSub( this.getStyleSpringC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleSpringB(), this.returnSub( this.getStyleSpringA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleSpringC(), this.returnSub( this.getStyleSpringB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleWineA(), this.returnSub( this.getStyleWineC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleWineB(), this.returnSub( this.getStyleWineA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleWineC(), this.returnSub( this.getStyleWineB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWineA(), this.returnSub( this.getStyleWineC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWineB(), this.returnSub( this.getStyleWineA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWineC(), this.returnSub( this.getStyleWineB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleBlueskyA(), this.returnSub( this.getStyleBlueskyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleBlueskyB(), this.returnSub( this.getStyleBlueskyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleBlueskyC(), this.returnSub( this.getStyleBlueskyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleBlueskyA(), this.returnSub( this.getStyleBlueskyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleBlueskyB(), this.returnSub( this.getStyleBlueskyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleBlueskyC(), this.returnSub( this.getStyleBlueskyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleLovelyA(), this.returnSub( this.getStyleLovelyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleLovelyB(), this.returnSub( this.getStyleLovelyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleLovelyC(), this.returnSub( this.getStyleLovelyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleLovelyA(), this.returnSub( this.getStyleLovelyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleLovelyB(), this.returnSub( this.getStyleLovelyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleLovelyC(), this.returnSub( this.getStyleLovelyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
 			Extend.exterior( {}, this.getStyleLuxuryA(), this.returnSub( this.getStyleLuxuryC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleLuxuryB(), this.returnSub( this.getStyleLuxuryA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleLuxuryC(), this.returnSub( this.getStyleLuxuryB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleFantasyA(), this.returnSub( this.getStyleFantasyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleFantasyB(), this.returnSub( this.getStyleFantasyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleFantasyC(), this.returnSub( this.getStyleFantasyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleFantasyA(), this.returnSub( this.getStyleFantasyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleFantasyB(), this.returnSub( this.getStyleFantasyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleFantasyC(), this.returnSub( this.getStyleFantasyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			// Extend.exterior( {}, this.getStyleWatersideA(), this.returnSub( this.getStyleWatersideC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleWatersideB(), this.returnSub( this.getStyleWatersideA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			// Extend.exterior( {}, this.getStyleWatersideC(), this.returnSub( this.getStyleWatersideB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWatersideA(), this.returnSub( this.getStyleWatersideC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWatersideB(), this.returnSub( this.getStyleWatersideA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			Extend.exterior( {}, this.getStyleWatersideC(), this.returnSub( this.getStyleWatersideB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 		];
 	}
 
@@ -68,7 +68,7 @@ export default class StyleSettings {
 
 	static getStyleResurgenceA(){
 		return {
-			name: '死灰復燃 A',
+			name: 'Resurgence A',
 			value: Settings.METHOD_LOOKS_RESURGENCE_A,
 			method: {
 				display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -91,7 +91,7 @@ export default class StyleSettings {
 
 	static getStyleResurgenceB(){
 		return {
-			name: '死灰復燃 B',
+			name: 'Resurgence B',
 			value: Settings.METHOD_LOOKS_RESURGENCE_B,
 			method: {
 				display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -114,7 +114,7 @@ export default class StyleSettings {
 
 	static getStyleResurgenceC(){
 		return {
-			name: '死灰復燃 C',
+			name: 'Resurgence C',
 			value: Settings.METHOD_LOOKS_RESURGENCE_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -139,7 +139,7 @@ export default class StyleSettings {
 
 	static getStyleSpringA(){
 		return {
-			name: '春天 A',
+			name: 'Spring A',
 			value: Settings.METHOD_LOOKS_SPRING_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -162,7 +162,7 @@ export default class StyleSettings {
 
 	static getStyleSpringB(){
 		return {
-			name: '春天 B',
+			name: 'Spring B',
 			value: Settings.METHOD_LOOKS_SPRING_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -185,7 +185,7 @@ export default class StyleSettings {
 
 	static getStyleSpringC(){
 		return {
-			name: '春天 C',
+			name: 'Spring C',
 			value: Settings.METHOD_LOOKS_SPRING_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -210,7 +210,7 @@ export default class StyleSettings {
 
 	static getStyleWineA(){
 		return {
-			name: '紅酒 A',
+			name: 'Wine A',
 			value: Settings.METHOD_LOOKS_WINE_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -233,7 +233,7 @@ export default class StyleSettings {
 
 	static getStyleWineB(){
 		return {
-			name: '紅酒 B',
+			name: 'Wine B',
 			value: Settings.METHOD_LOOKS_WINE_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -256,7 +256,7 @@ export default class StyleSettings {
 
 	static getStyleWineC(){
 		return {
-			name: '紅酒 C',
+			name: 'Wine C',
 			value: Settings.METHOD_LOOKS_WINE_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -281,7 +281,7 @@ export default class StyleSettings {
 
 	static getStyleBlueskyA(){
 		return {
-			name: '藍天 A',
+			name: 'Blue Sky A',
 			value: Settings.METHOD_LOOKS_BLUESKY_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -304,7 +304,7 @@ export default class StyleSettings {
 
 	static getStyleBlueskyB(){
 		return {
-			name: '藍天 B',
+			name: 'Blue Sky B',
 			value: Settings.METHOD_LOOKS_BLUESKY_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -327,7 +327,7 @@ export default class StyleSettings {
 
 	static getStyleBlueskyC(){
 		return {
-			name: '藍天 C',
+			name: 'Blue Sky C',
 			value: Settings.METHOD_LOOKS_BLUESKY_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -352,7 +352,7 @@ export default class StyleSettings {
 
 	static getStyleLovelyA(){
 		return {
-			name: '可愛 A',
+			name: 'Lovely A',
 			value: Settings.METHOD_LOOKS_LOVELY_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -375,7 +375,7 @@ export default class StyleSettings {
 
 	static getStyleLovelyB(){
 		return {
-			name: '可愛 B',
+			name: 'Lovely B',
 			value: Settings.METHOD_LOOKS_LOVELY_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -398,7 +398,7 @@ export default class StyleSettings {
 
 	static getStyleLovelyC(){
 		return {
-			name: '可愛 C',
+			name: 'Lovely C',
 			value: Settings.METHOD_LOOKS_LOVELY_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -423,7 +423,7 @@ export default class StyleSettings {
 
 	static getStyleLuxuryA(){
 		return {
-			name: '華貴樣版 A',
+			name: 'Luxury A',
 			value: Settings.METHOD_LOOKS_LUXURY_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -446,7 +446,7 @@ export default class StyleSettings {
 
 	static getStyleLuxuryB(){
 		return {
-			name: '華貴樣版 B',
+			name: 'Luxury B',
 			value: Settings.METHOD_LOOKS_LUXURY_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -469,7 +469,7 @@ export default class StyleSettings {
 
 	static getStyleLuxuryC(){
 		return {
-			name: '華貴樣版 C',
+			name: 'Luxury C',
 			value: Settings.METHOD_LOOKS_LUXURY_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -494,7 +494,7 @@ export default class StyleSettings {
 
 	static getStyleFantasyA(){
 		return {
-			name: '奇幻 A',
+			name: 'Fantasy A',
 			value: Settings.METHOD_LOOKS_FANTASY_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -517,7 +517,7 @@ export default class StyleSettings {
 
 	static getStyleFantasyB(){
 		return {
-			name: '奇幻 B',
+			name: 'Fantasy B',
 			value: Settings.METHOD_LOOKS_FANTASY_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -540,7 +540,7 @@ export default class StyleSettings {
 
 	static getStyleFantasyC(){
 		return {
-			name: '奇幻 C',
+			name: 'Fantasy C',
 			value: Settings.METHOD_LOOKS_FANTASY_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -565,7 +565,7 @@ export default class StyleSettings {
 
 	static getStyleRigidA(){
 		return {
-			name: '鋼硬 A',
+			name: 'Rigid A',
 			value: Settings.METHOD_LOOKS_RIGID_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -588,7 +588,7 @@ export default class StyleSettings {
 
 	static getStyleRigidB(){
 		return {
-			name: '鋼硬 B',
+			name: 'Rigid B',
 			value: Settings.METHOD_LOOKS_RIGID_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -611,7 +611,7 @@ export default class StyleSettings {
 
 	static getStyleRigidC(){
 		return {
-			name: '鋼硬 C',
+			name: 'Rigid C',
 			value: Settings.METHOD_LOOKS_RIGID_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -636,7 +636,7 @@ export default class StyleSettings {
 
 	static getStyleWatersideA(){
 		return {
-			name: '水畔 A',
+			name: 'Water Side A',
 			value: Settings.METHOD_LOOKS_WATERSIDE_A,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -659,7 +659,7 @@ export default class StyleSettings {
 
 	static getStyleWatersideB(){
 		return {
-			name: '水畔 B',
+			name: 'Water Side B',
 			value: Settings.METHOD_LOOKS_WATERSIDE_B,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,
@@ -682,7 +682,7 @@ export default class StyleSettings {
 
 	static getStyleWatersideC(){
 		return {
-			name: '水畔 C',
+			name: 'Water Side C',
 			value: Settings.METHOD_LOOKS_WATERSIDE_C,
 			method: {
 			    display: ReactGroupSetting.DISPLAY_BLOCK,

@@ -5,6 +5,7 @@ import Color from 'color'; // https://www.npmjs.com/package/color
 import RgbHex from 'rgb-hex'; // https://www.npmjs.com/package/rgb-hex
 
 export default class Utils{
+    static CLASSNAME_PAGE_STYLE_NOW_ITEM = 'pkg-pagestyle_nowitem';
     static createNowId(){
         return Date.now();
     }

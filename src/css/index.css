@@ -543,12 +543,31 @@ body *  {
 }
 
 .pkg-setting {
-    width: 180px;
+    width: 200px;
     padding: $wrap_spacing;
     font-size: 9px;
     .pkg-setting-option {
-        .pkg-setting-option-item {
-            padding: calc( $wrap_spacing / 2 );
+        .pkg-setting-scroll {
+            position: relative;
+            padding-left: 1.5em;
+            height: 350px;
+            overflow-x: visible;
+            overflow-y: auto;
+            /* border: 3px solid color($color_white a(80%)); */
+            .pkg-setting-option-now {
+                @mixin iconDrawBoardBefore "\f101" ;
+                z-index: 2;
+                position: absolute;
+                left: 0;
+                top: 0;
+                font-size: 14px;
+                transform-origin: center center;
+                transform: translateY(-50%) rotate(180deg);
+                transition: all 0.5s ease;
+            }
+            .pkg-setting-option-item {
+                padding: calc( $wrap_spacing / 2 );
+            }
         }
     }
     .pkg-setting-btn {
@@ -612,6 +631,35 @@ body *  {
     }
     &.pkg-pagestyle_luxuryc {
         background: #F4F4F2;
+    }
+    &.pkg-pagestyle_fantasya {
+        background: #2DB0B2;
+    }
+    &.pkg-pagestyle_fantasyb {
+        background: color(#FFB98D saturation(-25%) lightness(+15%));
+    }
+    &.pkg-pagestyle_fantasyc {
+        /* background: color(#2DB0B2 saturation(-25%) lightness(+75%)); */
+        background: color(#2DB0B2 saturation(-50%) lightness(+45%) hue(+120));
+    }
+    &.pkg-pagestyle_rigida {
+        background: color(#A47F6C lightness(+10%) saturation(10%));
+        /* background: color(#A47F6C lightness(-10%) saturation(10%)); */
+    }
+    &.pkg-pagestyle_rigidb {
+        background: color(#F1BA49 saturation(-25%) lightness(+20%) hue(+5));
+    }
+    &.pkg-pagestyle_rigidc {
+        background: color(#DEE0E2 lightness(+5%));
+    }
+    &.pkg-pagestyle_watersidea {
+        background: #4F88FF;
+    }
+    &.pkg-pagestyle_watersideb {
+        background: color(#FFCE0F saturation(-25%) lightness(+30%) hue(+5));
+    }
+    &.pkg-pagestyle_watersidec {
+        background: color(#CCCB20 saturation(-25%) lightness(+30%) hue(-5));
     }
 }
 
