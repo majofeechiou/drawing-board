@@ -13,8 +13,10 @@ import Extend from 'Extend';
 import GloablData from './GloablData';
 import ImageDataComputeMethod from './ImageDataComputeMethod';
 import Settings from './Settings';
+import Utils from './Utils';
 
 const methodStore = createStore( MethodReducer );
+const OBJ_BODY = document.getElementById('body');
 const OBJ_METHOD_POPUP = document.getElementById("method-popup");
 const METHOD_POPUP_CLASSNAME = 'pkg-tmp-method';
 const METHOD_POPUP_OPEN_CLASSNAME = 'pkg-tmp-method_open';
@@ -148,7 +150,8 @@ export default class MethodSection extends GlobalConst {
 
         GloablTools.Emitter().on('method.style.changing',function(){
             let _json = arguments[0];
-            methodStore.dispatch({type:_json.method})
+            methodStore.dispatch({type:_json.method});
+            Utils.setNewPageStyleClassName( OBJ_BODY, _json.method );
         });
 
     }

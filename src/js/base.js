@@ -6,10 +6,15 @@
 import PictureDraw from "./PictureDraw";
 import MethodSection from "./MethodSection";
 import SettingSection from "./SettingSection";
+import StyleSettings from './StyleSettings';
 import Utils from "./Utils";
 import SVGInjector from "svg-injector";
 
+const OBJ_BODY = document.getElementById('body');
+
 (function body () {
+
+    OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( StyleSettings.getAllStyle()[0].value );
 
     let methodSection = new MethodSection( Utils.createUniqueId() );
     methodSection.create();

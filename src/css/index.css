@@ -546,10 +546,47 @@ body *  {
     width: 180px;
     padding: $wrap_spacing;
     font-size: 9px;
+    .pkg-setting-option {
+        .pkg-setting-option-item {
+            padding: calc( $wrap_spacing / 2 );
+        }
+    }
     .pkg-setting-btn {
         display: block;
         margin-top: $item_spacing;
         text-align: center;
+    }
+}
+
+.pkg-pagestyle {
+    &.pkg-pagestyle_resurgencea {
+        background: color(#B2DBCD blackness(15%) saturation(25%));
+    }
+    &.pkg-pagestyle_resurgenceb {
+        background: color(#8A7F7D saturation(-60%) hue(+240));
+    }
+    &.pkg-pagestyle_resurgencec {
+        background: color(#8A7F7D lightness(+45%) hue(+90));
+    }
+    &.pkg-pagestyle_springa {
+        background: color(#F2358D blackness(55%) saturation(-15%));
+    }
+    &.pkg-pagestyle_springb {
+        background: #D8F6EA;
+    }
+    &.pkg-pagestyle_springc {
+        background: #F2358D;
+    }
+    &.pkg-pagestyle_winea {
+        background: color(#F2F2F2 blackness(-35%));
+    }
+    &.pkg-pagestyle_wineb {
+        /*background: color(#8C2756 hue(+60) lightness(+45%));*/
+        background: #F2B6D7;
+    }
+    &.pkg-pagestyle_winec {
+        background: color(#593649 lightness(+15%));
+        /*background: color(#8C2756 hue(+10) lightness(+75%));*/
     }
 }
 

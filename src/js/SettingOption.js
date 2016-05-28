@@ -58,6 +58,10 @@ export default class SettingOption extends React.Component {
         }
     }
 
+    getPageStyleClassName( str_methodname ){
+        return Utils.getPageStyleClassName( str_methodname );
+    }
+
     default(){
         let _scope = this;
 
@@ -82,7 +86,7 @@ export default class SettingOption extends React.Component {
         return (
             <div>
                 <For each="json_item" of={ _scope.getInputoption() }>
-                    <div>
+                    <div className={_scope.getPageStyleClassName(json_item[_scope.getSelectKey()[0]])+' pkg-setting-option-item'}>
                         <ReactGroup 
                             onChange={_scope.handleChange}
                             outputFormat="string"
