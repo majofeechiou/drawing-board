@@ -581,12 +581,37 @@ body *  {
         background: color(#F2F2F2 blackness(-35%));
     }
     &.pkg-pagestyle_wineb {
-        /*background: color(#8C2756 hue(+60) lightness(+45%));*/
         background: #F2B6D7;
     }
     &.pkg-pagestyle_winec {
         background: color(#593649 lightness(+15%));
-        /*background: color(#8C2756 hue(+10) lightness(+75%));*/
+    }
+    &.pkg-pagestyle_blueskya {
+        background: #ccc;
+    }
+    &.pkg-pagestyle_blueskyb {
+        background: #3F70A8;
+    }
+    &.pkg-pagestyle_blueskyc {
+        background: $color_white;
+    }
+    &.pkg-pagestyle_lovelya {
+        background: color(#F3E4C2 lightness(+5%));
+    }
+    &.pkg-pagestyle_lovelyb {
+        background: color(#7CC699 lightness(+15%));
+    }
+    &.pkg-pagestyle_lovelyc {
+        background: color(#F37A5A lightness(+30%) saturation(-15%));
+    }
+    &.pkg-pagestyle_luxurya {
+        background: #A70704;
+    }
+    &.pkg-pagestyle_luxuryb {
+        background: color(#A70704 lightness(-8%));
+    }
+    &.pkg-pagestyle_luxuryc {
+        background: #F4F4F2;
     }
 }
 
