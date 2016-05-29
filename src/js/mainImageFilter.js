@@ -462,7 +462,7 @@ export default class MainImageFilter extends GlobalConst {
 			// 工具
 			let _obj_tools_section = document.createElement('div');
 			_scope.addGlobalConst( _scope, 'OBJ_TOOLS_SECTION', _obj_tools_section );
-			_obj_tools_section.className = _scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS ;
+			_obj_tools_section.className = _scope.getGlobalConst(_scope).CLASSNAME_WORKSPACE_TOOLS+' pkg-pagestyle-toolsback' ;
 			_scope.setToolsSectionClassName( _scope.getGlobalConst(_scope).WORKSPACE_TOOLS_ON_SIZE );
 
 			// 工具 - 輸出圖片尺寸

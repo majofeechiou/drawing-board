@@ -961,12 +961,22 @@ body *  {
     background-color: #F2EAE7;
 }
 
+.pkg-pagestyle.pkg-pagestyle_resurgencea .pkg-pagestyle-toolsback {
+    background-color: rgb(216, 228, 221);
+    color: #8A7F7D;
+}
+
 .pkg-pagestyle.pkg-pagestyle_resurgencea .pkg-pagestyle-mainbtback {
     background-color: rgb(182, 211, 201);
 }
 
 .pkg-pagestyle.pkg-pagestyle_resurgenceb {
     background-color: #F2EAE7;
+}
+
+.pkg-pagestyle.pkg-pagestyle_resurgenceb .pkg-pagestyle-toolsback {
+    background-color: rgb(248, 220, 216);
+    color: rgb(140, 133, 133);
 }
 
 .pkg-pagestyle.pkg-pagestyle_resurgenceb .pkg-pagestyle-mainbtback {
@@ -977,6 +987,11 @@ body *  {
     background-color: rgb(213, 235, 228);
 }
 
+.pkg-pagestyle.pkg-pagestyle_resurgencec .pkg-pagestyle-toolsback {
+    background-color: rgb(240, 244, 242);
+    color: rgb(123, 125, 120);
+}
+
 .pkg-pagestyle.pkg-pagestyle_resurgencec .pkg-pagestyle-mainbtback {
     background-color: rgb(247, 248, 247);
 }
@@ -985,12 +1000,22 @@ body *  {
     background-color: #F2CED8;
 }
 
+.pkg-pagestyle.pkg-pagestyle_springa .pkg-pagestyle-toolsback {
+    background-color: rgb(242, 145, 186);
+    color: rgb(153, 56, 140);
+}
+
 .pkg-pagestyle.pkg-pagestyle_springa .pkg-pagestyle-mainbtback {
     background-color: rgb(102, 66, 83);
 }
 
 .pkg-pagestyle.pkg-pagestyle_springb {
-    background-color: rgb(195, 248, 170);
+    background-color: rgb(208, 247, 208);
+}
+
+.pkg-pagestyle.pkg-pagestyle_springb .pkg-pagestyle-toolsback {
+    background-color: #D8F6EA;
+    color: rgb(127, 127, 127);
 }
 
 .pkg-pagestyle.pkg-pagestyle_springb .pkg-pagestyle-mainbtback {
@@ -1001,12 +1026,22 @@ body *  {
     background-color: rgb(52, 52, 52);
 }
 
+.pkg-pagestyle.pkg-pagestyle_springc .pkg-pagestyle-toolsback {
+    background-color: rgb(46, 46, 46);
+    color: rgb(213, 183, 225);
+}
+
 .pkg-pagestyle.pkg-pagestyle_springc .pkg-pagestyle-mainbtback {
     background-color: #F2358D;
 }
 
 .pkg-pagestyle.pkg-pagestyle_winea {
     background-color: #F2F2F2;
+}
+
+.pkg-pagestyle.pkg-pagestyle_winea .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_winea .pkg-pagestyle-mainbtback {
@@ -1017,12 +1052,22 @@ body *  {
     background-color: rgb(44, 44, 44);
 }
 
+.pkg-pagestyle.pkg-pagestyle_wineb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_wineb .pkg-pagestyle-mainbtback {
     background-color: #F2B6D7;
 }
 
 .pkg-pagestyle.pkg-pagestyle_winec {
     background-color: rgb(242, 218, 231);
+}
+
+.pkg-pagestyle.pkg-pagestyle_winec .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_winec .pkg-pagestyle-mainbtback {
@@ -1033,12 +1078,22 @@ body *  {
     background-color: rgb(186, 213, 238);
 }
 
+.pkg-pagestyle.pkg-pagestyle_blueskya .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_blueskya .pkg-pagestyle-mainbtback {
     background-color: #ccc;
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyb {
     background-color: rgb(64, 95, 130);
+}
+
+.pkg-pagestyle.pkg-pagestyle_blueskyb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyb .pkg-pagestyle-mainbtback {
@@ -1049,12 +1104,22 @@ body *  {
     background-color: #ccc;
 }
 
+.pkg-pagestyle.pkg-pagestyle_blueskyc .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_blueskyc .pkg-pagestyle-mainbtback {
     background-color: #fff;
 }
 
 .pkg-pagestyle.pkg-pagestyle_lovelya {
     background-color: rgb(247, 238, 217);
+}
+
+.pkg-pagestyle.pkg-pagestyle_lovelya .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_lovelya .pkg-pagestyle-mainbtback {
@@ -1065,12 +1130,22 @@ body *  {
     background-color: rgb(195, 229, 208);
 }
 
+.pkg-pagestyle.pkg-pagestyle_lovelyb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_lovelyb .pkg-pagestyle-mainbtback {
     background-color: rgb(177, 221, 195);
 }
 
 .pkg-pagestyle.pkg-pagestyle_lovelyc {
     background-color: rgb(226, 222, 212);
+}
+
+.pkg-pagestyle.pkg-pagestyle_lovelyc .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_lovelyc .pkg-pagestyle-mainbtback {
@@ -1081,12 +1156,22 @@ body *  {
     background-color: rgb(119, 49, 49);
 }
 
+.pkg-pagestyle.pkg-pagestyle_luxurya .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_luxurya .pkg-pagestyle-mainbtback {
     background-color: #A70704;
 }
 
 .pkg-pagestyle.pkg-pagestyle_luxuryb {
     background-color: #ccc;
+}
+
+.pkg-pagestyle.pkg-pagestyle_luxuryb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_luxuryb .pkg-pagestyle-mainbtback {
@@ -1097,12 +1182,22 @@ body *  {
     background-color: rgb(228, 220, 218);
 }
 
+.pkg-pagestyle.pkg-pagestyle_luxuryc .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_luxuryc .pkg-pagestyle-mainbtback {
     background-color: #F4F4F2;
 }
 
 .pkg-pagestyle.pkg-pagestyle_fantasya {
     background-color: rgb(95, 195, 196);
+}
+
+.pkg-pagestyle.pkg-pagestyle_fantasya .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_fantasya .pkg-pagestyle-mainbtback {
@@ -1113,12 +1208,22 @@ body *  {
     background-color: #2DB0B2;
 }
 
+.pkg-pagestyle.pkg-pagestyle_fantasyb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_fantasyb .pkg-pagestyle-mainbtback {
     background-color: rgb(251, 234, 224);
 }
 
 .pkg-pagestyle.pkg-pagestyle_fantasyc {
     background-color: rgb(46, 51, 51);
+}
+
+.pkg-pagestyle.pkg-pagestyle_fantasyc .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_fantasyc .pkg-pagestyle-mainbtback {
@@ -1129,12 +1234,22 @@ body *  {
     background-color: #ccc;
 }
 
+.pkg-pagestyle.pkg-pagestyle_rigida .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_rigida .pkg-pagestyle-mainbtback {
     background-color: rgb(170, 158, 151);
 }
 
 .pkg-pagestyle.pkg-pagestyle_rigidb {
     background-color: rgb(104, 104, 104);
+}
+
+.pkg-pagestyle.pkg-pagestyle_rigidb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_rigidb .pkg-pagestyle-mainbtback {
@@ -1145,12 +1260,22 @@ body *  {
     background-color: #fff;
 }
 
+.pkg-pagestyle.pkg-pagestyle_rigidc .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_rigidc .pkg-pagestyle-mainbtback {
     background-color: rgb(236, 237, 238);
 }
 
 .pkg-pagestyle.pkg-pagestyle_watersidea {
     background-color: rgb(179, 203, 255);
+}
+
+.pkg-pagestyle.pkg-pagestyle_watersidea .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_watersidea .pkg-pagestyle-mainbtback {
@@ -1161,12 +1286,22 @@ body *  {
     background-color: rgb(214, 230, 203);
 }
 
+.pkg-pagestyle.pkg-pagestyle_watersideb .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
+}
+
 .pkg-pagestyle.pkg-pagestyle_watersideb .pkg-pagestyle-mainbtback {
     background-color: rgb(244, 237, 179);
 }
 
 .pkg-pagestyle.pkg-pagestyle_watersidec {
     background-color: rgb(210, 205, 167);
+}
+
+.pkg-pagestyle.pkg-pagestyle_watersidec .pkg-pagestyle-toolsback {
+    background-color: #aaa;
+    color: #333;
 }
 
 .pkg-pagestyle.pkg-pagestyle_watersidec .pkg-pagestyle-mainbtback {

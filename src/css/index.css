@@ -20,9 +20,13 @@ $width_size_confirm: 35px;
 $max_height_preview_img: 350px;
 $max_height_preview_img_left: 200px;
 
-@define-mixin pageStyle $style_name, $color_mainback:#ccc, $color_mainbtback:#bbb {
+@define-mixin pageStyle $style_name, $color_mainback:#ccc, $color_mainbtback:#bbb, $color_toolsback:#aaa, $color_toolstext:#333 {
     &.pkg-pagestyle_$(style_name) {
         background-color: $color_mainback;
+        .pkg-pagestyle-toolsback {
+            background-color: $color_toolsback;
+            color: $color_toolstext;
+        }
         .pkg-pagestyle-mainbtback {
             background-color: $(color_mainbtback);
         }
@@ -601,13 +605,37 @@ body *  {
 
 .pkg-pagestyle {
 
-    @mixin pageStyle resurgencea, #F2EAE7, color(#B2DBCD blackness(15%) saturation(25%)) ;
-    @mixin pageStyle resurgenceb, #F2EAE7, color(#8A7F7D saturation(-60%) hue(+240)) ;
-    @mixin pageStyle resurgencec, color(#B2DBCD lightness(+10%)), color(#8A7F7D lightness(+45%) hue(+90)) ;
+    @mixin pageStyle resurgencea, 
+                    #F2EAE7, 
+                    color(#B2DBCD blackness(15%) saturation(25%)), 
+                    color(#F2EAE7 blend(#B2DBCD 40%)), 
+                    #8A7F7D ;
+    @mixin pageStyle resurgenceb,
+                    #F2EAE7,
+                    color(#8A7F7D saturation(-60%) hue(+240)),
+                    color(#F1B6AE lightness(+10%)),
+                    color(#8A7F7D saturation(-60%) hue(+240) blackness(45%)) ;
+    @mixin pageStyle resurgencec, 
+                    color(#B2DBCD lightness(+10%)), 
+                    color(#8A7F7D lightness(+45%) hue(+90)), 
+                    color(#B2DBCD lightness(85%) blend(#F2EAE7 55%) lightness(+5%)), 
+                    color(#B2DBCD blend(#8A7F7D 75%) lightness(-10%));
     
-    @mixin pageStyle springa, #F2CED8, color(#F2358D blackness(55%) saturation(-15%)) ;
-    @mixin pageStyle springb, color(#F2E963 lightness(+15%) hue(+45)), #D8F6EA ;
-    @mixin pageStyle springc, color(#73398C blackness(+40%)), #F2358D ;
+    @mixin pageStyle springa, 
+                    #F2CED8, 
+                    color(#F2358D blackness(55%) saturation(-15%)),
+                    color(#F2CED8 blend(#F2358D 40%)),
+                    color(#73398C blend(#F2358D 30%)) ;
+    @mixin pageStyle springb, 
+                    color(#F2E963 lightness(+15%) hue(+45) blend(#D8F6EA 60%)), 
+                    #D8F6EA, 
+                    #D8F6EA, 
+                    color(#D8F6EA saturation(80%) blackness(85%));
+    @mixin pageStyle springc, 
+                    color(#73398C blackness(+40%)), 
+                    #F2358D, 
+                    color(#73398C blackness(+60%)),
+                    color(#73398C lightness(80%));
     
     @mixin pageStyle winea, #F2F2F2, color(#F2F2F2 blackness(-35%)) ;
     @mixin pageStyle wineb, color(#593649 blackness(+55%)), #F2B6D7 ;
