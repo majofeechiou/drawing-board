@@ -637,13 +637,37 @@ body *  {
                     color(#73398C blackness(+60%)),
                     color(#73398C lightness(80%));
     
-    @mixin pageStyle winea, #F2F2F2, color(#F2F2F2 blackness(-35%)) ;
-    @mixin pageStyle wineb, color(#593649 blackness(+55%)), #F2B6D7 ;
-    @mixin pageStyle winec, color(#F2F2F2 blend(#F2B6D7 40%)), color(#593649 lightness(+15%)) ;
+    @mixin pageStyle winea, 
+                    #F2F2F2, 
+                    color(#F2F2F2 blackness(-35%)), 
+                    color(#F2F2F2 blackness(-35%)), 
+                    color(#F2F2F2 blackness(5%) saturation(+60%) blend(#8C2756 80%));
+    @mixin pageStyle wineb, 
+                    color(#593649 blackness(+55%)), 
+                    #F2B6D7, 
+                    color(#593649 blackness(+55%) blend(#73294C 60%)), 
+                    #F2B6D7;
+    @mixin pageStyle winec, 
+                    color(#F2F2F2 blend(#F2B6D7 40%)), 
+                    color(#593649 lightness(+15%)), 
+                    color(#593649 lightness(+15%)), 
+                    color(#F2F2F2 blend(#F2B6D7 40%) lightness(+8%) saturation(+60%));
 
-    @mixin pageStyle blueskya, color(#B6D7F6 blend(#ccc 20%)), #ccc ;
-    @mixin pageStyle blueskyb, color(#3F70A8 blackness(+15%)), #3F70A8 ;
-    @mixin pageStyle blueskyc, , $color_white ;
+    @mixin pageStyle blueskya, 
+                    color(#B6D7F6 blend(#ccc 20%)), 
+                    #ccc, 
+                    color(#B6D7F6 blend(#4E86C2 60%)), 
+                    color(#4E86C2 lightness(95%));
+    @mixin pageStyle blueskyb, 
+                    color(#3F70A8 blackness(+15%)), 
+                    #3F70A8, 
+                    color(#3F70A8 blackness(+20%)), 
+                    color(#4E86C2 hue(+210) lightness(95%) blend($color_white 60%));
+    @mixin pageStyle blueskyc, 
+                    color(#ccc blend($color_white 70%)), 
+                    $color_white, 
+                    color(#B6D7F6 blend($color_white 70%)), 
+                    #3F70A8 ;
 
     @mixin pageStyle lovelya, color(#F3E4C2 lightness(+5%)), color(#F3E4C2 lightness(-5%)) ;
     @mixin pageStyle lovelyb, color(#7CC699 lightness(+20%)), color(#7CC699 lightness(+15%)) ;

@@ -23,13 +23,13 @@ export default class StyleSettings {
 			// Extend.exterior( {}, this.getStyleResurgenceB(), this.returnSub( this.getStyleResurgenceA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			// Extend.exterior( {}, this.getStyleResurgenceC(), this.returnSub( this.getStyleResurgenceA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			
-			Extend.exterior( {}, this.getStyleSpringA(), this.returnSub( this.getStyleSpringC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleSpringB(), this.returnSub( this.getStyleSpringA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleSpringC(), this.returnSub( this.getStyleSpringB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleSpringA(), this.returnSub( this.getStyleSpringC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleSpringB(), this.returnSub( this.getStyleSpringA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleSpringC(), this.returnSub( this.getStyleSpringB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			Extend.exterior( {}, this.getStyleWineA(), this.returnSub( this.getStyleWineC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleWineB(), this.returnSub( this.getStyleWineA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleWineC(), this.returnSub( this.getStyleWineB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleWineA(), this.returnSub( this.getStyleWineC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleWineB(), this.returnSub( this.getStyleWineA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleWineC(), this.returnSub( this.getStyleWineB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
 			Extend.exterior( {}, this.getStyleBlueskyA(), this.returnSub( this.getStyleBlueskyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleBlueskyB(), this.returnSub( this.getStyleBlueskyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),

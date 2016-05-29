@@ -1040,8 +1040,8 @@ body *  {
 }
 
 .pkg-pagestyle.pkg-pagestyle_winea .pkg-pagestyle-toolsback {
-    background-color: #aaa;
-    color: #333;
+    background-color: rgb(255, 242, 242);
+    color: rgb(162, 78, 116);
 }
 
 .pkg-pagestyle.pkg-pagestyle_winea .pkg-pagestyle-mainbtback {
@@ -1053,8 +1053,8 @@ body *  {
 }
 
 .pkg-pagestyle.pkg-pagestyle_wineb .pkg-pagestyle-toolsback {
-    background-color: #aaa;
-    color: #333;
+    background-color: rgb(87, 42, 63);
+    color: #F2B6D7;
 }
 
 .pkg-pagestyle.pkg-pagestyle_wineb .pkg-pagestyle-mainbtback {
@@ -1066,8 +1066,8 @@ body *  {
 }
 
 .pkg-pagestyle.pkg-pagestyle_winec .pkg-pagestyle-toolsback {
-    background-color: #aaa;
-    color: #333;
+    background-color: rgb(136, 83, 112);
+    color: rgb(255, 245, 250);
 }
 
 .pkg-pagestyle.pkg-pagestyle_winec .pkg-pagestyle-mainbtback {
@@ -1079,8 +1079,8 @@ body *  {
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskya .pkg-pagestyle-toolsback {
-    background-color: #aaa;
-    color: #333;
+    background-color: rgb(120, 166, 215);
+    color: rgb(236, 242, 248);
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskya .pkg-pagestyle-mainbtback {
@@ -1092,8 +1092,8 @@ body *  {
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyb .pkg-pagestyle-toolsback {
-    background-color: #aaa;
-    color: #333;
+    background-color: rgb(64, 89, 117);
+    color: rgb(252, 252, 247);
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyb .pkg-pagestyle-mainbtback {
@@ -1101,12 +1101,12 @@ body *  {
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyc {
-    background-color: #ccc;
+    background-color: rgb(240, 240, 240);
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyc .pkg-pagestyle-toolsback {
-    background-color: #aaa;
-    color: #333;
+    background-color: rgb(233, 243, 252);
+    color: #3F70A8;
 }
 
 .pkg-pagestyle.pkg-pagestyle_blueskyc .pkg-pagestyle-mainbtback {
