@@ -67,8 +67,7 @@ export default class SettingOption extends React.Component {
     }
 
     getPageStyleClassName( str_methodname ){
-        let _str_output = Utils.getPageStyleClassName( str_methodname );
-        // console.log( str_methodname===this.state.method, str_methodname, '===', this.state.method );
+        let _str_output = Utils.getPageStyleMainBtClassName( str_methodname );
         if( str_methodname===this.state.method ){
             _str_output += ' '+Utils.CLASSNAME_PAGE_STYLE_NOW_ITEM;
         }
@@ -145,6 +144,8 @@ export default class SettingOption extends React.Component {
 
 };
 
+
+// <div className={_scope.getPageStyleClassName(json_item[_scope.getSelectKey()[0]])+' pkg-setting-option-item'}>
 
 // <div>
 //     <ReactGroup 

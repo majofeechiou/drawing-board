@@ -20,6 +20,20 @@ $width_size_confirm: 35px;
 $max_height_preview_img: 350px;
 $max_height_preview_img_left: 200px;
 
+@define-mixin pageStyle $style_name, $color_mainback:#ccc, $color_mainbtback:#bbb {
+    &.pkg-pagestyle_$(style_name) {
+        background-color: $color_mainback;
+        .pkg-pagestyle-mainbtback {
+            background-color: $(color_mainbtback);
+        }
+    }
+    .pkg-pagestyle-mainbtback {
+        &.pkg-pagestyle-mainbtback_$(style_name) {
+            background-color: $(color_mainbtback) !important;
+        }
+    }
+}
+
 @define-mixin keyinWidth {
     width: 150px;
 }
@@ -546,10 +560,17 @@ body *  {
     width: 200px;
     padding: $wrap_spacing;
     font-size: 9px;
+    .pkg-setting-option .pkg-setting-scroll,
+    .pkg-setting-btn {
+        @mixin hover;
+        padding-left: 1.5em;
+        &:before{
+            font-size: 18px;
+        }
+    }
     .pkg-setting-option {
         .pkg-setting-scroll {
             position: relative;
-            padding-left: 1.5em;
             height: 350px;
             overflow-x: visible;
             overflow-y: auto;
@@ -573,94 +594,49 @@ body *  {
     .pkg-setting-btn {
         display: block;
         margin-top: $item_spacing;
-        text-align: center;
+        text-align: right;
+        @mixin iconDrawBoardBefore "\f102" ;
     }
 }
 
 .pkg-pagestyle {
-    &.pkg-pagestyle_resurgencea {
-        background: color(#B2DBCD blackness(15%) saturation(25%));
-    }
-    &.pkg-pagestyle_resurgenceb {
-        background: color(#8A7F7D saturation(-60%) hue(+240));
-    }
-    &.pkg-pagestyle_resurgencec {
-        background: color(#8A7F7D lightness(+45%) hue(+90));
-    }
-    &.pkg-pagestyle_springa {
-        background: color(#F2358D blackness(55%) saturation(-15%));
-    }
-    &.pkg-pagestyle_springb {
-        background: #D8F6EA;
-    }
-    &.pkg-pagestyle_springc {
-        background: #F2358D;
-    }
-    &.pkg-pagestyle_winea {
-        background: color(#F2F2F2 blackness(-35%));
-    }
-    &.pkg-pagestyle_wineb {
-        background: #F2B6D7;
-    }
-    &.pkg-pagestyle_winec {
-        background: color(#593649 lightness(+15%));
-    }
-    &.pkg-pagestyle_blueskya {
-        background: #ccc;
-    }
-    &.pkg-pagestyle_blueskyb {
-        background: #3F70A8;
-    }
-    &.pkg-pagestyle_blueskyc {
-        background: $color_white;
-    }
-    &.pkg-pagestyle_lovelya {
-        background: color(#F3E4C2 lightness(+5%));
-    }
-    &.pkg-pagestyle_lovelyb {
-        background: color(#7CC699 lightness(+15%));
-    }
-    &.pkg-pagestyle_lovelyc {
-        background: color(#F37A5A lightness(+30%) saturation(-15%));
-    }
-    &.pkg-pagestyle_luxurya {
-        background: #A70704;
-    }
-    &.pkg-pagestyle_luxuryb {
-        background: color(#A70704 lightness(-8%));
-    }
-    &.pkg-pagestyle_luxuryc {
-        background: #F4F4F2;
-    }
-    &.pkg-pagestyle_fantasya {
-        background: #2DB0B2;
-    }
-    &.pkg-pagestyle_fantasyb {
-        background: color(#FFB98D saturation(-25%) lightness(+15%));
-    }
-    &.pkg-pagestyle_fantasyc {
-        /* background: color(#2DB0B2 saturation(-25%) lightness(+75%)); */
-        background: color(#2DB0B2 saturation(-50%) lightness(+45%) hue(+120));
-    }
-    &.pkg-pagestyle_rigida {
-        background: color(#A47F6C lightness(+10%) saturation(10%));
-        /* background: color(#A47F6C lightness(-10%) saturation(10%)); */
-    }
-    &.pkg-pagestyle_rigidb {
-        background: color(#F1BA49 saturation(-25%) lightness(+20%) hue(+5));
-    }
-    &.pkg-pagestyle_rigidc {
-        background: color(#DEE0E2 lightness(+5%));
-    }
-    &.pkg-pagestyle_watersidea {
-        background: #4F88FF;
-    }
-    &.pkg-pagestyle_watersideb {
-        background: color(#FFCE0F saturation(-25%) lightness(+30%) hue(+5));
-    }
-    &.pkg-pagestyle_watersidec {
-        background: color(#CCCB20 saturation(-25%) lightness(+30%) hue(-5));
-    }
+
+    @mixin pageStyle resurgencea, #F2EAE7, color(#B2DBCD blackness(15%) saturation(25%)) ;
+    @mixin pageStyle resurgenceb, #F2EAE7, color(#8A7F7D saturation(-60%) hue(+240)) ;
+    @mixin pageStyle resurgencec, color(#B2DBCD lightness(+10%)), color(#8A7F7D lightness(+45%) hue(+90)) ;
+    
+    @mixin pageStyle springa, #F2CED8, color(#F2358D blackness(55%) saturation(-15%)) ;
+    @mixin pageStyle springb, color(#F2E963 lightness(+15%) hue(+45)), #D8F6EA ;
+    @mixin pageStyle springc, color(#73398C blackness(+40%)), #F2358D ;
+    
+    @mixin pageStyle winea, #F2F2F2, color(#F2F2F2 blackness(-35%)) ;
+    @mixin pageStyle wineb, color(#593649 blackness(+55%)), #F2B6D7 ;
+    @mixin pageStyle winec, color(#F2F2F2 blend(#F2B6D7 40%)), color(#593649 lightness(+15%)) ;
+
+    @mixin pageStyle blueskya, color(#B6D7F6 blend(#ccc 20%)), #ccc ;
+    @mixin pageStyle blueskyb, color(#3F70A8 blackness(+15%)), #3F70A8 ;
+    @mixin pageStyle blueskyc, , $color_white ;
+
+    @mixin pageStyle lovelya, color(#F3E4C2 lightness(+5%)), color(#F3E4C2 lightness(-5%)) ;
+    @mixin pageStyle lovelyb, color(#7CC699 lightness(+20%)), color(#7CC699 lightness(+15%)) ;
+    @mixin pageStyle lovelyc, color(#F3E4C2 saturation(20%)), color(#F37A5A lightness(+30%) saturation(-15%)) ;
+
+    @mixin pageStyle luxurya, color(#580001 blend(#F4F4F2 20%)), #A70704 ;
+    @mixin pageStyle luxuryb, , color(#A70704 lightness(-8%)) ;
+    @mixin pageStyle luxuryc, color(#580001 blend(#F4F4F2 90%)), #F4F4F2 ;
+
+    @mixin pageStyle fantasya, color(#74FCFF blend(#ccc 60%) blend(#2DB0B2 60%)), #2DB0B2 ;
+    @mixin pageStyle fantasyb, #2DB0B2, color(#FFB98D saturation(-25%) lightness(+15%)) ;
+    @mixin pageStyle fantasyc, color(#2DB0B2 blackness(80%)), color(#2DB0B2 saturation(-50%) lightness(+45%) hue(+120)) ;
+
+    @mixin pageStyle rigida, , color(#A47F6C lightness(+10%) saturation(10%)) ;
+    @mixin pageStyle rigidb, color(#DEE0E2 blend(#FFCE0F 25%) blend(#999946 55%) blackness(65%)), color(#F1BA49 saturation(-25%) lightness(+20%) hue(+5)) ;
+    @mixin pageStyle rigidc, $color_white, color(#DEE0E2 lightness(+5%)) ;
+
+    @mixin pageStyle watersidea, color(#4F88FF lightness(85%)), #4F88FF ;
+    @mixin pageStyle watersideb, color(#4F88FF lightness(85%) hue(-125) saturation(-65%)), color(#FFCE0F saturation(-25%) lightness(+30%) hue(+5)) ;
+    @mixin pageStyle watersidec, color(#CCCB20 saturation(-25%) lightness(+30%) hue(-5) blend(#FFCE0F 10%) saturation(-25%)), color(#CCCB20 saturation(-25%) lightness(+30%) hue(-5)) ;
+
 }
 
 .ui-colortag {

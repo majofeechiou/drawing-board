@@ -77,7 +77,7 @@ export default class MethodReact extends React.Component {
         let _json_result = nextState.outputResult || this.getOutputResult() ;
         let _json_method = nextProps.methodStore || this.props.methodStore ;
         let _str_cn = 'pkg-method-content';
-        let _str_cn_options = 'pkg-method-content-options pkg-method-wrap';
+        let _str_cn_options = 'pkg-method-content-options pkg-method-wrap pkg-pagestyle-mainbtback';
         let _str_cn_close = 'pkg-method-content-close ui-close';
         let _str_cn_control = 'pkg-method-content-control pkg-method-wrap';
         return (

@@ -5,7 +5,7 @@ import Color from 'color'; // https://www.npmjs.com/package/color
 import RgbHex from 'rgb-hex'; // https://www.npmjs.com/package/rgb-hex
 
 export default class Utils{
-    static CLASSNAME_PAGE_STYLE_NOW_ITEM = 'pkg-pagestyle_nowitem';
+    static CLASSNAME_PAGE_STYLE_NOW_ITEM = 'pkg-pagestyle-mainbtback_nowitem';
     static createNowId(){
         return Date.now();
     }
@@ -53,5 +53,11 @@ export default class Utils{
     }
     static setNewPageStyleClassName( obj, str_methodname ){
         obj.className = obj.className.replace(/pkg-pagestyle_\S*/, this.getPageStyleClassNameSub( str_methodname ));
+    }
+    static getPageStyleMainBtClassName( str_methodname ){
+        return 'pkg-pagestyle-mainbtback '+this.getPageStyleMainBtClassNameSub( str_methodname );
+    }
+    static getPageStyleMainBtClassNameSub( str_methodname ){
+        return 'pkg-pagestyle-mainbtback_'+str_methodname.replace('METHOD_LOOKS_','').replace('_','').toLowerCase();
     }
 };
