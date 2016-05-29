@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 22/05/2016 12:18
+  	Creation date: 29/05/2016 02:43
   	*/
 
 @font-face {
@@ -31,8 +31,10 @@ margin-left: 20px;
 
 .flaticon-arrows:before { content: "\f100"; }
 .flaticon-arrows-1:before { content: "\f101"; }
-.flaticon-cross-remove-sign:before { content: "\f102"; }
-.flaticon-image:before { content: "\f103"; }
-.flaticon-image-1:before { content: "\f104"; }
-.flaticon-image-2:before { content: "\f105"; }
-.flaticon-keyboard-right-arrow-button:before { content: "\f106"; }
+.flaticon-cogwheel:before { content: "\f102"; }
+.flaticon-cross-remove-sign:before { content: "\f103"; }
+.flaticon-image:before { content: "\f104"; }
+.flaticon-image-1:before { content: "\f105"; }
+.flaticon-image-2:before { content: "\f106"; }
+.flaticon-keyboard-right-arrow-button:before { content: "\f107"; }
+.flaticon-settings:before { content: "\f108"; }

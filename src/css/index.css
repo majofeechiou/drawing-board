@@ -199,7 +199,7 @@ body *  {
         }
     }
     .pkg-size-confirm {
-        @mixin iconDrawBoardBefore "\f106" ;
+        @mixin iconDrawBoardBefore "\f107" ;
         width: $width_size_confirm;
     }
 }
@@ -275,10 +275,10 @@ body *  {
                 margin-top: $wrap_spacing;
             }
             &.pkg-action-tools-button_add {
-                @mixin iconDrawBoardBefore "\f103" ;
+                @mixin iconDrawBoardBefore "\f104" ;
             }
             &.pkg-action-tools-button_download {
-                @mixin iconDrawBoardBefore "\f105" ;
+                @mixin iconDrawBoardBefore "\f106" ;
             }
         }
     }
@@ -297,7 +297,7 @@ body *  {
             padding: calc( $tiny_spacing/2 ) $item_spacing ;
             background-color: $color_aid_01;
             .pkg-action-method-delete {
-                @mixin iconDrawBoardBefore "\f102" ;
+                @mixin iconDrawBoardBefore "\f103" ;
                 @mixin hover;
                 margin-left: $tiny_spacing;
                 display: inline-block;
@@ -710,7 +710,7 @@ body *  {
 }
 
 .ui-close {
-    @mixin iconDrawBoardBefore "\f102" ;
+    @mixin iconDrawBoardBefore "\f103" ;
     @mixin hover;
     position: absolute;
     display: inline-block;
