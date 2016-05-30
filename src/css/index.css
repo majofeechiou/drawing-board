@@ -37,6 +37,29 @@ $max_height_preview_img_left: 200px;
         .pkg-pagestyle-btn {
             background-color: $color_btnback;
             color: $color_btntext;
+            &.pkg-pagestyle-btn_hover {
+                /* &:hover {
+                    background-color: color($color_mainback blend(color($color_btnback contrast(85)) 30%) blend($color_btnback 20%) blend($color_btntext 25%) a(100%) blend($color_btntext 70%));
+                    color: color($color_mainback blend(color($color_btnback contrast(85)) 30%) blend($color_btnback 20%) blend($color_btntext 25%) a(100%));
+                } */
+                &:hover {
+                    background-color: color($color_btnback lightness(70%));
+                    color: color($color_btntext lightness(30%));
+                }
+            }
+        }
+        .pkg-pagestyle-reversebtn {
+            &.pkg-action-method-delete:before,
+            &:before {
+                background-color: color($color_btntext lightness(20%) a(75%));
+                color: color( color($color_mainback blend(color($color_btnback contrast(85)) 30%) blend($color_btnback 20%) blend($color_btntext 25%)) lightness(80%) a(100%));
+                box-shadow: 0 0 0 5px color($color_btntext lightness(20%) a(75%));
+            }
+        }
+        .pkg-pagestyle-separate {
+            &:before {
+                border-color: $color_btnback;
+            }
         }
     }
     .pkg-pagestyle-mainbtback {
@@ -572,6 +595,13 @@ body *  {
     width: 200px;
     padding: $wrap_spacing;
     font-size: 9px;
+    &.pkg-setting_open {
+        .pkg-setting-option {
+            .pkg-setting-scroll {
+                height: 350px;
+            }
+        }
+    }
     .pkg-setting-option .pkg-setting-scroll,
     .pkg-setting-btn {
         @mixin hover;
@@ -583,9 +613,10 @@ body *  {
     .pkg-setting-option {
         .pkg-setting-scroll {
             position: relative;
-            height: 350px;
+            height: 0;
             overflow-x: visible;
             overflow-y: auto;
+            transition: height 1s ease-in-out;
             /* border: 3px solid color($color_white a(80%)); */
             .pkg-setting-option-now {
                 @mixin iconDrawBoardBefore "\f101" ;
@@ -619,7 +650,7 @@ body *  {
                     color(#F2EAE7 blend(#B2DBCD 40%)), 
                     #8A7F7D, 
                     color(#F2EAE7 blend(#B2DBCD 30%) blackness(25%)), 
-                    color(#F2EAE7 blend(#B2DBCD 80%) blackness(5%)), 
+                    color(#F2EAE7 blend(#B2DBCD 80%) lightness(+20%)), 
                     color(#B2DBCD blackness(60%) saturation(55%) a(60%));
     @mixin pageStyle resurgenceb,
                     #F2EAE7,
@@ -635,7 +666,7 @@ body *  {
                     color(#B2DBCD lightness(85%) blend(#F2EAE7 55%) lightness(+5%)), 
                     color(#B2DBCD blend(#8A7F7D 75%) lightness(-10%)), 
                     color(#B2DBCD lightness(+10%) blend(#8A7F7D 20%)), 
-                    color(#B2DBCD blend(#8A7F7D 70%) blackness(20%)), 
+                    color(#B2DBCD blend(#8A7F7D 70%) blackness(60%)), 
                     #F1B6AE;
     
     @mixin pageStyle springa, 
@@ -719,7 +750,7 @@ body *  {
                     color(#1A413C blend(#F3E4C2 40%)), 
                     #F3E4C2, 
                     color(#F3E4C2 a(40%)), 
-                    color(#1A413C blend(#F3E4C2 40%) blackness(-10%)), 
+                    color(#1A413C blend(#F3E4C2 40%) blackness(+10%)), 
                     color(#EF4926 a(60%));
     @mixin pageStyle lovelyb, 
                     color(#7CC699 lightness(+20%)), 
@@ -727,7 +758,7 @@ body *  {
                     color(#F37A5A blend(#F3E4C2 40%)), 
                     color(#F3E4C2 saturation(+10%) lightness(+10%)), 
                     #F3E4C2, 
-                    color(#F37A5A blend(#F3E4C2 40%)), 
+                    color(#F37A5A blend(#F3E4C2 40%) blackness(+10%)), 
                     color(#1A413C a(60%));
     @mixin pageStyle lovelyc, 
                     color(#F3E4C2 saturation(20%)), 
@@ -795,7 +826,7 @@ body *  {
                     , 
                     color(#A47F6C saturation(20%) blend(#F1BA49 40%)), 
                     color(#A47F6C lightness(20%) saturation(0%)), 
-                    #393430;
+                    #F1BA49;
     @mixin pageStyle rigidb, 
                     color(#DEE0E2 blend(#FFCE0F 25%) blend(#999946 55%) blackness(65%)), 
                     color(#F1BA49 saturation(-25%) lightness(+20%) hue(+5)), 

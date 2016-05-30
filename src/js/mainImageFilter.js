@@ -234,7 +234,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 新增按鈕
 		let _obj_add_button = document.createElement('button');
-		_obj_add_button.className = 'pkg-action-tools-button pkg-action-tools-button_add ui-toolsbtn pkg-pagestyle-btn';
+		_obj_add_button.className = 'pkg-action-tools-button pkg-action-tools-button_add ui-toolsbtn pkg-pagestyle-btn pkg-pagestyle-btn_hover';
 		// _obj_add_button.innerText = '新增效果';
 		this.methodAddBtnActive.call( _obj_add_button, this );
 		_obj_section.appendChild(_obj_add_button);
@@ -242,7 +242,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 下載按鈕
 		let _obj_download_button = document.createElement('button');
-		_obj_download_button.className = 'pkg-action-tools-button pkg-action-tools-button_download ui-toolsbtn pkg-pagestyle-btn';
+		_obj_download_button.className = 'pkg-action-tools-button pkg-action-tools-button_download ui-toolsbtn pkg-pagestyle-btn pkg-pagestyle-btn_hover';
 		// _obj_download_button.innerText = '下載圖片';
 		this.downloadBtnActive.call( _obj_download_button, this );
 		_obj_section.appendChild(_obj_download_button);
@@ -262,7 +262,7 @@ export default class MainImageFilter extends GlobalConst {
 	// 工具 - 新增效果 、 下載圖片，以及新增效果的結果選項集
 	returnActionSection(){
 		let _obj_section = document.createElement('div');
-		_obj_section.className = 'pkg-action';
+		_obj_section.className = 'pkg-action pkg-pagestyle-separate';
 
 		// 新增效果的結果選項集
 		let _obj_tools_section = this.returnToolsSection();
@@ -419,7 +419,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 圖片尺寸 - 自訂尺寸 - button
 		let _obj_size_submit = document.createElement('button');
-		_obj_size_submit.className = 'pkg-size-confirm ui-toolsbtn pkg-pagestyle-btn';
+		_obj_size_submit.className = 'pkg-size-confirm ui-toolsbtn pkg-pagestyle-btn pkg-pagestyle-btn_hover';
 		// _obj_size_submit.innerText = '確定';
 		this.addGlobalConst( this, 'OBJ_SIZE_SUBMIT', _obj_size_submit );
 
@@ -438,7 +438,7 @@ export default class MainImageFilter extends GlobalConst {
 
 		// 圖片尺寸 - 返回自訂尺寸 - button
 		let _obj_back_submit = document.createElement('button');
-		_obj_back_submit.className = 'pkg-back-confirm ui-toolsbtn pkg-pagestyle-btn';
+		_obj_back_submit.className = 'pkg-back-confirm ui-toolsbtn pkg-pagestyle-btn pkg-pagestyle-btn_hover';
 		// _obj_back_submit.innerText = '返回尺寸設定';
 		this.addGlobalConst( this, 'OBJ_BACK_SUBMIT', _obj_back_submit );
 		_obj_back_section.appendChild( _obj_back_submit );

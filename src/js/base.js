@@ -11,10 +11,17 @@ import Utils from "./Utils";
 import SVGInjector from "svg-injector";
 
 const OBJ_BODY = document.getElementById('body');
+const OBJ_SETTING_SECTION = document.getElementById("setting-section");
+const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 
 (function body () {
 
     OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( StyleSettings.getAllStyle()[0].value );
+
+    OBJ_SETTING_BTN.onclick = function(){
+        OBJ_SETTING_SECTION.className = (OBJ_SETTING_SECTION.className.indexOf('pkg-setting_open')>=0 )? OBJ_SETTING_SECTION.className.replace(/\s*pkg-setting_open\s*/gm,'') : OBJ_SETTING_SECTION.className+' pkg-setting_open';
+        console.log('OBJ_SETTING_SECTION.className :: ', OBJ_SETTING_SECTION.className);
+    }
 
     let methodSection = new MethodSection( Utils.createUniqueId() );
     methodSection.create();

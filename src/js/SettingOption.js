@@ -133,7 +133,7 @@ export default class SettingOption extends React.Component {
                             styleList={json_item.method.styleList} />
                     </div>
                 </For>
-                <span className="pkg-setting-option-now" id="now-item-show"></span>
+                <span className="pkg-setting-option-now pkg-pagestyle-settingbtn" id="now-item-show"></span>
             </div>
         );
     }

@@ -43,14 +43,14 @@ export default class PictureDraw extends GlobalConst {
 				// 新增顯示method的文字
 				let _json_data = arguments[0];
 				let _obj_result = document.createElement('li');
-				_obj_result.className = 'pkg-action-method-item';
+				_obj_result.className = 'pkg-action-method-item pkg-pagestyle-btn';
 				_obj_result.data = _obj_result.data || {} ;
 				_obj_result.data.method_id = _json_data.method_id ;
 				_obj_result.data.method = _json_data.method ;
 				_obj_result.setAttribute('data-method-id',_json_data.method_id);
 				_obj_result.insertAdjacentHTML('beforeend', Settings.getConstNameByEn(_json_data.method) );
 				let _obj_delete = document.createElement('span');
-				_obj_delete.className = 'pkg-action-method-delete';
+				_obj_delete.className = 'pkg-action-method-delete pkg-pagestyle-reversebtn';
 				_obj_result.appendChild(_obj_delete);
 				_scope.mainImageFilter.getObjMethodResult().appendChild(_obj_result);
 

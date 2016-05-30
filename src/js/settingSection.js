@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import GlobalConst from './GlobalConst';
 import SettingOption from './SettingOption';
 
-const OBJ_SETTING_STYLE = document.getElementById("setting-style");
+const OBJ_SETTING_STYLE   = document.getElementById("setting-style");
 
 export default class SettingSection extends GlobalConst {
     constructor(){
