@@ -35,21 +35,21 @@ export default class StyleSettings {
 			// Extend.exterior( {}, this.getStyleBlueskyB(), this.returnSub( this.getStyleBlueskyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			// Extend.exterior( {}, this.getStyleBlueskyC(), this.returnSub( this.getStyleBlueskyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			Extend.exterior( {}, this.getStyleLovelyA(), this.returnSub( this.getStyleLovelyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleLovelyB(), this.returnSub( this.getStyleLovelyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleLovelyC(), this.returnSub( this.getStyleLovelyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleLovelyA(), this.returnSub( this.getStyleLovelyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleLovelyB(), this.returnSub( this.getStyleLovelyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleLovelyC(), this.returnSub( this.getStyleLovelyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			Extend.exterior( {}, this.getStyleLuxuryA(), this.returnSub( this.getStyleLuxuryC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleLuxuryB(), this.returnSub( this.getStyleLuxuryA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleLuxuryC(), this.returnSub( this.getStyleLuxuryB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleLuxuryA(), this.returnSub( this.getStyleLuxuryC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleLuxuryB(), this.returnSub( this.getStyleLuxuryA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleLuxuryC(), this.returnSub( this.getStyleLuxuryB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			Extend.exterior( {}, this.getStyleFantasyA(), this.returnSub( this.getStyleFantasyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleFantasyB(), this.returnSub( this.getStyleFantasyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleFantasyC(), this.returnSub( this.getStyleFantasyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleFantasyA(), this.returnSub( this.getStyleFantasyC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleFantasyB(), this.returnSub( this.getStyleFantasyA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleFantasyC(), this.returnSub( this.getStyleFantasyB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
-			Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
-			Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleRigidA(), this.returnSub( this.getStyleRigidC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleRigidB(), this.returnSub( this.getStyleRigidA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
+			// Extend.exterior( {}, this.getStyleRigidC(), this.returnSub( this.getStyleRigidB(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 
 			Extend.exterior( {}, this.getStyleWatersideA(), this.returnSub( this.getStyleWatersideC(), {padding: ReactGroupSetting.PADDING_TINY} ) ),
 			Extend.exterior( {}, this.getStyleWatersideB(), this.returnSub( this.getStyleWatersideA(), {padding: ReactGroupSetting.PADDING_TINY} ) ),

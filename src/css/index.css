@@ -709,75 +709,76 @@ body *  {
                     #A70704,
                     color(#580001 blend(#F4F4F2 20%) blend(#A70704 60%) blackness(60%)), 
                     color(#F3D64B lightness(75%)), 
-                    ;
+                    color(#F3D64B lightness(85%) saturation(-5%));
     @mixin pageStyle luxuryb, 
                     color(#ccc blackness(+15%)), 
                     color(#A70704 lightness(-8%)), 
                     color(#ccc blackness(-5%) saturation(0%)), 
                     color(#580001 saturation(15%)), 
-                    ;
+                    #580001;
     @mixin pageStyle luxuryc, 
                     color(#580001 blend(#F4F4F2 90%) blend(#F4F4F2 50%)), 
                     #F4F4F2 ,
                     color(#580001 blend(#F4F4F2 90%)), 
                     color(#A70704 lightness(-8%)), 
-                    ;
+                    color(#580001 a(55%));
 
     @mixin pageStyle fantasya, 
                     color(#74FCFF blend(#ccc 60%) blend(#2DB0B2 60%)), 
                     #2DB0B2, 
                     color(#74FCFF blend(#ccc 60%) blend(#2DB0B2 60%) blend(#74FCFF 50%)), 
                     color(#2DB0B2 blackness(70%)), 
-                    ;
+                    color(#2DB0B2 blackness(+20%));
     @mixin pageStyle fantasyb, 
                     #2DB0B2, 
                     color(#FFB98D saturation(-25%) lightness(+15%)), 
                     color(#FA853C blackness(80%) blend(#FFB98D 20%)), 
                     color(#FFB98D saturation(-25%) lightness(+15%) blend(#FFB98D 40%)), 
-                    ;
+                    color(#FA853C blackness(80%) blend(#FFB98D 20%) a(80%));
     @mixin pageStyle fantasyc, 
                     color(#2DB0B2 blackness(80%)), 
                     color(#2DB0B2 saturation(-50%) lightness(+45%) hue(+120)), 
                     color(#2DB0B2 blackness(20%)), 
-                    ;
+                    , 
+                    #FA853C;
 
     @mixin pageStyle rigida, 
                     , 
                     color(#A47F6C lightness(+10%) saturation(10%)), 
                     color(#F1BA49 blend(#DEE0E2 20%)), 
                     , 
-                    ;
+                    #393430;
     @mixin pageStyle rigidb, 
                     color(#DEE0E2 blend(#FFCE0F 25%) blend(#999946 55%) blackness(65%)), 
                     color(#F1BA49 saturation(-25%) lightness(+20%) hue(+5)), 
                     ,
                     color(#393430 blend(#DEE0E2 15%)), 
-                    ;
+                    color($color_white a(55%));
     @mixin pageStyle rigidc, 
                     $color_white, 
                     color(#DEE0E2 lightness(+5%)), 
                     color(#DEE0E2 lightness(+5%)), 
                     color(#A47F6C lightness(30%)), 
-                    ;
+                    #F1BA49;
 
     @mixin pageStyle watersidea, 
                     color(#4F88FF lightness(85%)), 
                     #4F88FF, 
                     color(#4F88FF lightness(70%) saturation(-25%) blackness(+10%)), 
                     color(#4F88FF lightness(95%)), 
-                    ;
+                    color(#4F88FF a(80%));
     @mixin pageStyle watersideb, 
                     color(#4F88FF lightness(85%) hue(-125) saturation(-65%)), 
                     color(#FFCE0F saturation(-25%) lightness(+30%) hue(+5)), 
                     color(#FFCE0F saturation(-25%) lightness(+30%) hue(+5)), 
                     color(#CCCB20 blackness(65%)), 
-                    ;
+                    color(#4F88FF lightness(70%) saturation(-25%) blackness(+10%) a(80%));
     @mixin pageStyle watersidec, 
                     color(#CCCB20 saturation(-25%) lightness(+30%) hue(-5) blend(#FFCE0F 10%) saturation(-25%)), 
                     color(#CCCB20 saturation(-25%) lightness(+30%) hue(-5)), 
                     ,
                     ,
-                    ;
+                    color(#FFCE0F saturation(-25%) blackness(-30%) blend(#999946 40%) contrast(90) a(55%));
 
 }
 
