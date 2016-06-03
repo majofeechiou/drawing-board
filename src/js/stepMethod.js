@@ -37,7 +37,7 @@ export default class StepMethod extends Tools {
 				_scope.getEmitter().emit('step.method.option.added', json);
 				GloablTools.Emitter().emit('ga.event', {
 					eventCategory: 'method',
-					eventAction: 'add',
+					eventAction: 'method.add',
 					eventLabel: '[method:'+json.method+'][control:'+JSON.stringify(json.control)+']'
 				});
 			},100);
@@ -52,7 +52,7 @@ export default class StepMethod extends Tools {
 					_num_index = i;
 					GloablTools.Emitter().emit('ga.event', {
 						eventCategory: 'method',
-						eventAction: 'delete',
+						eventAction: 'method.delete',
 						eventLabel: '[method:'+this.step_method[i].method+'][control:'+JSON.stringify(this.step_method[i].control)+']'
 					});
 					break;

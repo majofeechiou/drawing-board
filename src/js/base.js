@@ -15,7 +15,9 @@ const OBJ_BODY = document.getElementById('body');
 const OBJ_SETTING_SECTION = document.getElementById("setting-section");
 const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 
-(function body (dataLayer, ga) {
+// (function body (dataLayer, ga) {
+(function body (ga) {
+// (function body () {
 
     OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( StyleSettings.getAllStyle()[0].value );
 
@@ -47,8 +49,6 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 
     // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-    ga('create', 'UA-78736944-1', 'auto');
-
     GloablTools.Emitter().on('ga.event', function(){
         let _json_data = arguments[0];
         ga('send', {
@@ -59,4 +59,6 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
         });
     });
 
-})(dataLayer, ga);
+// })(dataLayer, ga);
+})(ga);
+// })();
