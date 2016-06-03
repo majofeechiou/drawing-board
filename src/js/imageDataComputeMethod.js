@@ -95,8 +95,6 @@ export default class ImageDataComputeMethod extends Tools {
 	methodText( json, json_setting ){
 		let _scope = this;
 
-		console.log('json :: ', json);
-
 		json = _scope.methodVars( json );
 		json_setting = json_setting || {} ;
 

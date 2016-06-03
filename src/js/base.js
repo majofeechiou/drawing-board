@@ -9,18 +9,18 @@ import SettingSection from "./SettingSection";
 import StyleSettings from './StyleSettings';
 import Utils from "./Utils";
 import SVGInjector from "svg-injector";
+import GloablTools from './GloablTools';
 
 const OBJ_BODY = document.getElementById('body');
 const OBJ_SETTING_SECTION = document.getElementById("setting-section");
 const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 
-(function body () {
+(function body (dataLayer, ga) {
 
     OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( StyleSettings.getAllStyle()[0].value );
 
     OBJ_SETTING_BTN.onclick = function(){
         OBJ_SETTING_SECTION.className = (OBJ_SETTING_SECTION.className.indexOf('pkg-setting_open')>=0 )? OBJ_SETTING_SECTION.className.replace(/\s*pkg-setting_open\s*/gm,'') : OBJ_SETTING_SECTION.className+' pkg-setting_open';
-        console.log('OBJ_SETTING_SECTION.className :: ', OBJ_SETTING_SECTION.className);
     }
 
     let methodSection = new MethodSection( Utils.createUniqueId() );
@@ -45,4 +45,18 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
         SVGInjector(mySVGsToInject);
     },2000);
 
-})();
+    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+    ga('create', 'UA-78736944-1', 'auto');
+
+    GloablTools.Emitter().on('ga.event', function(){
+        let _json_data = arguments[0];
+        ga('send', {
+            hitType: 'event',
+            eventCategory: _json_data.eventCategory,
+            eventAction: _json_data.eventAction,
+            eventLabel: _json_data.eventLabel
+        });
+    });
+
+})(dataLayer, ga);
