@@ -45,11 +45,19 @@ export default class Utils{
         let _str_output = '#'+RgbHex(_ary_output[0], _ary_output[1], _ary_output[2]);
         return _str_output ;
     }
+    static PAGE_STYLE_CLASSNAME_AID = 'kg-pagestyle_';
+    static getPageStyleAidRex(str){
+        if( typeof str === 'string' && str.length>=1 ){
+            return new RegExp(PAGE_STYLE_CLASSNAME_AID+str, 'g');
+        }else{
+            return new RegExp(PAGE_STYLE_CLASSNAME_AID, 'g');
+        }
+    }
     static getPageStyleClassName( str_methodname ){
         return 'pkg-pagestyle '+this.getPageStyleClassNameSub( str_methodname );
     }
     static getPageStyleClassNameSub( str_methodname ){
-        return 'pkg-pagestyle_'+str_methodname.replace('METHOD_LOOKS_','').replace('_','').toLowerCase();
+        return this.PAGE_STYLE_CLASSNAME_AID+str_methodname.replace('METHOD_LOOKS_','').replace('_','').toLowerCase();
     }
     static setNewPageStyleClassName( obj, str_methodname ){
         obj.className = obj.className.replace(/pkg-pagestyle_\S*/, this.getPageStyleClassNameSub( str_methodname ));

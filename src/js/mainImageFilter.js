@@ -4,6 +4,7 @@ import Utils from './Utils';
 import Settings from './Settings';
 import MethodSettings from './MethodSettings';
 import GlobalConst from './GlobalConst';
+import GloablTools from './GloablTools';
 
 export default class MainImageFilter extends GlobalConst {
 
@@ -53,7 +54,7 @@ export default class MainImageFilter extends GlobalConst {
 			files: json.files,
 			base64: json.base64
 		};
-		window.source_image = this.source_image;
+		// window.source_image = this.source_image;
 	}
 
 	// 從外部入時，是怎樣就是怎樣，絕無任何修改
@@ -518,6 +519,11 @@ export default class MainImageFilter extends GlobalConst {
 		let _obj_self = this;
 		_obj_self.onclick = function( e ){
 			scope_calss.setToolsSectionClassName( scope_calss.getGlobalConst(scope_calss).WORKSPACE_TOOLS_ON_SIZE );
+			GloablTools.Emitter().emit('ga.event', {
+				eventCategory: 'step',
+				eventAction: 'step.prev',
+				eventLabel: '[step:prev]'
+			});
 		};
 	}
 
@@ -549,6 +555,11 @@ export default class MainImageFilter extends GlobalConst {
 			}
 
 			scope_calss.getEmitter().emit('output.size.submiting');
+			GloablTools.Emitter().emit('ga.event', {
+				eventCategory: 'step',
+				eventAction: 'step.next',
+				eventLabel: '[step:next]'
+			});
 			
 		};
 	}
@@ -556,8 +567,15 @@ export default class MainImageFilter extends GlobalConst {
 	uploadAction( scope_calss ){
 		let _obj_self = this;
 		_obj_self.onchange = function( e ){ // 從頭更換圖片
-			let windowURL = window.URL || window.webkitURL;
-			let _str_image_data = windowURL.createObjectURL(this.files[0]);
+			let windowURL = window.URL || window.webkitURL,
+				_json_file = this.files[0],
+				_str_image_data = windowURL.createObjectURL(_json_file);
+				
+			GloablTools.Emitter().emit('ga.event', {
+				eventCategory: 'file',
+				eventAction: 'file.upload',
+				eventLabel: '[file:upload][type:'+_json_file.type+'][size:'+_json_file.size+']'
+			});
 
 			scope_calss.setSourceImage({
 				files: this.files,

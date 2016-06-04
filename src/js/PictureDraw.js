@@ -278,27 +278,48 @@ export default class PictureDraw extends GlobalConst {
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('method.setting.open.asking', function(e){
-				let _str_from_data = arguments[0];
-				let _json_emit = {};
-				let _str_from = _scope.getGlobalConst(_scope).ComponentId ;
+				let _str_from_data = arguments[0],
+					_json_emit = {},
+					_str_from = _scope.getGlobalConst(_scope).ComponentId ,
+					_num_length = 0 ;
 				GloablData.setFrom( _str_from );
 
 				if( _str_from_data===Settings.IMAGE_DATA_FROM_LAST ){
 					let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
 					if( _sary_step_image.length>0 ){
+						_num_length = _sary_step_image.length ;
 						_json_emit.data = _sary_step_image[(_sary_step_image.length-1)];
 					}else{
 						_json_emit.data = {}
 					}
 				}
+				GloablTools.Emitter().emit('ga.event', {
+					eventCategory: 'method',
+					eventAction: 'method.open',
+					eventLabel: '[from:'+_str_from+'][originLength:'+_num_length+']'
+				});
 				GloablTools.Emitter().emit('method.setting.open.asked',_json_emit, _scope.getEmitSetting());
 			});
 
 			_scope.getGlobalConst(_scope).emitter.on('images.downloading', function(e){
 				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
 				if( _sary_step_image.length>0 ){
-					let _str_data = _sary_step_image[(_sary_step_image.length-1)].data;
+					let _str_data = _sary_step_image[(_sary_step_image.length-1)].data,
+						_data_match = _str_data.match(/data:image\/\S+;/),
+						_str_type = 'undefined';
+
 					_scope.mainImageFilter.getObjDownloadGo().href = _str_data;
+					
+					if( _data_match instanceof Array === true && _data_match.length>0 ){
+						_str_type = _data_match[0].replace('data:','').replace(';','');
+					}
+
+					GloablTools.Emitter().emit('ga.event', {
+						eventCategory: 'file',
+						eventAction: 'file.download',
+						// eventLabel: '[file:download][type:'+_str_type+'][size:'+(_str_data.replace(/\S+base64,/,'')).length/4+']'
+						eventLabel: '[file:download][type:'+_str_type+']'
+					});
 					setTimeout(function(){
 						_scope.mainImageFilter.getObjDownloadGo().click();
 					},500);

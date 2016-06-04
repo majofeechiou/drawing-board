@@ -22,7 +22,18 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
     OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( StyleSettings.getAllStyle()[0].value );
 
     OBJ_SETTING_BTN.onclick = function(){
-        OBJ_SETTING_SECTION.className = (OBJ_SETTING_SECTION.className.indexOf('pkg-setting_open')>=0 )? OBJ_SETTING_SECTION.className.replace(/\s*pkg-setting_open\s*/gm,'') : OBJ_SETTING_SECTION.className+' pkg-setting_open';
+        let _bln_opening = OBJ_SETTING_SECTION.className.indexOf('pkg-setting_open')>=0 ,
+            _str_trigger = (_bln_opening===true)? 'close' : 'open' ,
+            _str_style_all = OBJ_BODY.className ,
+            // _data_style = _str_style_all.match(/pkg-pagestyle_\S+/) ,
+            _data_style = _str_style_all.match( Utils.getPageStyleAidRex('+') ) ,
+            _str_style = ( _data_style instanceof Array === true && _data_style.length>0 )? _data_style[0] : 'none' ;
+        OBJ_SETTING_SECTION.className = _bln_opening? OBJ_SETTING_SECTION.className.replace(/\s*pkg-setting_open\s*/gm,'') : OBJ_SETTING_SECTION.className+' pkg-setting_open';
+        GloablTools.Emitter().emit('ga.event', {
+            eventCategory: 'style',
+            eventAction: 'style.'+_str_trigger,
+            eventLabel: '[style:'+_str_style+']'
+        });
     }
 
     let methodSection = new MethodSection( Utils.createUniqueId() );
