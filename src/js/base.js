@@ -7,6 +7,7 @@ import PictureDraw from "./PictureDraw";
 import MethodSection from "./MethodSection";
 import SettingSection from "./SettingSection";
 import StyleSettings from './StyleSettings';
+import StyleSettingStaic from './StyleSettingStaic';
 import Utils from "./Utils";
 import SVGInjector from "svg-injector";
 import GloablTools from './GloablTools';
@@ -19,7 +20,35 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 (function body (ga) {
 // (function body () {
 
-    OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( StyleSettings.getAllStyle()[0].value );
+    GloablTools.Emitter().on('ga.event', function(){
+        let _json_data = arguments[0];
+        ga('send', {
+            hitType: 'event',
+            eventCategory: _json_data.eventCategory,
+            eventAction: _json_data.eventAction,
+            eventLabel: _json_data.eventLabel
+        });
+    });
+
+    // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
+
+    let _json_initstyle = StyleSettingStaic.getInitStyle();
+
+    // let _sary_allstyle = StyleSettings.getAllStyle(),
+    //     _num_styleindex = Math.floor(Math.random()*_sary_allstyle.length),
+    //     _json_style = _sary_allstyle[ _num_styleindex ],
+    //     _str_stylevalue = _json_style.value; // 初始風格
+
+    let _num_styleindex = StyleSettingStaic.STYLE_INDEX,
+        _str_stylevalue = _json_initstyle.value; // 初始風格
+
+    OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( _str_stylevalue );
+
+    GloablTools.Emitter().emit('ga.event', {
+        eventCategory: 'style',
+        eventAction: 'style.init',
+        eventLabel: '[style:'+Utils.getPageStyleClassNameSub(_str_stylevalue).replace(Utils.PAGE_STYLE_CLASSNAME_AID,'')+']'
+    });
 
     OBJ_SETTING_BTN.onclick = function(){
         let _bln_opening = OBJ_SETTING_SECTION.className.indexOf('pkg-setting_open')>=0 ,
@@ -27,7 +56,7 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
             _str_style_all = OBJ_BODY.className ,
             _data_style = _str_style_all.match( Utils.getPageStyleAidRex('+') ) ,
             _str_style = ( _data_style instanceof Array === true && _data_style.length>0 )? (_data_style[0]).replace(Utils.PAGE_STYLE_CLASSNAME_AID,'') : 'none' ;
-            
+
         OBJ_SETTING_SECTION.className = _bln_opening? OBJ_SETTING_SECTION.className.replace(/\s*pkg-setting_open\s*/gm,'') : OBJ_SETTING_SECTION.className+' pkg-setting_open';
         GloablTools.Emitter().emit('ga.event', {
             eventCategory: 'style',
@@ -36,10 +65,10 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
         });
     }
 
-    let methodSection = new MethodSection( Utils.createUniqueId() );
+    let methodSection = new MethodSection( Utils.createUniqueId(), {style:_str_stylevalue, styleIndex:_num_styleindex} );
     methodSection.create();
 
-    let settingSection = new SettingSection();
+    let settingSection = new SettingSection({style:_str_stylevalue});
     settingSection.create();
 
     // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
@@ -60,15 +89,6 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 
     // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-    GloablTools.Emitter().on('ga.event', function(){
-        let _json_data = arguments[0];
-        ga('send', {
-            hitType: 'event',
-            eventCategory: _json_data.eventCategory,
-            eventAction: _json_data.eventAction,
-            eventLabel: _json_data.eventLabel
-        });
-    });
 
 // })(dataLayer, ga);
 })(ga);

@@ -18,16 +18,21 @@ import ReactGroup from 'ReactGroup';
 import ReactGroupSetting from './../../lib/react-group/js/Setting';
 
 export default class SettingOption extends React.Component {
-    constructor(){
+    constructor(props){
         super();
 
         this.handleChange = this.handleChange.bind(this);
 
         this.default();
 
-        this.output_result = this.getInputoption()[0][this.getSelectKey()[0]] ;
+        // this.output_result = this.getInputoption()[0][this.getSelectKey()[0]] ;
+        // this.state = {
+        //     method: this.getInputoption()[0][this.getSelectKey()[0]] 
+        // };
+
+        // this.output_result = this.getInputoption()[0][this.getSelectKey()[0]] ;
         this.state = {
-            method: this.getInputoption()[0][this.getSelectKey()[0]] 
+            method: props.method 
         };
 
     }
@@ -41,9 +46,9 @@ export default class SettingOption extends React.Component {
         return _sary;
     }
 
-    getOutputResult(){
-        return this.output_result;
-    }
+    // getOutputResult(){
+    //     return this.output_result;
+    // }
 
     getShowKey(){
         return ['name'];
@@ -142,6 +147,13 @@ export default class SettingOption extends React.Component {
         this.render();
     }
 
+};
+
+SettingOption.propTypes = {
+    method: React.PropTypes.string,
+},
+SettingOption.defaultProps = {
+    method: StyleSettings.getAllStyle()[0].value,
 };
 
 
