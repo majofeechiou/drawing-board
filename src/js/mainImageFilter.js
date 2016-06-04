@@ -241,6 +241,14 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_section.appendChild(_obj_add_button);
 		// this.addGlobalConst( this, 'OBJ_METHOD_ADD_BUTTON', _obj_add_button );
 
+		// 分享按鈕
+		let _obj_share_button = document.createElement('button');
+		_obj_share_button.className = 'pkg-action-tools-button pkg-action-tools-button_share ui-toolsbtn pkg-pagestyle-btn pkg-pagestyle-btn_hover';
+		// _obj_share_button.innerText = '分享圖片';
+		this.shareBtnActive.call( _obj_share_button, this );
+		_obj_section.appendChild(_obj_share_button);
+		// this.addGlobalConst( this, 'OBJ_METHOD_SHARE_BUTTON', _obj_share_button );
+
 		// 下載按鈕
 		let _obj_download_button = document.createElement('button');
 		_obj_download_button.className = 'pkg-action-tools-button pkg-action-tools-button_download ui-toolsbtn pkg-pagestyle-btn pkg-pagestyle-btn_hover';
@@ -601,6 +609,14 @@ export default class MainImageFilter extends GlobalConst {
 		let _obj_self = this;
 		_obj_self.onclick = function( e ){
 			scope_calss.getEmitter().emit('method.setting.open.asking',Settings.IMAGE_DATA_FROM_LAST);
+		}
+	}
+
+	// 分享圖片的按鈕
+	shareBtnActive( scope_calss ){
+		let _obj_self = this;
+		_obj_self.onclick = function( e ){
+			scope_calss.getEmitter().emit('images.sharing');
 		}
 	}
 

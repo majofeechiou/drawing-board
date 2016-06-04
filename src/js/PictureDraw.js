@@ -301,6 +301,32 @@ export default class PictureDraw extends GlobalConst {
 				GloablTools.Emitter().emit('method.setting.open.asked',_json_emit, _scope.getEmitSetting());
 			});
 
+			_scope.getGlobalConst(_scope).emitter.on('images.sharing', function(e){
+				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
+				if( _sary_step_image.length>0 ){
+					let _str_data = _sary_step_image[(_sary_step_image.length-1)].data,
+						_data_match = _str_data.match(/data:image\/\S+;/),
+						_str_type = 'undefined';
+
+					if( _data_match instanceof Array === true && _data_match.length>0 ){
+						_str_type = _data_match[0].replace('data:','').replace(';','');
+					}
+
+					// XHR
+
+					GloablTools.Emitter().emit('ga.event', {
+						eventCategory: 'file',
+						eventAction: 'file.share',
+						// eventLabel: '[file:share][type:'+_str_type+'][size:'+(_str_data.replace(/\S+base64,/,'')).length/4+']'
+						eventLabel: '[file:share][type:'+_str_type+']'
+					});
+					// setTimeout(function(){
+					// },500);
+				}else{
+					alert('什麼都沒有');
+				}
+			});
+
 			_scope.getGlobalConst(_scope).emitter.on('images.downloading', function(e){
 				let _sary_step_image = _scope.imageDataComputeProcess.getStepImage();
 				if( _sary_step_image.length>0 ){

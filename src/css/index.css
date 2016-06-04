@@ -338,6 +338,9 @@ body *  {
             &.pkg-action-tools-button_add {
                 @mixin iconDrawBoardBefore "\f104" ;
             }
+            &.pkg-action-tools-button_share {
+                @mixin iconDrawBoardBefore "\f109" ;
+            }
             &.pkg-action-tools-button_download {
                 @mixin iconDrawBoardBefore "\f106" ;
             }
