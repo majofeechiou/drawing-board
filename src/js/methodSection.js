@@ -152,6 +152,12 @@ export default class MethodSection extends GlobalConst {
             let _json = arguments[0];
             methodStore.dispatch({type:_json.method});
             Utils.setNewPageStyleClassName( OBJ_BODY, _json.method );
+
+            GloablTools.Emitter().emit('ga.event', {
+                eventCategory: 'style',
+                eventAction: 'style.change',
+                eventLabel: '[style:'+Utils.getPageStyleClassNameSub(_json.method).replace(Utils.PAGE_STYLE_CLASSNAME_AID,'')+']'
+            });
         });
 
     }
