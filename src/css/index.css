@@ -27,9 +27,12 @@ $max_height_preview_img_left: 200px;
         .pkg-pagestyle-toolsback {
             background-color: $color_toolsback;
             color: $color_toolstext;
+            transition: background 1s ease;
         }
         .pkg-pagestyle-mainbtback {
             background-color: $(color_mainbtback);
+            transition: background 1s ease;
+            transition-delay: 1s;
         }
 
         .pkg-pagestyle-settingbtn {
@@ -38,6 +41,7 @@ $max_height_preview_img_left: 200px;
         .pkg-pagestyle-upload {
             * {
                 fill: color($color_toolsback contrast(95%) hue(180%) blend($color_btnback 45%));
+                transition: background 2s ease;
             }
         }
         .pkg-pagestyle-btn {
@@ -71,6 +75,8 @@ $max_height_preview_img_left: 200px;
     .pkg-pagestyle-mainbtback {
         &.pkg-pagestyle-mainbtback_$(style_name) {
             background-color: $(color_mainbtback) !important;
+            transition: background 1s ease;
+            transition-delay: 1s;
         }
     }
 }
