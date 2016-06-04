@@ -206,7 +206,7 @@ export default class MainImageFilter extends GlobalConst {
 		_obj_upload_section_inner.appendChild(_obj_origin_image_section);
 
 		let _obj_origin_image_svg = document.createElement('img');
-		_obj_origin_image_svg.className = 'pkg-upload-inner-origin svg-inject';
+		_obj_origin_image_svg.className = 'pkg-upload-inner-origin svg-inject pkg-pagestyle-upload';
 		_obj_origin_image_svg.src = './img/svg.svg#img-upload';
 		// _obj_origin_image_svg.src = './img/svg.svg';
 		_obj_upload_section_inner.appendChild(_obj_origin_image_svg);

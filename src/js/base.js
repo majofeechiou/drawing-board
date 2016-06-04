@@ -32,14 +32,8 @@ const OBJ_SETTING_BTN = document.getElementById("setting-btn");
 
     // ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **
 
-    let _json_initstyle = StyleSettingStaic.getInitStyle();
-
-    // let _sary_allstyle = StyleSettings.getAllStyle(),
-    //     _num_styleindex = Math.floor(Math.random()*_sary_allstyle.length),
-    //     _json_style = _sary_allstyle[ _num_styleindex ],
-    //     _str_stylevalue = _json_style.value; // 初始風格
-
-    let _num_styleindex = StyleSettingStaic.STYLE_INDEX,
+    let _json_initstyle = StyleSettingStaic.getInitStyle(),
+        _num_styleindex = StyleSettingStaic.STYLE_INDEX,
         _str_stylevalue = _json_initstyle.value; // 初始風格
 
     OBJ_BODY.className = OBJ_BODY.className+' '+Utils.getPageStyleClassNameSub( _str_stylevalue );
