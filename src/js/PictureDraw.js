@@ -12,6 +12,7 @@ import Emitter from 'ComponentEmitter';
 import GloablTools from './GloablTools';
 import GloablData from './GloablData';
 import Extend from 'Extend';
+import Http from './http';
 
 export default class PictureDraw extends GlobalConst {
 	constructor( obj_main, str_id ){
@@ -312,7 +313,13 @@ export default class PictureDraw extends GlobalConst {
 						_str_type = _data_match[0].replace('data:','').replace(';','');
 					}
 
-					// XHR
+					Http.post( '/drawing-board/xhr/drawingBoard.php', {image: _str_data} ) 
+						.then(function(data) {
+							console.log('success :: ', JSON.parse(data));
+						}); 
+						// .catch(function(data) {
+						// 	console.log('error :: ', JSON.parse(data));
+						// });
 
 					GloablTools.Emitter().emit('ga.event', {
 						eventCategory: 'file',

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/majofeechiou/drawing-board#readme",
   "devDependencies": {
+    "ajax-request": "^1.2.1",
     "autoprefixer": "^6.3.6",
     "babel": "^6.3.13",
     "babel-core": "^6.3.17",
