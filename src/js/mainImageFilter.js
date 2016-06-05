@@ -151,6 +151,16 @@ export default class MainImageFilter extends GlobalConst {
 		return this.getGlobalConst(this).OBJ_BACK_SUBMIT;
 	}
 
+	// 真正用來分享圖片用的
+	getObjShareGo(){
+		return this.getGlobalConst(this).OBJ_SHARE_GO;
+	}
+
+	// 真正用來觸發分享圖片用時的
+	getObjShareGoSubmit(){
+		return this.getGlobalConst(this).OBJ_SHARE_GO_SUBMIT;
+	}
+
 	// 真正用來下載圖片用的
 	getObjDownloadGo(){
 		return this.getGlobalConst(this).OBJ_DOWNLAD_GO;
@@ -503,13 +513,41 @@ export default class MainImageFilter extends GlobalConst {
 			Utils.addClassName(_obj_preview_section, 'pkg-workspace-preview');
 			_obj_main.appendChild(_obj_preview_section);
 
+			// ** ** ** ** ** ** ** ** **
+
 			// 一些隱聝的東西
 			let _obj_hide = document.createElement('div');
 			_obj_hide.style.display = 'none';
+
+			// 分享圖片
+			let _obj_sharesection = document.createElement('form');
+			_obj_sharesection.action = '/drawing-board/xhr/drawingBoard.php';
+			_obj_sharesection.method = 'post'; 
+			_obj_sharesection.setAttribute('accept-charset', 'utf-8');
+
+			let _obj_share = document.createElement('input');
+			_obj_share.type = 'hidden';
+			_obj_share.name = 'image';
+			_obj_share.value = '';
+			this.addGlobalConst( this, 'OBJ_SHARE_GO', _obj_share );
+			_obj_sharesection.appendChild(_obj_share);
+
+			let _obj_sharesubmit = document.createElement('input');
+			_obj_sharesubmit.type = 'submit';
+			_obj_sharesubmit.value = '分享圖片';
+			this.addGlobalConst( this, 'OBJ_SHARE_GO_SUBMIT', _obj_sharesubmit );
+			_obj_sharesection.appendChild(_obj_sharesubmit);
+
+			_obj_hide.appendChild(_obj_sharesection);
+
+
+			// 下載圖片
 			let _obj_download = document.createElement('a');
 			_obj_download.setAttribute('target','_blank');
 			this.addGlobalConst( this, 'OBJ_DOWNLAD_GO', _obj_download );
+
 			_obj_hide.appendChild(_obj_download);
+
 			_obj_main.appendChild(_obj_hide);
 
 			// ** ** ** ** ** ** ** ** **

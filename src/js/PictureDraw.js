@@ -12,7 +12,7 @@ import Emitter from 'ComponentEmitter';
 import GloablTools from './GloablTools';
 import GloablData from './GloablData';
 import Extend from 'Extend';
-import Http from './http';
+// import Http from './http';
 
 export default class PictureDraw extends GlobalConst {
 	constructor( obj_main, str_id ){
@@ -309,14 +309,16 @@ export default class PictureDraw extends GlobalConst {
 						_data_match = _str_data.match(/data:image\/\S+;/),
 						_str_type = 'undefined';
 
+					_scope.mainImageFilter.getObjShareGo().value = _str_data;
+
 					if( _data_match instanceof Array === true && _data_match.length>0 ){
 						_str_type = _data_match[0].replace('data:','').replace(';','');
 					}
 
-					Http.post( '/drawing-board/xhr/drawingBoard.php', {image: _str_data} ) 
-						.then(function(data) {
-							console.log('success :: ', JSON.parse(data));
-						}); 
+					// Http.post( '/drawing-board/xhr/drawingBoard.php', {image: _str_data} ) 
+					// 	.then(function(data) {
+					// 		console.log('success :: ', JSON.parse(data));
+					// 	}); 
 						// .catch(function(data) {
 						// 	console.log('error :: ', JSON.parse(data));
 						// });
@@ -327,8 +329,9 @@ export default class PictureDraw extends GlobalConst {
 						// eventLabel: '[file:share][type:'+_str_type+'][size:'+(_str_data.replace(/\S+base64,/,'')).length/4+']'
 						eventLabel: '[file:share][type:'+_str_type+']'
 					});
-					// setTimeout(function(){
-					// },500);
+					setTimeout(function(){
+						_scope.mainImageFilter.getObjShareGoSubmit().click();
+					},500);
 				}else{
 					alert('什麼都沒有');
 				}
