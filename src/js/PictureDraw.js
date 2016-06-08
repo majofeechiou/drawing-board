@@ -315,14 +315,6 @@ export default class PictureDraw extends GlobalConst {
 						_str_type = _data_match[0].replace('data:','').replace(';','');
 					}
 
-					// Http.post( '/drawing-board/xhr/drawingBoard.php', {image: _str_data} ) 
-					// 	.then(function(data) {
-					// 		console.log('success :: ', JSON.parse(data));
-					// 	}); 
-						// .catch(function(data) {
-						// 	console.log('error :: ', JSON.parse(data));
-						// });
-
 					GloablTools.Emitter().emit('ga.event', {
 						eventCategory: 'file',
 						eventAction: 'file.share',

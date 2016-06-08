@@ -522,6 +522,7 @@ export default class MainImageFilter extends GlobalConst {
 			// 分享圖片
 			let _obj_sharesection = document.createElement('form');
 			_obj_sharesection.action = '/drawing-board/xhr/drawingBoard.php';
+			// _obj_sharesection.action = '/drawing-board/share.php';
 			_obj_sharesection.method = 'post'; 
 			_obj_sharesection.setAttribute('accept-charset', 'utf-8');
 
