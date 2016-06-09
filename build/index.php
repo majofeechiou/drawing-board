@@ -15,7 +15,7 @@
 	    <? if($_GET['image']){ ?>
 		    <meta property="og:url" content="http://fe.majochiou.info/drawing-board/index.php?image=<?=$_GET['image']?>"/>
 		    <meta property="og:image" content="http://fe.majochiou.info/drawing-board/upload/image/<?=$_GET['image']?>"/>
-	    <? }
+	    <? } ?>
 	    
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
