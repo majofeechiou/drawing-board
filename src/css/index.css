@@ -458,6 +458,49 @@ body *  {
     }
 }
 
+.pkg-popup__checked:checked +.pkg-popup {
+    display: block;
+}
+
+.pkg-popup {
+    position: fixed;
+    display: none;
+    z-index: $level_popup_method;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color_popup_bg;
+    .pkg-popup-content {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 70%;
+        transform: translateX(-50%) translateY(-50%);
+        background-color: $color_aid_02;
+        border-radius: 4px;
+        .pkg-popup-content-fb {
+            display: block;
+            padding: $wrap_spacing;
+            border-bottom: 1px solid $color_separate;
+        }
+        .pkg-popup-content-img {
+            display: block;
+            margin: $wrap_spacing auto;
+            max-width: 60vw;
+            max-height: 60vh;
+        }
+        .pkg-popup-content-close {
+            @mixin iconDrawBoardBefore "\f103" ;
+            @mixin hover;
+            position: absolute;
+            right: 0;
+            top: -1.5em;
+            color: $color_aid_02;
+        }
+    }
+}
+
 .blk-subtitle {
     font-size: 18px;
     font-size: 1.2rem;

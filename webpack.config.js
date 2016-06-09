@@ -95,12 +95,12 @@ module.exports = {
         ];
     },
 	plugins: [
-		new HtmlPack({ 
-			title: 'Images',// 在這設定的變數，可在template.html中用 {%= o.htmlWebpackPlugin.options.title %} 帶入
-			filename: 'index.html', // 輸出的檔名是什麼
-			template: path.join( FILE_SRC, 'template/index.html' ),
-			inject: 'body' // 檔案會從輸出的index.html的哪裡link入
-		}),
+		// new HtmlPack({ 
+		// 	title: 'Images',// 在這設定的變數，可在template.html中用 {%= o.htmlWebpackPlugin.options.title %} 帶入
+		// 	filename: 'index.html', // 輸出的檔名是什麼
+		// 	template: path.join( FILE_SRC, 'template/index.html' ),
+		// 	inject: 'body' // 檔案會從輸出的index.html的哪裡link入
+		// }),
 		new ExtractTextPlugin('css/[name].css')
 	]
 };

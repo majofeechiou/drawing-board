@@ -6,6 +6,6 @@
     $json_result = $drawingBoard->saveImage($_REQUEST['image']) ;
 
     if( $json_result['success']===true ){
-        header( 'Location: http://fe.majochiou.info/drawing-board/share.php?image='.$json_result['file'] ) ;
+        header( 'Location: http://fe.majochiou.info/drawing-board/index.php?image='.$json_result['file'] ) ;
     }
 ?>

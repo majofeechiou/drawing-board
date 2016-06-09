@@ -19,7 +19,6 @@
 
 		<div class="pkg-tmp">
 			<div id="method-popup" class="pkg-tmp-method pkg-method"></div>
-			<!-- <div style="background: #099; height: 0.5em; margin-top: 1em; margin-bottom: 1em;"></div> -->
 
 			<div class="pkg-tmp-workspace">
 				<div data-majo="picture-filter"></div>
@@ -32,6 +31,43 @@
 				<span class="pkg-setting-btn pkg-pagestyle-settingbtn" id="setting-btn"></span>
 			</div>
 		</div>
+
+		<? if($_GET['image']){ ?>
+			<input type="checkbox" name="popupShare" value="1" class="pkg-popup__checked" id="popup-share" checked />
+			<div class="pkg-popup">
+				<div class="pkg-popup-content">
+					<div class="pkg-popup-content-fb">
+						<div
+							class="fb-like"
+							data-share="true"
+							data-width="450"
+							data-show-faces="true">
+						</div>
+					</div>
+					<img class="pkg-popup-content-img" src='./upload/image/<?=$_GET['image']?>' />
+					<label for="popup-share" class="pkg-popup-content-close"></label>
+				</div>
+			</div>
+			<script>
+				window.fbAsyncInit = function() {
+					FB.init({
+						appId      : '1305720659442750',
+						xfbml      : true,
+						version    : 'v2.6'
+					});
+				};
+
+				(function(d, s, id){
+					 var js, fjs = d.getElementsByTagName(s)[0];
+					 if (d.getElementById(id)) {return;}
+					 js = d.createElement(s); js.id = id;
+					 js.src = "//connect.facebook.net/en_US/sdk.js";
+					 fjs.parentNode.insertBefore(js, fjs);
+				 }(document, 'script', 'facebook-jssdk'));
+			</script>
+		<? }else{ ?>
+			沒有圖片
+		<? } ?>
 
 		<!-- Google Tag Manager -->
 		<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PMCVWN"
