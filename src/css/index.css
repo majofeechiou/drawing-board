@@ -538,7 +538,7 @@ body *  {
         display: block;
     }
     .pkg-colorpicker-picker {
-        position: absolute;
+        position: fixed;
         display: block;
         padding: $wrap_spacing;
         left: 50%;
@@ -946,6 +946,7 @@ body *  {
 .ui-button {
     @mixin borderRadius;
     @mixin noBorder;
+    @mixin hover;
     display: inline-block;
     padding: 5px 15px;
     font-weight: bold;
