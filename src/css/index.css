@@ -408,7 +408,7 @@ body *  {
             background-color: $color_aid_01;
         }
         .pkg-method-content-control {
-            max-height: $max_height_preview_img;
+            max-height: calc( $max_height_preview_img + 120px );
             overflow-y: auto;
         }
     }
