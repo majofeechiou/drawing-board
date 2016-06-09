@@ -1,9 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 	<head>
-	    <meta charset="utf-8" />
+	    
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge;chrome=1">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+	    <meta name="apple-itunes-app" content="app-id=300915900, app-argument=http://fe.majochiou.info/drawing-board/index.php">
+	    <meta name="keywords" content="圖片,修改,canvas,react,redux">
+	    <meta name="description" content="利用canvas、react、redux、native javascript製作的線上圖片修改工具">
+	    <title>線上圖片修改工具</title>
+	    <meta property="og:type" content="website"/>
+	    <meta property="og:title" content="線上圖片修改工具"/>
+	    <meta property="og:url" content="http://fe.majochiou.info/drawing-board/index.php?image=<?=$_GET['image']?>"/>
+	    <meta property="og:description" content="利用canvas、react、redux、native javascript製作的線上圖片修改工具" />
+	    <meta property="og:image" content="http://fe.majochiou.info/drawing-board/upload/image/<?=$_GET['image']?>"/>
+	    
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -14,7 +25,10 @@
 		  ga('send', 'pageview');
 
 		</script>
-	<link href="css/index.css" rel="stylesheet"></head>
+		<link href="css/index.css" rel="stylesheet">
+
+	</head>
+
 	<body id="body" class="pkg-pagestyle">
 
 		<div class="pkg-tmp">
