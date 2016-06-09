@@ -11,9 +11,11 @@
 	    <title>線上圖片修改工具</title>
 	    <meta property="og:type" content="website"/>
 	    <meta property="og:title" content="線上圖片修改工具"/>
-	    <meta property="og:url" content="http://fe.majochiou.info/drawing-board/index.php?image=<?=$_GET['image']?>"/>
 	    <meta property="og:description" content="利用canvas、react、redux、native javascript製作的線上圖片修改工具" />
-	    <meta property="og:image" content="http://fe.majochiou.info/drawing-board/upload/image/<?=$_GET['image']?>"/>
+	    <? if($_GET['image']){ ?>
+		    <meta property="og:url" content="http://fe.majochiou.info/drawing-board/index.php?image=<?=$_GET['image']?>"/>
+		    <meta property="og:image" content="http://fe.majochiou.info/drawing-board/upload/image/<?=$_GET['image']?>"/>
+	    <? }
 	    
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -80,7 +82,7 @@
 				 }(document, 'script', 'facebook-jssdk'));
 			</script>
 		<? }else{ ?>
-			沒有圖片
+			<!-- 沒有圖片 -->
 		<? } ?>
 
 		<!-- Google Tag Manager -->
