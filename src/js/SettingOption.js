@@ -127,7 +127,7 @@ export default class SettingOption extends React.Component {
                             padding={ReactGroupSetting.PADDING_SMALL}
                             fillet={ReactGroupSetting.FILLET_TINY}
                             listPosition={ReactGroupSetting.LIST_POSITION_INNER}
-                            iconPosition={ReactGroupSetting.ICON_POSTION_LEFT}
+                            iconPosition={ReactGroupSetting.ICON_POSITION_LEFT}
                             iconShow={json_item.method.iconShow}
                             styleName={json_item.method.styleName}
                             composition={ReactGroupSetting.COMPOSITION_WHOLE}
